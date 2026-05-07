@@ -12,9 +12,12 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 pt-20 pb-16">
         <Reveal>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 pb-16 border-b border-white/[0.06]">
-            <p className="font-serif text-[1.25rem] md:text-[1.5rem] leading-snug text-white/80 max-w-md">
-              Ready to make your money work harder than you do?
-            </p>
+            <div className="max-w-md">
+              <p className="font-serif text-[1.25rem] md:text-[1.5rem] leading-snug text-white/80">
+                Most people don't fail because they made the wrong move. They fail because they made no move at all.
+              </p>
+              <p className="mt-3 text-sm text-white/45">Book a private call when you're ready.</p>
+            </div>
             <Link
               href="/contact"
               className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-semibold pl-7 pr-6 py-4 rounded-sm bg-gold-gradient text-navy-deep shadow-[0_10px_40px_-10px_rgba(212,175,55,0.35)] transition-shadow duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-[0_18px_60px_-12px_rgba(212,175,55,0.55)] whitespace-nowrap"
