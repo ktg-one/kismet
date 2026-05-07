@@ -12,7 +12,7 @@ export default {
       },
       fontFamily: {
         serif: ["Georgia", "serif"],
-        sans: ["Montserrat", "Arial", "sans-serif"],
+        sans: ["var(--font-montserrat)", "Montserrat", "Arial", "sans-serif"],
       },
       backgroundImage: {
         "gold-gradient": "linear-gradient(180deg, #FFD956 0%, #A47308 35%, #FADD63 65%, #FFE884 100%)",

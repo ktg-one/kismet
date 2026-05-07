@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Fonts
+
+- Body: Montserrat (Google Fonts, loaded via `next/font`).
+- Headlines: Berlingske Serif per brand guide. License not yet confirmed. Falls back to Georgia until Shane provides webfont files. Drop `.woff2` files in `public/fonts/` and add `@font-face` block in `app/globals.css` when available.
+
 ## Getting Started
 
 First, run the development server:
