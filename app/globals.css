@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@import "./kismet-brand.css";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--kismet-primary);
+  color: var(--kismet-secondary);
+  font-family: var(--kismet-font-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--kismet-font-primary);
+  font-weight: var(--kismet-font-primary-weight);
+}

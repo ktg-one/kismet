@@ -1,0 +1,137 @@
+/* ============================================
+   KISMET FINANCE GROUP — Brand Guidelines CSS
+   Extracted from: branding.pdf (17 pages)
+   Website: https://www.kismetfinancegroup.com.au/
+   ============================================ */
+
+:root {
+  /* ── PRIMARY COLORS ── */
+  --kismet-primary:            #1E3A5F;    /* Deep Navy Blue */
+  --kismet-primary-rgb:        30, 58, 95;
+  --kismet-primary-cmyk:       96 80 37 27;
+
+  --kismet-secondary:          #FFFFFF;    /* White */
+  --kismet-secondary-rgb:      255, 255, 255;
+
+  --kismet-accent:             #D4AF37;    /* Gold */
+  --kismet-accent-rgb:         212, 175, 55;
+  --kismet-accent-cmyk:        18 28 95 0;
+
+  --kismet-neutral:            #D3D3D3;    /* Complementary Neutral Gray */
+  --kismet-neutral-rgb:        211, 211, 211;
+  --kismet-neutral-cmyk:       16 12 13 0;
+
+  /* ── GOLD GRADIENT (Logo / Accents) ── */
+  --kismet-gradient-start:     #FFD956;    /* RGB: 255, 217, 86  | CMYK: 1 13 79 0  */
+  --kismet-gradient-mid-1:     #A47308;    /* RGB: 164, 115, 8   | CMYK: 31 52 100 13 */
+  --kismet-gradient-mid-2:     #FADD63;    /* RGB: 250, 221, 99  | CMYK: 3 9 74 0  */
+  --kismet-gradient-end:       #FFE884;    /* RGB: 255, 232, 132 | CMYK: 1 6 59 0  */
+
+  --kismet-gold-gradient:      linear-gradient(
+    180deg,
+    var(--kismet-gradient-start) 0%,
+    var(--kismet-gradient-mid-1) 35%,
+    var(--kismet-gradient-mid-2) 65%,
+    var(--kismet-gradient-end) 100%
+  );
+
+  /* ── TYPOGRAPHY ── */
+  --kismet-font-primary:       'Berlingske Serif', 'Georgia', serif;
+  --kismet-font-primary-weight: 600; /* Semi Bold */
+
+  --kismet-font-secondary:     'Montserrat', 'Arial', sans-serif;
+  --kismet-font-secondary-weight-regular: 400;
+  --kismet-font-secondary-weight-light:   300;
+
+  /* ── LOGO SPECS ── */
+  --kismet-logo-clearspace:    20px;  /* Minimum clear space on all sides */
+  --kismet-icon-min-print-a2:  70mm;
+  --kismet-icon-min-print-a3:  45mm;
+  --kismet-icon-min-print-a4:  30mm;
+  --kismet-icon-min-digital:   60px;
+  --kismet-favicon-size:       32px;  /* 32x32px, App Bar/Favicon only */
+}
+
+/* ── UTILITY CLASSES ── */
+
+.kismet-bg-primary {
+  background-color: var(--kismet-primary);
+  color: var(--kismet-secondary);
+}
+
+.kismet-bg-white {
+  background-color: var(--kismet-secondary);
+  color: var(--kismet-primary);
+}
+
+.kismet-text-gold {
+  color: var(--kismet-accent);
+}
+
+.kismet-text-gradient {
+  background: var(--kismet-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kismet-heading {
+  font-family: var(--kismet-font-primary);
+  font-weight: var(--kismet-font-primary-weight);
+  color: var(--kismet-primary);
+}
+
+.kismet-body {
+  font-family: var(--kismet-font-secondary);
+  font-weight: var(--kismet-font-secondary-weight-regular);
+}
+
+.kismet-body-light {
+  font-family: var(--kismet-font-secondary);
+  font-weight: var(--kismet-font-secondary-weight-light);
+}
+
+/* ── POSTER TEMPLATE STARTER ── */
+
+.kismet-poster {
+  background-color: var(--kismet-primary);
+  color: var(--kismet-secondary);
+  font-family: var(--kismet-font-secondary);
+  padding: 60px;
+  position: relative;
+}
+
+.kismet-poster h1,
+.kismet-poster h2 {
+  font-family: var(--kismet-font-primary);
+  font-weight: var(--kismet-font-primary-weight);
+  color: var(--kismet-accent);
+}
+
+.kismet-poster .tagline {
+  font-family: var(--kismet-font-secondary);
+  font-weight: var(--kismet-font-secondary-weight-light);
+  color: var(--kismet-accent);
+  font-style: italic;
+}
+
+/* ── LOGO USAGE RULES (Reference) ──
+   DO:
+   - Use specified color palette only
+   - Maintain 20px minimum clear space
+   - Scale proportionally (use vector: AI, EPS, SVG)
+   - Use approved variations only
+   - Place on backgrounds that don't compromise visibility
+   
+   DON'T:
+   - Change orientation or rotation
+   - Disproportionately scale
+   - Change colors
+   - Use unapproved color combinations
+   - Display in unapproved configurations
+   - Recreate or alter the logo
+   - Add special effects or outlines
+   - Crop the logo
+   - Display other elements within clear space
+   - Blur the logo
+── */
