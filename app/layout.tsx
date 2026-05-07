@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-montserrat",
-});
+const montserrat = Montserrat({ subsets: ["latin"], display: "swap", variable: "--font-montserrat" });
 
 export const metadata: Metadata = {
   title: "Kismet Finance Group",
-  description: "Strategic introductions for Australians who want their money to do more.",
+  description: "Strategic finance coordination for Australians.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={montserrat.variable}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans bg-navy-deep text-white min-h-screen flex flex-col antialiased">
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }
