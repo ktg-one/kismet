@@ -79,6 +79,28 @@ kismet-website/
 - **Server components by default.** Client components only when interactivity required.
 - **Commit after every passing task.** Conventional commit prefix (`feat:`, `chore:`, `fix:`).
 
+### Quality bar (non-negotiable)
+
+**Benchmark:** a polished boutique strategic finance consultancy. Not a lead-gen site. Not a funnel template. Not a generic finance site.
+
+Every page must pass this self-check before being marked complete:
+1. Does this look 8.5/10 or better?
+2. Premium, calm, trustworthy?
+3. Spacing clean and intentional?
+4. Typography polished, hierarchy obvious?
+5. Mobile layout genuinely strong (test on a real phone-width view)?
+6. Single clear CTA per surface?
+7. Copy sounds human and Australian (not AI)?
+8. Zero AI-tells, generic finance wording, marketing-speak?
+9. Frames Kismet as **strategic coordinators**, not middlemen ("connect you", "open doors" is middleman)?
+10. Would a high-earner trust this enough to book?
+
+**Always favour:** white space, restraint, outcome-led headlines, specific proof, single CTA per surface, mobile-first.
+
+**Always avoid:** stock-photo feel, generic sections, fake luxury, overdesign, funnel urgency, animated counters, bullet-point reflex.
+
+**Placeholder copy rule:** when Shane's voice copy is not yet available, ship explicit `[VOICE PLACEHOLDER: <one-line brief>]` blocks with the dashed-gold dev outline. Never ship marketing-speak filler that could be mistaken for finished work. The placeholder must read as obviously unfinished.
+
 ---
 
 ## Task 1: Scaffold Next.js project
@@ -526,6 +548,8 @@ export function TestimonialBlock({ items }: { items: Testimonial[] }) {
 
 - [ ] **Step 5: Compose home page**
 
+All copy below is explicitly marked as voice-placeholder. The structure is what we are testing here, not the words. Shane's real voice replaces every placeholder block in Task 16.
+
 Replace `app/page.tsx`:
 ```tsx
 import { Hero } from "@/components/Hero";
@@ -537,38 +561,35 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Strategic Connections"
-        headline={<>Money has rules. <span className="bg-gold-gradient bg-clip-text text-transparent italic">We help you play them.</span></>}
-        sub="Most Australians sit on borrowing power, equity, and structures they don't even know they have. We connect you to the people who turn that into ownership, faster."
-        ctaLabel="Book a strategy call"
+        eyebrow="[VOICE PLACEHOLDER: short eyebrow line, max 4 words, positioning Kismet as strategic coordinator. Avoid 'Strategic Connections', too generic.]"
+        headline={<span className="placeholder-copy">[VOICE PLACEHOLDER: outcome-led headline. One sentence. Not punchy marketing speak. Boutique consultancy tone.]</span>}
+        sub="[VOICE PLACEHOLDER: 1-2 sentence subhead. Speaks to a specific kind of Australian (e.g. someone earning well but not yet investing strategically). No 'most people' generalities.]"
+        ctaLabel="Book a private call"
         ctaHref="/contact"
       />
-      <StatBar
-        stats={[
-          { value: "$140M+", label: "introductions facilitated (placeholder, confirm with Shane)" },
-          { value: "800+", label: "Australians supported (placeholder)" },
-          { value: "40+", label: "lender network (placeholder)" },
-        ]}
-      />
+      {/* StatBar deliberately omitted from v1 home page until Shane provides audited, source-able numbers.
+          Manufactured stats erode trust on a boutique consultancy site. Re-add in Task 17 if numbers exist. */}
       <ValueCardRow
-        heading="What Kismet actually does"
+        heading="[VOICE PLACEHOLDER: section header. One short line. Replace; not 'What Kismet does'.]"
         cards={[
-          { title: "We open doors", body: "We connect you to brokers, advisors, and property partners who do the licensed work. You get the network without the noise." },
-          { title: "We translate the jargon", body: "Lending policy, SMSF rules, tax structures. We sit in the middle and make it make sense before you sign anything." },
-          { title: "We stay in the room", body: "Our job doesn't end at the introduction. We stay across your team so the moving parts keep moving." },
+          { title: "[VOICE PLACEHOLDER: 2-3 word title]", body: "[VOICE PLACEHOLDER: 1-2 sentences. Position as orchestrator/coordinator, not connector or middleman. No 'we open doors' framing.]" },
+          { title: "[VOICE PLACEHOLDER: 2-3 word title]", body: "[VOICE PLACEHOLDER: 1-2 sentences.]" },
+          { title: "[VOICE PLACEHOLDER: 2-3 word title]", body: "[VOICE PLACEHOLDER: 1-2 sentences.]" },
         ]}
       />
       <TestimonialBlock
         items={[
-          { quote: "Placeholder until Shane picks the strongest 3 from current site.", name: "Name", context: "Context (suburb, project)" },
-          { quote: "Placeholder.", name: "Name", context: "Context" },
-          { quote: "Placeholder.", name: "Name", context: "Context" },
+          { quote: "[VOICE PLACEHOLDER: real testimonial copy from current site, picked by Shane in Task 17]", name: "[Name]", context: "[Context]" },
+          { quote: "[VOICE PLACEHOLDER]", name: "[Name]", context: "[Context]" },
+          { quote: "[VOICE PLACEHOLDER]", name: "[Name]", context: "[Context]" },
         ]}
       />
     </>
   );
 }
 ```
+
+**StatBar is deliberately omitted from the home page composition for v1.** Manufactured stats erode trust on a boutique consultancy site. The component still exists for use elsewhere if Shane provides audited, source-able numbers. Re-evaluate in Task 17.
 
 - [ ] **Step 6: Visual check**
 
@@ -583,12 +604,64 @@ git commit -m "feat: build home page with Hero, StatBar, ValueCardRow, Testimoni
 
 ---
 
+## Checkpoint A: Design quality review (Home page)
+
+**Hard gate before Task 5 begins.** No more pages get built until the home page passes this review.
+
+- [ ] **Step 1: Push a Vercel preview deploy of just the home page**
+
+Push the current branch to Vercel (preview env). Capture the preview URL.
+
+- [ ] **Step 2: Self-audit against the quality bar**
+
+Run the 10-point self-check in the Conventions section against the live preview. For each "no", fix it before showing Shane.
+
+Specifically check on a real phone-width view (375px and 414px):
+- Hero headline does not break awkwardly mid-line
+- Vertical spacing rhythm is consistent (no random tight/loose blocks)
+- Typography hierarchy is unmistakable (eyebrow vs headline vs subhead vs CTA)
+- CTA is single, prominent, and obvious
+- Value cards stack cleanly with proper padding, not cramped
+- Testimonial blocks have breathing room
+- Footer compliance line is readable, not squashed
+
+- [ ] **Step 3: Self-audit against AI-tells**
+
+Search the rendered home page for any of these and remove if found:
+- "delve", "leverage", "unlock", "navigate", "in today's", "passionate", "empower", "harness", "robust", "seamless", "cutting-edge"
+- Any three-bullet list that exists for symmetry rather than substance
+- Any sentence Shane would not actually say out loud
+
+(All copy is voice-placeholder at this stage. The check applies once Shane's voice replaces the placeholders in Task 16, but run it now on the placeholder text to confirm nothing snuck in.)
+
+- [ ] **Step 4: Hand the preview URL to Shane**
+
+Send Shane the preview URL with a one-liner: "Home page preview. Open on your phone first. Tell me what to fix before I build the rest."
+
+Wait for Shane's response. Possible outcomes:
+- **Approved**: proceed to Task 5.
+- **Specific fixes**: implement them, redeploy preview, hand back. Repeat until approved.
+- **Direction shift**: stop. Revisit the design spec with Shane before continuing.
+
+- [ ] **Step 5: Commit any fixes**
+
+```bash
+git add -A
+git commit -m "refine: home page design pass per Shane review"
+```
+
+Do not skip this checkpoint. Building 4 more pages on a home page Shane has not approved guarantees rework.
+
+---
+
 ## Task 5: Build About page
 
 **Files:**
 - Create: `app/about/page.tsx`
 
 - [ ] **Step 1: Compose About page**
+
+All copy below is voice-placeholder. Structure only. Real Shane voice replaces every block in Task 16.
 
 `app/about/page.tsx`:
 ```tsx
@@ -599,27 +672,20 @@ export default function About() {
     <>
       <Hero
         eyebrow="About"
-        headline={<>Two operators. <span className="bg-gold-gradient bg-clip-text text-transparent italic">One mission.</span></>}
-        sub="Kismet exists because the finance world is full of people who get paid to talk and short on people who get paid to listen. We sit on the listening side."
-        ctaLabel="Get in touch"
+        headline={<span className="placeholder-copy">[VOICE PLACEHOLDER: about-page headline. One sentence. Anchored in Shane and Josh as operators, not branded "founders". No "two operators, one mission" cliche.]</span>}
+        sub="[VOICE PLACEHOLDER: 1-2 sentence subhead. Why Kismet exists, in Shane's words. No 'we believe', 'we are passionate', 'we wanted to flip'.]"
+        ctaLabel="Book a private call"
         ctaHref="/contact"
       />
       <section className="mx-auto max-w-3xl px-6 py-20 prose prose-invert prose-headings:font-serif prose-headings:text-gold prose-a:text-gold">
-        <h2>The short version</h2>
-        <p className="placeholder-copy">[PLACEHOLDER, REPLACE WITH SHANE-VOICE COPY FROM CHATGPT EXPORT.] Kismet was started because we kept watching everyday Australians get sold products instead of getting helped. We wanted to flip that.</p>
+        <h2>[VOICE PLACEHOLDER: section heading]</h2>
+        <p className="placeholder-copy">[VOICE PLACEHOLDER: founder origin in Shane's voice. Concrete, specific. What he did before, what he saw, what he chose to build instead. From ChatGPT export.]</p>
 
-        <h2>How we got here</h2>
-        <p className="placeholder-copy">[PLACEHOLDER, REPLACE WITH FOUNDER STORY FROM SHANE.] Founder story goes here. The pivot, the why, the what we learned.</p>
+        <h2>[VOICE PLACEHOLDER: section heading, e.g. "Who we built this for"]</h2>
+        <p className="placeholder-copy">[VOICE PLACEHOLDER: target client described in plain language. Specific, not "high net worth" or "everyday Australians". A person Shane has actually sat across the table from.]</p>
 
-        <h2>The team</h2>
-        <p className="placeholder-copy">[PLACEHOLDER, REPLACE WITH BIOS FROM SHANE.] Shane Hewson, Founder/Director. Josh Clark, Business Partner. Amy Stoddart, EA (joining June 2026).</p>
-
-        <h2>What we believe</h2>
-        <ul className="placeholder-copy">
-          <li>[PLACEHOLDER] You are smarter than the industry treats you.</li>
-          <li>[PLACEHOLDER] Most "advice" is product positioning. Real strategy is rare.</li>
-          <li>[PLACEHOLDER] The cost of doing nothing is the biggest cost most people pay.</li>
-        </ul>
+        <h2>[VOICE PLACEHOLDER: section heading, e.g. "How we operate"]</h2>
+        <p className="placeholder-copy">[VOICE PLACEHOLDER: short paragraph framing Kismet as strategic coordinators sitting above the network. Mentions Shane, Josh, Amy (joining 2026-06-01) by first name. No "the team" reflex header.]</p>
       </section>
     </>
   );
@@ -657,6 +723,8 @@ git commit -m "feat: scaffold About page (copy placeholders pending ChatGPT expo
 
 - [ ] **Step 1: Compose Approach page**
 
+All copy below is voice-placeholder. Structure only.
+
 `app/approach/page.tsx`:
 ```tsx
 import { Hero } from "@/components/Hero";
@@ -667,20 +735,20 @@ export default function Approach() {
     <>
       <Hero
         eyebrow="How we work"
-        headline={<>We don't give advice. <span className="bg-gold-gradient bg-clip-text text-transparent italic">We open doors.</span></>}
-        sub="Here is exactly what happens when you reach out, and exactly what doesn't."
-        ctaLabel="Start a conversation"
+        headline={<span className="placeholder-copy">[VOICE PLACEHOLDER: approach-page headline. One sentence. Frames Kismet as the strategic coordinator clients keep across multiple partners over years. NOT 'we open doors'.]</span>}
+        sub="[VOICE PLACEHOLDER: 1-2 sentence subhead. Sets the expectation that this is a long-term coordination relationship, not a one-shot referral.]"
+        ctaLabel="Book a private call"
         ctaHref="/contact"
       />
 
       <section className="mx-auto max-w-3xl px-6 py-20 space-y-12">
         {[
-          { n: "01", title: "A real conversation first", body: "[PLACEHOLDER] We sit with you, on the phone or on Zoom, and listen. No pitch. No script. We map out where you are and where you want to be.", placeholder: true },
-          { n: "02", title: "We connect the right specialists", body: "[PLACEHOLDER] Once we understand what you actually need, we introduce you to the licensed brokers, property partners, or strategists who handle the regulated work. You meet them on a call we sit in on.", placeholder: true },
-          { n: "03", title: "We stay in the room", body: "[PLACEHOLDER] We don't disappear after the intro. We stay across your team, follow up, and make sure the things that need to happen actually happen.", placeholder: true },
-          { n: "04", title: "You decide. Always.", body: "[PLACEHOLDER] Nothing happens without your call. We surface options, explain trade-offs in plain English, then step back.", placeholder: true },
+          { n: "01", title: "[VOICE PLACEHOLDER: step title]", body: "[VOICE PLACEHOLDER: 2-3 sentences in Shane's voice. Discovery / intake step.]" },
+          { n: "02", title: "[VOICE PLACEHOLDER: step title]", body: "[VOICE PLACEHOLDER: 2-3 sentences. Strategy/coordination step. Frame as Shane convening the right specialists, not 'connecting' them.]" },
+          { n: "03", title: "[VOICE PLACEHOLDER: step title]", body: "[VOICE PLACEHOLDER: 2-3 sentences. Ongoing oversight step.]" },
+          { n: "04", title: "[VOICE PLACEHOLDER: step title]", body: "[VOICE PLACEHOLDER: 2-3 sentences. Decision-rights/compliance posture.]" },
         ].map((s) => (
-          <div key={s.n} className={`grid grid-cols-[auto_1fr] gap-6 ${s.placeholder ? "placeholder-copy" : ""}`}>
+          <div key={s.n} className="grid grid-cols-[auto_1fr] gap-6 placeholder-copy">
             <div className="font-serif text-3xl text-gold">{s.n}</div>
             <div>
               <h2 className="font-serif text-2xl mb-2">{s.title}</h2>
@@ -692,12 +760,13 @@ export default function Approach() {
 
       <section className="bg-navy-deep border-y border-white/5">
         <div className="mx-auto max-w-3xl px-6 py-12">
-          <h2 className="font-serif text-2xl text-gold mb-4">The compliance bit, plain English</h2>
+          <h2 className="font-serif text-2xl text-gold mb-4">A note on what we are, and aren't</h2>
           <p className="text-white/80 leading-relaxed mb-4">
-            Kismet Finance Group is a referrer. We connect you to licensed professionals.
-            We do not provide personal financial advice, sell financial products, or charge
-            you for the introduction. The professionals you meet through us are licensed and
-            regulated. Their advice is theirs, not ours.
+            Kismet Finance Group is a strategic introducer and coordinator. We do not
+            hold an Australian Financial Services Licence. We do not provide personal
+            financial advice. We do not sell financial products. The licensed brokers,
+            advisers and specialists you meet through us are independently regulated.
+            Their advice is theirs.
           </p>
           <ComplianceLine />
         </div>
