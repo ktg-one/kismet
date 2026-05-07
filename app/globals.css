@@ -23,3 +23,30 @@ h1, h2, h3, h4 {
   outline-offset: 4px;
   border-radius: 2px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Subtle ambient light pooling for hero. Static, no animation. */
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 800px 600px at 75% 20%, rgba(212,175,55,0.18), transparent 55%),
+    radial-gradient(ellipse 600px 400px at 20% 90%, rgba(30,58,95,0.6), transparent 60%),
+    linear-gradient(180deg, #0F2440 0%, #0B1C36 100%);
+}
+
+/* Editorial vertical rule used for hero anchor. */
+.hero-rule {
+  width: 1px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.6), rgba(212,175,55,0));
+}

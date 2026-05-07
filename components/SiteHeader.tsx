@@ -49,10 +49,18 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop nav (md+) */}
-          <nav className="hidden md:flex items-center gap-9 text-[11px] uppercase tracking-[0.14em] text-white/75">
+          <nav className="hidden md:flex items-center gap-9 text-[11px] uppercase tracking-[0.14em]">
             {NAV.map((item) => (
-              <Link key={item.href} href={item.href} className="hover:text-gold transition-colors">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="relative group text-white/75 hover:text-white transition-colors duration-300"
+              >
                 {item.label}
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full"
+                />
               </Link>
             ))}
           </nav>
