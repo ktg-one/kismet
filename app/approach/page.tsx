@@ -4,6 +4,7 @@ import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { PullQuote } from "@/components/PullQuote";
 import { ComplianceLine } from "@/components/ComplianceLine";
 import { MagneticCTA } from "@/components/MagneticCTA";
+import { Photo } from "@/components/Photo";
 
 export const metadata = {
   title: "How We Work | Kismet Finance Group",
@@ -19,7 +20,7 @@ const steps = [
   },
   {
     title: "The right specialists in the room",
-    body: "Once we understand your position, we bring in the licensed people who actually do the regulated work. Brokers, accountants, SMSF administrators, property partners. We sit in the room with you while they do their job, so the right questions get asked and the right things get heard.",
+    body: "Once we understand your position, we bring in the licensed people who actually do the regulated work. Brokers, accountants, SMSF administrators, property and project partners. We sit in the room while they do their job, so the right questions get asked and the right things get heard.",
   },
   {
     title: "We coordinate the moves",
@@ -59,12 +60,26 @@ export default function ApproachPage() {
         steps={steps}
       />
 
-      {/* Pull quote interrupt */}
+      {/* Documentary moment, what it actually looks like */}
+      <section className="relative">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-12 md:py-20">
+          <Photo
+            src="/photos/client-interaction.jpg"
+            alt="Kismet sitting with a client during a strategy session"
+            caption="What this actually looks like. A real conversation, before anything is signed."
+            meta="Client session · Working through structure"
+            aspect="16/9"
+          />
+        </div>
+      </section>
+
+      {/* Pull quote interrupt - grounded, not slogan */}
       <PullQuote attribution="Kismet operating principle">
-        We don&rsquo;t give advice. We open doors.
+        We don&rsquo;t replace qualified advice.
+        <span className="block text-white/60 mt-2">We help you get to the right table.</span>
       </PullQuote>
 
-      {/* Compliance fold - what we are, what we are not */}
+      {/* Compliance fold */}
       <section className="atmosphere-deep">
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
           <div className="grid grid-cols-12 gap-6 md:gap-12">
@@ -85,7 +100,7 @@ export default function ApproachPage() {
             <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
               <Reveal delay={0.1}>
                 <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-12">
-                  Kismet Finance Group is a strategic introducer and coordinator. The licensed brokers, advisers and specialists you meet through us are independently regulated. Their advice is theirs.
+                  Kismet Finance Group is a strategic introducer and coordinator. The licensed brokers, advisers and specialists you meet through us are independently regulated. Their advice is theirs. Ours is the coordination, before and after.
                 </p>
               </Reveal>
 
@@ -96,10 +111,7 @@ export default function ApproachPage() {
                       key={i}
                       className="flex items-start gap-3 text-[15px] text-white/72 leading-[1.65]"
                     >
-                      <span
-                        aria-hidden
-                        className="mt-2 flex-none w-3 h-px bg-gold/55"
-                      />
+                      <span aria-hidden className="mt-2 flex-none w-3 h-px bg-gold/55" />
                       <span>{line}</span>
                     </li>
                   ))}

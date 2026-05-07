@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 import type { ReactNode } from "react";
 
@@ -5,8 +6,10 @@ interface Founder {
   name: string;
   role: string;
   bring: ReactNode;
-  /** Optional. When supplied, used as portrait. Until then, monogram. */
+  /** Optional. When supplied, used as portrait. Until then, treated monogram. */
   imageSrc?: string;
+  /** Object-position for cropping (CSS object-position value), e.g. "50% 30%". */
+  imagePosition?: string;
   status?: "active" | "incoming";
 }
 
@@ -16,11 +19,6 @@ function initials(name: string) {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
-/**
- * Founders / team block. Editorial composition.
- * Portrait cell renders an actual image when imageSrc is provided,
- * otherwise a treated monogram tile so the layout reads complete pre-photoshoot.
- */
 export function FoundersBlock({
   eyebrow = "The people",
   heading,
@@ -58,14 +56,26 @@ export function FoundersBlock({
           {founders.map((f, i) => (
             <Reveal key={f.name} delay={i * 0.12}>
               <article className="group flex flex-col h-full">
-                {/* Portrait cell */}
                 <div className="relative aspect-[4/5] overflow-hidden kismet-surface mb-7">
                   {f.imageSrc ? (
-                    <img
-                      src={f.imageSrc}
-                      alt={f.name}
-                      className="absolute inset-0 w-full h-full object-cover grayscale-[0.35] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grayscale-0 group-hover:scale-[1.02]"
-                    />
+                    <>
+                      <Image
+                        src={f.imageSrc}
+                        alt={f.name}
+                        fill
+                        sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+                        style={{ objectPosition: f.imagePosition ?? "50% 30%" }}
+                        className="object-cover brightness-[0.88] saturate-[0.7] transition-[filter,transform] duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:brightness-100 group-hover:saturate-100 group-hover:scale-[1.015]"
+                      />
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-25 transition-opacity duration-1000 group-hover:opacity-10"
+                        style={{
+                          background:
+                            "linear-gradient(180deg, rgba(8, 21, 42, 0.35) 0%, transparent 30%, transparent 65%, rgba(8, 21, 42, 0.55) 100%)",
+                        }}
+                      />
+                    </>
                   ) : (
                     <>
                       <div
@@ -84,18 +94,15 @@ export function FoundersBlock({
                     </>
                   )}
 
-                  {/* Status badge */}
                   {f.status === "incoming" && (
                     <div className="absolute top-4 left-4 px-3 py-1.5 rounded-sm bg-navy-deep/85 backdrop-blur-sm border border-gold/30 text-[9px] uppercase tracking-[0.22em] text-gold/85">
                       Joining 2026
                     </div>
                   )}
 
-                  {/* Editorial hairline overlay at bottom */}
                   <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
                 </div>
 
-                {/* Caption */}
                 <div className="flex-1">
                   <h3 className="font-serif text-[1.4rem] text-white mb-1.5 tracking-[-0.005em]">
                     {f.name}

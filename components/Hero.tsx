@@ -46,7 +46,7 @@ export function Hero({
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-28 md:pt-44 pb-28 md:pb-44 min-h-[88vh] md:min-h-[92vh] flex flex-col">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-32 md:pt-44 pb-24 md:pb-44 min-h-[78vh] md:min-h-[90vh] flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-1">
           {/* Left vertical rule */}
           <div className="hidden md:flex col-span-1 justify-center pt-3">

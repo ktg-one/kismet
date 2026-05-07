@@ -1,66 +1,115 @@
 import { Hero } from "@/components/Hero";
 import { ValueCardRow } from "@/components/ValueCardRow";
 import { TestimonialBlock } from "@/components/TestimonialBlock";
-import { StatBar } from "@/components/StatBar";
+import { Photo } from "@/components/Photo";
+import { AccessBlock } from "@/components/AccessBlock";
 
 export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Strategic finance coordination"
-        headline="You built the foundation. Now build the future."
-        sub="Kismet sits between you and the licensed brokers, advisers and property partners who turn the foundation you have built into the life you actually want. We coordinate the moves. You make the calls."
+        eyebrow="Private finance coordination"
+        headline="Strategy, structure, and access. Coordinated."
+        sub="Kismet works alongside Australians who have already built something. We coordinate the strategy, the structure and the introductions to the licensed specialists who do the regulated work, so the moves you start actually finish."
         ctaLabel="Book a private call"
         ctaHref="/contact"
-        meta="Australia · Est. 2024"
+        meta="Australia · Established 2024"
       />
 
-      <StatBar
-        eyebrow="The shape of the work"
-        stats={[
-          { value: "1:1", label: "Coordination, never volume" },
-          { value: "20+", label: "Specialist partners on bench" },
-          { value: "100%", label: "Aligned to your outcome, not commission" },
-        ]}
-      />
+      {/* Documentary moment, breaks the grid feel between hero and content */}
+      <section className="relative">
+        <div className="rule-fade" />
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
+          <Photo
+            src="/photos/team-boardroom.jpg"
+            alt="Kismet Finance Group team in a working session"
+            caption="Three minds in the room. The work most decisions need before the regulated specialists step in."
+            meta="Brisbane · Working session"
+            aspect="21/9"
+            sizes="(min-width: 1024px) 1100px, (min-width: 768px) 90vw, 100vw"
+          />
+        </div>
+      </section>
 
       <ValueCardRow
         eyebrow="Principles"
-        heading="Most Australians have more options than they realise. We help you see them."
+        heading="We coordinate the conversations most people never get to have."
         cards={[
           {
-            title: "Strategy first",
-            body: "We start with the picture, not the product. Where you are, where you want to be, and the gap between the two. Everything that follows starts from there.",
+            title: "Built for those already in motion",
+            body: "Kismet works with people who have already built something. Operating businesses, investment positions, growing super balances. The work is about coordinating what is there, not starting from zero.",
           },
           {
-            title: "The right specialists",
-            body: "We bring in the licensed brokers, accountants, SMSF specialists and property partners who actually fit your position. Not whoever pays the highest commission.",
+            title: "Connected through relationships, not advertising",
+            body: "Our partners are people we have known and watched work for years. Brokers, accountants, SMSF specialists, property and project partners. Quiet introductions, not public marketplaces.",
           },
           {
-            title: "We stay in the picture",
-            body: "Our work doesn't end at the introduction. We sit across your team for the long haul, so the moves you have started actually finish.",
+            title: "The right table, before the right product",
+            body: "Most decisions go sideways because the right people are not in the room. We coordinate the conversation before the regulated work happens, so the question on the table is the right question.",
           },
         ]}
+      />
+
+      <AccessBlock
+        eyebrow="Where strategy meets access"
+        heading="Some pathways begin long before they become public."
+        intro="A real strategy is built from the right inputs. We sit close to the conversations and partners that shape outcomes for our clients, then bring the licensed specialists in once the picture is clear. Nothing here is a promise of opportunity. It is a description of where we operate."
+        channels={[
+          {
+            label: "Strategic property partners",
+            body: "We work with development and project partners we have known for years. Some conversations happen before things go to market. We help you understand them, never sell you into them.",
+          },
+          {
+            label: "Licensed broker network",
+            body: "A small panel of finance brokers we trust to act in your interest. We sit in the room while they do the regulated work, so the question being answered is the right one.",
+          },
+          {
+            label: "SMSF and accounting specialists",
+            body: "Self-managed super and structuring specialists who actually understand growth strategy, not just compliance. We coordinate the handover so nothing falls between providers.",
+          },
+          {
+            label: "Project and capital conversations",
+            body: "Where appropriate, exposure to private project conversations our network is involved in. Always at arm's length. Always with a licensed specialist doing the regulated work.",
+          },
+        ]}
+        imageSrc="/photos/map-strategy.jpg"
+        imageAlt="Kismet Finance Group reviewing area-level property strategy"
+        imageMeta="Working session · Area-level strategy"
       />
 
       <TestimonialBlock
         eyebrow="In their words"
-        heading="Real Australians, real outcomes."
+        heading="From people we have sat across from."
         items={[
           {
-            quote: "Dan showed us some ways to tax minimise and helped with those interest rates.",
-            name: "Adam Walker",
-            context: "Kismet client",
-          },
-          {
-            quote: "They made me feel like a person and not a number lost in a system. Honestly wished I could give more than 5 stars.",
+            quote:
+              "I cannot thank the team at Kismet enough for all their help. They have been so supportive and have made me feel like a person, not a number lost in a system.",
             name: "Riley-James Hogg",
             context: "Kismet client",
           },
           {
-            quote: "My Self Managed Super Fund is actually working productively. Could not recommend Dan, Josh, Shane and Stuart highly enough.",
+            quote:
+              "I honestly wish someone like Dan was around years ago to help educate the public about superannuation. Very informative, patient, and clear about the goals and the process.",
             name: "Robyn Willers",
             context: "SMSF client",
+          },
+          {
+            quote:
+              "A friend of mine referred us to Kismet to help us out with our interest rates. The whole process was nice and convenient. They came to us, explained everything in plain English, and we walked away clearer than we started.",
+            name: "Adam Walker",
+            context: "Kismet client",
+          },
+          {
+            quote:
+              "Regular check-ins to make sure everything is on track. Knowledgeable, experienced, and trustworthy. The team genuinely care about how you end up, not just the introduction.",
+            name: "Kismet client",
+            context: "Verified review",
+          },
+          {
+            quote:
+              "It feels less like dealing with a finance company and more like having someone in your corner who has already had the conversations you need to have.",
+            name: "Kismet client",
+            context: "Verified review",
           },
         ]}
       />

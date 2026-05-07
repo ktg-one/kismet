@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
 import { BookingEmbed } from "@/components/BookingEmbed";
 import { LeadForm } from "@/components/LeadForm";
+import { Photo } from "@/components/Photo";
 
 export const metadata = {
   title: "Contact | Kismet Finance Group",
@@ -21,8 +22,38 @@ export default function Contact() {
         showScrollCue={false}
       />
 
+      {/* Documentary trust strip - this is who picks up */}
+      <section className="relative">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-10 md:py-16">
+          <div className="grid grid-cols-12 gap-6 md:gap-12 items-center">
+            <div className="col-span-12 md:col-span-6">
+              <Photo
+                src="/photos/shane-on-call.jpg"
+                alt="Shane Hewson on a working call"
+                aspect="3/2"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </div>
+            <div className="col-span-12 md:col-span-5 md:col-start-8">
+              <Reveal delay={0.1}>
+                <div className="eyebrow eyebrow-with-dot mb-6">
+                  <span className="eyebrow-dot" />
+                  <span>The call</span>
+                </div>
+                <h2 className="font-serif text-[1.625rem] md:text-[2rem] leading-[1.18] tracking-[-0.012em] text-white mb-5">
+                  This is the line you book.
+                </h2>
+                <p className="text-[15px] md:text-[16px] text-white/68 leading-[1.78]">
+                  When you book a private call, this is who picks up. No funnel, no junior, no chatbot. The first conversation is between you and Shane.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="atmosphere-soft">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 pb-32 md:pb-40 pt-8 md:pt-16">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 pb-32 md:pb-40 pt-12 md:pt-20">
           <div className="grid gap-16 lg:gap-20 lg:grid-cols-12">
             {/* Booking column */}
             <Reveal className="lg:col-span-7">

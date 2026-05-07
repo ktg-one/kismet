@@ -8,7 +8,7 @@ export function SiteFooter() {
     <footer className="relative mt-32 atmosphere-deep">
       <div className="rule-fade" />
 
-      {/* Pre-footer statement, editorial scale */}
+      {/* Pre-footer statement */}
       <div className="mx-auto max-w-7xl px-6 md:px-10 pt-28 md:pt-36 pb-20 md:pb-24">
         <Reveal>
           <div className="grid grid-cols-12 gap-6 items-end">
@@ -18,11 +18,13 @@ export function SiteFooter() {
             <div className="col-span-12 md:col-span-8">
               <div className="eyebrow eyebrow-with-dot mb-8">
                 <span className="eyebrow-dot" />
-                <span>One conversation</span>
+                <span>The right table</span>
               </div>
               <p className="font-serif text-[1.75rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.012em] text-white/92 max-w-3xl">
-                Most people don&rsquo;t fail because they made the wrong move.
-                <span className="block text-white/55 mt-3">They fail because they made no move at all.</span>
+                The right conversation, before the right decision.
+                <span className="block text-white/55 mt-3">
+                  Coordinated by people who already know who needs to be in the room.
+                </span>
               </p>
               <div className="mt-12">
                 <MagneticCTA href="/contact">
@@ -55,10 +57,26 @@ export function SiteFooter() {
           <div className="md:col-span-3">
             <h4 className="text-[10px] uppercase tracking-[0.24em] text-white/35 mb-5">Site</h4>
             <ul className="space-y-3.5 text-[15px] text-white/75">
-              <li><Link href="/about" className="hover:text-gold transition-colors duration-400">About</Link></li>
-              <li><Link href="/approach" className="hover:text-gold transition-colors duration-400">How we work</Link></li>
-              <li><Link href="/insights" className="hover:text-gold transition-colors duration-400">Insights</Link></li>
-              <li><Link href="/contact" className="hover:text-gold transition-colors duration-400">Contact</Link></li>
+              <li>
+                <Link href="/about" className="hover:text-gold transition-colors duration-400">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/approach" className="hover:text-gold transition-colors duration-400">
+                  How we work
+                </Link>
+              </li>
+              <li>
+                <Link href="/insights" className="hover:text-gold transition-colors duration-400">
+                  Insights
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-gold transition-colors duration-400">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -73,19 +91,33 @@ export function SiteFooter() {
                   hello@kismetfinancegroup.com.au
                 </a>
               </li>
-              <li className="text-white/40">Australia</li>
-              <li className="text-white/40 text-[13px]">ABN to confirm</li>
+              <li>
+                <a
+                  href="tel:+61862858501"
+                  className="hover:text-gold transition-colors duration-400 tabular-nums"
+                >
+                  (08) 6285 8501
+                </a>
+              </li>
+              <li className="text-white/55 leading-[1.6] text-[14px]">
+                52 Cooper Road
+                <br />
+                Cockburn Central WA 6164
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="border-t border-white/[0.06]">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <ComplianceLine />
-          <p className="text-[11px] uppercase tracking-[0.2em] text-white/30 whitespace-nowrap">
-            &copy; {new Date().getFullYear()} Kismet Finance Group
-          </p>
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-8 flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+          <ComplianceLine className="md:max-w-3xl" />
+          <div className="flex flex-col md:items-end gap-1 text-[10px] uppercase tracking-[0.22em] text-white/35 whitespace-nowrap">
+            <span>&copy; {new Date().getFullYear()} Kismet Finance Group Pty Ltd</span>
+            <span className="text-white/30 normal-case tracking-[0.18em]">
+              ABN 17 665 148 390
+            </span>
+          </div>
         </div>
       </div>
     </footer>
