@@ -1,4 +1,4 @@
-# Kismet Finance Group Website — Design Spec
+# Kismet Finance Group Website. Design Spec
 
 **Date:** 2026-05-07
 **Owner:** Shane Hewson (Founder/Director, Kismet Finance Group)
@@ -21,9 +21,11 @@ A **credibility, trust, and authority** site for Kismet Finance Group.
 
 **Copy voice:** trust + credibility + authority + **normal good humans**. Premium dark visual, warm conversational copy. Operators who know their stuff and talk like real people. Confident without being arrogant. Authoritative without being intimidating.
 
+**Hard rules for all copy on this site (non-negotiable):**
+- **Zero em-dashes or en-dashes anywhere.** Use periods, commas, or parentheses. This is a Shane-wide rule.
+- **No AI tells.** No "delve", "leverage", "unlock", "in today's fast-paced world", "passionate about empowering", "navigate the complexities", three-item bulleted lists for the sake of it, hedge phrases, or any other LLM-default cadence. If a sentence reads like ChatGPT wrote it, rewrite it.
 - Plain language, short sentences, "you" not "our clients".
 - Specific numbers and stories over vague claims.
-- No corporate jargon ("we are passionate about empowering...").
 - Compliance line on every page: Kismet is an introducer, not a licensed advisor. No advice is given.
 
 ## 3. Sitemap
@@ -101,16 +103,16 @@ Five pages.
 
 ## 6. Components (high-level)
 
-- `<SiteHeader>` — sticky nav, logo, primary nav links, CTA button.
-- `<SiteFooter>` — compliance text, ABN, privacy, contact, social, newsletter signup.
-- `<Hero>` — Premium Dark hero with gold gradient accent. Variant for non-home pages.
-- `<StatBar>` — three-stat social proof row.
-- `<ValueCardRow>` — three feature cards.
-- `<TestimonialBlock>` — quote, name, context.
-- `<ArticleCard>` / `<ArticleLayout>` — for Insights.
-- `<BookingEmbed>` — wraps the scheduler iframe; Contact + Home CTA.
-- `<LeadForm>` — name, email, phone, message; client + server validation.
-- `<ComplianceLine>` — reusable footer-able compliance disclaimer.
+- `<SiteHeader>`: sticky nav, logo, primary nav links, CTA button.
+- `<SiteFooter>`: compliance text, ABN, privacy, contact, social, newsletter signup.
+- `<Hero>`: Premium Dark hero with gold gradient accent. Variant for non-home pages.
+- `<StatBar>`: three-stat social proof row.
+- `<ValueCardRow>`: three feature cards.
+- `<TestimonialBlock>`: quote, name, context.
+- `<ArticleCard>` / `<ArticleLayout>`: for Insights.
+- `<BookingEmbed>`: wraps the scheduler iframe. Contact + Home CTA.
+- `<LeadForm>`: name, email, phone, message. Client + server validation.
+- `<ComplianceLine>`: reusable footer-able compliance disclaimer.
 
 Each component lives in its own file under `components/`, has one purpose, and is independently understandable.
 
@@ -118,7 +120,7 @@ Each component lives in its own file under `components/`, has one purpose, and i
 
 | Item | Owner |
 |---|---|
-| Founder story, mission, values | Shane (30 min call + 5-question prompt sheet from Claude beforehand) |
+| Founder story, mission, values, voice training | **Primary**: ChatGPT chat history export from Shane (Claude reads to absorb voice, business context, decision-making). **Backup**: 30 min call if export is incomplete or missing context. |
 | Team bios | Shane |
 | Real numbers for stat bar | Shane |
 | Testimonial selections | Shane (already on current site; pick the strongest 3) |
@@ -149,12 +151,13 @@ The site is "done" for v1 when:
 
 ## 10. Risks and unknowns
 
-- **Berlingske Serif licensing** — confirm Shane has a webfont licence. Fallback to Georgia until confirmed.
-- **Real testimonial permissions** — current site uses repeated testimonials, suggesting weak source material. Shane to confirm authentic, fresh quotes.
-- **Stat numbers** — placeholder values in mockup must be replaced with audited figures before launch.
-- **Booking provider** — Calendly assumed but Shane to confirm what's actually being used in the existing flow.
-- **DNS cutover risk** — old site stays up; new site goes live on a preview URL first; cutover only after Shane signs off.
-- **Email deliverability** — Resend (or chosen provider) must use authenticated `kismetfinancegroup.com.au` sending domain. Coordinate with whoever runs DNS.
+- **Berlingske Serif licensing**: confirm Shane has a webfont licence. Fallback to Georgia until confirmed.
+- **Real testimonial permissions**: current site uses repeated testimonials, suggesting weak source material. Shane to confirm authentic, fresh quotes.
+- **Stat numbers**: placeholder values in mockup must be replaced with audited figures before launch.
+- **Booking provider**: Calendly assumed but Shane to confirm what's actually being used in the existing flow.
+- **DNS cutover risk**: old site stays up; new site goes live on a preview URL first; cutover only after Shane signs off.
+- **Voice authenticity**: copy must not read AI-generated. Mitigation: ingest ChatGPT export when Shane provides it; draft copy in Shane's actual voice; Shane reviews every page before publish; explicit no-AI-tells checklist applied to every paragraph.
+- **Email deliverability**: Resend (or chosen provider) must use authenticated `kismetfinancegroup.com.au` sending domain. Coordinate with whoever runs DNS.
 
 ---
 
