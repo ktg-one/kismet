@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       {
         url: "/photos/team-boardroom.jpg",
         width: 2400,
-        height: 1500,
+        height: 1350,
         alt: "Kismet Finance Group team in a working session",
       },
     ],
