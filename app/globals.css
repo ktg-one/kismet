@@ -17,3 +17,9 @@ h1, h2, h3, h4 {
   font-family: var(--kismet-font-primary);
   font-weight: var(--kismet-font-primary-weight);
 }
+
+.placeholder-copy {
+  outline: 1px dashed rgba(212, 175, 55, 0.4);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
