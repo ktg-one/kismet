@@ -1,18 +1,31 @@
 import { Hero } from "@/components/Hero";
 import { ValueCardRow } from "@/components/ValueCardRow";
 import { TestimonialBlock } from "@/components/TestimonialBlock";
+import { StatBar } from "@/components/StatBar";
 
 export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Strategic Finance Coordination"
-        headline="You've built the foundation. Now build the future."
-        sub="Kismet sits between you and the licensed brokers, advisers and property partners who turn the foundation you've built into the life you actually want. We coordinate the moves. You make the calls."
+        eyebrow="Strategic finance coordination"
+        headline="You built the foundation. Now build the future."
+        sub="Kismet sits between you and the licensed brokers, advisers and property partners who turn the foundation you have built into the life you actually want. We coordinate the moves. You make the calls."
         ctaLabel="Book a private call"
         ctaHref="/contact"
+        meta="Australia · Est. 2024"
       />
+
+      <StatBar
+        eyebrow="The shape of the work"
+        stats={[
+          { value: "1:1", label: "Coordination, never volume" },
+          { value: "20+", label: "Specialist partners on bench" },
+          { value: "100%", label: "Aligned to your outcome, not commission" },
+        ]}
+      />
+
       <ValueCardRow
+        eyebrow="Principles"
         heading="Most Australians have more options than they realise. We help you see them."
         cards={[
           {
@@ -25,11 +38,14 @@ export default function Home() {
           },
           {
             title: "We stay in the picture",
-            body: "Our work doesn't end at the introduction. We sit across your team for the long haul, so the moves you've started actually finish.",
+            body: "Our work doesn't end at the introduction. We sit across your team for the long haul, so the moves you have started actually finish.",
           },
         ]}
       />
+
       <TestimonialBlock
+        eyebrow="In their words"
+        heading="Real Australians, real outcomes."
         items={[
           {
             quote: "Dan showed us some ways to tax minimise and helped with those interest rates.",

@@ -1,7 +1,9 @@
-import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
+import { PullQuote } from "@/components/PullQuote";
 import { ComplianceLine } from "@/components/ComplianceLine";
+import { MagneticCTA } from "@/components/MagneticCTA";
 
 export const metadata = {
   title: "How We Work | Kismet Finance Group",
@@ -11,138 +13,129 @@ export const metadata = {
 
 const steps = [
   {
-    number: "01",
     title: "A real conversation first",
     body: "We sit with you, on the phone or on Zoom, and listen. No pitch. No script. We map out where you are, where you want to be, and the gap in between. The first call costs you nothing and commits you to nothing.",
+    caveat: "Not a sales call. Not a free quote. A conversation.",
   },
   {
-    number: "02",
     title: "The right specialists in the room",
     body: "Once we understand your position, we bring in the licensed people who actually do the regulated work. Brokers, accountants, SMSF administrators, property partners. We sit in the room with you while they do their job, so the right questions get asked and the right things get heard.",
   },
   {
-    number: "03",
     title: "We coordinate the moves",
     body: "Most people don't have a strategy problem. They have a coordination problem. Three or four good professionals who never talk to each other. We sit across the whole picture so the moves you start actually finish.",
   },
   {
-    number: "04",
     title: "You decide. Always.",
     body: "Nothing happens without your call. We surface options, explain the trade-offs in plain English, then step back. Your money. Your strategy. Your move.",
+    caveat: "We don't pressure. We don't push. We don't follow up to twist your arm.",
   },
+];
+
+const negatives = [
+  "We don't hold an AFSL",
+  "We don't provide personal financial advice",
+  "We don't sell financial products",
+  "We don't take commissions from you",
+  "We don't pressure you toward any provider",
 ];
 
 export default function ApproachPage() {
   return (
     <>
-      {/* Hero */}
       <Hero
         eyebrow="How we work"
         headline="Plain process. Real coordination."
         sub="No pitch on the first call. No commissions you pay. No middleman games. Here is exactly what happens when you reach out, and exactly what doesn't."
         ctaLabel="Book a private call"
         ctaHref="/contact"
+        showScrollCue={false}
       />
 
-      {/* Four-step process */}
-      <Reveal as="section" className="py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-6">
-          {steps.map((step, i) => {
-            const isLast = i === steps.length - 1;
-            const delay = i * 0.08;
-            return (
-              <Reveal key={step.number} delay={delay}>
-                <div
-                  className={`grid grid-cols-[auto_1fr] gap-6 md:gap-10${isLast ? "" : " border-b border-white/[0.06] pb-12 mb-2"}`}
-                >
-                  {/* Step number */}
-                  <div className="pt-1">
-                    <span className="font-serif text-3xl md:text-[2.75rem] text-gold leading-none select-none">
-                      {step.number}
-                    </span>
-                  </div>
+      {/* Process timeline */}
+      <ProcessTimeline
+        eyebrow="The process"
+        heading="Four steps. No surprises."
+        steps={steps}
+      />
 
-                  {/* Step content */}
-                  <div className="pb-12">
-                    <h2 className="font-serif text-[1.375rem] md:text-2xl text-white mb-3">
-                      {step.title}
-                    </h2>
-                    <p className="text-[16px] md:text-[17px] text-white/75 leading-[1.75]">
-                      {step.body}
-                    </p>
+      {/* Pull quote interrupt */}
+      <PullQuote attribution="Kismet operating principle">
+        We don&rsquo;t give advice. We open doors.
+      </PullQuote>
+
+      {/* Compliance fold - what we are, what we are not */}
+      <section className="atmosphere-deep">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
+          <div className="grid grid-cols-12 gap-6 md:gap-12">
+            <div className="col-span-12 md:col-span-4 lg:col-span-3">
+              <Reveal>
+                <div className="md:sticky md:top-32">
+                  <div className="eyebrow eyebrow-with-dot mb-7">
+                    <span className="eyebrow-dot" />
+                    <span>Boundaries</span>
                   </div>
+                  <h2 className="display-md text-white max-w-xs leading-[1.15]">
+                    What we are. What we aren&rsquo;t.
+                  </h2>
                 </div>
               </Reveal>
-            );
-          })}
-        </div>
-      </Reveal>
+            </div>
 
-      {/* Compliance fold */}
-      <Reveal
-        as="section"
-        className="bg-navy-deep border-t border-white/[0.06] py-20 md:py-24"
-      >
-        <div className="mx-auto max-w-3xl px-6">
-          <Reveal delay={0.06}>
-            <h2 className="font-serif text-[1.5rem] md:text-2xl text-gold mb-6">
-              What we are, and aren't
-            </h2>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <p className="text-[16px] md:text-[17px] text-white/75 leading-[1.75] mb-8">
-              Kismet Finance Group is a strategic introducer and coordinator. We
-              do not hold an Australian Financial Services Licence. We do not
-              provide personal financial advice. We do not sell financial
-              products. The licensed brokers, advisers and specialists you meet
-              through us are independently regulated. Their advice is theirs.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <ComplianceLine />
-          </Reveal>
-        </div>
-      </Reveal>
+            <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
+              <Reveal delay={0.1}>
+                <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-12">
+                  Kismet Finance Group is a strategic introducer and coordinator. The licensed brokers, advisers and specialists you meet through us are independently regulated. Their advice is theirs.
+                </p>
+              </Reveal>
 
-      {/* Closing strip */}
-      <Reveal as="section" className="py-28 md:py-36">
-        <div
-          className="relative py-20 md:py-28 px-6"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 70%)",
-          }}
-        >
-          <div className="mx-auto max-w-3xl px-6 text-center">
-            <Reveal delay={0.06}>
-              <p className="font-serif text-[2rem] md:text-[2.5rem] leading-[1.2] text-white">
-                It's not about money. It's about what money unlocks.
-              </p>
-            </Reveal>
-            <Reveal delay={0.14}>
-              <p className="mt-6 text-[14px] uppercase tracking-[0.2em] text-white/55">
-                Book a private call when you're ready to start.
-              </p>
-            </Reveal>
-            <Reveal delay={0.24}>
-              <div className="mt-10">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-semibold pl-7 pr-6 py-4 rounded-sm bg-gold-gradient text-navy-deep shadow-[0_10px_40px_-10px_rgba(212,175,55,0.45)] transition-shadow duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-[0_18px_60px_-12px_rgba(212,175,55,0.6)]"
-                >
-                  <span>Book a private call</span>
-                  <span
-                    aria-hidden
-                    className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"
-                  >
-                    &rarr;
-                  </span>
-                </Link>
-              </div>
-            </Reveal>
+              <Reveal delay={0.18}>
+                <ul className="grid gap-3 md:grid-cols-2 mb-14">
+                  {negatives.map((line, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-[15px] text-white/72 leading-[1.65]"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2 flex-none w-3 h-px bg-gold/55"
+                      />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+
+              <Reveal delay={0.26}>
+                <div className="pt-8 border-t border-white/[0.06]">
+                  <ComplianceLine />
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
-      </Reveal>
+      </section>
+
+      {/* Closing strip */}
+      <section className="relative">
+        <div className="rule-fade" />
+        <div className="mx-auto max-w-4xl px-6 md:px-10 py-28 md:py-36 text-center">
+          <Reveal>
+            <p className="font-serif text-[2rem] md:text-[2.75rem] leading-[1.15] tracking-[-0.012em] text-white">
+              It&rsquo;s not about money.
+              <span className="block text-white/55 mt-3">It&rsquo;s about what money unlocks.</span>
+            </p>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <div className="mt-12">
+              <MagneticCTA href="/contact">
+                <span>Book a private call</span>
+                <span aria-hidden className="cta-arrow">&rarr;</span>
+              </MagneticCTA>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

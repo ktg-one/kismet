@@ -1,62 +1,113 @@
-import Link from "next/link";
-import { Reveal } from "./Reveal";
+import { Reveal, RevealWords } from "./Reveal";
+import { MagneticCTA } from "./MagneticCTA";
+import { ScrollCue } from "./ScrollCue";
 import type { ReactNode } from "react";
 
 interface HeroProps {
-  eyebrow: ReactNode;
-  headline: ReactNode;
+  eyebrow: string;
+  headline: string;
   sub: ReactNode;
   ctaLabel: string;
   ctaHref: string;
+  /** Right-side vertical tag, e.g. "Australia · Est. 2024". Optional. */
+  meta?: string;
+  showScrollCue?: boolean;
 }
 
-export function Hero({ eyebrow, headline, sub, ctaLabel, ctaHref }: HeroProps) {
+/**
+ * Cinematic hero. Editorial composition with ambient gold drift,
+ * word-stagger headline, magnetic CTA, scroll cue.
+ *
+ * Restraint: max two animation systems firing at once. Calm easing.
+ * No flashy effects. Designed to feel "established", not "launched".
+ */
+export function Hero({
+  eyebrow,
+  headline,
+  sub,
+  ctaLabel,
+  ctaHref,
+  meta = "Australia · Est. 2024",
+  showScrollCue = true,
+}: HeroProps) {
   return (
     <section className="relative overflow-hidden hero-atmosphere">
-      {/* atmospheric light pool, layered radial gradients are in .hero-atmosphere */}
-      <div className="relative mx-auto max-w-6xl px-6 pt-28 md:pt-40 pb-24 md:pb-36">
-        <div className="grid grid-cols-12 gap-6">
-          {/* left rule */}
-          <div className="hidden md:flex col-span-1 justify-center">
-            <div className="hero-rule h-32 mt-3" />
+      {/* Ambient atmosphere layer, slow drift. Behind everything. */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="ambient-orb ambient-orb-gold"
+          style={{ top: "-12%", right: "-8%", width: "62vw", height: "62vw", maxWidth: "900px", maxHeight: "900px" }}
+          aria-hidden
+        />
+        <div
+          className="ambient-orb ambient-orb-navy"
+          style={{ bottom: "-18%", left: "-12%", width: "70vw", height: "70vw", maxWidth: "1000px", maxHeight: "1000px" }}
+          aria-hidden
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-28 md:pt-44 pb-28 md:pb-44 min-h-[88vh] md:min-h-[92vh] flex flex-col">
+        <div className="grid grid-cols-12 gap-6 flex-1">
+          {/* Left vertical rule */}
+          <div className="hidden md:flex col-span-1 justify-center pt-3">
+            <div className="hero-rule h-44" />
           </div>
 
-          {/* content, anchored to left two-thirds */}
-          <div className="col-span-12 md:col-span-8">
+          {/* Main content column */}
+          <div className="col-span-12 md:col-span-9 lg:col-span-8 flex flex-col">
             <Reveal>
-              <div className="text-[10px] uppercase tracking-[0.28em] text-gold/80 mb-10">
-                {eyebrow}
+              <div className="eyebrow eyebrow-with-dot mb-12">
+                <span className="eyebrow-dot" />
+                <span>{eyebrow}</span>
               </div>
             </Reveal>
-            <Reveal delay={0.08}>
-              <h1 className="font-serif text-[2.5rem] sm:text-[3rem] md:text-[4.25rem] leading-[1.02] tracking-[-0.015em] max-w-[18ch]">
-                {headline}
-              </h1>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <div className="mt-10 text-base md:text-lg text-white/65 max-w-xl leading-[1.7]">
+
+            <RevealWords
+              text={headline}
+              as="h1"
+              className="display-xl text-white max-w-[19ch]"
+              delay={0.05}
+              stagger={0.055}
+            />
+
+            <Reveal delay={0.55} y={18}>
+              <div className="mt-12 md:mt-14 text-base md:text-lg text-white/65 max-w-xl leading-[1.78]">
                 {sub}
               </div>
             </Reveal>
-            <Reveal delay={0.26}>
-              <div className="mt-14">
-                <Link
-                  href={ctaHref}
-                  className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-semibold pl-7 pr-6 py-4 rounded-sm bg-gold-gradient text-navy-deep shadow-[0_10px_40px_-10px_rgba(212,175,55,0.45)] transition-shadow duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-[0_18px_60px_-12px_rgba(212,175,55,0.6)]"
-                >
+
+            <Reveal delay={0.72} y={14}>
+              <div className="mt-14 md:mt-16 flex flex-wrap items-center gap-8">
+                <MagneticCTA href={ctaHref}>
                   <span>{ctaLabel}</span>
-                  <span aria-hidden className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
-                    &rarr;
-                  </span>
-                </Link>
+                  <span aria-hidden className="cta-arrow">&rarr;</span>
+                </MagneticCTA>
+
+                <a href="/approach" className="cta-ghost">
+                  How we work
+                </a>
               </div>
             </Reveal>
           </div>
 
-          {/* right negative space - intentional, holds ambient light from hero-atmosphere */}
-          <div className="hidden md:block col-span-3" aria-hidden />
+          {/* Right meta column, asymmetric balance */}
+          <div className="hidden lg:flex col-span-3 flex-col items-end justify-between pt-2">
+            <Reveal delay={0.8} y={0}>
+              <span className="vertical-tag">{meta}</span>
+            </Reveal>
+          </div>
         </div>
+
+        {/* Scroll cue, pinned to bottom of hero */}
+        {showScrollCue && (
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+            <ScrollCue />
+          </div>
+        )}
       </div>
+
+      {/* Bottom hairline transition into next section */}
+      <div className="rule-fade" />
     </section>
   );
 }

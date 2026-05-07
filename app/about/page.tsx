@@ -1,6 +1,8 @@
-import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
+import { FoundersBlock } from "@/components/FoundersBlock";
+import { PullQuote } from "@/components/PullQuote";
+import { MagneticCTA } from "@/components/MagneticCTA";
 
 export const metadata = {
   title: "About | Kismet Finance Group",
@@ -11,157 +13,140 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
       <Hero
         eyebrow="About Kismet"
         headline="Built so the picture finally hangs together."
-        sub="Most Australians get sold products instead of getting strategy. We sit between you and the licensed specialists you actually need, so the moves you've started actually finish."
+        sub="Most Australians get sold products instead of getting strategy. We sit between you and the licensed specialists you actually need, so the moves you have started actually finish."
         ctaLabel="Book a private call"
         ctaHref="/contact"
+        showScrollCue={false}
       />
 
-      {/* Story 1: Why Kismet exists */}
-      <Reveal as="section" className="py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-6">
-          <Reveal delay={0.06}>
-            <h2 className="font-serif text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.012em] text-white mb-10">
-              The reason we built this
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.12}>
-            <div className="space-y-6 text-[17px] md:text-[18px] leading-[1.75] text-white/80">
-              <p>
-                Most Australians don't have a strategy problem. They have a
-                coordination problem. They have a broker, an accountant, maybe a
-                financial planner, and none of them talk to each other. Everyone
-                is doing their bit. Nobody is holding the picture together.
-              </p>
-              <p>
-                That's where Kismet comes in. We don't sell anything. We don't
-                hold an AFSL. What we do is sit across the whole picture and
-                coordinate the moves between the licensed specialists who
-                actually do the regulated work. Broker, accountant, SMSF
-                administrator, property partner. We make sure they're pointing
-                in the same direction, at the same time, for you.
-              </p>
-              <p>
-                It's not about money. It's about what money unlocks. And for
-                most people, the gap between where they are and where they want
-                to be isn't a product gap. It's a clarity gap. That's what we
-                close.
-              </p>
+      {/* Story 1: Why Kismet exists - editorial two-column */}
+      <section className="atmosphere-soft">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
+          <div className="grid grid-cols-12 gap-6 md:gap-12">
+            <div className="col-span-12 md:col-span-4 lg:col-span-3">
+              <Reveal>
+                <div className="md:sticky md:top-32">
+                  <div className="eyebrow eyebrow-with-dot mb-7">
+                    <span className="eyebrow-dot" />
+                    <span>The reason</span>
+                  </div>
+                  <h2 className="display-md text-white max-w-xs leading-[1.15]">
+                    Why we built this
+                  </h2>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
-        </div>
-      </Reveal>
 
-      {/* Story 2: How we operate */}
-      <Reveal as="section" className="py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-6">
-          <Reveal delay={0.06}>
-            <h2 className="font-serif text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.012em] text-white mb-10">
-              How we work, in plain English
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.12}>
-            <div className="space-y-6 text-[17px] md:text-[18px] leading-[1.75] text-white/80">
-              <p>
-                The first call is a real conversation. No pitch, no product, no
-                homework to prep beforehand. We listen, ask questions, and figure
-                out where you actually are. Most people leave that call feeling
-                clearer than they have in years, just from having someone ask the
-                right questions.
-              </p>
-              <p>
-                From there we bring in the right specialists. Brokers,
-                accountants, SMSF administrators, property partners. The licensed
-                people who handle the regulated work. We sit in the room with you
-                while they do it, so nothing falls between the cracks and nothing
-                gets lost in translation.
-              </p>
-              <p>
-                We stay in the picture for the long haul. Our work doesn't end at
-                the introduction. We follow up, coordinate, and keep things
-                moving. The clients we work with are typically Australians who
-                have built something real and want to make sure it's working as
-                hard as they have.
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Who you'll work with */}
-          <Reveal delay={0.2}>
-            <div className="mt-16 border-t border-white/10 pt-10">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-white/40 mb-8">
-                Who you'll work with
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                  <p className="font-serif text-lg text-white">Shane Hewson</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-gold">
-                    Founder &amp; Director
+            <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
+              <Reveal delay={0.1}>
+                <div className="space-y-7 text-[17px] md:text-[18px] leading-[1.78] text-white/78">
+                  <p>
+                    Most Australians don&rsquo;t have a strategy problem. They have a coordination problem. They have a broker, an accountant, maybe a financial planner, and none of them talk to each other. Everyone is doing their bit. Nobody is holding the picture together.
+                  </p>
+                  <p>
+                    That&rsquo;s where Kismet comes in. We don&rsquo;t sell anything. We don&rsquo;t hold an AFSL. What we do is sit across the whole picture and coordinate the moves between the licensed specialists who actually do the regulated work. Broker, accountant, SMSF administrator, property partner. We make sure they&rsquo;re pointing in the same direction, at the same time, for you.
                   </p>
                 </div>
-                <div>
-                  <p className="font-serif text-lg text-white">Josh Clark</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-gold">
-                    Business Partner
-                  </p>
-                </div>
-                <div>
-                  <p className="font-serif text-lg text-white">Amy Stoddart</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-gold/60">
-                    Executive Assistant (joining June 2026)
-                  </p>
-                </div>
-              </div>
+              </Reveal>
             </div>
-          </Reveal>
-        </div>
-      </Reveal>
-
-      {/* Closing strip */}
-      <Reveal as="section" className="py-24 md:py-36">
-        <div
-          className="relative py-20 md:py-28 px-6"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 70%)",
-          }}
-        >
-          <div className="mx-auto max-w-3xl text-center">
-            <Reveal delay={0.06}>
-              <p className="font-serif text-[2rem] md:text-[2.5rem] leading-[1.2] text-white">
-                Most people don't fail because they made the wrong move. They
-                fail because they made no move at all.
-              </p>
-            </Reveal>
-            <Reveal delay={0.16}>
-              <p className="mt-6 text-[17px] md:text-[18px] leading-[1.75] text-white/65">
-                Book a private call when you're ready to make a move.
-              </p>
-            </Reveal>
-            <Reveal delay={0.24}>
-              <div className="mt-10">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-semibold pl-7 pr-6 py-4 rounded-sm bg-gold-gradient text-navy-deep shadow-[0_10px_40px_-10px_rgba(212,175,55,0.45)] transition-shadow duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-[0_18px_60px_-12px_rgba(212,175,55,0.6)]"
-                >
-                  <span>Book a private call</span>
-                  <span
-                    aria-hidden
-                    className="inline-block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"
-                  >
-                    &rarr;
-                  </span>
-                </Link>
-              </div>
-            </Reveal>
           </div>
         </div>
-      </Reveal>
+      </section>
+
+      {/* Pull quote interrupt */}
+      <PullQuote attribution="Shane Hewson, Founder">
+        It&rsquo;s not about money. It&rsquo;s about what money unlocks.
+      </PullQuote>
+
+      {/* Story 2: How we operate - asymmetric content */}
+      <section className="atmosphere-deep">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
+          <div className="grid grid-cols-12 gap-6 md:gap-12">
+            <div className="col-span-12 md:col-span-4 lg:col-span-3">
+              <Reveal>
+                <div className="md:sticky md:top-32">
+                  <div className="eyebrow eyebrow-with-dot mb-7">
+                    <span className="eyebrow-dot" />
+                    <span>How it works</span>
+                  </div>
+                  <h2 className="display-md text-white max-w-xs leading-[1.15]">
+                    In plain English
+                  </h2>
+                </div>
+              </Reveal>
+            </div>
+
+            <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
+              <Reveal delay={0.1}>
+                <div className="space-y-7 text-[17px] md:text-[18px] leading-[1.78] text-white/78">
+                  <p>
+                    The first call is a real conversation. No pitch, no product, no homework to prep beforehand. We listen, ask questions, and figure out where you actually are. Most people leave that call feeling clearer than they have in years, just from having someone ask the right questions.
+                  </p>
+                  <p>
+                    From there we bring in the right specialists. Brokers, accountants, SMSF administrators, property partners. The licensed people who handle the regulated work. We sit in the room with you while they do it, so nothing falls between the cracks and nothing gets lost in translation.
+                  </p>
+                  <p>
+                    We stay in the picture for the long haul. Our work doesn&rsquo;t end at the introduction. We follow up, coordinate, and keep things moving. The clients we work with are typically Australians who have built something real and want to make sure it&rsquo;s working as hard as they have.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founders */}
+      <FoundersBlock
+        eyebrow="The people"
+        heading="Three names. One picture. Yours."
+        founders={[
+          {
+            name: "Shane Hewson",
+            role: "Founder & Director",
+            bring:
+              "Holds the picture. The first call you take, the strategy across the whole position, the long-game thinking that connects the moves.",
+            status: "active",
+          },
+          {
+            name: "Josh Clark",
+            role: "Business Partner",
+            bring:
+              "Runs the network. The introductions to the licensed specialists who do the regulated work. The relationships that make doors open quietly.",
+            status: "active",
+          },
+          {
+            name: "Amy Stoddart",
+            role: "Executive Assistant",
+            bring:
+              "Joining mid-2026. Keeps every moving piece on track so nothing gets dropped between the calls, the partners, and the follow-throughs.",
+            status: "incoming",
+          },
+        ]}
+      />
+
+      {/* Closing strip */}
+      <section className="relative">
+        <div className="rule-fade" />
+        <div className="mx-auto max-w-4xl px-6 md:px-10 py-28 md:py-36 text-center">
+          <Reveal>
+            <p className="font-serif text-[2rem] md:text-[2.75rem] leading-[1.15] tracking-[-0.012em] text-white">
+              Most people don&rsquo;t fail because they made the wrong move.
+              <span className="block text-white/55 mt-3">They fail because they made no move at all.</span>
+            </p>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <div className="mt-12">
+              <MagneticCTA href="/contact">
+                <span>Book a private call</span>
+                <span aria-hidden className="cta-arrow">&rarr;</span>
+              </MagneticCTA>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }
