@@ -72,7 +72,7 @@ export default function Home() {
 
       <TeamPortraits
         eyebrow="Leadership"
-        heading="The names that pick up when you call."
+        heading="The people you deal with."
         people={[
           {
             name: "Josh",
