@@ -16,22 +16,22 @@ const steps = [
     number: "01",
     icon: <Compass className="w-7 h-7" />,
     title: "Understand",
-    caption: "your current position",
-    body: "Before plotting a course, we set the coordinates. We start with a clear, uncompromising audit of where you are. Numbers, structures, hidden risks, and what prosperity actually looks like for you. We strip the noise back to the truth of your starting point.",
+    caption: "where you are",
+    body: "Before we map the road, we work out the starting point. We sit with you and look at what is there: the numbers, the structures, the things that have been put off. No jargon, no judgement. Just an honest read of your position and what you actually want from the next ten years.",
   },
   {
     number: "02",
     icon: <Hub className="w-7 h-7" />,
     title: "Coordinate",
     caption: "the right conversations",
-    body: "Strategy is an ensemble, not a soloist. We act as the conductor for your financial ecosystem, coordinating the technical conversations between your accountants, brokers and specialists. By keeping that dialogue moving, strategy stops forming in silos and every professional aligns around your one objective.",
+    body: "Strategy doesn't happen in silos. We get your accountant, broker and specialists in the same conversation, so the moves all line up. We sit in the room while they do their regulated work, and translate when needed. You stop having three different versions of the truth.",
   },
   {
     number: "03",
     icon: <Sail className="w-7 h-7" />,
     title: "Navigate",
-    caption: "the pathways forward",
-    body: "With a clear map and a unified team, we execute. The Navigate phase is ongoing. Markets shift, legislation moves, your position changes. We stay in the room, recalibrating where needed and keeping execution clean. You retain the call. We hold the picture.",
+    caption: "the path forward",
+    body: "With a clear picture and a connected team, you can move. The Navigate phase keeps going. Markets shift, legislation changes, your position changes. We stay in the picture, adjusting course when it makes sense. You retain the call. We hold the picture.",
   },
 ];
 
@@ -44,9 +44,9 @@ export default function ApproachPage() {
         headlineMuted="complexity."
         sub={
           <>
-            Strategy should not be overwhelming. We refined our approach into a predictable
-            three-step methodology designed to provide profound clarity. A structured sanctuary for
-            your strategy, where every decision is grounded in truth and executed with precision.
+            Finance should not be overwhelming. Our approach is three steps. Understand where you
+            are. Coordinate the right people. Move forward together. Plain English, calm pace,
+            clean execution.
           </>
         }
         ctaLabel="Begin the Conversation"
@@ -67,15 +67,15 @@ export default function ApproachPage() {
               />
               <div className="max-w-xl relative z-10">
                 <h3 className="font-serif text-[32px] md:text-[40px] leading-[1.18] tracking-[-0.012em] text-[#d9e3f2] mb-5 text-balance">
-                  Practical intelligence.
-                  <span className="block text-[#adc8f5]/85">Zero overwhelm.</span>
+                  Plain process.
+                  <span className="block text-[#adc8f5]/85">Real coordination.</span>
                 </h3>
                 <p className="text-[16px] md:text-[18px] text-[#c4c6cf] leading-[1.65] mb-8">
-                  Our methodology is designed to absorb the complexity, presenting you only with
-                  clear, actionable pathways. The relief of structured guidance.
+                  We absorb the complexity so you do not have to. You get clear options and the
+                  right people in the room. Steady pace, clean execution.
                 </p>
                 <Link href="/contact" className="cta-gold">
-                  <span>Commence Your Audit</span>
+                  <span>Start the Conversation</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </Link>
               </div>

@@ -6,8 +6,26 @@ import { BrandMark } from "./BrandMark";
 export function SiteFooter() {
   return (
     <footer className="relative bg-[#050f19] border-t-[0.5px] border-[#43474e]/30">
+      {/* Page-ending sign-off - centered brand mark, hairline rules either side */}
+      <div className="bg-[#0a141e] py-14 md:py-16">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+          <Reveal>
+            <div className="flex items-center justify-center gap-6 md:gap-10">
+              <span aria-hidden className="flex-1 max-w-[180px] md:max-w-[280px] h-px bg-gradient-to-r from-transparent via-[#43474e]/40 to-[#D4AF37]/30" />
+              <Link href="/" className="group inline-flex flex-col items-center gap-2">
+                <BrandMark className="w-14 h-14 md:w-16 md:h-16 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
+                <span className="font-serif text-[14px] md:text-[15px] tracking-[0.32em] text-[#D4AF37]/85 uppercase font-semibold">
+                  Kismet
+                </span>
+              </Link>
+              <span aria-hidden className="flex-1 max-w-[180px] md:max-w-[280px] h-px bg-gradient-to-l from-transparent via-[#43474e]/40 to-[#D4AF37]/30" />
+            </div>
+          </Reveal>
+        </div>
+      </div>
+
       {/* Pre-footer CTA strip */}
-      <section className="relative bg-[#212b36] overflow-hidden">
+      <section className="relative bg-[#1e3450] overflow-hidden">
         <div className="absolute inset-0 smoke-gradient opacity-50" />
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32 text-center">
           <Reveal>
@@ -36,8 +54,8 @@ export function SiteFooter() {
           {/* Brand column */}
           <div className="md:col-span-4 flex flex-col">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <BrandMark className="w-10 h-10 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
-              <span className="font-serif text-xl tracking-[0.22em] text-[#D4AF37] uppercase">
+              <BrandMark className="w-12 h-12 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
+              <span className="font-serif text-[24px] tracking-[0.2em] text-[#D4AF37] uppercase font-semibold">
                 Kismet
               </span>
             </Link>

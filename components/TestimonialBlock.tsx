@@ -115,7 +115,7 @@ export function TestimonialBlock({
                   key={i}
                   className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3 md:px-4"
                 >
-                  <figure className="group h-full flex flex-col bg-[#17202b] rounded-lg p-8 border-t-[0.5px] border-[#43474e]/40">
+                  <figure className="group h-full flex flex-col bg-[#18283d] rounded-lg p-8 border-t-[0.5px] border-[#43474e]/40">
                     <div
                       aria-hidden
                       className="font-serif text-[64px] text-[#D4AF37]/25 leading-none mb-5 transition-colors duration-700 group-hover:text-[#D4AF37]/55"

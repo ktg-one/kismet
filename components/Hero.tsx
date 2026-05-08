@@ -111,7 +111,7 @@ export function Hero({
 
             {headlineMuted && (
               <Reveal delay={0.4}>
-                <p className="font-serif text-[28px] sm:text-[36px] md:text-[44px] lg:text-[50px] leading-[1.12] tracking-[-0.014em] text-[#adc8f5]/85 text-balance mt-4 max-w-[22ch]">
+                <p className="font-serif text-[36px] sm:text-[48px] md:text-[58px] lg:text-[68px] leading-[1.06] tracking-[-0.02em] text-[#d9e3f2] text-balance mt-3 max-w-[22ch] italic font-light">
                   {headlineMuted}
                 </p>
               </Reveal>

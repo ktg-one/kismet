@@ -129,19 +129,6 @@ html {
     linear-gradient(180deg, #0E2240 0%, #0a141e 100%);
 }
 
-/* Glass card - frosted-navy elevated surface */
-.glass-card {
-  background: linear-gradient(135deg, rgba(44, 54, 65, 0.55) 0%, rgba(23, 32, 43, 0.78) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 0.5px solid rgba(217, 227, 242, 0.10);
-  border-radius: 0.5rem;
-}
-
-.glass-card:hover {
-  border-top-color: rgba(212, 175, 55, 0.25);
-}
-
 .ambient-orb {
   position: absolute;
   pointer-events: none;
@@ -164,9 +151,11 @@ html {
    SURFACES - Stitch-aligned tonal cards
    ════════════════════════════════════════════════ */
 
+/* Cards lean into brand navy (#1E3A5F) for warmth, layered over the deep base */
 .kismet-surface {
   position: relative;
-  background: #17202b; /* surface-container */
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0.32) 0%, rgba(23, 32, 43, 0.92) 100%);
+  background-color: #18283d;
   border: 0.5px solid rgba(217, 227, 242, 0.10);
   border-top-color: rgba(217, 227, 242, 0.18);
   border-radius: 0.5rem;
@@ -174,17 +163,31 @@ html {
 }
 
 .kismet-surface:hover {
-  background: #212b36; /* surface-container-high */
+  background-color: #1e3450;
   border-top-color: rgba(212, 175, 55, 0.30);
 }
 
 .kismet-surface-elevated {
   position: relative;
-  background: linear-gradient(135deg, #212b36 0%, #17202b 100%);
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.55) 0%, rgba(23, 32, 43, 0.92) 100%);
+  background-color: #1e3450;
   border: 0.5px solid rgba(217, 227, 242, 0.14);
-  border-top-color: rgba(212, 175, 55, 0.20);
+  border-top-color: rgba(212, 175, 55, 0.25);
   border-radius: 0.5rem;
   box-shadow: var(--kismet-shadow-card);
+}
+
+/* Glass card now leans navy too */
+.glass-card {
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.42) 0%, rgba(23, 32, 43, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 0.5px solid rgba(217, 227, 242, 0.12);
+  border-radius: 0.5rem;
+}
+
+.glass-card:hover {
+  border-top-color: rgba(212, 175, 55, 0.30);
 }
 
 /* Gold hairline inner highlight - "high authority" container */

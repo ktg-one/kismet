@@ -13,20 +13,20 @@ export const metadata = {
 const principles = [
   {
     icon: <Forum className="w-7 h-7" />,
-    eyebrow: "Coordinated Conversations",
-    body: "We act as the central hub for your financial life. We speak with your accountants, brokers and partners so you do not have to translate. Coordination, not advice.",
+    eyebrow: "Right People, Right Room",
+    body: "We sit in the middle of your financial life and speak with your accountants, brokers and partners so you do not have to translate. Coordination, not advice.",
     highlight: false,
   },
   {
     icon: <Architecture className="w-7 h-7" />,
     eyebrow: "Approachable Authority",
-    body: "Strategy delivered with a human touch. We strip away the intimidation factor, providing a calm sanctuary where decisions can be made with confidence.",
+    body: "Strategy delivered like a conversation, not a pitch. We take the intimidation out of finance so you can make decisions with a calm head.",
     highlight: true,
   },
   {
     icon: <Eye className="w-7 h-7" />,
     eyebrow: "The Long View",
-    body: "True wealth is generational. We focus on sustainable pathways that protect and grow what you have built, so the legacy is secured for the decades to come.",
+    body: "We focus on the years ahead, not just the next move. Steady pathways that protect what you have built and keep growing what you put in.",
     highlight: false,
   },
 ];
@@ -40,9 +40,9 @@ export default function AboutPage() {
         headlineMuted="Bigger Picture."
         sub={
           <>
-            Strategic coordination should not be reserved for the few. Kismet exists to help
-            everyday Australians coordinate their financial conversations and build a sanctuary of
-            lasting wealth.
+            Real strategy should not be reserved for the wealthy few. Kismet exists to help
+            everyday Australians get the right people in the room and the right conversations
+            happening, so the picture starts coming together.
           </>
         }
         ctaLabel="Begin the Conversation"
@@ -55,19 +55,20 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Reveal className="md:col-span-2">
-              <div className="bg-[#17202b] gold-edge-top rounded-lg overflow-hidden h-full">
+              <div className="bg-[#18283d] gold-edge-top rounded-lg overflow-hidden h-full">
                 <div className="h-full flex flex-col md:flex-row">
                   <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
                     <h2 className="font-serif text-[28px] md:text-[32px] leading-[1.25] tracking-[-0.008em] text-[#D4AF37] mb-5">
                       Meet Shane &amp; Josh
                     </h2>
                     <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7] mb-5">
-                      Shane and Josh founded Kismet around a simple gap: everyday people needed the
-                      same coordinated, holistic approach that top firms reserved for corporates.
+                      Shane and Josh started Kismet around a simple gap: everyday Australians
+                      were getting sold products instead of getting strategy. The kind of joined-up
+                      thinking that big firms reserve for corporates was nowhere for normal people.
                     </p>
                     <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7]">
-                      Their approach is approachable authority. Real conversations, in plain
-                      English, about the structure behind your financial life.
+                      Their approach is straightforward. Real conversations in plain English. Right
+                      people in the room. Steady pace. The picture stays connected.
                     </p>
                   </div>
                   <div className="w-full md:w-1/2 h-[320px] md:h-auto relative bg-[#0a141e]">
@@ -80,7 +81,7 @@ export default function AboutPage() {
                     />
                     <div
                       aria-hidden
-                      className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#17202b]/60"
+                      className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#18283d]/70"
                     />
                   </div>
                 </div>
@@ -88,7 +89,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="bg-[#212b36] gold-edge-top rounded-lg p-10 flex flex-col justify-between h-full">
+              <div className="bg-[#1e3450] gold-edge-top rounded-lg p-10 flex flex-col justify-between h-full">
                 <div>
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded bg-[#0a141e] border border-[#43474e]/40 text-[#D4AF37] mb-6">
                     <Architecture className="w-6 h-6" />

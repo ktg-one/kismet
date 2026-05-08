@@ -88,7 +88,7 @@ export function ArticleLayout({ article }: { article: Article }) {
       </article>
 
       {/* Closing CTA */}
-      <section className="relative bg-[#212b36] overflow-hidden">
+      <section className="relative bg-[#1e3450] overflow-hidden">
         <div className="absolute inset-0 smoke-gradient opacity-50" />
         <div className="relative max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32 text-center">
           <Reveal>

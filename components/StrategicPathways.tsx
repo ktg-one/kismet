@@ -80,7 +80,7 @@ export function StrategicPathways({
                   </>
                 )}
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded bg-[#17202b]/50 border border-[#43474e]/40 flex items-center justify-center mb-6 text-[#D4AF37]">
+                  <div className="w-12 h-12 rounded bg-[#18283d]/50 border border-[#43474e]/40 flex items-center justify-center mb-6 text-[#D4AF37]">
                     {c.icon}
                   </div>
                   <h3 className="font-serif text-[26px] md:text-[28px] leading-[1.2] tracking-[-0.008em] text-[#d9e3f2] mb-3">

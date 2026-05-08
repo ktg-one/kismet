@@ -7,7 +7,7 @@ import { Building, ColumnsIcon, Network } from "@/components/Icons";
 export const metadata = {
   title: "Strategic Pathways | Kismet Finance Group",
   description:
-    "Architecting financial trajectories. Property, lending and professional network coordination, brought into one connected picture.",
+    "Property, lending and coordination. Three ways we help you see your options and get the right people in the room.",
 };
 
 export default function PathwaysPage() {
@@ -15,13 +15,13 @@ export default function PathwaysPage() {
     <>
       <Hero
         eyebrow="Strategic Pathways"
-        headline="Architecting financial"
-        headlineMuted="trajectories."
+        headline="Property, lending"
+        headlineMuted="and coordination."
         sub={
           <>
-            We orchestrate complex elements, from property positioning to lending structures, into
-            one cohesive forward-looking strategy. Pathways are curated to align with your overarching
-            ambitions, so every step is purposeful.
+            Three ways we help you see your options. We get the right people in the room, then sit
+            with you while they do their work. The picture stays connected, so the moves you start
+            actually finish.
           </>
         }
         ctaLabel="Begin the Conversation"
@@ -43,22 +43,20 @@ export default function PathwaysPage() {
           <div className="md:col-span-8">
             <Reveal delay={0.06}>
               <h2 className="font-serif text-[32px] md:text-[40px] leading-[1.2] tracking-[-0.012em] text-[#d9e3f2] mb-7 text-balance">
-                Beyond transactions, we coordinate sophisticated conversations across multiple
-                financial domains.
+                The bigger picture is the point. Not the product.
               </h2>
             </Reveal>
             <Reveal delay={0.14}>
               <div className="text-[16px] md:text-[17px] text-[#c4c6cf]/85 leading-[1.78] columns-1 md:columns-2 gap-10">
                 <p className="mb-5 break-inside-avoid">
-                  At Kismet, we believe real momentum requires more than isolated decisions. It
-                  requires a panoramic view of your current position and a clear mapping of the road
-                  ahead. We do not pitch piecemeal solutions; we curate defined pathways that line
-                  up lending, property and professional networks.
+                  Most people don&rsquo;t need a new product. They need someone to see how the
+                  property side, the lending side and the professional side fit together. That
+                  picture is the work.
                 </p>
                 <p>
-                  By acting as the central coordinator, we make sure the disparate elements of your
-                  financial ecosystem are working in harmony toward one objective. This is not about
-                  rapid action, but calculated, long-term positioning.
+                  We sit in the middle and coordinate. We bring the right specialists in, line up
+                  the right conversations and stay in the room while the regulated work happens.
+                  The pace is calm. The picture stays connected.
                 </p>
               </div>
             </Reveal>
@@ -89,12 +87,12 @@ export default function PathwaysPage() {
                 <div className="relative z-10 h-full flex flex-col justify-end p-10 md:p-12">
                   <div aria-hidden className="w-12 h-px bg-[#D4AF37] mb-6" />
                   <h3 className="font-serif text-[28px] md:text-[34px] leading-[1.18] tracking-[-0.012em] text-[#d9e3f2] mb-4">
-                    Property Investment Structuring
+                    Property
                   </h3>
                   <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7] max-w-md">
-                    Coordinating the deliberate expansion of asset positions. We work alongside the
-                    intricate layers of structuring required for significant property activity, so
-                    decisions line up with long-term portfolio goals.
+                    Coordinated property conversations through partners we have known for years. We
+                    help you understand what is on the table and what fits your bigger picture.
+                    Never selling you into anything.
                   </p>
                 </div>
               </article>
@@ -102,45 +100,43 @@ export default function PathwaysPage() {
 
             {/* Pathway 2: Lending */}
             <Reveal delay={0.1} className="md:col-span-4">
-              <article className="bg-[#17202b] border border-[#43474e]/30 gold-edge-top rounded-lg p-10 md:p-12 flex flex-col justify-between h-full">
+              <article className="bg-[#18283d] border border-[#43474e]/30 gold-edge-top rounded-lg p-10 md:p-12 flex flex-col justify-between h-full">
                 <div>
                   <span className="inline-flex items-center justify-center w-14 h-14 rounded text-[#D4AF37] mb-6">
                     <Building className="w-10 h-10" strokeWidth={1.2} />
                   </span>
                   <h3 className="font-serif text-[26px] md:text-[28px] leading-[1.22] tracking-[-0.008em] text-[#d9e3f2] mb-4">
-                    Strategic Lending
+                    Lending
                   </h3>
                 </div>
                 <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7]">
-                  Capital deployment, properly framed. Through our authorised representative
-                  arrangement within the Home Loan Solutions / AFG aggregation network, our broker
-                  partners can draw on a panel of approximately 70 Australian lenders. We sit in the
-                  room while they do the regulated work.
+                  Through our authorised representative arrangement within the Home Loan Solutions
+                  / AFG network, our broker partners can draw on a panel of approximately 70
+                  Australian lenders. We sit in the room while they do the regulated work.
                 </p>
               </article>
             </Reveal>
 
             {/* Pathway 3: Network coordination - wide horizontal */}
             <Reveal delay={0.18} className="md:col-span-12">
-              <article className="bg-[#212b36] border border-[#43474e]/30 rounded-lg flex flex-col md:flex-row items-stretch overflow-hidden">
+              <article className="bg-[#1e3450] border border-[#43474e]/30 rounded-lg flex flex-col md:flex-row items-stretch overflow-hidden">
                 <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded bg-[#0a141e] border border-[#43474e]/40 text-[#D4AF37] mb-6">
                     <Network className="w-6 h-6" />
                   </span>
                   <h3 className="font-serif text-[26px] md:text-[32px] leading-[1.22] tracking-[-0.008em] text-[#d9e3f2] mb-4">
-                    Professional Network Coordination
+                    Coordination
                   </h3>
                   <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7] mb-7 max-w-xl">
-                    The synthesis of expertise. Complex strategies require multifaceted execution.
-                    We act as the central conduit, coordinating between specialist accountants,
-                    SMSF administrators, brokers and project partners so the master strategy moves
-                    cleanly across providers.
+                    Getting the right people in the room. We coordinate between your accountant,
+                    SMSF administrator, broker and property partners so the strategy moves cleanly
+                    across providers, not stuck between them.
                   </p>
                   <Link
                     href="/approach"
                     className="inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.22em] uppercase text-[#D4AF37] hover:text-[#d9e3f2] transition-colors"
                   >
-                    See how the coordination works
+                    See how it works
                     <span aria-hidden>&rarr;</span>
                   </Link>
                 </div>

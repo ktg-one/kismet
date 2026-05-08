@@ -37,7 +37,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
         <Reveal className="md:col-span-8 md:row-span-2">
           <Link
             href={`/insights/${hero.slug}`}
-            className="group bg-[#17202b] hover:bg-[#212b36] transition-colors duration-500 flex flex-col justify-between p-8 md:p-12 relative overflow-hidden h-full rounded-lg"
+            className="group bg-[#18283d] hover:bg-[#1e3450] transition-colors duration-500 flex flex-col justify-between p-8 md:p-12 relative overflow-hidden h-full rounded-lg"
           >
             <div
               aria-hidden
@@ -76,7 +76,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
           <Reveal delay={0.08} className="md:col-span-4">
             <Link
               href={`/insights/${secondary.slug}`}
-              className="group block bg-[#212b36] gold-edge-top hover:bg-[#2c3641] transition-colors duration-500 p-7 md:p-8 h-full flex flex-col justify-between rounded-lg"
+              className="group block bg-[#1e3450] gold-edge-top hover:bg-[#26456a] transition-colors duration-500 p-7 md:p-8 h-full flex flex-col justify-between rounded-lg"
             >
               <div>
                 <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[#c4c6cf]/85 mb-4 block">
@@ -106,7 +106,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
           <Reveal delay={0.14} className="md:col-span-4">
             <Link
               href={`/insights/${tertiary.slug}`}
-              className="group block bg-[#17202b] hover:bg-[#212b36] transition-colors duration-500 p-7 md:p-8 h-full flex flex-col justify-between rounded-lg border border-[#43474e]/30"
+              className="group block bg-[#18283d] hover:bg-[#1e3450] transition-colors duration-500 p-7 md:p-8 h-full flex flex-col justify-between rounded-lg border border-[#43474e]/30"
             >
               <div>
                 <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[#c4c6cf]/85 mb-4 block">

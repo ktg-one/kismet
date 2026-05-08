@@ -32,7 +32,7 @@ export function TeamPortraits({
   stagger?: boolean;
 }) {
   return (
-    <section className="py-24 md:py-32 bg-[#131c27]">
+    <section className="py-24 md:py-32 bg-[#13243a]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="text-center mb-14 md:mb-20">
           <Reveal>
@@ -53,7 +53,7 @@ export function TeamPortraits({
           {people.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.12}>
               <article
-                className={`group relative overflow-hidden rounded-lg bg-[#17202b] aspect-[3/4] ${
+                className={`group relative overflow-hidden rounded-lg bg-[#18283d] aspect-[3/4] ${
                   stagger && i % 2 === 1 ? "md:mt-12" : ""
                 }`}
               >

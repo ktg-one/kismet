@@ -75,7 +75,7 @@ export function ContactInquiry() {
           )}
 
           {status === "fallback" && (
-            <div className="bg-[#17202b]/60 border border-[#43474e]/40 rounded p-7 mb-6 relative z-10">
+            <div className="bg-[#18283d]/60 border border-[#43474e]/40 rounded p-7 mb-6 relative z-10">
               <div className="font-serif text-[20px] text-[#d9e3f2] mb-2 tracking-[-0.005em]">
                 The form is being wired up.
               </div>
@@ -176,13 +176,13 @@ export function ContactInquiry() {
       <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-7">
         {/* Direct contact */}
         <Reveal delay={0.1}>
-          <div className="bg-[#131c27] border border-[#43474e]/30 rounded-lg p-8">
+          <div className="bg-[#13243a] border border-[#43474e]/30 rounded-lg p-8">
             <h3 className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[#D4AF37] mb-6">
               Direct Contact
             </h3>
             <ul className="space-y-6">
               <li className="flex items-start gap-4 group">
-                <div className="mt-0.5 w-10 h-10 rounded-full bg-[#2c3641] flex items-center justify-center group-hover:bg-[#1E3A5F] transition-colors">
+                <div className="mt-0.5 w-10 h-10 rounded-full bg-[#26456a] flex items-center justify-center group-hover:bg-[#1E3A5F] transition-colors">
                   <svg
                     width="18"
                     height="18"
@@ -208,7 +208,7 @@ export function ContactInquiry() {
                 </div>
               </li>
               <li className="flex items-start gap-4 group">
-                <div className="mt-0.5 w-10 h-10 rounded-full bg-[#2c3641] flex items-center justify-center group-hover:bg-[#1E3A5F] transition-colors">
+                <div className="mt-0.5 w-10 h-10 rounded-full bg-[#26456a] flex items-center justify-center group-hover:bg-[#1E3A5F] transition-colors">
                   <svg
                     width="18"
                     height="18"
@@ -235,7 +235,7 @@ export function ContactInquiry() {
                 </div>
               </li>
               <li className="flex items-start gap-4 group">
-                <div className="mt-0.5 w-10 h-10 rounded-full bg-[#2c3641] flex items-center justify-center">
+                <div className="mt-0.5 w-10 h-10 rounded-full bg-[#26456a] flex items-center justify-center">
                   <svg
                     width="18"
                     height="18"
@@ -266,7 +266,7 @@ export function ContactInquiry() {
 
         {/* Booking strip */}
         <Reveal delay={0.18}>
-          <div className="bg-[#17202b] border border-[#43474e]/30 rounded-lg p-8 flex flex-col gap-5">
+          <div className="bg-[#18283d] border border-[#43474e]/30 rounded-lg p-8 flex flex-col gap-5">
             <h3 className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[#D4AF37]">
               Book directly
             </h3>
