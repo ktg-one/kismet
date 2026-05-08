@@ -98,9 +98,9 @@ export default function AboutPage() {
                     Architects, not salespeople.
                   </h3>
                   <p className="text-[15px] text-[#c4c6cf]/85 leading-[1.7]">
-                    We do not sell products. We design blueprints. Every decision is mapped against
-                    your long-term picture, so the moving parts of your financial life work in
-                    harmony.
+                    We don&rsquo;t sell products. We help you see the whole picture before any
+                    specialist gets involved. Every decision lines up with where you actually want
+                    to be in ten or twenty years.
                   </p>
                 </div>
               </div>

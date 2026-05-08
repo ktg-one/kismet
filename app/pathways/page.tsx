@@ -51,12 +51,12 @@ export default function PathwaysPage() {
                 <p className="mb-5 break-inside-avoid">
                   Most people don&rsquo;t need a new product. They need someone to see how the
                   property side, the lending side and the professional side fit together. That
-                  picture is the work.
+                  picture is the actual work.
                 </p>
                 <p>
                   We sit in the middle and coordinate. We bring the right specialists in, line up
-                  the right conversations and stay in the room while the regulated work happens.
-                  The pace is calm. The picture stays connected.
+                  the right conversations, and stay in the room while the regulated work happens.
+                  The pace stays calm. Nothing falls between providers.
                 </p>
               </div>
             </Reveal>
@@ -91,8 +91,8 @@ export default function PathwaysPage() {
                   </h3>
                   <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7] max-w-md">
                     Coordinated property conversations through partners we have known for years. We
-                    help you understand what is on the table and what fits your bigger picture.
-                    Never selling you into anything.
+                    help you see what is genuinely worth a look for someone in your position. We do
+                    not sell you into anything.
                   </p>
                 </div>
               </article>

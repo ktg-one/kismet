@@ -3,9 +3,9 @@ import { InsightsBento } from "@/components/InsightsBento";
 import { listArticles } from "@/lib/articles";
 
 export const metadata = {
-  title: "Strategic Insights | Kismet Finance Group",
+  title: "Insights | Kismet Finance Group",
   description:
-    "Operator notes from Kismet. Short, plain-English reads on lending, structure, SMSF property and the conversations that change outcomes. General information only.",
+    "Short, plain-English reads on lending, structure, SMSF property and the conversations that actually change things. General information only, never advice.",
 };
 
 export default async function Insights() {
@@ -13,13 +13,13 @@ export default async function Insights() {
   return (
     <>
       <Hero
-        eyebrow="Strategic Insights"
+        eyebrow="Insights"
         headline="Why earning more"
         headlineMuted="doesn't always mean getting ahead."
         sub={
           <>
-            Operator notes on lending, structure, SMSF property and the conversations that change
-            outcomes. Short reads, plain English. General information only, never advice.
+            Short reads on lending, structure, SMSF property and the conversations that actually
+            change things. Plain English. General information only, never advice.
           </>
         }
         ctaLabel="Begin the Conversation"

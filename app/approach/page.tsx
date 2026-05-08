@@ -24,14 +24,14 @@ const steps = [
     icon: <Hub className="w-7 h-7" />,
     title: "Coordinate",
     caption: "the right conversations",
-    body: "Strategy doesn't happen in silos. We get your accountant, broker and specialists in the same conversation, so the moves all line up. We sit in the room while they do their regulated work, and translate when needed. You stop having three different versions of the truth.",
+    body: "Strategy falls apart when no one is coordinating. We get your accountant, broker and specialists in the same conversation, so the moves line up. We sit in the room while they do their regulated work, and translate when needed. You stop hearing three different versions of the same answer.",
   },
   {
     number: "03",
     icon: <Sail className="w-7 h-7" />,
     title: "Navigate",
     caption: "the path forward",
-    body: "With a clear picture and a connected team, you can move. The Navigate phase keeps going. Markets shift, legislation changes, your position changes. We stay in the picture, adjusting course when it makes sense. You retain the call. We hold the picture.",
+    body: "With a clear picture and a connected team, you can move. The Navigate part keeps going. Markets shift, legislation changes, your position changes. We stay in the picture and adjust course when it makes sense. You make the calls. We hold the picture.",
   },
 ];
 
@@ -40,13 +40,13 @@ export default function ApproachPage() {
     <>
       <Hero
         eyebrow="How we work"
-        headline="Clarity amidst"
+        headline="Clarity, not"
         headlineMuted="complexity."
         sub={
           <>
             Finance should not be overwhelming. Our approach is three steps. Understand where you
             are. Coordinate the right people. Move forward together. Plain English, calm pace,
-            clean execution.
+            real progress.
           </>
         }
         ctaLabel="Begin the Conversation"
@@ -71,8 +71,9 @@ export default function ApproachPage() {
                   <span className="block text-[#adc8f5]/85">Real coordination.</span>
                 </h3>
                 <p className="text-[16px] md:text-[18px] text-[#c4c6cf] leading-[1.65] mb-8">
-                  We absorb the complexity so you do not have to. You get clear options and the
-                  right people in the room. Steady pace, clean execution.
+                  We deal with the complicated bits so you don&rsquo;t have to. You get clear
+                  options, the right people in the room, and a steady pace. No pressure, no
+                  jargon.
                 </p>
                 <Link href="/contact" className="cta-gold">
                   <span>Begin the Conversation</span>

@@ -23,7 +23,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
       <Reveal>
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 md:mb-14 border-b-[0.5px] border-[#43474e]/30 pb-6">
           <h2 className="font-serif text-[36px] md:text-[44px] leading-[1.15] tracking-[-0.014em] text-[#d9e3f2]">
-            Operator Notes
+            Recent reads
           </h2>
           <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[#c4c6cf]/65">
             {articles.length} pieces
@@ -65,7 +65,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
                 Read briefing <span aria-hidden>&rarr;</span>
               </span>
               <span className="text-[11px] tracking-[0.2em] uppercase text-[#c4c6cf]/55">
-                Kismet Operator
+                Kismet · {hero.readMinutes} min read
               </span>
             </div>
           </Link>

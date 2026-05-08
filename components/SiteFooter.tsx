@@ -65,7 +65,7 @@ export function SiteFooter() {
               harder than they do.
             </p>
             <p className="mt-4 text-[13px] text-[#c4c6cf]/55 italic font-serif max-w-md">
-              Boutique by design. Coordinated, not advisory.
+              Coordinated, not advisory.
             </p>
             <div className="mt-8">
               <h4 className="text-[12px] uppercase tracking-[0.2em] font-semibold text-[#d9e3f2] mb-4">

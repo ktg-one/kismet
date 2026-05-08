@@ -61,7 +61,7 @@ export function ContactInquiry() {
             className="absolute inset-0 rounded-lg border border-[#D4AF37]/10 pointer-events-none"
           />
           <h2 className="font-serif text-[26px] md:text-[32px] leading-[1.25] tracking-[-0.008em] text-[#d9e3f2] mb-8 relative z-10">
-            Direct Inquiry
+            Send us a message
           </h2>
 
           {status === "ok" && (
@@ -179,7 +179,7 @@ export function ContactInquiry() {
         <Reveal delay={0.1}>
           <div className="bg-[#13243a] border border-[#43474e]/30 rounded-lg p-8">
             <h3 className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[#D4AF37] mb-6">
-              Direct Contact
+              Reach the team
             </h3>
             <ul className="space-y-6">
               <li className="flex items-start gap-4 group">

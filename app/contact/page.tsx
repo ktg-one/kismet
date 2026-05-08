@@ -16,8 +16,8 @@ export default function Contact() {
         headlineMuted="conversation."
         sub={
           <>
-            Whether you are preparing your next strategic move or simply exploring pathways for the
-            future, our team is ready to listen. No pitch, no script, no homework.
+            Whether you have a specific question or just want to understand your options, the team
+            is ready to listen. No pitch, no script, no homework.
           </>
         }
         ctaLabel="Skip to the form"
