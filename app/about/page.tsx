@@ -112,6 +112,41 @@ export default function AboutPage() {
                   </p>
                 </div>
               </Reveal>
+
+              {/* Network credentials - authority by attribution, not by claim */}
+              <Reveal delay={0.18}>
+                <aside className="mt-14 md:mt-16 pt-10 border-t border-white/[0.08]">
+                  <div className="flex items-center gap-4 mb-6">
+                    <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">·</span>
+                    <span aria-hidden className="h-px w-8 bg-gold/35" />
+                    <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">On the network</span>
+                  </div>
+                  <h3 className="font-serif text-[1.5rem] md:text-[1.75rem] tracking-[-0.012em] text-white leading-[1.2] mb-5 max-w-2xl">
+                    A short note on the AFG aggregation network.
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-x-10 gap-y-3 text-[14px] md:text-[15px] text-white/65 leading-[1.7] mb-6">
+                    <div>
+                      <span className="text-white/40 text-[10px] uppercase tracking-[0.24em] block mb-1.5">Established</span>
+                      <span>1994 · ASX-listed since 2015</span>
+                    </div>
+                    <div>
+                      <span className="text-white/40 text-[10px] uppercase tracking-[0.24em] block mb-1.5">Scale</span>
+                      <span>Approx. 3,500 brokers Australia-wide</span>
+                    </div>
+                    <div>
+                      <span className="text-white/40 text-[10px] uppercase tracking-[0.24em] block mb-1.5">Lender panel</span>
+                      <span>Approximately 70 Australian lenders</span>
+                    </div>
+                    <div>
+                      <span className="text-white/40 text-[10px] uppercase tracking-[0.24em] block mb-1.5">Licence</span>
+                      <span className="tabular-nums">Australian Finance Group Ltd · ACL 389087</span>
+                    </div>
+                  </div>
+                  <p className="text-[13.5px] md:text-[14px] text-white/45 italic font-serif leading-[1.75] max-w-2xl">
+                    Our authorised representative arrangement sits within this network. Kismet does not hold its own credit licence; the regulated work is done by the licensed brokers in the AFG network we introduce you to.
+                  </p>
+                </aside>
+              </Reveal>
             </div>
           </div>
         </div>
