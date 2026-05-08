@@ -121,14 +121,14 @@ export default function AboutPage() {
             name: "Shane Hewson",
             role: "Founder · Director",
             bring:
-              "Holds the picture. The first call you take, the strategy across the whole position, the long-game thinking that connects the moves.",
+              "Works across the clients and the business. Shapes the strategy, the partnerships, the opportunities and the systems that run Kismet. Steps in directly when the bigger picture needs mapping.",
             status: "active",
           },
           {
             name: "Josh Clark",
             role: "Business Partner",
             bring:
-              "Runs the network. Quiet introductions to the licensed specialists who do the regulated work. The relationships that make doors open without theatre.",
+              "Sits closest to the clients. Guides the relationship from the first conversation through to the next step, coordinates with the right specialists, and keeps people supported the whole way through.",
             imageSrc: "/photos/josh-portrait.jpg",
             imagePosition: "55% 30%",
             status: "active",
