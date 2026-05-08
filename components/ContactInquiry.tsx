@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Reveal } from "./Reveal";
+import { SocialIconRow } from "./Socials";
 
 type Status = "idle" | "loading" | "ok" | "error" | "fallback";
 
@@ -26,7 +27,7 @@ export function ContactInquiry() {
         body: JSON.stringify(data),
       });
     } catch {
-      setErrorText("Connection failed. Please email hello@kismetfinancegroup.com.au.");
+      setErrorText("Connection failed. Please email admin@kismetfinancegroup.com.au.");
       setStatus("error");
       return;
     }
@@ -45,7 +46,7 @@ export function ContactInquiry() {
       setStatus("error");
       return;
     }
-    setErrorText("Something broke on our end. Please try again, or email hello@kismetfinancegroup.com.au.");
+    setErrorText("Something broke on our end. Please try again, or email admin@kismetfinancegroup.com.au.");
     setStatus("error");
   }
 
@@ -82,7 +83,7 @@ export function ContactInquiry() {
               <p className="text-[#c4c6cf]/85 leading-[1.65] mb-5">
                 Until then, the fastest way to reach us is a direct email.
               </p>
-              <a href="mailto:hello@kismetfinancegroup.com.au" className="cta-gold">
+              <a href="mailto:admin@kismetfinancegroup.com.au" className="cta-gold">
                 <span>Email us</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>
               </a>
@@ -227,10 +228,10 @@ export function ContactInquiry() {
                     Email
                   </p>
                   <a
-                    href="mailto:hello@kismetfinancegroup.com.au"
+                    href="mailto:admin@kismetfinancegroup.com.au"
                     className="text-[15px] text-[#d9e3f2] hover:text-[#D4AF37] transition-colors break-all"
                   >
-                    hello@kismetfinancegroup.com.au
+                    admin@kismetfinancegroup.com.au
                   </a>
                 </div>
               </li>
@@ -261,6 +262,14 @@ export function ContactInquiry() {
                 </div>
               </li>
             </ul>
+
+            {/* Socials */}
+            <div className="mt-8 pt-7 border-t-[0.5px] border-[#43474e]/30">
+              <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#c4c6cf]/85 mb-4">
+                Follow
+              </p>
+              <SocialIconRow variant="compact" />
+            </div>
           </div>
         </Reveal>
 

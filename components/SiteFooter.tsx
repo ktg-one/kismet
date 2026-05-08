@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ComplianceLine } from "./ComplianceLine";
 import { Reveal } from "./Reveal";
 import { BrandMark } from "./BrandMark";
+import { SocialIconRow } from "./Socials";
 
 export function SiteFooter() {
   return (
@@ -66,6 +67,12 @@ export function SiteFooter() {
             <p className="mt-4 text-[13px] text-[#c4c6cf]/55 italic font-serif max-w-md">
               Boutique by design. Coordinated, not advisory.
             </p>
+            <div className="mt-8">
+              <h4 className="text-[12px] uppercase tracking-[0.2em] font-semibold text-[#d9e3f2] mb-4">
+                Follow
+              </h4>
+              <SocialIconRow variant="compact" />
+            </div>
           </div>
 
           {/* Explore column */}
@@ -110,10 +117,10 @@ export function SiteFooter() {
             <ul className="space-y-3.5 text-[15px] text-[#c4c6cf]/85">
               <li>
                 <a
-                  href="mailto:hello@kismetfinancegroup.com.au"
+                  href="mailto:admin@kismetfinancegroup.com.au"
                   className="hover:text-[#D4AF37] transition-colors duration-400"
                 >
-                  hello@kismetfinancegroup.com.au
+                  admin@kismetfinancegroup.com.au
                 </a>
               </li>
               <li>

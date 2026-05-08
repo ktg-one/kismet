@@ -84,7 +84,7 @@ const ORGANISATION_JSON_LD = {
   description: DESCRIPTION,
   identifier: { "@type": "PropertyValue", propertyID: "ABN", value: "17 665 148 390" },
   telephone: "+61862858501",
-  email: "hello@kismetfinancegroup.com.au",
+  email: "admin@kismetfinancegroup.com.au",
   address: {
     "@type": "PostalAddress",
     streetAddress: "52 Cooper Road",
@@ -97,7 +97,11 @@ const ORGANISATION_JSON_LD = {
   founder: { "@type": "Person", name: "Shane Hewson" },
   foundingDate: "2024-11-07",
   slogan: "Strategy, structure and access. Coordinated.",
-  sameAs: ["https://www.facebook.com/kismetfs"],
+  sameAs: [
+    "https://www.instagram.com/kismetfinancegroup/",
+    "https://www.facebook.com/kismetfinancegroup",
+    "https://www.linkedin.com/company/kismet-finance-group/",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
