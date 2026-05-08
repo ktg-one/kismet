@@ -37,16 +37,19 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className="relative overflow-hidden hero-atmosphere">
+      {/* Atmosphere intensity follows the page weight - home (with scroll cue) gets the full pull,
+          sub-pages get a quieter wash so the publication tone leads. */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="ambient-orb ambient-orb-gold"
           style={{
             top: "-12%",
             right: "-8%",
-            width: "62vw",
-            height: "62vw",
-            maxWidth: "900px",
-            maxHeight: "900px",
+            width: showScrollCue ? "62vw" : "44vw",
+            height: showScrollCue ? "62vw" : "44vw",
+            maxWidth: showScrollCue ? "900px" : "640px",
+            maxHeight: showScrollCue ? "900px" : "640px",
+            opacity: showScrollCue ? 1 : 0.55,
           }}
           aria-hidden
         />
@@ -55,16 +58,19 @@ export function Hero({
           style={{
             bottom: "-18%",
             left: "-12%",
-            width: "70vw",
-            height: "70vw",
-            maxWidth: "1000px",
-            maxHeight: "1000px",
+            width: showScrollCue ? "70vw" : "50vw",
+            height: showScrollCue ? "70vw" : "50vw",
+            maxWidth: showScrollCue ? "1000px" : "720px",
+            maxHeight: showScrollCue ? "1000px" : "720px",
+            opacity: showScrollCue ? 1 : 0.5,
           }}
           aria-hidden
         />
-        {/* Brand watermark. Ultra-low opacity, sits behind copy, anchors identity. */}
+        {/* Brand watermark. Strongest on the home hero; quieter on sub-pages. */}
         <BrandMark
-          className="absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-gold opacity-[0.045] md:opacity-[0.055] [filter:blur(0.4px)]"
+          className={`absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-gold [filter:blur(0.4px)] ${
+            showScrollCue ? "opacity-[0.045] md:opacity-[0.055]" : "opacity-[0.025] md:opacity-[0.035]"
+          }`}
         />
       </div>
 

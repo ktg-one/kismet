@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Masthead } from "@/components/Masthead";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { GrainOverlay } from "@/components/GrainOverlay";
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans bg-navy-deep text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
         <GrainOverlay />
+        <Masthead />
         <SiteHeader />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>

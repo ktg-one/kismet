@@ -241,9 +241,9 @@ html {
 .display-xl {
   font-family: var(--kismet-font-primary);
   font-weight: 600;
-  font-size: clamp(2.6rem, 6.4vw + 0.5rem, 5.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.022em;
+  font-size: clamp(2.75rem, 7vw + 0.5rem, 6.25rem);
+  line-height: 0.96;
+  letter-spacing: -0.026em;
 }
 
 .display-lg {
