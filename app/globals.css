@@ -42,11 +42,37 @@ h1, h2, h3, h4 {
   color: #FFF6D6;
 }
 
-/* Focus ring, calm and confident */
+/* Focus ring, calm and confident. Two-tone (white + gold) so it reads on any background. */
 :focus-visible {
-  outline: 1px solid rgba(212, 175, 55, 0.6);
-  outline-offset: 4px;
+  outline: 2px solid rgba(212, 175, 55, 0.85);
+  outline-offset: 3px;
   border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(8, 21, 42, 0.85);
+}
+
+/* Skip link — invisible until keyboard-focused, then jumps into view top-left.
+   Anchors to #main-content (set in layout). */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  padding: 12px 22px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0A1A32;
+  background: var(--kismet-gold-gradient);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: transform 250ms var(--ease-cinema);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translate(-50%, 12px);
+  outline: none;
 }
 
 html {

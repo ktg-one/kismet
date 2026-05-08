@@ -114,10 +114,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#0A1A32" />
       </head>
       <body className="font-sans bg-navy-deep text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <GrainOverlay />
         <Masthead />
         <SiteHeader />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           <PageTransition>{children}</PageTransition>
         </main>
         <SiteFooter />

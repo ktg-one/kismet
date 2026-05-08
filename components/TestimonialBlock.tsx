@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useReducedMotion } from "motion/react";
 import { Reveal } from "./Reveal";
 import type { ReactNode } from "react";
 
@@ -34,6 +35,22 @@ export function TestimonialBlock({
   eyebrow?: string;
   heading?: ReactNode;
 }) {
+  const reduce = useReducedMotion();
+  const plugins = useMemo(
+    () =>
+      reduce
+        ? []
+        : [
+            Autoplay({
+              delay: 6500,
+              stopOnInteraction: true,
+              stopOnMouseEnter: true,
+              stopOnFocusIn: true,
+            }),
+          ],
+    [reduce]
+  );
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -41,14 +58,7 @@ export function TestimonialBlock({
       slidesToScroll: 1,
       duration: 35,
     },
-    [
-      Autoplay({
-        delay: 6500,
-        stopOnInteraction: true,
-        stopOnMouseEnter: true,
-        stopOnFocusIn: true,
-      }),
-    ]
+    plugins
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
