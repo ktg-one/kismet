@@ -28,8 +28,8 @@ export default function Contact() {
           <div className="grid grid-cols-12 gap-6 md:gap-12 items-center">
             <div className="col-span-12 md:col-span-6">
               <Photo
-                src="/photos/shane-on-call.jpg"
-                alt="Shane Hewson on a working call"
+                src="/photos/josh-on-call.jpg"
+                alt="A Kismet team member on a working call"
                 aspect="3/2"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
@@ -44,7 +44,7 @@ export default function Contact() {
                   This is the line you book.
                 </h2>
                 <p className="text-[15px] md:text-[16px] text-white/68 leading-[1.78]">
-                  When you book a private call, this is who picks up. No funnel, no junior, no chatbot. The first conversation is between you and Shane.
+                  When you book a private call, you reach the founding team directly. No funnel, no junior, no chatbot. A real conversation with someone who has the picture in their head before you even start talking.
                 </p>
               </Reveal>
             </div>

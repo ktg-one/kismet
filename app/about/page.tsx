@@ -131,6 +131,8 @@ export default function AboutPage() {
             role: "Business Partner",
             bring:
               "Runs the network. Quiet introductions to the licensed specialists who do the regulated work. The relationships that make doors open without theatre.",
+            imageSrc: "/photos/josh-on-call.jpg",
+            imagePosition: "28% 32%",
             status: "active",
           },
           {
