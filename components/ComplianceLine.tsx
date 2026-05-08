@@ -1,6 +1,6 @@
 export function ComplianceLine({ className = "" }: { className?: string }) {
   return (
-    <p className={`text-xs text-neutral/70 leading-relaxed ${className}`}>
+    <p className={`text-[12px] md:text-[12.5px] text-white/60 leading-[1.7] tracking-[0.005em] ${className}`}>
       Kismet Finance Group Pty Ltd (ABN 17 665 148 390) operates as an authorised representative
       within the Home Loan Solutions / Australian Finance Group network. Australian Finance Group
       Ltd holds Australian Credit Licence 389087. Finance introductions are made to brokers in the
