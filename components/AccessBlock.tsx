@@ -43,9 +43,10 @@ export function AccessBlock({
           </div>
           <div className="col-span-12 md:col-span-9">
             <Reveal>
-              <div className="eyebrow eyebrow-with-dot mb-7">
-                <span className="eyebrow-dot" />
-                <span>{eyebrow}</span>
+              <div className="flex items-center gap-4 mb-7">
+                <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">II.</span>
+                <span aria-hidden className="h-px w-10 bg-gold/35" />
+                <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">{eyebrow}</span>
               </div>
             </Reveal>
             <Reveal delay={0.08}>

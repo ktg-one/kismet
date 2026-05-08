@@ -26,10 +26,19 @@ export default async function Insights() {
             </div>
             <div className="col-span-12 md:col-span-9">
               <Reveal>
-                <div className="eyebrow eyebrow-with-dot">
-                  <span className="eyebrow-dot" />
-                  <span>The library</span>
+                <div className="flex items-center gap-4">
+                  <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">I.</span>
+                  <span aria-hidden className="h-px w-8 bg-gold/35" />
+                  <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">The library</span>
                 </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <h2 className="font-serif text-[1.875rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.012em] text-white max-w-2xl mt-7">
+                  Short reads. Real questions.
+                  <span className="block text-white/55 mt-2">
+                    The kind of conversations clients have with us before they become clients.
+                  </span>
+                </h2>
               </Reveal>
             </div>
           </div>

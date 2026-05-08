@@ -30,9 +30,10 @@ export default function AboutPage() {
             <div className="col-span-12 md:col-span-4 lg:col-span-3">
               <Reveal>
                 <div className="md:sticky md:top-32">
-                  <div className="eyebrow eyebrow-with-dot mb-7">
-                    <span className="eyebrow-dot" />
-                    <span>The reason</span>
+                  <div className="flex items-center gap-4 mb-7">
+                    <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">I.</span>
+                    <span aria-hidden className="h-px w-8 bg-gold/35" />
+                    <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">The reason</span>
                   </div>
                   <h2 className="display-md text-white max-w-xs leading-[1.15]">
                     Why we built this
@@ -82,9 +83,10 @@ export default function AboutPage() {
             <div className="col-span-12 md:col-span-4 lg:col-span-3">
               <Reveal>
                 <div className="md:sticky md:top-32">
-                  <div className="eyebrow eyebrow-with-dot mb-7">
-                    <span className="eyebrow-dot" />
-                    <span>How we operate</span>
+                  <div className="flex items-center gap-4 mb-7">
+                    <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">II.</span>
+                    <span aria-hidden className="h-px w-8 bg-gold/35" />
+                    <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">How we operate</span>
                   </div>
                   <h2 className="display-md text-white max-w-xs leading-[1.15]">
                     In plain English

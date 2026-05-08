@@ -77,11 +77,12 @@ export function TestimonialBlock({
       <div className="rule-fade-soft" />
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-24 md:py-40">
         <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
-          <div className="col-span-12 md:col-span-7">
+          <div className="col-span-12 md:col-span-8">
             <Reveal>
-              <div className="eyebrow eyebrow-with-dot mb-7">
-                <span className="eyebrow-dot" />
-                <span>{eyebrow}</span>
+              <div className="flex items-center gap-4 mb-7">
+                <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">III.</span>
+                <span aria-hidden className="h-px w-10 bg-gold/35" />
+                <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">{eyebrow}</span>
               </div>
             </Reveal>
             {heading && (

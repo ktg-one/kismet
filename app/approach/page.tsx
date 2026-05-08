@@ -86,9 +86,10 @@ export default function ApproachPage() {
             <div className="col-span-12 md:col-span-4 lg:col-span-3">
               <Reveal>
                 <div className="md:sticky md:top-32">
-                  <div className="eyebrow eyebrow-with-dot mb-7">
-                    <span className="eyebrow-dot" />
-                    <span>Boundaries</span>
+                  <div className="flex items-center gap-4 mb-7">
+                    <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">II.</span>
+                    <span aria-hidden className="h-px w-8 bg-gold/35" />
+                    <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">Boundaries</span>
                   </div>
                   <h2 className="display-md text-white max-w-xs leading-[1.15]">
                     What we are. What we aren&rsquo;t.
