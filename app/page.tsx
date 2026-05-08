@@ -9,27 +9,26 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Strategic Financial Coordination"
+        eyebrow="Finance, made clearer"
         headline="It may not be an income problem."
-        headlineMuted="It may be a structure, timing and coordination problem."
+        headlineMuted="It might be how the pieces fit together."
         sub={
           <>
-            For everyday Australians who already have something built but feel like the moves
-            aren&rsquo;t lining up. We drive the strategy, open the right doors, and make sure the
-            work you started actually finishes.
+            We help everyday Australians see the bigger picture, connect with the right people, and
+            make the whole process feel clearer.
           </>
         }
-        ctaLabel="Begin the Conversation"
+        ctaLabel="Book a call"
         ctaHref="/contact"
         secondaryHref="/approach"
         secondaryLabel="How We Work"
       />
 
       <BiggerPicture
-        eyebrow="The Why"
+        eyebrow="Why we exist"
         heading="The Bigger Picture"
-        intro="Real outcomes are rarely about one product. They come from how the parts of your financial life fit together. Lending, structure, professionals, timing. We pull all of it together."
-        body="Coordinated, not patched together. Three professionals, one strategy. You don't have to chase the same answer in three places."
+        intro="Most of the time, getting ahead isn't about one product. It's about how lending, property, structure and timing all fit together. That's the part most people never see. We pull it together with you."
+        body="When the moving parts are connected, you stop chasing the same answer in three different places. One strategy. The right people, working from the same page."
         bullets={[
           {
             icon: <Architecture className="w-5 h-5" />,
@@ -38,7 +37,7 @@ export default function Home() {
           },
           {
             icon: <Clock className="w-5 h-5" />,
-            title: "Known over years, not lists",
+            title: "People we actually trust",
             body: "Every broker, accountant, SMSF specialist and project partner is someone we've worked with for years. We only introduce people we'd send our own family to.",
           },
         ]}
@@ -47,24 +46,24 @@ export default function Home() {
       />
 
       <StrategicPathways
-        eyebrow="Strategic Pathways"
-        heading="The work happens in three places."
+        eyebrow="What we do"
+        heading="Three ways we help."
         cards={[
           {
             icon: <Building className="w-6 h-6" />,
             title: "Lending",
-            body: "Around 70 Australian lenders on one panel through our Home Loan Solutions / AFG broker partners. We work the strategy. You get real options that fit your actual position, not whatever your bank happened to be selling that week.",
+            body: "Through our broker partners in the Home Loan Solutions / AFG network, you get access to around 70 Australian lenders. So you see real options that fit your situation, not just whatever the bank happened to be selling that week.",
             size: "lg",
           },
           {
             icon: <ColumnsIcon className="w-6 h-6" />,
             title: "Property",
-            body: "Coordinated property and project conversations through partners we have known and watched work for years. We help you see what is genuinely on the table for someone in your position. We do not sell you into anything.",
+            body: "Property and project partners we have worked with and watched deliver for years. We help you see what is actually worth a look for someone in your situation. We do not push you into anything.",
             goldEdge: true,
           },
         ]}
         hubLabel="Coordination"
-        hubBody="Your accountant, SMSF specialist, broker and project partners, all on the same page because we run the play across all of them. One conversation, one strategy. You stop getting three different versions of the same answer."
+        hubBody="Your accountant, broker, SMSF specialist and project partners, all working from the same plan, because we keep the conversations connected. One strategy. You stop getting three different versions of the same answer."
         hubCta="How We Work"
         hubHref="/approach"
         hubIcon={<Hub className="w-6 h-6" />}
