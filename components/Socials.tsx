@@ -1,4 +1,4 @@
-import { Instagram, Facebook, LinkedIn } from "./Icons";
+import { Instagram, Facebook } from "./Icons";
 
 export interface SocialLink {
   label: string;
@@ -20,11 +20,6 @@ export const SOCIALS: SocialLink[] = [
     label: "Facebook",
     href: "https://www.facebook.com/kismetfinancegroup",
     icon: <Facebook className="w-[18px] h-[18px]" strokeWidth={1.6} />,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/kismet-finance-group/",
-    icon: <LinkedIn className="w-[18px] h-[18px]" strokeWidth={1.6} />,
   },
 ];
 

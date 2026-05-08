@@ -100,7 +100,6 @@ const ORGANISATION_JSON_LD = {
   sameAs: [
     "https://www.instagram.com/kismetfinancegroup/",
     "https://www.facebook.com/kismetfinancegroup",
-    "https://www.linkedin.com/company/kismet-finance-group/",
   ],
 };
 

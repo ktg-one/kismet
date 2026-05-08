@@ -30,10 +30,14 @@ export function TestimonialBlock({
   items,
   eyebrow = "In their words",
   heading,
+  viewAllHref = "https://www.google.com/search?q=Kismet+Finance+Group+Cockburn+Central+reviews",
+  viewAllLabel = "Read all reviews on Google",
 }: {
   items: Testimonial[];
   eyebrow?: string;
   heading?: ReactNode;
+  viewAllHref?: string;
+  viewAllLabel?: string;
 }) {
   const reduce = useReducedMotion();
   const plugins = useMemo(
@@ -181,6 +185,35 @@ export function TestimonialBlock({
               <span>{String(scrollSnaps.length).padStart(2, "0")}</span>
             </div>
           </div>
+        )}
+
+        {/* View all on Google */}
+        {viewAllHref && (
+          <Reveal delay={0.2}>
+            <div className="mt-12 md:mt-14 flex items-center justify-center">
+              <a
+                href={viewAllHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.22em] uppercase text-[#c4c6cf]/85 hover:text-[#D4AF37] transition-colors duration-400 border-b-[0.5px] border-[#43474e]/50 hover:border-[#D4AF37]/60 pb-2"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="text-[#D4AF37]"
+                  aria-hidden
+                >
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor" />
+                </svg>
+                <span>{viewAllLabel}</span>
+                <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">&rarr;</span>
+              </a>
+            </div>
+          </Reveal>
         )}
       </div>
     </section>

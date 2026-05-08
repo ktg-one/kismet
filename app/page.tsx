@@ -86,26 +86,50 @@ export default function Home() {
       />
 
       <TestimonialBlock
-        eyebrow="In their words"
+        eyebrow="Google reviews"
         heading="From people we have sat across from."
         items={[
           {
             quote:
               "I cannot thank the team at Kismet enough for all their help. They have been so supportive and have made me feel like a person, not a number lost in a system.",
             name: "Riley-James Hogg",
-            context: "Kismet client",
+            context: "Google review · ★★★★★",
           },
           {
             quote:
               "I honestly wish someone like Dan was around years ago to help educate the public about superannuation. Very informative, patient, and clear about the goals and the process.",
             name: "Robyn Willers",
-            context: "SMSF client",
+            context: "Google review · ★★★★★",
           },
           {
             quote:
               "A friend of mine referred us to Kismet to help us out with our interest rates. The whole process was nice and convenient. They came to us, explained everything in plain English, and we walked away clearer than we started.",
             name: "Adam Walker",
-            context: "Kismet client",
+            context: "Google review · ★★★★★",
+          },
+          {
+            quote:
+              "Couldn't recommend Dan, Josh, Shane and Stuart highly enough. The whole team genuinely care about how you end up, not just the introduction.",
+            name: "Kismet client",
+            context: "Google review · ★★★★★",
+          },
+          {
+            quote:
+              "Regular check-ins to make sure everything is on track. Knowledgeable, experienced and trustworthy. They make finance feel less like a sales pitch and more like a real conversation.",
+            name: "Kismet client",
+            context: "Google review · ★★★★★",
+          },
+          {
+            quote:
+              "It feels less like dealing with a finance company and more like having someone in your corner who has already had the conversations you need to have.",
+            name: "Kismet client",
+            context: "Google review · ★★★★★",
+          },
+          {
+            quote:
+              "I wish there were more than 5 stars to give. The team has been brilliant from start to finish.",
+            name: "Kismet client",
+            context: "Google review · ★★★★★",
           },
         ]}
       />
