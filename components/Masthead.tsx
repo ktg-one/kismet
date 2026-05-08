@@ -20,7 +20,7 @@ export function Masthead() {
           </span>
 
           <div className="hidden md:flex items-center gap-7 text-[8.5px] tracking-[0.38em] uppercase text-white/45 tabular-nums">
-            <span>Vol. I — MMXXIV</span>
+            <span>Vol. I · MMXXIV</span>
             <span aria-hidden className="h-px w-6 bg-gold/30" />
             <span>Australia</span>
             <span aria-hidden className="h-px w-6 bg-gold/30" />
@@ -28,7 +28,7 @@ export function Masthead() {
           </div>
 
           <div className="md:hidden text-[8.5px] tracking-[0.36em] uppercase text-white/45 tabular-nums">
-            Vol. I — MMXXIV
+            Vol. I · MMXXIV
           </div>
         </div>
       </div>

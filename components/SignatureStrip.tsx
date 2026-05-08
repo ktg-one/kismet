@@ -9,7 +9,7 @@ interface Mark {
 
 /**
  * Hairline-thin authority strip. Sits between hero and content.
- * Reads as a publication masthead or watch dial — calm, factual, established.
+ * Reads as a publication masthead or watch dial: calm, factual, established.
  */
 export function SignatureStrip({
   marks,

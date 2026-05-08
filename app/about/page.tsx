@@ -122,7 +122,7 @@ export default function AboutPage() {
                     <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">On the network</span>
                   </div>
                   <h3 className="font-serif text-[1.5rem] md:text-[1.75rem] tracking-[-0.012em] text-white leading-[1.2] mb-5 max-w-2xl">
-                    A short note on the AFG aggregation network.
+                    What sits behind the introductions.
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-x-10 gap-y-3 text-[14px] md:text-[15px] text-white/65 leading-[1.7] mb-6">
                     <div>
@@ -196,7 +196,7 @@ export default function AboutPage() {
           <Reveal delay={0.18}>
             <div className="mt-12">
               <MagneticCTA href="/contact">
-                <span>Book a private call</span>
+                <span>Sit with us</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>
               </MagneticCTA>
             </div>

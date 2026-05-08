@@ -9,7 +9,7 @@ interface DeclarationProps {
 
 /**
  * Light-tone declaration section. Breaks the dark palette rhythm with a single editorial statement.
- * Cream surface, navy serif type, gold hairline. Used sparingly — once per page max.
+ * Cream surface, navy serif type, gold hairline. Used sparingly: once per page max.
  */
 export function Declaration({
   eyebrow = "A quiet declaration",

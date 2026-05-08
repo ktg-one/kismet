@@ -1,6 +1,6 @@
 ---
 title: "SMSF property in plain English"
-summary: "Self-managed super funds are not for everyone. For the right people, they unlock options that default super does not. Here's the plain version of what to ask before you go anywhere near one."
+summary: "Self-managed super funds are not for everyone. For the right people, they open options that default super does not. Here's the plain version of what to ask before you go anywhere near one."
 date: "2026-05-07"
 readMinutes: 7
 ---
@@ -9,7 +9,7 @@ Most Australians trust their retirement to industry or retail super funds. For m
 
 A self-managed super fund, or SMSF, is a private superannuation structure you run yourself. Instead of a fund manager making decisions about where your retirement savings go, you and up to five other members control the investments. That includes the option to buy property, including investment-grade residential and commercial real estate, directly inside the structure.
 
-The rules are strict. The compliance requirements are real. And the setup costs time and money. But for the right person at the right stage, an SMSF can unlock something that a default fund never will: the ability to direct your retirement savings toward assets you understand and believe in.
+The rules are strict. The compliance requirements are real. And the setup costs time and money. But for the right person at the right stage, an SMSF can open something that a default fund never will: the ability to direct your retirement savings toward assets you understand and believe in.
 
 ## It's not about money. It's about what money unlocks.
 

@@ -92,7 +92,7 @@ export function ArticleLayout({ article }: { article: Article }) {
           <Reveal delay={0.18}>
             <div className="mt-12">
               <MagneticCTA href="/contact">
-                <span>Book a private call</span>
+                <span>Open the conversation</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>
               </MagneticCTA>
             </div>
