@@ -63,9 +63,9 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-12 md:py-20">
           <Photo
             src="/photos/team-focused.jpg"
-            alt="Kismet Finance Group team at work"
+            alt="A small group working together over a laptop"
             caption="The work happens in the room, before anything goes to a specialist."
-            meta="Brisbane · Working session"
+            meta="Working session"
             aspect="16/9"
           />
         </div>

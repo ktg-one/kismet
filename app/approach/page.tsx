@@ -65,9 +65,9 @@ export default function ApproachPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-12 md:py-20">
           <Photo
             src="/photos/client-interaction.jpg"
-            alt="Kismet sitting with a client during a strategy session"
+            alt="Two people focused on a document at a glass table"
             caption="What this actually looks like. A real conversation, before anything is signed."
-            meta="Client session · Working through structure"
+            meta="Working session"
             aspect="16/9"
           />
         </div>
