@@ -9,21 +9,20 @@ export function SiteFooter() {
       <div className="rule-fade" />
 
       {/* Pre-footer statement */}
-      <div className="mx-auto max-w-7xl px-6 md:px-10 pt-28 md:pt-36 pb-20 md:pb-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 md:pt-36 pb-16 md:pb-24">
         <Reveal>
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-1">
               <div className="hidden md:block hero-rule h-20" aria-hidden />
             </div>
             <div className="col-span-12 md:col-span-8">
-              <div className="eyebrow eyebrow-with-dot mb-8">
-                <span className="eyebrow-dot" />
-                <span>The right table</span>
+              <div className="text-[10px] uppercase tracking-[0.32em] text-gold/75 mb-8">
+                One line
               </div>
-              <p className="font-serif text-[1.75rem] md:text-[2.5rem] leading-[1.15] tracking-[-0.012em] text-white/92 max-w-3xl">
-                The right conversation, before the right decision.
+              <p className="font-serif text-[1.875rem] md:text-[2.75rem] leading-[1.12] tracking-[-0.014em] text-white/95 max-w-3xl">
+                By appointment, not advertising.
                 <span className="block text-white/55 mt-3">
-                  Coordinated by people who already know who needs to be in the room.
+                  The line is kept clear for the right calls.
                 </span>
               </p>
               <div className="mt-12">

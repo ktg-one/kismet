@@ -1,6 +1,7 @@
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
 import { ScrollCue } from "./ScrollCue";
+import { BrandMark } from "./BrandMark";
 import type { ReactNode } from "react";
 
 interface HeroProps {
@@ -60,6 +61,10 @@ export function Hero({
             maxHeight: "1000px",
           }}
           aria-hidden
+        />
+        {/* Brand watermark. Ultra-low opacity, sits behind copy, anchors identity. */}
+        <BrandMark
+          className="absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-gold opacity-[0.045] md:opacity-[0.055] [filter:blur(0.4px)]"
         />
       </div>
 

@@ -129,8 +129,6 @@ export default function AboutPage() {
             role: "Business Partner",
             bring:
               "Sits closest to the clients. Guides the relationship from the first conversation through to the next step, coordinates with the right specialists, and keeps people supported the whole way through.",
-            imageSrc: "/photos/josh-portrait.jpg",
-            imagePosition: "55% 30%",
             status: "active",
           },
           {

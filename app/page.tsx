@@ -4,6 +4,7 @@ import { TestimonialBlock } from "@/components/TestimonialBlock";
 import { Photo } from "@/components/Photo";
 import { AccessBlock } from "@/components/AccessBlock";
 import { SignatureStrip } from "@/components/SignatureStrip";
+import { Declaration } from "@/components/Declaration";
 
 export default function Home() {
   return (
@@ -84,6 +85,19 @@ export default function Home() {
         imageSrc="/photos/map-strategy.jpg"
         imageAlt="Real working session, strategy in progress"
         imageMeta="Working session"
+      />
+
+      <Declaration
+        eyebrow="A quiet declaration"
+        statement={
+          <>
+            We don&rsquo;t replace qualified advice.
+            <span className="block opacity-60 mt-3">
+              We help you get to the right table, with the right people, at the right time.
+            </span>
+          </>
+        }
+        signoff="Kismet operating principle"
       />
 
       <TestimonialBlock

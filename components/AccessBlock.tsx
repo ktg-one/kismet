@@ -34,7 +34,7 @@ export function AccessBlock({
   return (
     <section className="atmosphere-deep relative">
       <div className="rule-fade-soft" />
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-32 md:py-44">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-24 md:py-44">
         <div className="grid grid-cols-12 gap-6 md:gap-12 mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-1">
             <Reveal>
@@ -97,11 +97,11 @@ export function AccessBlock({
           {/* Channels column */}
           <div className="col-span-12 lg:col-span-5">
             <Reveal delay={0.12}>
-              <ul className="divide-y divide-white/[0.06]">
+              <ul className="grid sm:grid-cols-2 lg:grid-cols-1 gap-x-8 gap-y-2 sm:divide-y-0 lg:divide-y lg:divide-white/[0.06]">
                 {channels.map((c, i) => (
                   <li
                     key={i}
-                    className="group/item py-6 first:pt-0 last:pb-0 transition-colors duration-500 hover:bg-white/[0.012]"
+                    className="group/item py-6 sm:border-t sm:border-white/[0.06] lg:border-t-0 lg:first:pt-0 lg:last:pb-0 transition-colors duration-500"
                   >
                     <div className="flex items-start gap-5">
                       <span className="index-marker pt-1.5 flex-none">

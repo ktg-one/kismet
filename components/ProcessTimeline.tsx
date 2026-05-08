@@ -24,7 +24,7 @@ export function ProcessTimeline({
 }) {
   return (
     <section className="relative">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-32 md:py-40">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-24 md:py-40">
         {heading && (
           <div className="grid grid-cols-12 gap-6 mb-24 md:mb-32">
             <div className="col-span-12 md:col-span-1">

@@ -21,7 +21,7 @@ export function ValueCardRow({
 }) {
   return (
     <section className="atmosphere-soft relative">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-32 md:py-44">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-24 md:py-44">
         {/* Section header. Dropped eyebrow + dot here, keeps rhythm fresh. */}
         <div className="grid grid-cols-12 gap-6 items-end mb-24 md:mb-32">
           <div className="col-span-12 md:col-span-1">

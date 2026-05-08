@@ -30,7 +30,7 @@ export function FoundersBlock({
 }) {
   return (
     <section className="atmosphere-soft">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-32 md:py-40">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 py-24 md:py-40">
         <div className="grid grid-cols-12 gap-6 mb-20 md:mb-24">
           <div className="col-span-12 md:col-span-1">
             <Reveal>
@@ -78,18 +78,41 @@ export function FoundersBlock({
                     </>
                   ) : (
                     <>
+                      {/* Layered atmosphere - reads as a darkroom plate, not a placeholder */}
                       <div
-                        className="absolute inset-0 transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-90"
+                        className="absolute inset-0 transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                         style={{
                           background:
-                            "radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.18), transparent 65%), radial-gradient(ellipse at 70% 100%, rgba(45, 90, 150, 0.4), transparent 70%), linear-gradient(135deg, #0F2440 0%, #08152A 100%)",
+                            "radial-gradient(ellipse 70% 60% at 35% 28%, rgba(212, 175, 55, 0.16), transparent 72%), radial-gradient(ellipse 90% 80% at 70% 110%, rgba(40, 80, 140, 0.38), transparent 70%), linear-gradient(165deg, #122B4F 0%, #0A1A32 55%, #060F1F 100%)",
                         }}
                         aria-hidden
                       />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-serif text-[6rem] md:text-[5rem] lg:text-[6rem] text-gold/35 tracking-[0.06em] transition-colors duration-700 group-hover:text-gold/55">
-                          {initials(f.name)}
+                      {/* Subtle horizontal scan lines for editorial darkroom feel */}
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 opacity-[0.18] mix-blend-overlay"
+                        style={{
+                          backgroundImage:
+                            "repeating-linear-gradient(180deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 4px)",
+                        }}
+                      />
+                      {/* Initial as architectural element, bottom-left aligned, restrained */}
+                      <div className="absolute inset-0 flex items-end p-7 md:p-8">
+                        <span className="font-serif italic text-[4.5rem] md:text-[5rem] lg:text-[5.5rem] leading-none text-gold/40 tracking-[-0.02em] transition-colors duration-700 group-hover:text-gold/65">
+                          {initials(f.name).split("").map((c, i) => (
+                            <span key={i} className={i === 1 ? "text-gold/22" : ""}>
+                              {c}
+                            </span>
+                          ))}
                         </span>
+                      </div>
+                      {/* Watermark cross-hair at top-right */}
+                      <div
+                        aria-hidden
+                        className="absolute top-6 right-6 flex items-center gap-2 text-[9px] uppercase tracking-[0.32em] text-gold/45"
+                      >
+                        <span className="h-px w-6 bg-gold/30" />
+                        <span>Plate</span>
                       </div>
                     </>
                   )}
