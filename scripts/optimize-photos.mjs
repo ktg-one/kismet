@@ -2,8 +2,8 @@ import sharp from "sharp";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
-const SRC = "photos-raw";
-const DEST = "public/photos";
+const SRC = process.argv[2] || "photos-raw";
+const DEST = process.argv[3] || "public/photos";
 
 const files = (await fs.readdir(SRC)).filter((f) => f.endsWith(".jpg"));
 
@@ -28,7 +28,7 @@ for (const file of files) {
   const after = (await fs.stat(destPath)).size;
   results.push({
     file,
-    beforeMB: (before / 1024 / 1024).toFixed(2),
+    beforeKB: Math.round(before / 1024),
     afterKB: Math.round(after / 1024),
     saved: `${Math.round((1 - after / before) * 100)}%`,
   });

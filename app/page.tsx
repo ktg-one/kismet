@@ -3,28 +3,37 @@ import { ValueCardRow } from "@/components/ValueCardRow";
 import { TestimonialBlock } from "@/components/TestimonialBlock";
 import { Photo } from "@/components/Photo";
 import { AccessBlock } from "@/components/AccessBlock";
+import { SignatureStrip } from "@/components/SignatureStrip";
 
 export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Private finance coordination"
-        headline="Strategy, structure, and access. Coordinated."
+        eyebrow="Private finance coordination · Australia"
+        headline="Strategy, structure and access. Coordinated."
         sub="Kismet works alongside Australians who have already built something. We coordinate the strategy, the structure and the introductions to the licensed specialists who do the regulated work, so the moves you start actually finish."
         ctaLabel="Book a private call"
         ctaHref="/contact"
-        meta="Australia · Established 2024"
       />
 
-      {/* Documentary moment, breaks the grid feel between hero and content */}
+      {/* Authority signature - publication masthead style */}
+      <SignatureStrip
+        marks={[
+          { label: "Established", meta: "MMXXIV" },
+          { label: "Operating from", meta: "Cockburn Central, WA" },
+          { label: "Engagement", meta: "By appointment only" },
+          { label: "Discipline", meta: "Coordination, not advice" },
+        ]}
+      />
+
+      {/* Documentary moment - editorial photo strip */}
       <section className="relative">
-        <div className="rule-fade" />
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
           <Photo
             src="/photos/team-boardroom.jpg"
-            alt="Kismet Finance Group team in a working session"
-            caption="Three minds in the room. The work most decisions need before the regulated specialists step in."
-            meta="Brisbane · Working session"
+            alt="A working session"
+            caption="The work happens in the room, before anything goes to a specialist."
+            meta="Working session"
             aspect="21/9"
             sizes="(min-width: 1024px) 1100px, (min-width: 768px) 90vw, 100vw"
           />
@@ -57,7 +66,7 @@ export default function Home() {
         channels={[
           {
             label: "Strategic property partners",
-            body: "We work with development and project partners we have known for years. Some conversations happen before things go to market. We help you understand them, never sell you into them.",
+            body: "Development and project partners we have known for years. Some conversations happen before things go to market. We help you understand them, never sell you into them.",
           },
           {
             label: "Licensed broker network",
@@ -65,16 +74,16 @@ export default function Home() {
           },
           {
             label: "SMSF and accounting specialists",
-            body: "Self-managed super and structuring specialists who actually understand growth strategy, not just compliance. We coordinate the handover so nothing falls between providers.",
+            body: "Self-managed super and structuring specialists who understand growth strategy, not just compliance. We coordinate the handover so nothing falls between providers.",
           },
           {
             label: "Project and capital conversations",
-            body: "Where appropriate, exposure to private project conversations our network is involved in. Always at arm's length. Always with a licensed specialist doing the regulated work.",
+            body: "Where appropriate, exposure to private project conversations our network is involved in. Always at arm's length, always with a licensed specialist doing the regulated work.",
           },
         ]}
         imageSrc="/photos/map-strategy.jpg"
-        imageAlt="Kismet Finance Group reviewing area-level property strategy"
-        imageMeta="Working session · Area-level strategy"
+        imageAlt="Real working session, strategy in progress"
+        imageMeta="Working session"
       />
 
       <TestimonialBlock
@@ -101,7 +110,7 @@ export default function Home() {
           },
           {
             quote:
-              "Regular check-ins to make sure everything is on track. Knowledgeable, experienced, and trustworthy. The team genuinely care about how you end up, not just the introduction.",
+              "Regular check-ins to make sure everything is on track. Knowledgeable, experienced and trustworthy. They genuinely care about how you end up, not just the introduction.",
             name: "Kismet client",
             context: "Verified review",
           },

@@ -44,8 +44,9 @@ export function TestimonialBlock({
     [
       Autoplay({
         delay: 6500,
-        stopOnInteraction: false,
+        stopOnInteraction: true,
         stopOnMouseEnter: true,
+        stopOnFocusIn: true,
       }),
     ]
   );

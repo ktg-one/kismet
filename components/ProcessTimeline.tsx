@@ -52,10 +52,10 @@ export function ProcessTimeline({
 
           {/* Steps column */}
           <div className="col-span-12 md:col-span-10 lg:col-span-9 relative">
-            {/* Vertical connecting gradient */}
+            {/* Vertical connecting gradient. Visible on mobile (left rail) and desktop (centred under markers). */}
             <div
               aria-hidden
-              className="absolute left-0 md:left-[2.5rem] top-2 bottom-2 w-px bg-gradient-to-b from-gold/40 via-gold/15 to-transparent"
+              className="absolute left-5 md:left-[2.5rem] top-2 bottom-2 w-px bg-gradient-to-b from-gold/40 via-gold/15 to-transparent"
             />
 
             <ol className="space-y-20 md:space-y-24">
