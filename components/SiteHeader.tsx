@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { BrandMark } from "./BrandMark";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -61,17 +62,20 @@ export function SiteHeader() {
         `}
       >
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-5 flex items-center justify-between gap-6">
-          {/* Wordmark */}
+          {/* Wordmark with brand mark */}
           <Link
             href="/"
-            className="font-serif text-lg tracking-[0.22em] text-gold uppercase relative group"
+            className="flex items-center gap-3 group"
             onClick={close}
           >
-            <span>Kismet</span>
-            <span
-              aria-hidden
-              className="absolute -bottom-1 left-0 h-px w-0 bg-gold/60 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
-            />
+            <BrandMark className="w-7 h-7 md:w-8 md:h-8 text-gold/95 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
+            <span className="font-serif text-lg tracking-[0.22em] text-gold uppercase relative">
+              Kismet
+              <span
+                aria-hidden
+                className="absolute -bottom-1 left-0 h-px w-0 bg-gold/60 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
+              />
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -141,10 +145,13 @@ export function SiteHeader() {
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
           <Link
             href="/"
-            className="font-serif text-lg tracking-[0.22em] text-gold uppercase"
+            className="flex items-center gap-3"
             onClick={close}
           >
-            Kismet
+            <BrandMark className="w-7 h-7 text-gold/95" />
+            <span className="font-serif text-lg tracking-[0.22em] text-gold uppercase">
+              Kismet
+            </span>
           </Link>
           <button
             ref={closeRef}

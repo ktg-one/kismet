@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ComplianceLine } from "./ComplianceLine";
 import { Reveal } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
+import { BrandMark } from "./BrandMark";
 
 export function SiteFooter() {
   return (
@@ -42,10 +43,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 md:py-20">
         <div className="grid gap-12 md:gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Link href="/" className="font-serif text-xl tracking-[0.22em] text-gold uppercase">
-              Kismet
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <BrandMark className="w-9 h-9 text-gold/95 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
+              <span className="font-serif text-xl tracking-[0.22em] text-gold uppercase">
+                Kismet
+              </span>
             </Link>
-            <p className="mt-6 text-[15px] text-white/55 max-w-md leading-[1.7]">
+            <p className="mt-7 text-[15px] text-white/55 max-w-md leading-[1.7]">
               Strategic finance coordination for Australians who want their money working harder than they do.
             </p>
             <p className="mt-4 text-[13px] text-white/35 italic font-serif max-w-md">
