@@ -152,7 +152,7 @@ export function TestimonialBlock({
                   aria-selected={i === selectedIndex}
                   aria-label={`Show testimonial ${i + 1}`}
                   onClick={() => scrollTo(i)}
-                  className="group/dot p-2 -m-2"
+                  className="group/dot inline-flex items-center justify-center min-w-[44px] min-h-[44px] -m-3 p-3"
                 >
                   <span
                     className={`block h-px transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${

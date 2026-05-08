@@ -1,24 +1,77 @@
 import Link from "next/link";
 import { ComplianceLine } from "./ComplianceLine";
 import { Reveal } from "./Reveal";
-import { MagneticCTA } from "./MagneticCTA";
 import { BrandMark } from "./BrandMark";
+
+interface NextStepProps {
+  index: string;
+  label: string;
+  title: string;
+  body: string;
+  cta: string;
+  href: string;
+  meta?: string;
+  isPrimary?: boolean;
+}
+
+function NextStep({ index, label, title, body, cta, href, meta, isPrimary }: NextStepProps) {
+  return (
+    <Link
+      href={href}
+      className={`group relative col-span-12 md:col-span-3 lg:col-span-3 flex flex-col h-full p-7 md:p-8 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isPrimary
+          ? "kismet-surface-elevated"
+          : "kismet-surface"
+      }`}
+    >
+      <div className="flex items-center gap-4 mb-7">
+        <span className="font-serif italic text-[14px] text-gold/75 tabular-nums">{index}.</span>
+        <span aria-hidden className="h-px w-6 bg-gold/35" />
+        <span className="text-[10px] uppercase tracking-[0.28em] text-white/55">{label}</span>
+      </div>
+
+      <h3 className="font-serif text-[1.25rem] md:text-[1.4rem] leading-[1.2] tracking-[-0.008em] text-white mb-4">
+        {title}
+      </h3>
+
+      <p className="text-[14.5px] text-white/65 leading-[1.7] mb-7 flex-1">
+        {body}
+      </p>
+
+      <div className="flex flex-wrap items-baseline gap-x-3">
+        <span
+          className={`inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] font-semibold border-b pb-1.5 transition-all duration-500 ${
+            isPrimary
+              ? "text-gold border-gold/60 group-hover:tracking-[0.26em] group-hover:border-gold"
+              : "text-white/85 border-white/25 group-hover:text-gold group-hover:border-gold/60"
+          }`}
+        >
+          <span>{cta}</span>
+          <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">&rarr;</span>
+        </span>
+        {meta && (
+          <span className="text-[11px] text-white/35 tracking-[0.04em]">{meta}</span>
+        )}
+      </div>
+    </Link>
+  );
+}
 
 export function SiteFooter() {
   return (
     <footer className="relative mt-32 atmosphere-deep">
       <div className="rule-fade" />
 
-      {/* Pre-footer statement */}
+      {/* Pre-footer statement + three calm next-step options */}
       <div className="mx-auto max-w-7xl px-6 md:px-10 pt-20 md:pt-36 pb-16 md:pb-24">
         <Reveal>
-          <div className="grid grid-cols-12 gap-6 items-end">
+          <div className="grid grid-cols-12 gap-6 items-end mb-14 md:mb-20">
             <div className="col-span-12 md:col-span-1">
               <div className="hidden md:block hero-rule h-20" aria-hidden />
             </div>
             <div className="col-span-12 md:col-span-8">
               <div className="text-[10px] uppercase tracking-[0.32em] text-gold/75 mb-8">
-                One line
+                Three ways forward
               </div>
               <p className="font-serif text-[1.875rem] md:text-[2.75rem] leading-[1.12] tracking-[-0.014em] text-white/95 max-w-3xl">
                 By appointment, not advertising.
@@ -26,13 +79,39 @@ export function SiteFooter() {
                   The line is kept clear for the right calls.
                 </span>
               </p>
-              <div className="mt-12">
-                <MagneticCTA href="/contact">
-                  <span>Book a private call</span>
-                  <span aria-hidden className="cta-arrow">&rarr;</span>
-                </MagneticCTA>
-              </div>
             </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.12}>
+          <div className="grid grid-cols-12 gap-6 md:gap-8">
+            <div className="hidden md:block col-span-1" aria-hidden />
+            <NextStep
+              index="01"
+              label="Primary"
+              title="Request a private strategy conversation"
+              body="Thirty minutes, no pitch, no obligation. We listen first, ask the right questions, and tell you what we see."
+              cta="Book the call"
+              href="/contact"
+              isPrimary
+            />
+            <NextStep
+              index="02"
+              label="Soft step"
+              title="Read the brief"
+              body="Three short reads on the questions clients have with us before they become clients. Plain English. General information only."
+              cta="Open Insights"
+              href="/insights"
+            />
+            <NextStep
+              index="03"
+              label="Direct"
+              title="Speak with the team"
+              body="If a written note or call works better, the line and the inbox are both monitored Australia-wide business hours."
+              cta="(08) 6285 8501"
+              href="tel:+61862858501"
+              meta="hello@kismetfinancegroup.com.au"
+            />
           </div>
         </Reveal>
       </div>

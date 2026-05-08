@@ -122,18 +122,6 @@ export default function Home() {
             name: "Adam Walker",
             context: "Kismet client",
           },
-          {
-            quote:
-              "Regular check-ins to make sure everything is on track. Knowledgeable, experienced and trustworthy. They genuinely care about how you end up, not just the introduction.",
-            name: "Kismet client",
-            context: "Verified review",
-          },
-          {
-            quote:
-              "It feels less like dealing with a finance company and more like having someone in your corner who has already had the conversations you need to have.",
-            name: "Kismet client",
-            context: "Verified review",
-          },
         ]}
       />
     </>
