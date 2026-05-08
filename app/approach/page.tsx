@@ -57,7 +57,7 @@ export default function ApproachPage() {
       <ThreeStep steps={steps} />
 
       {/* Reassurance / mid-page CTA strip */}
-      <section className="py-20 md:py-24 px-6 md:px-12 lg:px-16">
+      <section className="py-24 md:py-32 px-6 md:px-12 lg:px-16">
         <div className="max-w-[1280px] mx-auto">
           <Reveal>
             <div className="bg-[#1E3A5F]/30 border border-[#43474e]/30 rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 relative overflow-hidden">
@@ -85,7 +85,7 @@ export default function ApproachPage() {
       </section>
 
       {/* Boundaries / what we are and aren't */}
-      <section className="py-20 md:py-28 bg-[#050f19]">
+      <section className="py-24 md:py-32 bg-[#050f19]">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
             <div className="md:col-span-4">
