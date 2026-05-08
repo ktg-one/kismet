@@ -3,6 +3,12 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { Reveal } from "@/components/Reveal";
 import { listArticles } from "@/lib/articles";
 
+export const metadata = {
+  title: "Insights | Kismet Finance Group",
+  description:
+    "Short, plain-English notes from operators on lending, structure, SMSF property and the conversations that change outcomes. General information only.",
+};
+
 export default async function Insights() {
   const articles = await listArticles();
   return (
