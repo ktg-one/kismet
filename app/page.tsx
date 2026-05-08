@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <Hero
         eyebrow="Private finance coordination · Australia"
-        headline="Strategy, structure and access. Coordinated."
-        sub="Kismet works alongside Australians who have already built something. We coordinate the strategy, the structure and the introductions to the licensed specialists who do the regulated work, so the moves you start actually finish."
+        headline="Strategy, structure, access. Coordinated."
+        sub="For Australians who have already built something. We coordinate the moves, and the introductions to the licensed specialists who do the regulated work, so the work you started actually finishes."
         ctaLabel="Book a private call"
         ctaHref="/contact"
       />
