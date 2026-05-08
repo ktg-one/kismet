@@ -37,7 +37,7 @@ export function StrategicPathways({
   hubIcon,
 }: StrategicPathwaysProps) {
   return (
-    <section className="relative py-24 md:py-32 bg-[#0a141e]">
+    <section className="relative py-24 md:py-32 bg-[#0a141e] section-blend-top">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="text-center mb-14 md:mb-20">
           <Reveal>

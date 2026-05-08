@@ -22,12 +22,13 @@ export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <motion.div
       key={pathname}
-      initial={{ opacity: 0, y: 12, scale: 0.992 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 12, scale: 0.992, filter: "blur(2px)" }}
+      animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
       transition={{
         duration: 0.85,
         ease: [0.16, 1, 0.3, 1],
         scale: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
+        filter: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
       }}
     >
       {children}

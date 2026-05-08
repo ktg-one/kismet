@@ -39,7 +39,7 @@ export function Hero({
   bgAlt = "",
 }: HeroProps) {
   return (
-    <section className="relative overflow-hidden hero-atmosphere">
+    <section className="relative overflow-hidden hero-atmosphere hero-scroll-fade vt-hero">
       {/* Background image layer (optional) */}
       {bgImage && (
         <div className="absolute inset-0 z-0">
@@ -85,7 +85,7 @@ export function Hero({
           aria-hidden
         />
         <BrandMark
-          className={`absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-[#D4AF37] [filter:blur(0.4px)] ${
+          className={`hero-watermark absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-[#D4AF37] [filter:blur(0.4px)] ${
             showScrollCue ? "opacity-[0.045] md:opacity-[0.055]" : "opacity-[0.025] md:opacity-[0.035]"
           }`}
         />
