@@ -59,10 +59,16 @@ export function SiteHeader() {
         `}
       >
         <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between gap-6">
-          {/* Wordmark with brand mark */}
-          <Link href="/" className="flex items-center gap-3 group" onClick={close}>
-            <BrandMark className="vt-brand-mark w-10 h-10 md:w-11 md:h-11 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
-            <span className="font-serif text-[20px] md:text-[22px] tracking-[0.2em] text-[#D4AF37] uppercase font-semibold">
+          {/* Brand lockup. Icon-led: gold mark, restrained off-white wordmark.
+              Sized to peer with the nav links, not tower over them. */}
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group -my-1"
+            onClick={close}
+            aria-label="Kismet Finance Group, home"
+          >
+            <BrandMark className="vt-brand-mark w-8 h-8 md:w-9 md:h-9 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[6deg]" />
+            <span className="font-serif text-[15px] md:text-[16px] tracking-[0.16em] text-[#d9e3f2] uppercase font-medium leading-none mt-px">
               Kismet
             </span>
           </Link>
@@ -128,9 +134,14 @@ export function SiteHeader() {
         aria-label="Navigation menu"
       >
         <div className="flex items-center justify-between px-6 py-5 border-b-[0.5px] border-[#43474e]/40">
-          <Link href="/" className="flex items-center gap-3" onClick={close}>
-            <BrandMark className="w-10 h-10 text-[#D4AF37]" />
-            <span className="font-serif text-[20px] tracking-[0.2em] text-[#D4AF37] uppercase font-semibold">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5"
+            onClick={close}
+            aria-label="Kismet Finance Group, home"
+          >
+            <BrandMark className="w-8 h-8 text-[#D4AF37]" />
+            <span className="font-serif text-[15px] tracking-[0.16em] text-[#d9e3f2] uppercase font-medium leading-none mt-px">
               Kismet
             </span>
           </Link>
