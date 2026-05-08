@@ -28,7 +28,7 @@ export default function Contact() {
           <div className="grid grid-cols-12 gap-6 md:gap-12 items-center">
             <div className="col-span-12 md:col-span-6">
               <Photo
-                src="/photos/josh-on-call.jpg"
+                src="/photos/working-call.jpg"
                 alt="A Kismet team member on a working call"
                 aspect="3/2"
                 sizes="(min-width: 768px) 50vw, 100vw"

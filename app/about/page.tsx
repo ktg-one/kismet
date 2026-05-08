@@ -122,8 +122,6 @@ export default function AboutPage() {
             role: "Founder · Director",
             bring:
               "Holds the picture. The first call you take, the strategy across the whole position, the long-game thinking that connects the moves.",
-            imageSrc: "/photos/shane-portrait.jpg",
-            imagePosition: "50% 28%",
             status: "active",
           },
           {
@@ -131,8 +129,8 @@ export default function AboutPage() {
             role: "Business Partner",
             bring:
               "Runs the network. Quiet introductions to the licensed specialists who do the regulated work. The relationships that make doors open without theatre.",
-            imageSrc: "/photos/josh-on-call.jpg",
-            imagePosition: "28% 32%",
+            imageSrc: "/photos/josh-portrait.jpg",
+            imagePosition: "55% 30%",
             status: "active",
           },
           {
