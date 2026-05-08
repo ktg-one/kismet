@@ -42,7 +42,7 @@ export default function PathwaysPage() {
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.06}>
-              <h2 className="font-serif text-[32px] md:text-[40px] leading-[1.2] tracking-[-0.012em] text-[#d9e3f2] mb-7 text-balance">
+              <h2 className="font-serif text-[36px] md:text-[44px] lg:text-[48px] leading-[1.15] tracking-[-0.014em] text-[#d9e3f2] mb-7 text-balance">
                 The bigger picture is the point. Not the product.
               </h2>
             </Reveal>

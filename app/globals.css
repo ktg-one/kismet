@@ -62,9 +62,9 @@ p {
 }
 
 h1, h2, h3, h4 {
-  font-family: Georgia, "Berlingske Serif", serif;
-  font-weight: 600;
-  font-feature-settings: "ss01", "kern", "liga";
+  font-family: var(--font-newsreader), Georgia, "Berlingske Serif", serif;
+  font-weight: 500;
+  font-feature-settings: "ss01", "kern", "liga", "calt";
 }
 
 ::selection {

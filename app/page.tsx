@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Finance, made clearer"
+        eyebrow="Strategic Finance Coordination"
         headline="It may not be an income problem."
-        headlineMuted="It might be how the pieces fit together."
+        headlineMuted="It's a structure, timing and coordination problem."
         sub={
           <>
             We help everyday Australians see the bigger picture, connect with the right people, and
@@ -19,7 +19,7 @@ export default function Home() {
           </>
         }
         ctaLabel="Book a call"
-        ctaHref="/contact"
+        ctaHref={process.env.NEXT_PUBLIC_BOOKING_URL ?? "/contact"}
         secondaryHref="/approach"
         secondaryLabel="How We Work"
       />
