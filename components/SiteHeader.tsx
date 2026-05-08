@@ -63,12 +63,12 @@ export function SiteHeader() {
               for authoritative presence without the original stretch. */}
           <Link
             href="/"
-            className="flex items-center gap-3 group -my-1"
+            className="flex items-center gap-4 group -my-2"
             onClick={close}
             aria-label="Kismet Finance Group, home"
           >
-            <BrandMark className="vt-brand-mark w-9 h-9 md:w-10 md:h-10 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
-            <span className="font-serif text-[16px] md:text-[17px] tracking-[0.18em] text-[#D4AF37] uppercase font-semibold leading-none mt-px">
+            <BrandMark className="vt-brand-mark w-24 h-24 md:w-32 md:h-32 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[6deg]" />
+            <span className="font-serif text-[34px] md:text-[44px] tracking-[0.14em] text-[#D4AF37] uppercase font-semibold leading-none">
               Kismet
             </span>
           </Link>
@@ -136,12 +136,12 @@ export function SiteHeader() {
         <div className="flex items-center justify-between px-6 py-5 border-b-[0.5px] border-[#43474e]/40">
           <Link
             href="/"
-            className="flex items-center gap-3"
+            className="flex items-center gap-4"
             onClick={close}
             aria-label="Kismet Finance Group, home"
           >
-            <BrandMark className="w-9 h-9 text-[#D4AF37]" />
-            <span className="font-serif text-[16px] tracking-[0.18em] text-[#D4AF37] uppercase font-semibold leading-none mt-px">
+            <BrandMark className="w-24 h-24 text-[#D4AF37]" />
+            <span className="font-serif text-[34px] tracking-[0.14em] text-[#D4AF37] uppercase font-semibold leading-none">
               Kismet
             </span>
           </Link>
