@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
-import { TeamPortraits } from "@/components/TeamPortraits";
 import { Forum, Architecture, Eye } from "@/components/Icons";
 
 export const metadata = {
@@ -71,13 +70,14 @@ export default function AboutPage() {
                       people in the room. Steady pace. The picture stays connected.
                     </p>
                   </div>
-                  <div className="w-full md:w-1/2 h-[320px] md:h-auto relative bg-[#0a141e]">
+                  <div className="w-full md:w-1/2 h-[420px] md:h-auto md:min-h-[520px] relative bg-[#0a141e]">
                     <Image
-                      src="/photos/client-interaction.jpg"
-                      alt="A focused two-person working session"
+                      src="/photos/shane-josh.jpg"
+                      alt="Shane Hewson and Josh Clark, founders of Kismet Finance Group"
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover opacity-90"
+                      style={{ objectPosition: "50% 35%" }}
+                      className="object-cover"
                     />
                     <div
                       aria-hidden
@@ -158,16 +158,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* The team */}
-      <TeamPortraits
-        eyebrow="The People"
-        heading="The names that pick up when you call."
-        people={[
-          { name: "Josh", role: "Business Partner" },
-          { name: "Shane", role: "Founder · Director" },
-        ]}
-      />
 
       {/* Network credentials */}
       <section className="py-20 md:py-28 bg-[#050f19]">

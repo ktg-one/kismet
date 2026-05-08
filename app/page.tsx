@@ -22,7 +22,7 @@ export default function Home() {
         ctaLabel="Begin the Conversation"
         ctaHref="/contact"
         secondaryHref="/approach"
-        secondaryLabel="Explore Our Strategy"
+        secondaryLabel="How We Work"
       />
 
       <BiggerPicture
@@ -52,20 +52,20 @@ export default function Home() {
         cards={[
           {
             icon: <Building className="w-6 h-6" />,
-            title: "Lending Mastery",
-            body: "Through our authorised representative arrangement within the Home Loan Solutions / AFG aggregation network, our broker partners can draw on a panel of approximately 70 Australian lenders. We sit in the room while the regulated work is done.",
+            title: "Lending",
+            body: "Through our authorised representative arrangement within the Home Loan Solutions / AFG network, our broker partners can draw on a panel of approximately 70 Australian lenders. We sit in the room while they do the regulated work.",
             size: "lg",
           },
           {
             icon: <ColumnsIcon className="w-6 h-6" />,
-            title: "Property Intelligence",
-            body: "Coordinated property and project conversations through partners we have known for years. We help you understand them, never sell you into them.",
+            title: "Property",
+            body: "Coordinated property and project conversations through partners we have known for years. We help you understand what is on the table. Never selling you into anything.",
             goldEdge: true,
           },
         ]}
-        hubLabel="The Coordination Hub"
-        hubBody="We sit between you and the licensed accountants, SMSF specialists, brokers and project partners. Every moving part synchronised to one strategy."
-        hubCta="See How We Work"
+        hubLabel="Coordination"
+        hubBody="We sit between you and your accountant, SMSF specialist, broker and project partners. Every moving part lined up around one strategy."
+        hubCta="How We Work"
         hubHref="/approach"
         hubIcon={<Hub className="w-6 h-6" />}
       />

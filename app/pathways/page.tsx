@@ -36,7 +36,7 @@ export default function PathwaysPage() {
             <Reveal>
               <span className="inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.2em] uppercase text-[#D4AF37]">
                 <span aria-hidden className="w-6 h-px bg-[#D4AF37]/60" />
-                The Orchestration
+                How it fits together
               </span>
             </Reveal>
           </div>

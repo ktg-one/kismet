@@ -75,7 +75,7 @@ export default function ApproachPage() {
                   right people in the room. Steady pace, clean execution.
                 </p>
                 <Link href="/contact" className="cta-gold">
-                  <span>Start the Conversation</span>
+                  <span>Begin the Conversation</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </Link>
               </div>
