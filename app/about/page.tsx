@@ -105,7 +105,7 @@ export default function AboutPage() {
                     From there we bring in the right specialists. Brokers, accountants, SMSF administrators, property and project partners. The licensed people who handle the regulated work. We sit in the room while they do it, so the right things get heard and nothing falls between the cracks.
                   </p>
                   <p>
-                    On the finance side, we work under an authorised representative arrangement with Home Loan Solutions, part of the Australian Finance Group aggregation network. That opens our broker partners&rsquo; panels to 70+ Australian lenders. We are not the broker. Our role is making sure the right one is in the room with you.
+                    On the finance side, we operate as authorised representatives within the Home Loan Solutions / Australian Finance Group network. That gives the brokers we introduce access to AFG&rsquo;s panel of approximately 70 Australian lenders. We are not the broker, and we don&rsquo;t hold our own credit licence. Our role is making sure the right broker is in the room, then staying in the room with you while they do their regulated work.
                   </p>
                   <p>
                     We stay in the picture for the long haul. Our work doesn&rsquo;t end at the introduction. We follow up, coordinate, and keep things moving. The clients we work with are typically Australians who have built something real and want to make sure it is working as hard as they have.

@@ -21,8 +21,8 @@ export default function Home() {
       <SignatureStrip
         marks={[
           { label: "Established", meta: "MMXXIV · Australia" },
-          { label: "Authorised representative", meta: "Home Loan Solutions · AFG" },
-          { label: "Lender network", meta: "70+ Australian lenders" },
+          { label: "AR network", meta: "Home Loan Solutions / AFG" },
+          { label: "Aggregator panel", meta: "~70 lenders via AFG" },
           { label: "Discipline", meta: "Coordination, not advice" },
         ]}
       />
@@ -62,8 +62,8 @@ export default function Home() {
 
       <AccessBlock
         eyebrow="Where strategy meets access"
-        heading="Some pathways begin long before they become public."
-        intro="A real strategy is built from the right inputs. We sit close to the conversations and partners that shape outcomes for our clients, then bring the licensed specialists in once the picture is clear. Nothing here is a promise of opportunity. It is a description of where we operate."
+        heading="Some conversations begin long before they become public."
+        intro="A real strategy is built from the right inputs. We sit close to the conversations and partners that shape outcomes for our clients, then bring the licensed specialists in once the picture is clear. Nothing here is a promise of opportunity or returns. It is a description of where we operate and how we work."
         channels={[
           {
             label: "Strategic property partners",
@@ -71,7 +71,7 @@ export default function Home() {
           },
           {
             label: "Licensed broker network",
-            body: "Through our authorised representative arrangement with Home Loan Solutions (AFG aggregator network), our broker partners have access to 70+ Australian lenders. We sit in the room while they do the regulated work, so the question being answered is the right one.",
+            body: "As authorised representatives within the Home Loan Solutions / AFG aggregation network, we connect you with brokers who can draw on a panel of approximately 70 Australian lenders. The brokers do the regulated work; we sit in the room while they do, so the question being answered is the right one.",
           },
           {
             label: "SMSF and accounting specialists",

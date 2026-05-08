@@ -34,11 +34,11 @@ const steps = [
 ];
 
 const negatives = [
-  "We don't hold an AFSL",
-  "We don't provide personal financial advice",
+  "We don't hold our own AFSL or Australian Credit Licence",
+  "We don't provide personal financial, credit or tax advice",
   "We don't sell financial products",
-  "We don't take commissions from you",
-  "We don't pressure you toward any provider",
+  "We don't take fees or commissions from you",
+  "We don't pressure you toward any specific provider",
 ];
 
 export default function ApproachPage() {
@@ -101,7 +101,7 @@ export default function ApproachPage() {
             <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
               <Reveal delay={0.1}>
                 <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-8">
-                  Kismet Finance Group operates as a strategic coordinator. On the finance side we are an authorised representative of Home Loan Solutions, a member of the Australian Finance Group aggregation network. That opens our broker partners&rsquo; panels to 70+ Australian lenders.
+                  Kismet Finance Group operates as a strategic coordinator. On the finance side we operate as authorised representatives within the Home Loan Solutions / Australian Finance Group network (Australian Finance Group Ltd, Australian Credit Licence 389087). That gives the brokers we introduce access to AFG&rsquo;s panel of approximately 70 Australian lenders.
                 </p>
               </Reveal>
 
