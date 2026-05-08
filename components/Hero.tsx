@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
 import { ScrollCue } from "./ScrollCue";
@@ -7,38 +8,55 @@ import type { ReactNode } from "react";
 interface HeroProps {
   eyebrow: string;
   headline: string;
+  /** Optional second-line text shown below the headline in muted blue. */
+  headlineMuted?: string;
   sub: ReactNode;
   ctaLabel: string;
   ctaHref: string;
-  /** Secondary ghost CTA. Defaults to How We Work. */
   secondaryHref?: string;
   secondaryLabel?: string;
   showScrollCue?: boolean;
+  /** Optional background image url (cinematic atmosphere). */
+  bgImage?: string;
+  bgAlt?: string;
 }
 
 /**
- * Editorial cinema hero. Restraint over flash.
- *
- * - One signature line headline, word-stagger reveal on calm cinematic ease
- * - One subhead, one primary CTA, one secondary ghost CTA
- * - Ambient gold + navy orb drift behind
- * - No vertical right-rail tag (was templated, now SignatureStrip handles authority anchoring)
- * - Hairline editorial rule on the left
+ * Cinematic hero. Stitch-aligned: background image with smoke gradient overlay,
+ * editorial typography, primary gold CTA + ghost secondary.
  */
 export function Hero({
   eyebrow,
   headline,
+  headlineMuted,
   sub,
   ctaLabel,
   ctaHref,
-  secondaryHref = "/approach",
-  secondaryLabel = "How we work",
+  secondaryHref,
+  secondaryLabel,
   showScrollCue = true,
+  bgImage,
+  bgAlt = "",
 }: HeroProps) {
   return (
     <section className="relative overflow-hidden hero-atmosphere">
-      {/* Atmosphere intensity follows the page weight - home (with scroll cue) gets the full pull,
-          sub-pages get a quieter wash so the publication tone leads. */}
+      {/* Background image layer (optional) */}
+      {bgImage && (
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={bgImage}
+            alt={bgAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a141e] via-[#0a141e]/80 to-transparent" />
+          <div className="absolute inset-0 smoke-gradient" />
+        </div>
+      )}
+
+      {/* Ambient orbs - quieter on sub-pages */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="ambient-orb ambient-orb-gold"
@@ -49,7 +67,7 @@ export function Hero({
             height: showScrollCue ? "62vw" : "44vw",
             maxWidth: showScrollCue ? "900px" : "640px",
             maxHeight: showScrollCue ? "900px" : "640px",
-            opacity: showScrollCue ? 1 : 0.55,
+            opacity: showScrollCue ? 0.85 : 0.45,
           }}
           aria-hidden
         />
@@ -62,55 +80,59 @@ export function Hero({
             height: showScrollCue ? "70vw" : "50vw",
             maxWidth: showScrollCue ? "1000px" : "720px",
             maxHeight: showScrollCue ? "1000px" : "720px",
-            opacity: showScrollCue ? 1 : 0.5,
+            opacity: showScrollCue ? 0.8 : 0.4,
           }}
           aria-hidden
         />
-        {/* Brand watermark. Strongest on the home hero; quieter on sub-pages. */}
         <BrandMark
-          className={`absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-gold [filter:blur(0.4px)] ${
+          className={`absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-[#D4AF37] [filter:blur(0.4px)] ${
             showScrollCue ? "opacity-[0.045] md:opacity-[0.055]" : "opacity-[0.025] md:opacity-[0.035]"
           }`}
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10 pt-32 md:pt-44 pb-24 md:pb-44 min-h-[78vh] md:min-h-[88vh] flex flex-col">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-20 md:pb-32 min-h-[80vh] md:min-h-[88vh] flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-1">
-          <div className="hidden md:flex col-span-1 justify-center pt-3">
-            <div className="hero-rule h-44" />
-          </div>
-
-          <div className="col-span-12 md:col-span-10 lg:col-span-9 flex flex-col">
+          <div className="col-span-12 lg:col-span-9 flex flex-col justify-center">
             <Reveal>
-              <div className="text-[10px] uppercase tracking-[0.32em] text-gold/85 mb-12">
+              <span className="inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-8">
+                <span aria-hidden className="w-8 h-px bg-[#D4AF37]" />
                 {eyebrow}
-              </div>
+              </span>
             </Reveal>
 
             <RevealWords
               text={headline}
               as="h1"
-              className="display-xl text-white max-w-[20ch]"
+              className="font-serif text-[44px] sm:text-[56px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-[-0.022em] text-[#d9e3f2] text-balance max-w-[20ch]"
               delay={0.05}
-              stagger={0.055}
+              stagger={0.05}
             />
 
+            {headlineMuted && (
+              <Reveal delay={0.4}>
+                <p className="font-serif text-[28px] sm:text-[36px] md:text-[44px] lg:text-[50px] leading-[1.12] tracking-[-0.014em] text-[#adc8f5]/85 text-balance mt-4 max-w-[22ch]">
+                  {headlineMuted}
+                </p>
+              </Reveal>
+            )}
+
             <Reveal delay={0.55} y={18}>
-              <div className="mt-12 md:mt-14 text-base md:text-lg text-white/65 max-w-xl leading-[1.78]">
+              <div className="mt-10 md:mt-12 text-[17px] md:text-[18px] text-[#c4c6cf] leading-[1.7] max-w-2xl">
                 {sub}
               </div>
             </Reveal>
 
             <Reveal delay={0.72} y={14}>
-              <div className="mt-14 md:mt-16 flex flex-wrap items-center gap-x-10 gap-y-6">
+              <div className="mt-12 md:mt-14 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <MagneticCTA href={ctaHref}>
                   <span>{ctaLabel}</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </MagneticCTA>
-
-                {secondaryHref && (
+                {secondaryHref && secondaryLabel && (
                   <a href={secondaryHref} className="cta-ghost">
-                    {secondaryLabel}
+                    <span>{secondaryLabel}</span>
+                    <span aria-hidden className="cta-arrow">&rarr;</span>
                   </a>
                 )}
               </div>
@@ -119,7 +141,7 @@ export function Hero({
         </div>
 
         {showScrollCue && (
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <div className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2">
             <ScrollCue />
           </div>
         )}

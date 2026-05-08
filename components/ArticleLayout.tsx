@@ -12,16 +12,24 @@ export function ArticleLayout({ article }: { article: Article }) {
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="ambient-orb ambient-orb-gold"
-            style={{ top: "-10%", right: "-6%", width: "55vw", height: "55vw", maxWidth: "780px", maxHeight: "780px", opacity: 0.6 }}
+            style={{
+              top: "-10%",
+              right: "-6%",
+              width: "55vw",
+              height: "55vw",
+              maxWidth: "780px",
+              maxHeight: "780px",
+              opacity: 0.55,
+            }}
             aria-hidden
           />
         </div>
 
-        <div className="relative mx-auto max-w-4xl px-6 md:px-10 pt-32 md:pt-44 pb-20 md:pb-28">
+        <div className="relative max-w-[1100px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-40 pb-16 md:pb-24">
           <Reveal>
             <Link
               href="/insights"
-              className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-white/55 hover:text-gold transition-colors duration-500 mb-12"
+              className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-[#c4c6cf]/65 hover:text-[#D4AF37] transition-colors duration-500 mb-12"
             >
               <span aria-hidden>&larr;</span>
               <span>Back to Insights</span>
@@ -29,51 +37,50 @@ export function ArticleLayout({ article }: { article: Article }) {
           </Reveal>
 
           <Reveal>
-            <div className="eyebrow eyebrow-with-dot mb-10">
-              <span className="eyebrow-dot" />
-              <span>{article.readMinutes} min read · Kismet Insights</span>
-            </div>
+            <span className="inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-8">
+              <span aria-hidden className="w-6 h-px bg-[#D4AF37]/60" />
+              {article.readMinutes} min read · Kismet Operator Notes
+            </span>
           </Reveal>
 
           <RevealWords
             text={article.title}
             as="h1"
-            className="font-serif text-[2.25rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] leading-[1.06] tracking-[-0.018em] text-white max-w-[20ch]"
+            className="font-serif text-[36px] sm:text-[44px] md:text-[56px] lg:text-[64px] leading-[1.06] tracking-[-0.018em] text-[#d9e3f2] max-w-[20ch] text-balance"
             delay={0.05}
             stagger={0.045}
           />
 
           <Reveal delay={0.5}>
-            <p className="mt-10 text-[18px] md:text-[20px] text-white/72 leading-[1.6] max-w-2xl">
+            <p className="mt-8 md:mt-10 text-[18px] md:text-[20px] text-[#c4c6cf]/85 leading-[1.6] max-w-2xl">
               {article.summary}
             </p>
           </Reveal>
         </div>
-        <div className="rule-fade" />
       </header>
 
       {/* Article body */}
-      <article className="atmosphere-soft">
-        <div className="mx-auto max-w-3xl px-6 md:px-10 pt-20 md:pt-28 pb-24 md:pb-32">
+      <article className="bg-[#050f19]">
+        <div className="max-w-[800px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-20 md:pb-28">
           <Reveal>
             <div
               className="prose prose-invert prose-lg max-w-none
-                         prose-headings:font-serif prose-headings:text-white prose-headings:tracking-[-0.012em]
-                         prose-h2:mt-20 prose-h2:mb-8 prose-h2:text-[1.875rem] md:prose-h2:text-[2.25rem] prose-h2:leading-[1.2]
-                         prose-h3:mt-14 prose-h3:mb-5 prose-h3:text-[1.375rem] md:prose-h3:text-[1.625rem] prose-h3:leading-[1.25]
-                         prose-p:text-white/80 prose-p:leading-[1.85] prose-p:text-[17px] md:prose-p:text-[18px]
-                         prose-strong:text-white prose-strong:font-semibold
-                         prose-em:text-gold prose-em:not-italic
-                         prose-a:text-gold prose-a:no-underline prose-a:border-b prose-a:border-gold/40 hover:prose-a:border-gold
-                         prose-ul:text-white/80 prose-ul:my-8
-                         prose-li:text-white/80 prose-li:leading-[1.8] prose-li:my-2
-                         prose-blockquote:border-l-gold/50 prose-blockquote:text-white/85 prose-blockquote:font-serif prose-blockquote:not-italic prose-blockquote:text-[1.25rem] prose-blockquote:leading-[1.5] prose-blockquote:pl-7"
+                         prose-headings:font-serif prose-headings:text-[#d9e3f2] prose-headings:tracking-[-0.012em]
+                         prose-h2:mt-16 prose-h2:mb-7 prose-h2:text-[28px] md:prose-h2:text-[36px] prose-h2:leading-[1.2]
+                         prose-h3:mt-12 prose-h3:mb-5 prose-h3:text-[22px] md:prose-h3:text-[26px] prose-h3:leading-[1.25]
+                         prose-p:text-[#c4c6cf] prose-p:leading-[1.8] prose-p:text-[16px] md:prose-p:text-[18px]
+                         prose-strong:text-[#d9e3f2] prose-strong:font-semibold
+                         prose-em:text-[#D4AF37] prose-em:not-italic
+                         prose-a:text-[#D4AF37] prose-a:no-underline prose-a:border-b prose-a:border-[#D4AF37]/40 hover:prose-a:border-[#D4AF37]
+                         prose-ul:text-[#c4c6cf] prose-ul:my-7
+                         prose-li:text-[#c4c6cf] prose-li:leading-[1.8] prose-li:my-2
+                         prose-blockquote:border-l-[#D4AF37]/50 prose-blockquote:text-[#d9e3f2]/85 prose-blockquote:font-serif prose-blockquote:not-italic prose-blockquote:text-[20px] prose-blockquote:leading-[1.5] prose-blockquote:pl-7"
               dangerouslySetInnerHTML={{ __html: article.html }}
             />
           </Reveal>
 
           <Reveal>
-            <div className="mt-24 pt-10 border-t border-white/[0.07]">
+            <div className="mt-20 pt-10 border-t-[0.5px] border-[#43474e]/30">
               <ComplianceLine />
             </div>
           </Reveal>
@@ -81,16 +88,16 @@ export function ArticleLayout({ article }: { article: Article }) {
       </article>
 
       {/* Closing CTA */}
-      <section className="relative atmosphere-deep">
-        <div className="rule-fade" />
-        <div className="mx-auto max-w-4xl px-6 md:px-10 py-28 md:py-36 text-center">
+      <section className="relative bg-[#212b36] overflow-hidden">
+        <div className="absolute inset-0 smoke-gradient opacity-50" />
+        <div className="relative max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32 text-center">
           <Reveal>
-            <p className="font-serif text-[1.75rem] md:text-[2.5rem] leading-[1.18] tracking-[-0.012em] text-white max-w-2xl mx-auto">
+            <h2 className="font-serif text-[28px] md:text-[40px] leading-[1.18] tracking-[-0.012em] text-[#d9e3f2] max-w-2xl mx-auto text-balance">
               The point of all this is the conversation it leads to.
-            </p>
+            </h2>
           </Reveal>
           <Reveal delay={0.18}>
-            <div className="mt-12">
+            <div className="mt-10">
               <MagneticCTA href="/contact">
                 <span>Open the conversation</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>

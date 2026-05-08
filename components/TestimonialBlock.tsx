@@ -83,21 +83,21 @@ export function TestimonialBlock({
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="atmosphere-deep relative">
-      <div className="rule-fade-soft" />
-      <div className="mx-auto max-w-7xl px-6 md:px-10 py-24 md:py-40">
-        <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
+    <section className="relative bg-[#050f19]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32">
+        <div className="grid grid-cols-12 gap-6 mb-14 md:mb-20">
           <div className="col-span-12 md:col-span-8">
             <Reveal>
-              <div className="flex items-center gap-4 mb-7">
-                <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">III.</span>
-                <span aria-hidden className="h-px w-10 bg-gold/35" />
-                <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">{eyebrow}</span>
-              </div>
+              <span className="inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-6">
+                <span aria-hidden className="w-6 h-px bg-[#D4AF37]/60" />
+                {eyebrow}
+              </span>
             </Reveal>
             {heading && (
               <Reveal delay={0.08}>
-                <h2 className="display-lg max-w-2xl text-white">{heading}</h2>
+                <h2 className="font-serif text-[36px] md:text-[44px] lg:text-[48px] leading-[1.15] tracking-[-0.014em] text-[#d9e3f2] max-w-2xl text-balance">
+                  {heading}
+                </h2>
               </Reveal>
             )}
           </div>
@@ -115,28 +115,28 @@ export function TestimonialBlock({
                   key={i}
                   className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3 md:px-4"
                 >
-                  <figure className="group h-full flex flex-col">
+                  <figure className="group h-full flex flex-col bg-[#17202b] rounded-lg p-8 border-t-[0.5px] border-[#43474e]/40">
                     <div
                       aria-hidden
-                      className="font-serif text-6xl text-gold/30 leading-none mb-6 transition-colors duration-700 group-hover:text-gold/55"
+                      className="font-serif text-[64px] text-[#D4AF37]/25 leading-none mb-5 transition-colors duration-700 group-hover:text-[#D4AF37]/55"
                     >
                       &ldquo;
                     </div>
-                    <blockquote className="font-serif text-[1.2rem] md:text-[1.25rem] leading-[1.55] text-white/88 tracking-[-0.005em] flex-1">
+                    <blockquote className="font-serif text-[18px] md:text-[20px] leading-[1.55] text-[#d9e3f2]/90 tracking-[-0.005em] flex-1">
                       {t.quote}
                     </blockquote>
-                    <figcaption className="mt-10 pt-7 border-t border-white/[0.07] flex items-center gap-4">
+                    <figcaption className="mt-8 pt-6 border-t-[0.5px] border-[#43474e]/30 flex items-center gap-4">
                       <span
                         aria-hidden
-                        className="flex items-center justify-center w-11 h-11 rounded-full border border-gold/35 bg-gold/[0.04] font-serif text-[13px] text-gold tracking-[0.05em]"
+                        className="flex items-center justify-center w-11 h-11 rounded-full border border-[#D4AF37]/35 bg-[#D4AF37]/[0.04] font-serif text-[13px] text-[#D4AF37] tracking-[0.05em]"
                       >
                         {initials(t.name)}
                       </span>
                       <span className="flex flex-col">
-                        <span className="text-[11px] uppercase tracking-[0.2em] text-white/85">
+                        <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#d9e3f2]/90">
                           {t.name}
                         </span>
-                        <span className="text-[11px] text-white/45 mt-1.5">{t.context}</span>
+                        <span className="text-[11px] text-[#c4c6cf]/60 mt-1.5">{t.context}</span>
                       </span>
                     </figcaption>
                   </figure>
@@ -167,16 +167,16 @@ export function TestimonialBlock({
                   <span
                     className={`block h-px transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                       i === selectedIndex
-                        ? "w-12 bg-gold"
-                        : "w-6 bg-white/20 group-hover/dot:bg-white/45"
+                        ? "w-12 bg-[#D4AF37]"
+                        : "w-6 bg-[#c4c6cf]/25 group-hover/dot:bg-[#c4c6cf]/55"
                     }`}
                   />
                 </button>
               ))}
             </div>
 
-            <div className="text-[10px] uppercase tracking-[0.24em] text-white/35 tabular-nums">
-              <span className="text-gold/85">{String(selectedIndex + 1).padStart(2, "0")}</span>
+            <div className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#c4c6cf]/55 tabular-nums">
+              <span className="text-[#D4AF37]">{String(selectedIndex + 1).padStart(2, "0")}</span>
               <span className="mx-2">·</span>
               <span>{String(scrollSnaps.length).padStart(2, "0")}</span>
             </div>

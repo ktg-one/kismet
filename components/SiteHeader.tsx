@@ -5,10 +5,10 @@ import { useState, useEffect, useRef } from "react";
 import { BrandMark } from "./BrandMark";
 
 const NAV = [
-  { href: "/about", label: "About" },
-  { href: "/approach", label: "How we work" },
+  { href: "/approach", label: "How We Work" },
+  { href: "/pathways", label: "Strategic Pathways" },
   { href: "/insights", label: "Insights" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About" },
 ];
 
 export function SiteHeader() {
@@ -16,7 +16,6 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  // Scroll-driven header opacity. Only flips state at threshold to avoid re-renders.
   useEffect(() => {
     const onScroll = () => {
       const next = window.scrollY > 24;
@@ -27,7 +26,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while panel is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -40,7 +38,6 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  // Close on Escape key
   useEffect(() => {
     if (!open) return;
     const handler = (e: KeyboardEvent) => {
@@ -57,56 +54,44 @@ export function SiteHeader() {
       <header
         className={`sticky top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
           ${scrolled
-            ? "bg-[#0A1A32]/85 backdrop-blur-xl border-b border-white/[0.07]"
-            : "bg-transparent backdrop-blur-0 border-b border-transparent"}
+            ? "bg-[#0a141e]/90 backdrop-blur-xl border-b-[0.5px] border-[#43474e]/40"
+            : "bg-transparent backdrop-blur-0 border-b-[0.5px] border-transparent"}
         `}
       >
-        <div className="mx-auto max-w-7xl px-6 md:px-10 py-5 flex items-center justify-between gap-6">
+        <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between gap-6">
           {/* Wordmark with brand mark */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 group"
-            onClick={close}
-          >
-            <BrandMark className="w-7 h-7 md:w-8 md:h-8 text-gold/95 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
-            <span className="font-serif text-lg tracking-[0.22em] text-gold uppercase relative">
+          <Link href="/" className="flex items-center gap-3 group" onClick={close}>
+            <BrandMark className="w-8 h-8 md:w-9 md:h-9 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
+            <span className="font-serif text-lg tracking-[0.22em] text-[#D4AF37] uppercase">
               Kismet
-              <span
-                aria-hidden
-                className="absolute -bottom-1 left-0 h-px w-0 bg-gold/60 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
-              />
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase tracking-[0.18em]">
+          <nav className="hidden md:flex items-center gap-8 text-[12px] uppercase tracking-[0.16em]">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative group text-white/70 hover:text-white transition-colors duration-500"
+                className="relative group text-[#c4c6cf] hover:text-[#D4AF37] transition-colors duration-500"
               >
                 {item.label}
                 <span
                   aria-hidden
-                  className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
+                  className="absolute -bottom-1 left-0 h-px w-0 bg-[#D4AF37] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
                 />
               </Link>
             ))}
           </nav>
 
           {/* Desktop CTA */}
-          <Link
-            href="/contact"
-            className="hidden md:inline-flex cta-gold !py-3 !px-6 !text-[10px]"
-          >
-            <span>Book a private call</span>
-            <span aria-hidden className="cta-arrow">&rarr;</span>
+          <Link href="/contact" className="hidden md:inline-flex cta-gold !py-3 !px-6 !text-[11px]">
+            <span>Enquire Now</span>
           </Link>
 
           {/* Mobile burger */}
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 text-white/85 hover:text-gold transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 text-[#d9e3f2] hover:text-[#D4AF37] transition-colors"
             aria-label="Open navigation"
             aria-expanded={open}
             onClick={() => setOpen(true)}
@@ -119,10 +104,10 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile fullscreen overlay */}
+      {/* Mobile fullscreen overlay backdrop */}
       {open && (
         <div
-          className="fixed inset-0 z-[100] bg-navy-deep/60 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[100] bg-[#0a141e]/60 backdrop-blur-sm md:hidden"
           aria-hidden="true"
           onClick={close}
         />
@@ -136,26 +121,20 @@ export function SiteHeader() {
         `}
         style={{
           background:
-            "radial-gradient(ellipse 700px 600px at 80% 0%, rgba(212, 175, 55, 0.14), transparent 60%), linear-gradient(180deg, #0E2240 0%, #08152A 100%)",
+            "radial-gradient(ellipse 700px 600px at 80% 0%, rgba(212, 175, 55, 0.10), transparent 60%), linear-gradient(180deg, #0E2240 0%, #08152A 100%)",
         }}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-            onClick={close}
-          >
-            <BrandMark className="w-7 h-7 text-gold/95" />
-            <span className="font-serif text-lg tracking-[0.22em] text-gold uppercase">
-              Kismet
-            </span>
+        <div className="flex items-center justify-between px-6 py-5 border-b-[0.5px] border-[#43474e]/40">
+          <Link href="/" className="flex items-center gap-3" onClick={close}>
+            <BrandMark className="w-8 h-8 text-[#D4AF37]" />
+            <span className="font-serif text-lg tracking-[0.22em] text-[#D4AF37] uppercase">Kismet</span>
           </Link>
           <button
             ref={closeRef}
-            className="flex items-center justify-center w-10 h-10 text-white/85 hover:text-gold transition-colors"
+            className="flex items-center justify-center w-10 h-10 text-[#d9e3f2] hover:text-[#D4AF37] transition-colors"
             aria-label="Close navigation"
             onClick={close}
           >
@@ -171,7 +150,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-serif text-[34px] leading-tight tracking-[-0.01em] text-white/85 hover:text-gold transition-colors duration-400"
+              className="font-serif text-[28px] leading-tight tracking-[-0.01em] text-[#d9e3f2] hover:text-[#D4AF37] transition-colors duration-400"
               style={{
                 opacity: open ? 1 : 0,
                 transform: open ? "translateY(0)" : "translateY(12px)",
@@ -179,19 +158,17 @@ export function SiteHeader() {
               }}
               onClick={close}
             >
-              <span className="index-marker not-italic mr-4 align-baseline">0{i + 1}</span>
+              <span className="font-serif italic text-[14px] text-[#D4AF37]/60 mr-4 align-baseline tabular-nums">
+                0{i + 1}
+              </span>
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="px-6 pb-10 pt-4 border-t border-white/[0.06]">
-          <Link
-            href="/contact"
-            className="cta-gold w-full justify-center"
-            onClick={close}
-          >
-            <span>Book a private call</span>
+        <div className="px-6 pb-10 pt-4 border-t-[0.5px] border-[#43474e]/40">
+          <Link href="/contact" className="cta-gold w-full" onClick={close}>
+            <span>Enquire Now</span>
             <span aria-hidden className="cta-arrow">&rarr;</span>
           </Link>
         </div>

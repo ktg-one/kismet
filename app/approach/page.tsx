@@ -1,44 +1,38 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
-import { ProcessTimeline } from "@/components/ProcessTimeline";
-import { PullQuote } from "@/components/PullQuote";
+import { ThreeStep } from "@/components/ThreeStep";
 import { ComplianceLine } from "@/components/ComplianceLine";
-import { MagneticCTA } from "@/components/MagneticCTA";
-import { Photo } from "@/components/Photo";
+import { Compass, Hub, Sail } from "@/components/Icons";
 
 export const metadata = {
   title: "How We Work | Kismet Finance Group",
   description:
-    "Plain process. Real coordination. No pitch on the first call. No commissions you pay. Here is exactly what happens when you reach out.",
+    "Plain process. Real coordination. Three steps: Understand, Coordinate, Navigate. No pitch on the first call. No commissions you pay.",
 };
 
 const steps = [
   {
-    title: "A real conversation first",
-    body: "We sit with you, on the phone or on Zoom, and listen. No pitch. No script. We map out where you are, where you want to be, and the gap in between. The first call costs you nothing and commits you to nothing.",
-    caveat: "Not a sales call. Not a free quote. A conversation.",
+    number: "01",
+    icon: <Compass className="w-7 h-7" />,
+    title: "Understand",
+    caption: "your current position",
+    body: "Before plotting a course, we set the coordinates. We start with a clear, uncompromising audit of where you are. Numbers, structures, hidden risks, and what prosperity actually looks like for you. We strip the noise back to the truth of your starting point.",
   },
   {
-    title: "The right specialists in the room",
-    body: "Once we understand your position, we bring in the licensed people who actually do the regulated work. Brokers, accountants, SMSF administrators, property and project partners. We sit in the room while they do their job, so the right questions get asked and the right things get heard.",
+    number: "02",
+    icon: <Hub className="w-7 h-7" />,
+    title: "Coordinate",
+    caption: "the right conversations",
+    body: "Strategy is an ensemble, not a soloist. We act as the conductor for your financial ecosystem, coordinating the technical conversations between your accountants, brokers and specialists. By keeping that dialogue moving, strategy stops forming in silos and every professional aligns around your one objective.",
   },
   {
-    title: "We coordinate the moves",
-    body: "Most people don't have a strategy problem. They have a coordination problem. Three or four good professionals who never talk to each other. We sit across the whole picture so the moves you start actually finish.",
+    number: "03",
+    icon: <Sail className="w-7 h-7" />,
+    title: "Navigate",
+    caption: "the pathways forward",
+    body: "With a clear map and a unified team, we execute. The Navigate phase is ongoing. Markets shift, legislation moves, your position changes. We stay in the room, recalibrating where needed and keeping execution clean. You retain the call. We hold the picture.",
   },
-  {
-    title: "You decide. Always.",
-    body: "Nothing happens without your call. We surface options, explain the trade-offs in plain English, then step back. Your money. Your strategy. Your move.",
-    caveat: "We don't pressure. We don't push. We don't follow up to twist your arm.",
-  },
-];
-
-const negatives = [
-  "We don't hold our own AFSL or Australian Credit Licence",
-  "We don't provide personal financial, credit or tax advice",
-  "We don't sell financial products",
-  "We don't take fees or commissions from you",
-  "We don't pressure you toward any specific provider",
 ];
 
 export default function ApproachPage() {
@@ -46,79 +40,100 @@ export default function ApproachPage() {
     <>
       <Hero
         eyebrow="How we work"
-        headline="Plain process. Real coordination."
-        sub="No pitch on the first call. No commissions you pay. No middleman games. Here is exactly what happens when you reach out, and exactly what doesn't."
-        ctaLabel="Book a private call"
+        headline="Clarity amidst"
+        headlineMuted="complexity."
+        sub={
+          <>
+            Strategy should not be overwhelming. We refined our approach into a predictable
+            three-step methodology designed to provide profound clarity. A structured sanctuary for
+            your strategy, where every decision is grounded in truth and executed with precision.
+          </>
+        }
+        ctaLabel="Begin the Conversation"
         ctaHref="/contact"
         showScrollCue={false}
       />
 
-      {/* Process timeline */}
-      <ProcessTimeline
-        eyebrow="The process"
-        heading="Four steps. No surprises."
-        steps={steps}
-      />
+      <ThreeStep steps={steps} />
 
-      {/* Documentary moment, what it actually looks like */}
-      <section className="relative">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 py-12 md:py-20">
-          <Photo
-            src="/photos/client-interaction.jpg"
-            alt="Two people focused on a document at a glass table"
-            caption="What this actually looks like. A real conversation, before anything is signed."
-            meta="Working session"
-            aspect="16/9"
-          />
+      {/* Reassurance / mid-page CTA strip */}
+      <section className="py-20 md:py-24 px-6 md:px-12 lg:px-16">
+        <div className="max-w-[1280px] mx-auto">
+          <Reveal>
+            <div className="bg-[#1E3A5F]/30 border border-[#43474e]/30 rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 relative overflow-hidden">
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-br from-[#0a141e]/50 to-transparent pointer-events-none"
+              />
+              <div className="max-w-xl relative z-10">
+                <h3 className="font-serif text-[32px] md:text-[40px] leading-[1.18] tracking-[-0.012em] text-[#d9e3f2] mb-5 text-balance">
+                  Practical intelligence.
+                  <span className="block text-[#adc8f5]/85">Zero overwhelm.</span>
+                </h3>
+                <p className="text-[16px] md:text-[18px] text-[#c4c6cf] leading-[1.65] mb-8">
+                  Our methodology is designed to absorb the complexity, presenting you only with
+                  clear, actionable pathways. The relief of structured guidance.
+                </p>
+                <Link href="/contact" className="cta-gold">
+                  <span>Commence Your Audit</span>
+                  <span aria-hidden className="cta-arrow">&rarr;</span>
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Pull quote interrupt - grounded, not slogan */}
-      <PullQuote attribution="Kismet operating principle">
-        We don&rsquo;t replace qualified advice.
-        <span className="block text-white/60 mt-2">We help you get to the right table.</span>
-      </PullQuote>
-
-      {/* Compliance fold */}
-      <section className="atmosphere-deep">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 py-28 md:py-36">
-          <div className="grid grid-cols-12 gap-6 md:gap-12">
-            <div className="col-span-12 md:col-span-4 lg:col-span-3">
+      {/* Boundaries / what we are and aren't */}
+      <section className="py-20 md:py-28 bg-[#050f19]">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+            <div className="md:col-span-4">
               <Reveal>
                 <div className="md:sticky md:top-32">
-                  <div className="flex items-center gap-4 mb-7">
-                    <span aria-hidden className="font-serif italic text-[14px] text-gold/75 tabular-nums">II.</span>
-                    <span aria-hidden className="h-px w-8 bg-gold/35" />
-                    <span className="text-[10px] uppercase tracking-[0.32em] text-gold/85">Boundaries</span>
-                  </div>
-                  <h2 className="display-md text-white max-w-xs leading-[1.15]">
+                  <span className="inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-5">
+                    <span aria-hidden className="w-6 h-px bg-[#D4AF37]/60" />
+                    Boundaries
+                  </span>
+                  <h2 className="font-serif text-[28px] md:text-[32px] leading-[1.2] tracking-[-0.008em] text-[#d9e3f2] max-w-xs">
                     What we are. What we aren&rsquo;t.
                   </h2>
                 </div>
               </Reveal>
             </div>
 
-            <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
-              <Reveal delay={0.1}>
-                <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-8">
-                  Kismet Finance Group operates as a strategic coordinator. On the finance side we operate as authorised representatives within the Home Loan Solutions / Australian Finance Group network (Australian Finance Group Ltd, Australian Credit Licence 389087). That gives the brokers we introduce access to AFG&rsquo;s panel of approximately 70 Australian lenders.
+            <div className="md:col-span-8">
+              <Reveal delay={0.08}>
+                <p className="text-[17px] md:text-[18px] text-[#c4c6cf] leading-[1.75] mb-6">
+                  Kismet operates as a strategic coordinator. On the finance side we operate as
+                  authorised representatives within the Home Loan Solutions / Australian Finance
+                  Group network (AFG, Australian Credit Licence 389087). That gives the brokers we
+                  introduce access to AFG&rsquo;s panel of approximately 70 Australian lenders.
                 </p>
               </Reveal>
 
-              <Reveal delay={0.16}>
-                <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-12">
-                  The licensed brokers, advisers and specialists you meet through us are independently regulated. Their advice is theirs. Ours is the coordination, before and after.
+              <Reveal delay={0.14}>
+                <p className="text-[17px] md:text-[18px] text-[#c4c6cf] leading-[1.75] mb-10">
+                  The licensed brokers, advisers and specialists you meet through us are
+                  independently regulated. Their advice is theirs. Ours is the coordination, before
+                  and after.
                 </p>
               </Reveal>
 
-              <Reveal delay={0.18}>
-                <ul className="grid gap-3 md:grid-cols-2 mb-14">
-                  {negatives.map((line, i) => (
+              <Reveal delay={0.2}>
+                <ul className="grid gap-3 sm:grid-cols-2 mb-12">
+                  {[
+                    "We don't hold our own AFSL or Australian Credit Licence",
+                    "We don't provide personal financial, credit or tax advice",
+                    "We don't sell financial products",
+                    "We don't take fees or commissions from you",
+                    "We don't pressure you toward any specific provider",
+                  ].map((line, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-[15px] text-white/72 leading-[1.65]"
+                      className="flex items-start gap-3 text-[15px] text-[#c4c6cf]/85 leading-[1.65]"
                     >
-                      <span aria-hidden className="mt-2 flex-none w-3 h-px bg-gold/55" />
+                      <span aria-hidden className="mt-2 flex-none w-3 h-px bg-[#D4AF37]/60" />
                       <span>{line}</span>
                     </li>
                   ))}
@@ -126,33 +141,12 @@ export default function ApproachPage() {
               </Reveal>
 
               <Reveal delay={0.26}>
-                <div className="pt-8 border-t border-white/[0.06]">
+                <div className="pt-8 border-t-[0.5px] border-[#43474e]/30">
                   <ComplianceLine />
                 </div>
               </Reveal>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Closing strip */}
-      <section className="relative">
-        <div className="rule-fade" />
-        <div className="mx-auto max-w-4xl px-6 md:px-10 py-28 md:py-36 text-center">
-          <Reveal>
-            <p className="font-serif text-[2rem] md:text-[2.75rem] leading-[1.15] tracking-[-0.012em] text-white">
-              It&rsquo;s not about money.
-              <span className="block text-white/55 mt-3">It&rsquo;s about what money unlocks.</span>
-            </p>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <div className="mt-12">
-              <MagneticCTA href="/contact">
-                <span>Have the conversation</span>
-                <span aria-hidden className="cta-arrow">&rarr;</span>
-              </MagneticCTA>
-            </div>
-          </Reveal>
         </div>
       </section>
     </>

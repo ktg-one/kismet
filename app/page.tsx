@@ -1,103 +1,88 @@
 import { Hero } from "@/components/Hero";
-import { ValueCardRow } from "@/components/ValueCardRow";
+import { BiggerPicture } from "@/components/BiggerPicture";
+import { StrategicPathways } from "@/components/StrategicPathways";
+import { TeamPortraits } from "@/components/TeamPortraits";
 import { TestimonialBlock } from "@/components/TestimonialBlock";
-import { Photo } from "@/components/Photo";
-import { AccessBlock } from "@/components/AccessBlock";
-import { SignatureStrip } from "@/components/SignatureStrip";
-import { Declaration } from "@/components/Declaration";
+import { Architecture, Clock, Building, ColumnsIcon, Hub } from "@/components/Icons";
 
 export default function Home() {
   return (
     <>
       <Hero
-        eyebrow="Private finance coordination · Australia"
-        headline="Strategy, structure, access. Coordinated."
-        sub="For Australians who have already built something. We coordinate the moves, and the introductions to the licensed specialists who do the regulated work, so the work you started actually finishes."
-        ctaLabel="Book a private call"
-        ctaHref="/contact"
-      />
-
-      {/* Authority signature - publication masthead style */}
-      <SignatureStrip
-        marks={[
-          { label: "Established", meta: "MMXXIV · Australia" },
-          { label: "AR network", meta: "Home Loan Solutions / AFG" },
-          { label: "Aggregator panel", meta: "~70 lenders via AFG" },
-          { label: "Discipline", meta: "Coordination, not advice" },
-        ]}
-      />
-
-      {/* Documentary moment - editorial photo strip */}
-      <section className="relative">
-        <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-28">
-          <Photo
-            src="/photos/team-boardroom.jpg"
-            alt="A working session"
-            caption="The work happens in the room, before anything goes to a specialist."
-            meta="Working session"
-            aspect="21/9"
-            sizes="(min-width: 1024px) 1100px, (min-width: 768px) 90vw, 100vw"
-          />
-        </div>
-      </section>
-
-      <ValueCardRow
-        eyebrow="Principles"
-        heading="We coordinate the conversations most people never get to have."
-        cards={[
-          {
-            title: "Built for those already in motion",
-            body: "Kismet works with people who have already built something. Operating businesses, investment positions, growing super balances. The work is about coordinating what is there, not starting from zero.",
-          },
-          {
-            title: "Connected through relationships, not advertising",
-            body: "Our partners are people we have known and watched work for years. Brokers, accountants, SMSF specialists, property and project partners. Quiet introductions, not public marketplaces.",
-          },
-          {
-            title: "The right table, before the right product",
-            body: "Most decisions go sideways because the right people are not in the room. We coordinate the conversation before the regulated work happens, so the question on the table is the right question.",
-          },
-        ]}
-      />
-
-      <AccessBlock
-        eyebrow="Where strategy meets access"
-        heading="Some conversations begin long before they become public."
-        intro="A real strategy is built from the right inputs. We sit close to the conversations and partners that shape outcomes for our clients, then bring the licensed specialists in once the picture is clear. Nothing here is a promise of opportunity or returns. It is a description of where we operate and how we work."
-        channels={[
-          {
-            label: "Strategic property partners",
-            body: "Development and project partners we have known for years. Some conversations happen before things go to market. We help you understand them, never sell you into them.",
-          },
-          {
-            label: "Licensed broker network",
-            body: "As authorised representatives within the Home Loan Solutions / AFG aggregation network, we connect you with brokers who can draw on a panel of approximately 70 Australian lenders. The brokers do the regulated work; we sit in the room while they do, so the question being answered is the right one.",
-          },
-          {
-            label: "SMSF and accounting specialists",
-            body: "Self-managed super and structuring specialists who understand growth strategy, not just compliance. We coordinate the handover so nothing falls between providers.",
-          },
-          {
-            label: "Project and capital conversations",
-            body: "Where appropriate, exposure to private project conversations our network is involved in. Always at arm's length, always with a licensed specialist doing the regulated work.",
-          },
-        ]}
-        imageSrc="/photos/map-strategy.jpg"
-        imageAlt="Real working session, strategy in progress"
-        imageMeta="Working session"
-      />
-
-      <Declaration
-        eyebrow="A quiet declaration"
-        statement={
+        eyebrow="Strategic Financial Coordination"
+        headline="It may not be an income problem."
+        headlineMuted="It may be a structure, timing and coordination problem."
+        sub={
           <>
-            We don&rsquo;t replace qualified advice.
-            <span className="block opacity-60 mt-3">
-              We help you get to the right table, with the right people, at the right time.
-            </span>
+            For everyday Australians who already have something built. We coordinate strategy,
+            structure and the introductions to the licensed specialists who do the regulated work,
+            so the work you started actually finishes.
           </>
         }
-        signoff="Kismet operating principle"
+        ctaLabel="Begin the Conversation"
+        ctaHref="/contact"
+        secondaryHref="/approach"
+        secondaryLabel="Explore Our Strategy"
+      />
+
+      <BiggerPicture
+        eyebrow="The Why"
+        heading="The Bigger Picture"
+        intro="At Kismet, we look beyond the immediate transaction. Real outcomes are not just about accumulating assets; they are about how those parts interact, support, and protect each other."
+        body="We sit at the centre as your coordination hub, helping your lending, property strategy and broader financial structures point in the same direction. Strategy made personal."
+        bullets={[
+          {
+            icon: <Architecture className="w-5 h-5" />,
+            title: "Structural Integrity",
+            body: "Building foundations that hold up across market shifts, not just this quarter.",
+          },
+          {
+            icon: <Clock className="w-5 h-5" />,
+            title: "Strategic Timing",
+            body: "Lining moves up so they happen when they matter, not when it is convenient.",
+          },
+        ]}
+        imageSrc="/photos/team-focused.jpg"
+        imageAlt="A small group working together over a laptop"
+      />
+
+      <StrategicPathways
+        eyebrow="Strategic Pathways"
+        heading="The work happens in three places."
+        cards={[
+          {
+            icon: <Building className="w-6 h-6" />,
+            title: "Lending Mastery",
+            body: "Through our authorised representative arrangement within the Home Loan Solutions / AFG aggregation network, our broker partners can draw on a panel of approximately 70 Australian lenders. We sit in the room while the regulated work is done.",
+            size: "lg",
+          },
+          {
+            icon: <ColumnsIcon className="w-6 h-6" />,
+            title: "Property Intelligence",
+            body: "Coordinated property and project conversations through partners we have known for years. We help you understand them, never sell you into them.",
+            goldEdge: true,
+          },
+        ]}
+        hubLabel="The Coordination Hub"
+        hubBody="We sit between you and the licensed accountants, SMSF specialists, brokers and project partners. Every moving part synchronised to one strategy."
+        hubCta="See How We Work"
+        hubHref="/approach"
+        hubIcon={<Hub className="w-6 h-6" />}
+      />
+
+      <TeamPortraits
+        eyebrow="Leadership"
+        heading="The names that pick up when you call."
+        people={[
+          {
+            name: "Josh",
+            role: "Business Partner",
+          },
+          {
+            name: "Shane",
+            role: "Founder · Director",
+          },
+        ]}
       />
 
       <TestimonialBlock
