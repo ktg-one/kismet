@@ -17,7 +17,7 @@ const SITE_URL = "https://kismetfinancegroup.com.au";
 const SITE_NAME = "Kismet Finance Group";
 const TAGLINE = "Strategic finance coordination for Australians.";
 const DESCRIPTION =
-  "Kismet works alongside Australians who already have something built. We coordinate strategy, structure and the introductions to the licensed specialists who do the regulated work, so the moves you start actually finish.";
+  "Kismet works alongside Australians who already have something built. We drive the strategy, open the right doors, and pull together the people who get things done, so the moves you start actually finish.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "strategic finance coordination",
     "Australian property strategy",
     "SMSF property",
-    "private finance introducer",
+    "private finance coordination",
     "boutique finance consultancy",
   ],
   openGraph: {

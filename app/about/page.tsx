@@ -6,14 +6,14 @@ import { Forum, Architecture, Eye } from "@/components/Icons";
 export const metadata = {
   title: "About | Kismet Finance Group",
   description:
-    "Kismet exists because everyday Australians get sold products instead of getting strategy. We coordinate the picture, then bring in the licensed specialists who do the regulated work.",
+    "Kismet exists because everyday Australians get sold products instead of getting strategy. We pull the strategy together and bring the right specialists into the room with you.",
 };
 
 const principles = [
   {
     icon: <Forum className="w-7 h-7" />,
     eyebrow: "Right People, Right Room",
-    body: "We sit in the middle of your financial life and speak with your accountants, brokers and partners so you do not have to translate. Coordination, not advice.",
+    body: "We orchestrate the moves between your accountant, broker and partners. You stop being the one translating between three different conversations. We run the play. The picture stays connected.",
     highlight: false,
   },
   {
@@ -39,9 +39,9 @@ export default function AboutPage() {
         headlineMuted="Bigger Picture."
         sub={
           <>
-            Real strategy should not be reserved for the wealthy few. Kismet exists to help
-            everyday Australians get the right people in the room and the right conversations
-            happening, so the picture starts coming together.
+            Real strategy should not be reserved for the wealthy few. Kismet brings the right
+            people into the room and the right conversations into motion, so everyday Australians
+            stop running their finances on hope and start running them on a plan.
           </>
         }
         ctaLabel="Begin the Conversation"
@@ -172,7 +172,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="font-serif text-[28px] md:text-[32px] leading-[1.25] tracking-[-0.008em] text-[#d9e3f2] max-w-md">
-                  What sits behind the introductions.
+                  The network behind the strategy.
                 </h2>
               </Reveal>
             </div>
@@ -213,9 +213,9 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.18}>
                 <p className="text-[14px] italic font-serif text-[#c4c6cf]/55 leading-[1.7] max-w-2xl">
-                  Kismet is an authorised representative within the Home Loan Solutions / AFG
-                  network. We do not hold our own credit licence. The regulated work is done by the
-                  licensed brokers in the AFG network we introduce you to.
+                  Kismet operates as an authorised representative within the Home Loan Solutions /
+                  AFG network. The brokers in our network hold their own credentials. We bring the
+                  strategy and the relationships, they bring the lender access.
                 </p>
               </Reveal>
             </div>

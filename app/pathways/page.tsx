@@ -19,8 +19,8 @@ export default function PathwaysPage() {
         headlineMuted="and coordination."
         sub={
           <>
-            Three ways we help you see your options. We get the right people in the room, then sit
-            with you while they do their work. The picture stays connected, so the moves you start
+            Three ways we help you see your options. We bring the right people to the table and run
+            the strategy across all of them. The picture stays connected, so the moves you start
             actually finish.
           </>
         }
@@ -54,9 +54,9 @@ export default function PathwaysPage() {
                   picture is the actual work.
                 </p>
                 <p>
-                  We sit in the middle and coordinate. We bring the right specialists in, line up
-                  the right conversations, and stay in the room while the regulated work happens.
-                  The pace stays calm. Nothing falls between providers.
+                  We pull it together. We bring the right specialists in, line up the right
+                  conversations, and run the play across all of them. The pace stays calm. Nothing
+                  falls between providers.
                 </p>
               </div>
             </Reveal>
@@ -110,9 +110,9 @@ export default function PathwaysPage() {
                   </h3>
                 </div>
                 <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7]">
-                  Through our authorised representative arrangement within the Home Loan Solutions
-                  / AFG network, our broker partners can draw on a panel of approximately 70
-                  Australian lenders. We sit in the room while they do the regulated work.
+                  Around 70 Australian lenders on one panel through our Home Loan Solutions / AFG
+                  broker partners. We line up the strategy and the right product. You get options
+                  the high street doesn&rsquo;t put in front of you.
                 </p>
               </article>
             </Reveal>

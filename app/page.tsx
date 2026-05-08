@@ -14,9 +14,9 @@ export default function Home() {
         headlineMuted="It may be a structure, timing and coordination problem."
         sub={
           <>
-            For everyday Australians who already have something built. We coordinate strategy,
-            structure and the introductions to the licensed specialists who do the regulated work,
-            so the work you started actually finishes.
+            For everyday Australians who already have something built but feel like the moves
+            aren&rsquo;t lining up. We drive the strategy, open the right doors, and make sure the
+            work you started actually finishes.
           </>
         }
         ctaLabel="Begin the Conversation"
@@ -28,13 +28,13 @@ export default function Home() {
       <BiggerPicture
         eyebrow="The Why"
         heading="The Bigger Picture"
-        intro="Real outcomes are rarely about one product. They come from how the parts of your financial life fit together. Lending, structure, professionals, timing. We sit in the middle of all of it."
+        intro="Real outcomes are rarely about one product. They come from how the parts of your financial life fit together. Lending, structure, professionals, timing. We pull all of it together."
         body="Coordinated, not patched together. Three professionals, one strategy. You don't have to chase the same answer in three places."
         bullets={[
           {
             icon: <Architecture className="w-5 h-5" />,
             title: "The decisions stay yours",
-            body: "We make the introductions and sit in the room. The conversations, the calls and the contracts stay between you and the specialist. Not us in their seat.",
+            body: "We tell you what we'd do and why. We tell you what we'd avoid and why. Then you decide. No one rushes you, no one talks past you, no one sells you into anything.",
           },
           {
             icon: <Clock className="w-5 h-5" />,
@@ -53,7 +53,7 @@ export default function Home() {
           {
             icon: <Building className="w-6 h-6" />,
             title: "Lending",
-            body: "Through our authorised representative arrangement within the Home Loan Solutions / AFG network, our broker partners draw on a panel of approximately 70 Australian lenders. Real options that fit your actual position, with us in the room while they do the regulated work.",
+            body: "Around 70 Australian lenders on one panel through our Home Loan Solutions / AFG broker partners. We work the strategy. You get real options that fit your actual position, not whatever your bank happened to be selling that week.",
             size: "lg",
           },
           {
@@ -64,7 +64,7 @@ export default function Home() {
           },
         ]}
         hubLabel="Coordination"
-        hubBody="We sit between you and your accountant, SMSF specialist, broker and project partners. One conversation, one strategy. You stop getting three different versions of the same answer."
+        hubBody="Your accountant, SMSF specialist, broker and project partners, all on the same page because we run the play across all of them. One conversation, one strategy. You stop getting three different versions of the same answer."
         hubCta="How We Work"
         hubHref="/approach"
         hubIcon={<Hub className="w-6 h-6" />}

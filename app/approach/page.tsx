@@ -17,21 +17,21 @@ const steps = [
     icon: <Compass className="w-7 h-7" />,
     title: "Understand",
     caption: "where you are",
-    body: "Before we map the road, we work out the starting point. We sit with you and look at what is there: the numbers, the structures, the things that have been put off. No jargon, no judgement. Just an honest read of your position and what you actually want from the next ten years.",
+    body: "Before we map the road, we work out the starting point. We go through what is there: the numbers, the structures, the things that have been put off. No jargon, no judgement. Just an honest read of your position and what you actually want from the next ten years.",
   },
   {
     number: "02",
     icon: <Hub className="w-7 h-7" />,
     title: "Coordinate",
     caption: "the right conversations",
-    body: "Strategy falls apart when no one is coordinating. We get your accountant, broker and specialists in the same conversation, so the moves line up. We sit in the room while they do their regulated work, and translate when needed. You stop hearing three different versions of the same answer.",
+    body: "Strategy falls apart when no one is coordinating. We get your accountant, broker and specialists in the same conversation and run the play across all of them. We translate where needed and we keep the timing tight. You stop hearing three different versions of the same answer.",
   },
   {
     number: "03",
     icon: <Sail className="w-7 h-7" />,
     title: "Navigate",
     caption: "the path forward",
-    body: "With a clear picture and a connected team, you can move. The Navigate part keeps going. Markets shift, legislation changes, your position changes. We stay in the picture and adjust course when it makes sense. You make the calls. We hold the picture.",
+    body: "With a clear picture and a connected team, you can move. The Navigate part keeps going. Markets shift, legislation changes, your position changes. We stay close and adjust course when it makes sense. You make the calls. We keep the strategy moving.",
   },
 ];
 
