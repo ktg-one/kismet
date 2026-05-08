@@ -28,18 +28,18 @@ export default function Home() {
       <BiggerPicture
         eyebrow="The Why"
         heading="The Bigger Picture"
-        intro="Outcomes that hold up are rarely about a single product. They are about how the parts of your financial life actually fit together. The lending, the structure, the professionals, the timing. We sit in the middle of that picture."
-        body="Coordinated, not stitched together after the fact. Held in one room, by one team, against one strategy."
+        intro="Real outcomes are rarely about one product. They come from how the parts of your financial life fit together. Lending, structure, professionals, timing. We sit in the middle of all of it."
+        body="Coordinated, not patched together. Three professionals, one strategy. You don't have to chase the same answer in three places."
         bullets={[
           {
             icon: <Architecture className="w-5 h-5" />,
             title: "The decisions stay yours",
-            body: "We make the introductions and sit in the room. The conversations, the calls and the contracts are between you and the specialist. Not us in their seat.",
+            body: "We make the introductions and sit in the room. The conversations, the calls and the contracts stay between you and the specialist. Not us in their seat.",
           },
           {
             icon: <Clock className="w-5 h-5" />,
             title: "Known over years, not lists",
-            body: "Every broker, accountant, SMSF specialist and project partner is someone we have worked alongside long enough to vouch for, with our name behind it.",
+            body: "Every broker, accountant, SMSF specialist and project partner is someone we've worked with for years. We only introduce people we'd send our own family to.",
           },
         ]}
         imageSrc="/photos/team-focused.jpg"
@@ -64,7 +64,7 @@ export default function Home() {
           },
         ]}
         hubLabel="Coordination"
-        hubBody="We sit between you and your accountant, SMSF specialist, broker and project partners. The whole picture in one room. The strategy stops forming in silos and starts moving as one."
+        hubBody="We sit between you and your accountant, SMSF specialist, broker and project partners. One conversation, one strategy. You stop getting three different versions of the same answer."
         hubCta="How We Work"
         hubHref="/approach"
         hubIcon={<Hub className="w-6 h-6" />}
