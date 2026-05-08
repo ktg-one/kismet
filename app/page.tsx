@@ -28,18 +28,18 @@ export default function Home() {
       <BiggerPicture
         eyebrow="The Why"
         heading="The Bigger Picture"
-        intro="At Kismet, we look beyond the immediate transaction. Real outcomes are not just about accumulating assets; they are about how those parts interact, support, and protect each other."
-        body="We sit at the centre as your coordination hub, helping your lending, property strategy and broader financial structures point in the same direction. Strategy made personal."
+        intro="Real outcomes are not about accumulating assets in isolation. They are about how each part of your financial life interacts, supports and protects the rest. We sit at the centre of that picture."
+        body="Lending, property, structure, professional advice. Coordinated, not stitched together after the fact. Built around your circumstances, not the other way around."
         bullets={[
           {
             icon: <Architecture className="w-5 h-5" />,
-            title: "Structural Integrity",
-            body: "Building foundations that hold up across market shifts, not just this quarter.",
+            title: "You stay in control",
+            body: "We make the introduction. You manage the engagement, scope and decisions directly with the specialist.",
           },
           {
             icon: <Clock className="w-5 h-5" />,
-            title: "Strategic Timing",
-            body: "Lining moves up so they happen when they matter, not when it is convenient.",
+            title: "Vetted partners only",
+            body: "Every broker, accountant, SMSF specialist and project partner has earned a place. Personally known, personally trusted.",
           },
         ]}
         imageSrc="/photos/team-focused.jpg"
@@ -53,18 +53,18 @@ export default function Home() {
           {
             icon: <Building className="w-6 h-6" />,
             title: "Lending",
-            body: "Through our authorised representative arrangement within the Home Loan Solutions / AFG network, our broker partners can draw on a panel of approximately 70 Australian lenders. We sit in the room while they do the regulated work.",
+            body: "Through our authorised representative arrangement within the Home Loan Solutions / AFG network, our broker partners draw on a panel of approximately 70 Australian lenders. Real options, tailored to your circumstances, with us in the room while they do the regulated work.",
             size: "lg",
           },
           {
             icon: <ColumnsIcon className="w-6 h-6" />,
             title: "Property",
-            body: "Coordinated property and project conversations through partners we have known for years. We help you understand what is on the table. Never selling you into anything.",
+            body: "Coordinated property and project conversations through partners we have known and watched work for years. We help you see what is actually on the table for your circumstances. Never selling you into anything.",
             goldEdge: true,
           },
         ]}
         hubLabel="Coordination"
-        hubBody="We sit between you and your accountant, SMSF specialist, broker and project partners. Every moving part lined up around one strategy."
+        hubBody="We sit between you and your accountant, SMSF specialist, broker and project partners. Every moving part lined up around one strategy, so the picture stops forming in silos and starts working together."
         hubCta="How We Work"
         hubHref="/approach"
         hubIcon={<Hub className="w-6 h-6" />}
