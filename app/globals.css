@@ -399,25 +399,11 @@ html {
   border-radius: 0.125rem;
   box-shadow: var(--kismet-shadow-cta);
   transition: box-shadow 600ms var(--ease-cinema), transform 500ms var(--ease-cinema);
-  overflow: hidden;
-  isolation: isolate;
 }
-.cta-gold::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
-  transform: translateX(-110%);
-  transition: transform 1100ms var(--ease-cinema);
-  pointer-events: none;
-  z-index: 0;
-}
-.cta-gold > * { position: relative; z-index: 1; }
 .cta-gold:hover {
-  box-shadow: var(--kismet-shadow-cta-lift), inset 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: var(--kismet-shadow-cta-lift);
   transform: translateY(-1px);
 }
-.cta-gold:hover::before { transform: translateX(110%); }
 .cta-gold:active { transform: translateY(0); }
 
 .cta-arrow {

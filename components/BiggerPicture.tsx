@@ -96,11 +96,6 @@ export function BiggerPicture({
                     sizes="(min-width: 1024px) 600px, (min-width: 768px) 90vw, 100vw"
                     className="object-cover"
                   />
-                  {/* Inner gold frame for editorial weight */}
-                  <div
-                    aria-hidden
-                    className="absolute inset-6 border border-[#D4AF37]/20 rounded pointer-events-none z-[4]"
-                  />
                 </div>
               </div>
             </figure>

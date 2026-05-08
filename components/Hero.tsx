@@ -104,21 +104,21 @@ export function Hero({
             <RevealWords
               text={headline}
               as="h1"
-              className="font-serif text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-[-0.022em] text-[#d9e3f2] text-balance max-w-[20ch]"
+              className="font-serif text-[36px] sm:text-[44px] md:text-[54px] lg:text-[60px] leading-[1.06] tracking-[-0.02em] text-[#d9e3f2] text-balance max-w-[22ch]"
               delay={0.05}
               stagger={0.045}
             />
 
             {headlineMuted && (
               <Reveal delay={0.4}>
-                <p className="font-serif text-[32px] sm:text-[44px] md:text-[58px] lg:text-[68px] leading-[1.08] tracking-[-0.02em] text-[#d9e3f2] text-balance mt-3 sm:mt-4 max-w-[22ch] italic font-light">
+                <p className="font-serif text-[28px] sm:text-[36px] md:text-[46px] lg:text-[52px] leading-[1.1] tracking-[-0.018em] text-[#d9e3f2] text-balance mt-3 sm:mt-4 max-w-[24ch] italic font-light">
                   {headlineMuted}
                 </p>
               </Reveal>
             )}
 
             <Reveal delay={0.55} y={18}>
-              <div className="mt-10 md:mt-12 text-[17px] md:text-[18px] text-[#c4c6cf] leading-[1.7] max-w-2xl">
+              <div className="mt-10 md:mt-12 text-[16.5px] md:text-[17px] text-[#c4c6cf] leading-[1.65] max-w-xl">
                 {sub}
               </div>
             </Reveal>
