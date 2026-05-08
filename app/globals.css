@@ -192,15 +192,16 @@ html {
     animation-range: 0vh 70vh;
   }
 
-  /* Image parallax — figure rises slightly as it enters view */
+  /* Image parallax — figure rises slightly as it enters view.
+     Travel deliberately shallow (3% each way) so it reads as felt, not seen. */
   .scroll-parallax-up {
     animation: scroll-parallax-up linear both;
     animation-timeline: view();
     animation-range: cover 0% cover 100%;
   }
   @keyframes scroll-parallax-up {
-    from { transform: translate3d(0, 4%, 0); }
-    to   { transform: translate3d(0, -4%, 0); }
+    from { transform: translate3d(0, 3%, 0); }
+    to   { transform: translate3d(0, -3%, 0); }
   }
 }
 

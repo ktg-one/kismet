@@ -50,7 +50,7 @@ export default function AboutPage() {
       />
 
       {/* Founders intro - bento split */}
-      <section className="py-24 md:py-32 bg-[#050f19]">
+      <section className="py-24 md:py-32 bg-[#050f19] section-blend-top">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Reveal className="md:col-span-2">
@@ -70,7 +70,7 @@ export default function AboutPage() {
                       people in the room. Steady pace. The picture stays connected.
                     </p>
                   </div>
-                  <div className="documentary-frame w-full md:w-1/2 h-[420px] md:h-auto md:min-h-[520px] relative bg-[#0a141e]">
+                  <div className="documentary-frame scroll-parallax-up w-full md:w-1/2 h-[420px] md:h-auto md:min-h-[520px] relative bg-[#0a141e]">
                     <Image
                       src="/photos/shane-josh.jpg"
                       alt="Shane Hewson and Josh Clark, founders of Kismet Finance Group"
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </section>
 
       {/* The Kismet Philosophy - 3 principle cards */}
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 section-blend-top">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="text-center mb-14 md:mb-20">
             <Reveal>
@@ -160,7 +160,7 @@ export default function AboutPage() {
       </section>
 
       {/* Network credentials */}
-      <section className="py-24 md:py-32 bg-[#050f19]">
+      <section className="py-24 md:py-32 bg-[#050f19] section-blend-top">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
             <div className="md:col-span-4">
