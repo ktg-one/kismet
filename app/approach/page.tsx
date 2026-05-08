@@ -100,8 +100,14 @@ export default function ApproachPage() {
 
             <div className="col-span-12 md:col-span-8 lg:col-span-8 lg:col-start-5">
               <Reveal delay={0.1}>
+                <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-8">
+                  Kismet Finance Group operates as a strategic coordinator. On the finance side we are an authorised representative of Home Loan Solutions, a member of the Australian Finance Group aggregation network. That opens our broker partners&rsquo; panels to 70+ Australian lenders.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.16}>
                 <p className="text-[17px] md:text-[18px] text-white/78 leading-[1.78] mb-12">
-                  Kismet Finance Group is a strategic introducer and coordinator. The licensed brokers, advisers and specialists you meet through us are independently regulated. Their advice is theirs. Ours is the coordination, before and after.
+                  The licensed brokers, advisers and specialists you meet through us are independently regulated. Their advice is theirs. Ours is the coordination, before and after.
                 </p>
               </Reveal>
 

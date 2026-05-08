@@ -20,9 +20,9 @@ export default function Home() {
       {/* Authority signature - publication masthead style */}
       <SignatureStrip
         marks={[
-          { label: "Established", meta: "MMXXIV" },
-          { label: "Operating from", meta: "Cockburn Central, WA" },
-          { label: "Engagement", meta: "By appointment only" },
+          { label: "Established", meta: "MMXXIV · Australia" },
+          { label: "Authorised representative", meta: "Home Loan Solutions · AFG" },
+          { label: "Lender network", meta: "70+ Australian lenders" },
           { label: "Discipline", meta: "Coordination, not advice" },
         ]}
       />
@@ -71,7 +71,7 @@ export default function Home() {
           },
           {
             label: "Licensed broker network",
-            body: "A small panel of finance brokers we trust to act in your interest. We sit in the room while they do the regulated work, so the question being answered is the right one.",
+            body: "Through our authorised representative arrangement with Home Loan Solutions (AFG aggregator network), our broker partners have access to 70+ Australian lenders. We sit in the room while they do the regulated work, so the question being answered is the right one.",
           },
           {
             label: "SMSF and accounting specialists",
