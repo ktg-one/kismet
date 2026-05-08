@@ -104,14 +104,14 @@ export function Hero({
             <RevealWords
               text={headline}
               as="h1"
-              className="font-serif text-[44px] sm:text-[56px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-[-0.022em] text-[#d9e3f2] text-balance max-w-[20ch]"
+              className="font-serif text-[40px] sm:text-[52px] md:text-[64px] lg:text-[72px] leading-[1.05] tracking-[-0.022em] text-[#d9e3f2] text-balance max-w-[20ch]"
               delay={0.05}
-              stagger={0.05}
+              stagger={0.045}
             />
 
             {headlineMuted && (
               <Reveal delay={0.4}>
-                <p className="font-serif text-[36px] sm:text-[48px] md:text-[58px] lg:text-[68px] leading-[1.06] tracking-[-0.02em] text-[#d9e3f2] text-balance mt-3 max-w-[22ch] italic font-light">
+                <p className="font-serif text-[32px] sm:text-[44px] md:text-[58px] lg:text-[68px] leading-[1.08] tracking-[-0.02em] text-[#d9e3f2] text-balance mt-3 sm:mt-4 max-w-[22ch] italic font-light">
                   {headlineMuted}
                 </p>
               </Reveal>
