@@ -119,6 +119,7 @@ export function SiteFooter() {
                 <a
                   href="mailto:admin@kismetfinancegroup.com.au"
                   className="hover:text-[#D4AF37] transition-colors duration-400"
+                  suppressHydrationWarning
                 >
                   admin@kismetfinancegroup.com.au
                 </a>
@@ -127,6 +128,7 @@ export function SiteFooter() {
                 <a
                   href="tel:+61862858501"
                   className="hover:text-[#D4AF37] transition-colors duration-400 tabular-nums"
+                  suppressHydrationWarning
                 >
                   (08) 6285 8501
                 </a>

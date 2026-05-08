@@ -70,7 +70,7 @@ export default function AboutPage() {
                       people in the room. Steady pace. The picture stays connected.
                     </p>
                   </div>
-                  <div className="w-full md:w-1/2 h-[420px] md:h-auto md:min-h-[520px] relative bg-[#0a141e]">
+                  <div className="documentary-frame w-full md:w-1/2 h-[420px] md:h-auto md:min-h-[520px] relative bg-[#0a141e]">
                     <Image
                       src="/photos/shane-josh.jpg"
                       alt="Shane Hewson and Josh Clark, founders of Kismet Finance Group"
@@ -81,7 +81,7 @@ export default function AboutPage() {
                     />
                     <div
                       aria-hidden
-                      className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#18283d]/70"
+                      className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#18283d]/70 z-[4]"
                     />
                   </div>
                 </div>

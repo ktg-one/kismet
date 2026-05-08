@@ -203,6 +203,7 @@ export function ContactInquiry() {
                   <a
                     href="tel:+61862858501"
                     className="text-[18px] text-[#d9e3f2] hover:text-[#D4AF37] transition-colors tabular-nums"
+                    suppressHydrationWarning
                   >
                     (08) 6285 8501
                   </a>
@@ -230,6 +231,7 @@ export function ContactInquiry() {
                   <a
                     href="mailto:admin@kismetfinancegroup.com.au"
                     className="text-[15px] text-[#d9e3f2] hover:text-[#D4AF37] transition-colors break-all"
+                    suppressHydrationWarning
                   >
                     admin@kismetfinancegroup.com.au
                   </a>

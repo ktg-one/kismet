@@ -190,6 +190,51 @@ html {
   border-top-color: rgba(212, 175, 55, 0.30);
 }
 
+/* ════════════════════════════════════════════════
+   DOCUMENTARY IMAGE TREATMENT
+   Photos read as branded editorial, not raw stock.
+   Slight desat + brightness + warm gold cast + dark navy bottom-fade.
+   ════════════════════════════════════════════════ */
+
+.documentary-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.documentary-frame img {
+  filter: saturate(0.78) brightness(0.92) contrast(1.05);
+  transition: filter 1200ms var(--ease-cinema), transform 1200ms var(--ease-cinema);
+}
+
+.documentary-frame:hover img {
+  filter: saturate(0.92) brightness(1) contrast(1.05);
+  transform: scale(1.012);
+}
+
+.documentary-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(10, 20, 30, 0) 50%, rgba(10, 20, 30, 0.45) 100%),
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(212, 175, 55, 0.06), transparent 60%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.documentary-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid rgba(217, 227, 242, 0.06);
+  border-top-color: rgba(217, 227, 242, 0.14);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 /* Gold hairline inner highlight - "high authority" container */
 .gold-edge-left {
   border-left: 1px solid rgba(212, 175, 55, 0.30);

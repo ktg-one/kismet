@@ -88,7 +88,7 @@ export function BiggerPicture({
           <Reveal delay={0.16}>
             <figure className="relative">
               <div className="relative aspect-[4/5] glass-card p-2 overflow-hidden">
-                <div className="relative w-full h-full overflow-hidden rounded">
+                <div className="documentary-frame relative w-full h-full rounded">
                   <Image
                     src={imageSrc}
                     alt={imageAlt}
@@ -99,7 +99,7 @@ export function BiggerPicture({
                   {/* Inner gold frame for editorial weight */}
                   <div
                     aria-hidden
-                    className="absolute inset-6 border border-[#D4AF37]/20 rounded pointer-events-none"
+                    className="absolute inset-6 border border-[#D4AF37]/20 rounded pointer-events-none z-[4]"
                   />
                 </div>
               </div>
