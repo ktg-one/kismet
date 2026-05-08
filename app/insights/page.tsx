@@ -49,7 +49,7 @@ export default async function Insights() {
               <div className="border-b border-white/[0.07]">
                 {articles.map((a, i) => (
                   <Reveal key={a.slug} delay={i * 0.06}>
-                    <ArticleCard article={a} index={i} />
+                    <ArticleCard article={a} index={i} featured={i === 0} />
                   </Reveal>
                 ))}
               </div>
