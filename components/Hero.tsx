@@ -67,7 +67,7 @@ export function Hero({
             height: showScrollCue ? "62vw" : "44vw",
             maxWidth: showScrollCue ? "900px" : "640px",
             maxHeight: showScrollCue ? "900px" : "640px",
-            opacity: showScrollCue ? 0.85 : 0.45,
+            opacity: showScrollCue ? 0.7 : 0.38,
           }}
           aria-hidden
         />
@@ -80,7 +80,7 @@ export function Hero({
             height: showScrollCue ? "70vw" : "50vw",
             maxWidth: showScrollCue ? "1000px" : "720px",
             maxHeight: showScrollCue ? "1000px" : "720px",
-            opacity: showScrollCue ? 0.8 : 0.4,
+            opacity: showScrollCue ? 0.65 : 0.32,
           }}
           aria-hidden
         />

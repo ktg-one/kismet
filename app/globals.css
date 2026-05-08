@@ -287,10 +287,11 @@ html {
 
 .cta-arrow {
   display: inline-block;
-  transition: transform 500ms var(--ease-cinema);
+  transition: transform 600ms var(--ease-cinema);
 }
-.cta-gold:hover .cta-arrow {
-  transform: translateX(4px);
+.cta-gold:hover .cta-arrow,
+.cta-ghost:hover .cta-arrow {
+  transform: translateX(6px);
 }
 
 .cta-ghost {

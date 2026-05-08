@@ -107,30 +107,6 @@ export default function Home() {
             name: "Adam Walker",
             context: "Google review · ★★★★★",
           },
-          {
-            quote:
-              "Couldn't recommend Dan, Josh, Shane and Stuart highly enough. The whole team genuinely care about how you end up, not just the introduction.",
-            name: "Kismet client",
-            context: "Google review · ★★★★★",
-          },
-          {
-            quote:
-              "Regular check-ins to make sure everything is on track. Knowledgeable, experienced and trustworthy. They make finance feel less like a sales pitch and more like a real conversation.",
-            name: "Kismet client",
-            context: "Google review · ★★★★★",
-          },
-          {
-            quote:
-              "It feels less like dealing with a finance company and more like having someone in your corner who has already had the conversations you need to have.",
-            name: "Kismet client",
-            context: "Google review · ★★★★★",
-          },
-          {
-            quote:
-              "I wish there were more than 5 stars to give. The team has been brilliant from start to finish.",
-            name: "Kismet client",
-            context: "Google review · ★★★★★",
-          },
         ]}
       />
     </>
