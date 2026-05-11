@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { BrandMark } from "./BrandMark";
+import { BrandWordmark } from "./BrandWordmark";
 
 const NAV = [
   { href: "/approach", label: "How We Work" },
@@ -59,18 +60,18 @@ export function SiteHeader() {
         `}
       >
         <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between gap-6">
-          {/* Brand lockup. Gold mark + gold wordmark, both sized and spaced
-              for authoritative presence without the original stretch. */}
+          {/* Brand lockup. Both elements use the official brand SVG — the
+              tree-of-life mark and the KISMET wordmark with its designed
+              letterforms — so the icon and wordmark sit as one designed piece
+              per the brand guide, not as a mark next to typed text. */}
           <Link
             href="/"
-            className="flex items-center gap-4 group -my-2"
+            className="flex items-center gap-4 md:gap-5 group -my-2"
             onClick={close}
             aria-label="Kismet Finance Group, home"
           >
-            <BrandMark className="vt-brand-mark w-24 h-24 md:w-32 md:h-32 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[6deg]" />
-            <span className="font-serif text-[34px] md:text-[44px] tracking-[0.14em] text-[#D4AF37] uppercase font-semibold leading-none">
-              Kismet
-            </span>
+            <BrandMark className="vt-brand-mark w-20 h-20 md:w-24 md:h-24 text-[#D4AF37]" />
+            <BrandWordmark className="h-6 md:h-7 w-auto text-[#D4AF37]" />
           </Link>
 
           {/* Desktop nav */}
@@ -140,10 +141,8 @@ export function SiteHeader() {
             onClick={close}
             aria-label="Kismet Finance Group, home"
           >
-            <BrandMark className="w-24 h-24 text-[#D4AF37]" />
-            <span className="font-serif text-[34px] tracking-[0.14em] text-[#D4AF37] uppercase font-semibold leading-none">
-              Kismet
-            </span>
+            <BrandMark className="w-20 h-20 text-[#D4AF37]" />
+            <BrandWordmark className="h-6 w-auto text-[#D4AF37]" />
           </Link>
           <button
             ref={closeRef}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ComplianceLine } from "./ComplianceLine";
 import { Reveal } from "./Reveal";
 import { BrandMark } from "./BrandMark";
+import { BrandWordmark } from "./BrandWordmark";
 import { SocialIconRow } from "./Socials";
 
 export function SiteFooter() {
@@ -13,11 +14,9 @@ export function SiteFooter() {
           <Reveal>
             <div className="flex items-center justify-center gap-6 md:gap-10">
               <span aria-hidden className="flex-1 max-w-[180px] md:max-w-[280px] h-px bg-gradient-to-r from-transparent via-[#43474e]/40 to-[#D4AF37]/30" />
-              <Link href="/" className="group inline-flex flex-col items-center gap-2">
-                <BrandMark className="w-14 h-14 md:w-16 md:h-16 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
-                <span className="font-serif text-[14px] md:text-[15px] tracking-[0.32em] text-[#D4AF37]/85 uppercase font-semibold">
-                  Kismet
-                </span>
+              <Link href="/" className="group inline-flex flex-col items-center gap-3">
+                <BrandMark className="w-14 h-14 md:w-16 md:h-16 text-[#D4AF37]" />
+                <BrandWordmark className="h-3.5 md:h-4 w-auto text-[#D4AF37]/85" />
               </Link>
               <span aria-hidden className="flex-1 max-w-[180px] md:max-w-[280px] h-px bg-gradient-to-l from-transparent via-[#43474e]/40 to-[#D4AF37]/30" />
             </div>
@@ -54,11 +53,9 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
           {/* Brand column */}
           <div className="md:col-span-4 flex flex-col">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <BrandMark className="w-12 h-12 text-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-[8deg]" />
-              <span className="font-serif text-[24px] tracking-[0.2em] text-[#D4AF37] uppercase font-semibold">
-                Kismet
-              </span>
+            <Link href="/" className="inline-flex items-center gap-4 group">
+              <BrandMark className="w-12 h-12 text-[#D4AF37]" />
+              <BrandWordmark className="h-5 w-auto text-[#D4AF37]" />
             </Link>
             <p className="mt-7 text-[15px] text-[#c4c6cf]/85 leading-[1.7] max-w-md">
               Strategic finance coordination for everyday Australians who want their money working
