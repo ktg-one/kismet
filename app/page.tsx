@@ -75,7 +75,7 @@ export default function Home() {
         people={[
           {
             name: "Josh",
-            role: "Business Partner",
+            role: "Director",
           },
           {
             name: "Shane",
