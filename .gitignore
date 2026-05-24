@@ -51,3 +51,6 @@ next-env.d.ts
 # MCP and local databases
 .mcp.json
 in-memoria.db
+
+# Tool intermediate output (understand-anything indexer)
+.understand-anything/
