@@ -75,3 +75,15 @@ User's `~/.bashrc` is configured and should be sourced when running interactive 
 - `.mcp.json` is gitignored — local MCP config, don't commit.
 - Photos in `photos-raw/` are source masters. The optimised versions in `public/photos/` are what the site ships; regenerate via `scripts/optimize-photos.mjs`.
 - The Berlingske Serif headline font referenced in `README.md` was never licensed — we ship Newsreader as the display serif instead. Don't reintroduce Berlingske.
+
+## Memory recall
+
+At session start, run this to pull project context from previous sessions:
+
+```
+memory_recall query="kismet handoff ship-blockers vercel code-review"
+```
+
+Anchor terms used in saved memories: **kismet, code-review, gsd-code-review, handoff, ship-checklist, priority-targets, branding, design-tokens, founders, next.js, tailwind-v4, agentmemory, mem0-deprecated**.
+
+The handoff plan is in `docs/handoff/2026-05-25-code-review-plan.md`. Read it before touching the lead form, TestimonialBlock, or Hero.
