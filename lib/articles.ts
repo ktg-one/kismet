@@ -3,8 +3,16 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { z } from "zod";
 
 const ARTICLES_DIR = path.join(process.cwd(), "content", "insights");
+
+const MetaSchema = z.object({
+  title: z.string().min(1),
+  summary: z.string().min(1),
+  date: z.string(),
+  readMinutes: z.number(),
+});
 
 export interface ArticleMeta {
   slug: string;
@@ -22,7 +30,10 @@ async function readArticleFile(filename: string): Promise<Article> {
   const slug = filename.replace(/\.md$/, "");
   const raw = await fs.readFile(path.join(ARTICLES_DIR, filename), "utf8");
   const parsed = matter(raw);
-  const data = parsed.data as Omit<ArticleMeta, "slug">;
+  
+  // Validate frontmatter shape
+  const data = MetaSchema.parse(parsed.data);
+  
   const rendered = await remark().use(html).process(parsed.content);
   return {
     slug,
@@ -45,6 +56,11 @@ export async function listArticles(): Promise<ArticleMeta[]> {
 }
 
 export async function getArticle(slug: string): Promise<Article | null> {
+  // Path safety: prevent directory traversal
+  if (!slug || slug.includes("..") || slug.includes("/") || slug.includes("\\")) {
+    return null;
+  }
+
   try {
     return await readArticleFile(`${slug}.md`);
   } catch {

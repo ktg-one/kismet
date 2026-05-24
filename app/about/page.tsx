@@ -39,12 +39,12 @@ export default function AboutPage() {
         headlineMuted="Bigger Picture."
         sub={
           <>
-            Real strategy should not be reserved for the wealthy few. Kismet brings the right
+            Real strategy should not just be for the top end of town. Kismet brings the right
             people into the room and the right conversations into motion, so everyday Australians
             stop running their finances on hope and start running them on a plan.
           </>
         }
-        ctaLabel="Begin the Conversation"
+        ctaLabel="Start here"
         ctaHref="/contact"
         showScrollCue={false}
       />
@@ -95,7 +95,7 @@ export default function AboutPage() {
                     <Architecture className="w-6 h-6" />
                   </span>
                   <h3 className="font-serif text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.008em] text-[#d9e3f2] mb-4">
-                    Architects, not salespeople.
+                    Strategy, not sales.
                   </h3>
                   <p className="text-[15px] text-[#c4c6cf]/85 leading-[1.7]">
                     We don&rsquo;t sell products. We help you see the whole picture before any

@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
@@ -42,6 +43,26 @@ interface RevealWordsProps {
   as?: "h1" | "h2" | "h3" | "p" | "div";
 }
 
+function RevealWord({ word, delay }: { word: string; delay: number }) {
+  const [animating, setAnimating] = useState(true);
+  return (
+    <motion.span
+      className={`inline-block ${animating ? "will-change-transform" : ""}`}
+      initial={{ y: "110%", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      onAnimationComplete={() => setAnimating(false)}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{
+        duration: 0.95,
+        delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+    >
+      {word}
+    </motion.span>
+  );
+}
+
 /**
  * Word-by-word stagger reveal. Used for headlines.
  * Each word fades up with a small delay offset.
@@ -71,19 +92,7 @@ export function RevealWords({
           className="inline-block overflow-hidden align-baseline"
           style={{ marginRight: i === words.length - 1 ? 0 : "0.28em" }}
         >
-          <motion.span
-            className="inline-block will-change-transform"
-            initial={{ y: "110%", opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{
-              duration: 0.95,
-              delay: delay + i * stagger,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
-            {word}
-          </motion.span>
+          <RevealWord word={word} delay={delay + i * stagger} />
         </span>
       ))}
     </Tag>
