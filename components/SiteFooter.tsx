@@ -41,7 +41,7 @@ export function SiteFooter() {
           </Reveal>
           <Reveal delay={0.2}>
             <Link href="/contact" className="cta-gold">
-              <span>Begin the Conversation</span>
+              <span>Book a call</span>
               <span aria-hidden className="cta-arrow">&rarr;</span>
             </Link>
           </Reveal>

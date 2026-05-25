@@ -73,7 +73,7 @@ export default function AboutPage() {
                   <div className="documentary-frame scroll-parallax-up w-full md:w-1/2 h-[420px] md:h-auto md:min-h-[520px] relative bg-[#0a141e]">
                     <Image
                       src="/photos/shane-josh.jpg"
-                      alt="Shane Hewson and Josh Clark, founders of Kismet Finance Group"
+                      alt="Shane Hewson and Josh Hewson, founders of Kismet Finance Group"
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       style={{ objectPosition: "50% 35%" }}

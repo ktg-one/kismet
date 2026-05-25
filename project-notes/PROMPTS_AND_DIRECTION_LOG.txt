@@ -11,7 +11,7 @@ Every word, layout choice and image is filtered through John and Jenny.
 
 WHO WROTE THE BRIEF
 -------------------
-Shane Hewson (Founder/Director) and Josh Clark (Director) run Kismet Finance Group together. Amy Stoddart joins as EA on 2026-06-01.
+Shane Hewson (Founder/Director) and Josh Hewson (Director) run Kismet Finance Group together. Amy Stoddart joins as EA on 2026-06-01.
 
 Shane is the user. He talks to Claude (this AI) in auto mode for execution. His preferences: short, direct, recommendation plus tradeoff (not options menus), revenue-focused, terse responses.
 

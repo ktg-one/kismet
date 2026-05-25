@@ -24,7 +24,7 @@ export default function PathwaysPage() {
             actually finish.
           </>
         }
-        ctaLabel="Begin the Conversation"
+        ctaLabel="Book a call"
         ctaHref="/contact"
         showScrollCue={false}
       />

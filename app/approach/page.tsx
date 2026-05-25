@@ -49,7 +49,7 @@ export default function ApproachPage() {
             real progress.
           </>
         }
-        ctaLabel="Begin the Conversation"
+        ctaLabel="Book a call"
         ctaHref="/contact"
         showScrollCue={false}
       />
@@ -76,7 +76,7 @@ export default function ApproachPage() {
                   jargon.
                 </p>
                 <Link href="/contact" className="cta-gold">
-                  <span>Begin the Conversation</span>
+                  <span>Book a call</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </Link>
               </div>

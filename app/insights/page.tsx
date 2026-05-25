@@ -22,7 +22,7 @@ export default async function Insights() {
             change things. Plain English. General information only, never advice.
           </>
         }
-        ctaLabel="Begin the Conversation"
+        ctaLabel="Book a call"
         ctaHref="/contact"
         showScrollCue={false}
       />
