@@ -1,0 +1,509 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@import "./kismet-brand.css";
+
+:root {
+  color-scheme: dark;
+
+  /* ── ELEVATION & MATERIAL ── */
+  --kismet-edge-soft: rgba(217, 227, 242, 0.06);
+  --kismet-edge-mid:  rgba(217, 227, 242, 0.10);
+  --kismet-edge-gold: rgba(212, 175, 55, 0.32);
+
+  --kismet-shadow-low:    0 1px 2px rgba(0, 0, 0, 0.25);
+  --kismet-shadow-card:   0 30px 80px -40px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  --kismet-shadow-lift:   0 50px 120px -50px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  --kismet-shadow-cta:    0 12px 40px -12px rgba(212, 175, 55, 0.45), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  --kismet-shadow-cta-lift: 0 24px 70px -16px rgba(212, 175, 55, 0.62), 0 1px 0 rgba(255, 255, 255, 0.55) inset;
+
+  /* ── EASING ── */
+  --ease-soft:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-glide:  cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
+}
+
+/* Typed custom property — lets browsers interpolate gradient angles smoothly */
+@property --kismet-ambient-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 180deg;
+}
+
+/* Native View Transitions — modern browsers morph matching elements across navigations.
+   Progressive enhancement: ignored where unsupported, no JS required. */
+@supports (view-transition-name: none) {
+  @view-transition {
+    navigation: auto;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 520ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .vt-brand-mark { view-transition-name: kismet-brand-mark; }
+  .vt-hero       { view-transition-name: kismet-hero; }
+}
+
+body {
+  background: #0a141e;
+  color: #d9e3f2;
+  font-family: var(--font-montserrat), Montserrat, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt", "ss01";
+  font-variant-numeric: lining-nums;
+}
+
+/* Modern paragraph wrapping — avoids orphans, balances long body copy.
+   Headlines keep text-balance via the .text-balance utility. */
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-newsreader), Georgia, "Berlingske Serif", serif;
+  font-weight: 500;
+  font-feature-settings: "ss01", "kern", "liga", "calt";
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: #FFF6D6;
+}
+
+/* Two-tone focus ring, reads on any background */
+:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.85);
+  outline-offset: 3px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 4px rgba(8, 21, 42, 0.85);
+}
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  padding: 12px 22px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0A1A32;
+  background: var(--kismet-gold-gradient);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: transform 250ms var(--ease-cinema);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translate(-50%, 12px);
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   ATMOSPHERE - cinematic depth via tonal layering
+   ════════════════════════════════════════════════ */
+
+@keyframes ambient-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+  50%  { transform: translate3d(2%, -1.5%, 0) scale(1.05); opacity: 1; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+}
+
+@keyframes ambient-drift-slow {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0.7; }
+  50%  { transform: translate3d(-1.5%, 2%, 0); opacity: 0.95; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0.7; }
+}
+
+/* Smoke gradient - cinematic radial atmosphere over a section */
+.smoke-gradient {
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at bottom left, rgba(173, 200, 245, 0.05) 0%, transparent 40%);
+}
+
+/* Smoke fade - vertical fade from background up */
+.smoke-fade-bottom {
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0) 0%, rgba(10, 20, 30, 0.8) 100%);
+}
+
+.smoke-fade-top {
+  background: linear-gradient(0deg, rgba(30, 58, 95, 0) 0%, rgba(10, 20, 30, 0.85) 100%);
+}
+
+/* Hero atmosphere - layered radials over the dark navy base */
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 1100px 720px at 78% 22%, rgba(212, 175, 55, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 500px at 18% 95%, rgba(45, 80, 130, 0.40) 0%, transparent 70%),
+    radial-gradient(ellipse 1400px 900px at 50% 0%, rgba(28, 52, 88, 0.55) 0%, transparent 65%),
+    linear-gradient(180deg, #0E2240 0%, #0a141e 100%);
+}
+
+/* ════════════════════════════════════════════════
+   SCROLL-DRIVEN ATMOSPHERE — native CSS, no JS.
+   Hero orbs and watermark gently breathe out as the
+   user scrolls past. Progressive enhancement: ignored
+   on older browsers; reduced-motion disables it.
+   ════════════════════════════════════════════════ */
+@supports (animation-timeline: scroll()) {
+  @keyframes hero-atmosphere-exhale {
+    from { opacity: 1; transform: translate3d(0, 0, 0); }
+    to   { opacity: 0; transform: translate3d(0, -6%, 0); }
+  }
+
+  @keyframes hero-orb-drift-out {
+    from { opacity: 1; filter: blur(80px); }
+    to   { opacity: 0; filter: blur(120px); }
+  }
+
+  @keyframes hero-headline-rise {
+    from { transform: translate3d(0, 0, 0); letter-spacing: -0.022em; }
+    to   { transform: translate3d(0, -3%, 0); letter-spacing: -0.026em; }
+  }
+
+  /* Hero atmosphere wrapper — fades as the user scrolls past */
+  .hero-scroll-fade .ambient-orb {
+    animation: hero-orb-drift-out linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0vh 80vh;
+  }
+  .hero-scroll-fade .hero-watermark {
+    animation: hero-atmosphere-exhale linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0vh 70vh;
+  }
+
+  /* Image parallax — figure rises slightly as it enters view.
+     Travel deliberately shallow (3% each way) so it reads as felt, not seen. */
+  .scroll-parallax-up {
+    animation: scroll-parallax-up linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+  @keyframes scroll-parallax-up {
+    from { transform: translate3d(0, 3%, 0); }
+    to   { transform: translate3d(0, -3%, 0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-fade .ambient-orb,
+  .hero-scroll-fade .hero-watermark,
+  .scroll-parallax-up {
+    animation: none !important;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   SECTION BLEND — mask-image fade between section
+   bg colors so the joins read as flow, not cuts.
+   ════════════════════════════════════════════════ */
+.section-blend-top {
+  position: relative;
+}
+.section-blend-top::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 96px;
+  background: linear-gradient(180deg, rgba(10, 20, 30, 0.85), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.section-blend-bottom {
+  position: relative;
+}
+.section-blend-bottom::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 96px;
+  background: linear-gradient(0deg, rgba(5, 15, 25, 0.9), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-orb {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(80px);
+  will-change: transform, opacity;
+}
+
+.ambient-orb-gold {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.45), transparent 65%);
+  animation: ambient-drift 18s ease-in-out infinite;
+}
+
+.ambient-orb-navy {
+  background: radial-gradient(circle, rgba(58, 96, 152, 0.55), transparent 70%);
+  animation: ambient-drift-slow 26s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════════
+   SURFACES - Stitch-aligned tonal cards
+   ════════════════════════════════════════════════ */
+
+/* Cards lean into brand navy (#1E3A5F) for warmth, layered over the deep base */
+.kismet-surface {
+  position: relative;
+  background: linear-gradient(180deg, rgba(30, 58, 95, 0.32) 0%, rgba(23, 32, 43, 0.92) 100%);
+  background-color: #18283d;
+  border: 0.5px solid rgba(217, 227, 242, 0.10);
+  border-top-color: rgba(217, 227, 242, 0.18);
+  border-radius: 0.5rem;
+  transition: border-color 600ms var(--ease-cinema), background-color 600ms var(--ease-cinema);
+}
+
+.kismet-surface:hover {
+  background-color: #1e3450;
+  border-top-color: rgba(212, 175, 55, 0.30);
+}
+
+.kismet-surface-elevated {
+  position: relative;
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.55) 0%, rgba(23, 32, 43, 0.92) 100%);
+  background-color: #1e3450;
+  border: 0.5px solid rgba(217, 227, 242, 0.14);
+  border-top-color: rgba(212, 175, 55, 0.25);
+  border-radius: 0.5rem;
+  box-shadow: var(--kismet-shadow-card);
+}
+
+/* Glass card now leans navy too */
+.glass-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.42) 0%, rgba(23, 32, 43, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 0.5px solid rgba(217, 227, 242, 0.12);
+  border-radius: 0.5rem;
+  isolation: isolate;
+  transition: border-top-color 700ms var(--ease-cinema), transform 700ms var(--ease-cinema), box-shadow 700ms var(--ease-cinema);
+}
+
+/* Light-source bloom — soft gold radial that emerges on hover.
+   Not cursor-tracking (too showy). Anchored top-right for editorial feel. */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 78% 0%, rgba(212, 175, 55, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 800ms var(--ease-cinema);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.glass-card:hover {
+  border-top-color: rgba(212, 175, 55, 0.32);
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.55);
+}
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* ════════════════════════════════════════════════
+   DOCUMENTARY IMAGE TREATMENT
+   Photos read as branded editorial, not raw stock.
+   Slight desat + brightness + warm gold cast + dark navy bottom-fade.
+   ════════════════════════════════════════════════ */
+
+.documentary-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.documentary-frame img {
+  filter: saturate(0.78) brightness(0.92) contrast(1.05);
+  transition: filter 1200ms var(--ease-cinema), transform 1200ms var(--ease-cinema);
+}
+
+.documentary-frame:hover img {
+  filter: saturate(0.92) brightness(1) contrast(1.05);
+  transform: scale(1.012);
+}
+
+.documentary-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(10, 20, 30, 0) 50%, rgba(10, 20, 30, 0.45) 100%),
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(212, 175, 55, 0.06), transparent 60%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.documentary-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid rgba(217, 227, 242, 0.06);
+  border-top-color: rgba(217, 227, 242, 0.14);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Gold hairline inner highlight - "high authority" container */
+.gold-edge-left {
+  border-left: 1px solid rgba(212, 175, 55, 0.30);
+}
+
+.gold-edge-top {
+  border-top: 0.5px solid rgba(212, 175, 55, 0.30);
+}
+
+/* ════════════════════════════════════════════════
+   CTAs - solid gold primary, ghost secondary
+   ════════════════════════════════════════════════ */
+
+.cta-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0A1A32;
+  background: var(--kismet-gold-gradient);
+  border-radius: 0.125rem;
+  box-shadow: var(--kismet-shadow-cta);
+  transition: box-shadow 600ms var(--ease-cinema), transform 500ms var(--ease-cinema);
+}
+.cta-gold:hover {
+  box-shadow: var(--kismet-shadow-cta-lift);
+  transform: translateY(-1px);
+}
+.cta-gold:active { transform: translateY(0); }
+
+.cta-arrow {
+  display: inline-block;
+  transition: transform 600ms var(--ease-cinema);
+}
+.cta-gold:hover .cta-arrow,
+.cta-ghost:hover .cta-arrow {
+  transform: translateX(6px);
+}
+
+.cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d9e3f2;
+  background: transparent;
+  border: 1px solid rgba(67, 71, 78, 0.8);
+  border-radius: 0.125rem;
+  transition: border-color 400ms var(--ease-cinema), background-color 400ms var(--ease-cinema), color 400ms var(--ease-cinema);
+}
+.cta-ghost:hover {
+  background: rgba(44, 54, 65, 0.3);
+  border-color: rgba(212, 175, 55, 0.6);
+  color: #e9c349;
+}
+.cta-ghost:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ════════════════════════════════════════════════
+   FORM INPUTS - bottom-border-only, gold focus
+   ════════════════════════════════════════════════ */
+
+.kismet-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(67, 71, 78, 0.6);
+  border-radius: 0;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #d9e3f2;
+  transition: border-color 400ms var(--ease-cinema);
+  outline: none;
+}
+.kismet-input::placeholder { color: rgba(196, 198, 207, 0.30); }
+.kismet-input:focus {
+  border-bottom-color: #D4AF37;
+  box-shadow: none;
+}
+
+.kismet-input-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c4c6cf;
+  margin-bottom: 8px;
+}
+
+/* ════════════════════════════════════════════════
+   TYPOGRAPHY HELPERS
+   ════════════════════════════════════════════════ */
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #D4AF37;
+}
+
+.eyebrow-rule {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: #D4AF37;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+/* Make Tailwind text-balance available where useful */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ════════════════════════════════════════════════
+   LEGACY/PLACEHOLDER
+   ════════════════════════════════════════════════ */
+.placeholder-copy {
+  outline: 1px dashed rgba(212, 175, 55, 0.4);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
