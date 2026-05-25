@@ -73,25 +73,28 @@ export function TestimonialBlock({
     [emblaApi]
   );
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  const onInit = useCallback(() => {
-    if (!emblaApi) return;
-    setScrollSnaps(emblaApi.scrollSnapList());
-  }, [emblaApi]);
-
   useEffect(() => {
     if (!emblaApi) return;
 
-    onInit();
-    onSelect();
+    const handleInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList());
+    };
 
-    emblaApi.on("reInit", onInit);
-    emblaApi.on("select", onSelect);
-  }, [emblaApi, onInit, onSelect]);
+    const handleSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    handleInit();
+    handleSelect();
+
+    emblaApi.on("reInit", handleInit);
+    emblaApi.on("select", handleSelect);
+
+    return () => {
+      emblaApi.off("reInit", handleInit);
+      emblaApi.off("select", handleSelect);
+    };
+  }, [emblaApi]);
 
   return (
     <section className="relative bg-[#050f19]">

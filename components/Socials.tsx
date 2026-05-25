@@ -1,27 +1,4 @@
-import { Instagram, Facebook } from "./Icons";
-
-export interface SocialLink {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-}
-
-/**
- * Single source of truth for Kismet's social profiles.
- * Update handles here and they propagate through the footer + contact card.
- */
-export const SOCIALS: SocialLink[] = [
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/kismetfinancegroup/",
-    icon: <Instagram className="w-[18px] h-[18px]" strokeWidth={1.6} />,
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/kismetfinancegroup",
-    icon: <Facebook className="w-[18px] h-[18px]" strokeWidth={1.6} />,
-  },
-];
+import { SOCIALS } from "./social-links";
 
 interface SocialIconRowProps {
   /** Visual variant. "compact" = small icons in a button row, "labelled" = icon + text label per item. */
