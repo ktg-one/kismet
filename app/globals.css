@@ -203,11 +203,9 @@ html {
     animation-timeline: auto, scroll(root);
     animation-range: auto, 0vh 80vh;
   }
-  .hero-scroll-fade .hero-watermark {
-    animation: hero-atmosphere-exhale linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0vh 70vh;
-  }
+  /* .hero-watermark is now driven by GSAP ScrollTrigger in Hero.tsx
+     (single source of truth across all browsers — the scroll-timeline
+     fallback used to fight GSAP transforms via specificity). */
 
   /* Image parallax — figure rises slightly as it enters view.
      Travel deliberately shallow (3% each way) so it reads as felt, not seen. */

@@ -1,12 +1,40 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
-import type { ReactNode } from "react";
+import { ReactLenis, useLenis } from "lenis/react";
+import { useEffect, type ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
- * Document-level smooth scroll. Skips wheel smoothing on touch devices so
- * native momentum is preserved, and the existing `prefers-reduced-motion`
- * media rule in globals.css covers users who've opted out of motion.
+ * Bridges Lenis's RAF into GSAP's ticker so ScrollTrigger reads the
+ * smoothed scroll position. Without this, ScrollTrigger calculations
+ * drift against the visual scroll.
+ */
+function LenisGsapBridge() {
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (!lenis) return;
+    const update = (time: number) => lenis.raf(time * 1000);
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(update);
+    gsap.ticker.lagSmoothing(0);
+    return () => {
+      gsap.ticker.remove(update);
+      lenis.off("scroll", ScrollTrigger.update);
+    };
+  }, [lenis]);
+
+  return null;
+}
+
+/**
+ * Document-level smooth scroll. `autoRaf: false` hands the RAF loop to
+ * gsap.ticker via LenisGsapBridge so Lenis and ScrollTrigger share one
+ * source of truth. Touch keeps native momentum.
  */
 export function SmoothScroll({ children }: { children: ReactNode }) {
   return (
@@ -18,8 +46,10 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         smoothWheel: true,
         wheelMultiplier: 1,
         touchMultiplier: 1,
+        autoRaf: false,
       }}
     >
+      <LenisGsapBridge />
       {children}
     </ReactLenis>
   );

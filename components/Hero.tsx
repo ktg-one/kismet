@@ -1,9 +1,18 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useReducedMotion } from "motion/react";
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
 import { ScrollCue } from "./ScrollCue";
 import { BrandMark } from "./BrandMark";
 import type { ReactNode } from "react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface HeroProps {
   eyebrow: string;
@@ -38,19 +47,69 @@ export function Hero({
   bgImage,
   bgAlt = "",
 }: HeroProps) {
+  const heroRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+
+  // Parallax the gold watermark + the optional bg image as the user scrolls
+  // the hero out of view. The CSS scroll-timeline rule for .hero-watermark
+  // has been removed in favour of this (single source of truth).
+  useGSAP(
+    () => {
+      if (reduce) return;
+      gsap.fromTo(
+        ".hero-watermark",
+        { yPercent: -4, opacity: 1 },
+        {
+          yPercent: 14,
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        }
+      );
+      if (bgImage) {
+        gsap.fromTo(
+          ".hero-bg-image",
+          { yPercent: -6 },
+          {
+            yPercent: 10,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: 0.8,
+            },
+          }
+        );
+      }
+    },
+    { scope: heroRef, dependencies: [reduce, bgImage] }
+  );
+
   return (
-    <section className="relative overflow-hidden hero-atmosphere hero-scroll-fade vt-hero">
-      {/* Background image layer (optional) */}
+    <section
+      ref={heroRef}
+      className="relative overflow-hidden hero-atmosphere hero-scroll-fade vt-hero"
+    >
+      {/* Background image layer (optional). Wrapped in .hero-bg-image so
+          the parallax tween can target it without touching gradients. */}
       {bgImage && (
         <div className="absolute inset-0 z-0">
-          <Image
-            src={bgImage}
-            alt={bgAlt}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-30"
-          />
+          <div className="hero-bg-image absolute inset-0 will-change-transform">
+            <Image
+              src={bgImage}
+              alt={bgAlt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center opacity-30 scale-110"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a141e] via-[#0a141e]/80 to-transparent" />
           <div className="absolute inset-0 smoke-gradient" />
         </div>
@@ -94,7 +153,7 @@ export function Hero({
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-20 md:pb-32 min-h-[80vh] md:min-h-[88vh] flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-1">
           <div className="col-span-12 lg:col-span-9 flex flex-col justify-center">
-            <Reveal>
+            <Reveal immediate>
               <span className="inline-flex items-center gap-3 text-[12px] font-semibold tracking-[0.2em] uppercase text-[#D4AF37] mb-8">
                 <span aria-hidden className="w-8 h-px bg-[#D4AF37]" />
                 {eyebrow}
@@ -107,23 +166,24 @@ export function Hero({
               className="font-serif text-[36px] sm:text-[44px] md:text-[54px] lg:text-[60px] leading-[1.06] tracking-[-0.02em] text-[#d9e3f2] text-balance max-w-[22ch]"
               delay={0.05}
               stagger={0.045}
+              immediate
             />
 
             {headlineMuted && (
-              <Reveal delay={0.4}>
+              <Reveal delay={0.4} immediate>
                 <p className="font-serif text-[28px] sm:text-[36px] md:text-[46px] lg:text-[52px] leading-[1.1] tracking-[-0.018em] text-[#d9e3f2] text-balance mt-3 sm:mt-4 max-w-[24ch] italic font-light">
                   {headlineMuted}
                 </p>
               </Reveal>
             )}
 
-            <Reveal delay={0.55} y={18}>
+            <Reveal delay={0.55} y={18} immediate>
               <div className="mt-10 md:mt-12 text-[16.5px] md:text-[17px] text-[#c4c6cf] leading-[1.65] max-w-xl">
                 {sub}
               </div>
             </Reveal>
 
-            <Reveal delay={0.72} y={14}>
+            <Reveal delay={0.72} y={14} immediate>
               <div className="mt-12 md:mt-14 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <MagneticCTA href={ctaHref}>
                   <span>{ctaLabel}</span>
