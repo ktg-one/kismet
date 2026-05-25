@@ -40,7 +40,7 @@ export function ThreeStep({ steps }: { steps: Step[] }) {
                 className={`relative z-10 mb-6 md:mb-12 ${align}`}
               >
                 <div
-                  className={`bg-[#18283d] border border-[#43474e]/30 rounded-lg p-8 md:p-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start group hover:bg-[#1e3450] transition-colors duration-500 relative overflow-hidden ${
+                  className={`bg-[#18283d] border border-[#43474e]/30 rounded-lg p-8 md:p-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start group hover:bg-[#1e3450] card-lift-hover relative overflow-hidden ${
                     isHighlighted ? "gold-edge-left" : ""
                   }`}
                 >

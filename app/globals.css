@@ -121,16 +121,22 @@ html {
    ATMOSPHERE - cinematic depth via tonal layering
    ════════════════════════════════════════════════ */
 
+/* Travel ~5% over a 24s loop; slow enough to read as atmosphere, large
+   enough to register as motion. Two-axis drift so it doesn't read as a
+   straight bounce. */
 @keyframes ambient-drift {
-  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
-  50%  { transform: translate3d(2%, -1.5%, 0) scale(1.05); opacity: 1; }
-  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+  0%   { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.85; }
+  25%  { transform: translate3d(3%, -2%, 0) scale(1.04); opacity: 0.95; }
+  50%  { transform: translate3d(5%, -4%, 0) scale(1.08); opacity: 1;    }
+  75%  { transform: translate3d(2%, -1%, 0) scale(1.05); opacity: 0.92; }
+  100% { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.85; }
 }
 
 @keyframes ambient-drift-slow {
-  0%   { transform: translate3d(0, 0, 0); opacity: 0.7; }
-  50%  { transform: translate3d(-1.5%, 2%, 0); opacity: 0.95; }
-  100% { transform: translate3d(0, 0, 0); opacity: 0.7; }
+  0%   { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.7;  }
+  33%  { transform: translate3d(-3%, 3%, 0) scale(1.05); opacity: 0.88; }
+  66%  { transform: translate3d(-5%, 1%, 0) scale(1.08); opacity: 0.95; }
+  100% { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.7;  }
 }
 
 /* Smoke gradient - cinematic radial atmosphere over a section */
@@ -180,11 +186,22 @@ html {
     to   { transform: translate3d(0, -3%, 0); letter-spacing: -0.026em; }
   }
 
-  /* Hero atmosphere wrapper — fades as the user scrolls past */
-  .hero-scroll-fade .ambient-orb {
-    animation: hero-orb-drift-out linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0vh 80vh;
+  /* Hero atmosphere wrapper — orbs keep their time-based drift AND fade
+     out as the user scrolls past. Two animations on the same element:
+     one ticked by time, one ticked by scroll position. */
+  .hero-scroll-fade .ambient-orb-gold {
+    animation:
+      ambient-drift 24s ease-in-out infinite,
+      hero-orb-drift-out linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range: auto, 0vh 80vh;
+  }
+  .hero-scroll-fade .ambient-orb-navy {
+    animation:
+      ambient-drift-slow 34s ease-in-out infinite,
+      hero-orb-drift-out linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range: auto, 0vh 80vh;
   }
   .hero-scroll-fade .hero-watermark {
     animation: hero-atmosphere-exhale linear both;
@@ -252,12 +269,19 @@ html {
 
 .ambient-orb-gold {
   background: radial-gradient(circle, rgba(212, 175, 55, 0.45), transparent 65%);
-  animation: ambient-drift 18s ease-in-out infinite;
+  animation: ambient-drift 24s ease-in-out infinite;
 }
 
 .ambient-orb-navy {
   background: radial-gradient(circle, rgba(58, 96, 152, 0.55), transparent 70%);
-  animation: ambient-drift-slow 26s ease-in-out infinite;
+  animation: ambient-drift-slow 34s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb-gold,
+  .ambient-orb-navy {
+    animation: none;
+  }
 }
 
 /* ════════════════════════════════════════════════
@@ -278,6 +302,32 @@ html {
 .kismet-surface:hover {
   background-color: #1e3450;
   border-top-color: rgba(212, 175, 55, 0.30);
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.55);
+}
+
+/* Lift utility for cards that don't extend .kismet-surface (e.g. ThreeStep
+   uses its own inline classes). Same vocabulary as .glass-card:hover. */
+.card-lift-hover {
+  transition:
+    transform 600ms var(--ease-cinema),
+    box-shadow 600ms var(--ease-cinema),
+    border-top-color 600ms var(--ease-cinema),
+    background-color 500ms var(--ease-cinema);
+}
+.card-lift-hover:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.55);
+  border-top-color: rgba(212, 175, 55, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kismet-surface,
+  .kismet-surface:hover,
+  .card-lift-hover,
+  .card-lift-hover:hover {
+    transform: none;
+  }
 }
 
 .kismet-surface-elevated {
