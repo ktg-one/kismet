@@ -1,18 +1,18 @@
 # Roadmap: Kismet-site
 
-## Phase 1: Foundation & Hardening (Current)
+## Phase 1: Foundation & Hardening (Complete)
 *Hardening the existing codebase and finalizing initial integrations.*
 
 - [x] Task 1.1: Initialize .planning and GSD workflow.
 - [x] Task 1.2: Implement API Security (Honeypot, Rate Limiting).
 - [x] Task 1.3: Fix React 19 hook violations in carousel.
 - [x] Task 1.4: Sanitize Shane Voice on About page.
-- [ ] Task 1.5: Finalize Resend & Google Sheets helpers (verify ENV usage).
+- [x] Task 1.5: Finalize Resend & Google Sheets helpers (verify ENV usage).
   - **Plans:** 2 plans
-  - [ ] 01-01-PLAN.md -- Env contract: create lib/env.ts, wire lib/email.ts + lib/sheets.ts, annotate .env.example
-  - [ ] 01-02-PLAN.md -- Smoke script: create scripts/smoke-lead.mjs, close external gates checkpoint
+  - [x] 01-01-PLAN.md -- Env contract: create lib/env.ts, wire lib/email.ts + lib/sheets.ts, annotate .env.example
+  - [x] 01-02-PLAN.md -- Smoke script: create scripts/smoke-lead.mjs, close external gates checkpoint
 
-## Phase 2: Animations & Interactivity Upgrade
+## Phase 2: Animations & Interactivity Upgrade (Current)
 *Enhancing the visual experience with Motion v12.*
 
 - [ ] Task 2.1: Audit all `Reveal` and `RevealWords` components.

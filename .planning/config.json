@@ -1,0 +1,15 @@
+{
+  "workflow": {
+    "nyquist_validation": true
+  },
+  "preferences": {
+    "commit_frequency": "per-task",
+    "test_framework": "playwright/next-test",
+    "deployment_platform": "vercel"
+  },
+  "conventions": {
+    "no_em_dash": true,
+    "shane_voice": true,
+    "strict_typescript": true
+  }
+}
