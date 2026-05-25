@@ -12,6 +12,16 @@ interface RevealProps {
   immediate?: boolean;
 }
 
+/**
+ * Reveal renders the SAME motion.tag tree regardless of reduced-motion so
+ * SSR and first client render line up. Only the motion props change once
+ * useReducedMotion() resolves on the client; that swap happens after
+ * hydration and never triggers a mismatch.
+ *
+ * When `immediate` is true, the element animates on mount (used by the
+ * hero so the headline is settled-in by the time anything else moves).
+ * Otherwise it animates on scroll-into-view.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -21,23 +31,21 @@ export function Reveal({
   duration = 0.85,
   immediate = false,
 }: RevealProps) {
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion();
   const MotionTag = motion[as];
-  const initial = { opacity: 0, y };
-  const animate = immediate || reduce ? { opacity: 1, y: 0 } : undefined;
-  const whileInView = immediate || reduce ? undefined : { opacity: 1, y: 0 };
-  const transition = reduce
-    ? { duration: 0 }
-    : { duration, delay, ease: [0.16, 1, 0.3, 1] as const };
 
   return (
     <MotionTag
       className={className}
-      initial={initial}
-      animate={animate}
-      whileInView={whileInView}
+      initial={reduce ? false : { opacity: 0, y }}
+      animate={immediate && !reduce ? { opacity: 1, y: 0 } : undefined}
+      whileInView={!immediate && !reduce ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.18 }}
-      transition={transition}
+      transition={{
+        duration: reduce ? 0 : duration,
+        delay: reduce ? 0 : delay,
+        ease: [0.16, 1, 0.3, 1] as const,
+      }}
     >
       {children}
     </MotionTag>
@@ -62,24 +70,26 @@ function RevealWord({
   word: string;
   delay: number;
   immediate: boolean;
-  reduce: boolean;
+  reduce: boolean | null;
 }) {
   return (
     <motion.span
       className="inline-block will-change-transform"
-      initial={immediate || reduce ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }}
-      animate={immediate || reduce ? { y: 0, opacity: 1 } : undefined}
-      whileInView={immediate || reduce ? undefined : { y: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={
-        reduce
-          ? { duration: 0 }
-          : {
-              duration: 0.95,
-              delay,
-              ease: [0.16, 1, 0.3, 1] as const,
-            }
+      initial={
+        reduce || immediate ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }
       }
+      animate={
+        immediate && !reduce ? { y: 0, opacity: 1 } : undefined
+      }
+      whileInView={
+        !immediate && !reduce ? { y: 0, opacity: 1 } : undefined
+      }
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{
+        duration: reduce ? 0 : 0.95,
+        delay: reduce ? 0 : delay,
+        ease: [0.16, 1, 0.3, 1] as const,
+      }}
     >
       {word}
     </motion.span>
@@ -87,9 +97,10 @@ function RevealWord({
 }
 
 /**
- * Word-by-word stagger reveal. Used for headlines.
- * Each word fades up with a small delay offset.
- * Aria-label on the parent so screen readers read the full string.
+ * Word-by-word stagger reveal. Used for headlines. Each word fades up with
+ * a small delay offset. aria-label exposes the full string to screen
+ * readers; per-word spans are aria-hidden so AT users hear the headline
+ * as one phrase.
  */
 export function RevealWords({
   text,
@@ -99,7 +110,7 @@ export function RevealWords({
   as = "h1",
   immediate = false,
 }: RevealWordsProps) {
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useReducedMotion();
   const Tag = as as keyof React.JSX.IntrinsicElements;
   const words = text.split(" ");
 
