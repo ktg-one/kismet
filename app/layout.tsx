@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { GrainOverlay } from "@/components/GrainOverlay";
 import { PageTransition } from "@/components/PageTransition";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -126,15 +127,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#0A1A32" />
       </head>
       <body className="font-sans bg-navy-deep text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <GrainOverlay />
-        <SiteHeader />
-        <main id="main-content" className="flex-1">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <SiteFooter />
+        <SmoothScroll>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
+          <GrainOverlay />
+          <SiteHeader />
+          <main id="main-content" className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <SiteFooter />
+        </SmoothScroll>
       </body>
     </html>
   );
