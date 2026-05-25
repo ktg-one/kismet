@@ -1,7 +1,6 @@
+import "server-only";
 import { Resend } from "resend";
-
-const apiKey = process.env.RESEND_API_KEY;
-const resend = apiKey ? new Resend(apiKey) : null;
+import { getLeadEmailEnv } from "@/lib/env";
 
 export interface LeadEmailInput {
   name: string;
@@ -11,13 +10,12 @@ export interface LeadEmailInput {
 }
 
 export async function sendLeadEmail(input: LeadEmailInput) {
-  if (!resend) throw new Error("RESEND_API_KEY not configured");
-  const to = process.env.LEAD_INBOX_TO;
-  const from = process.env.LEAD_INBOX_FROM;
-  if (!to || !from) throw new Error("LEAD_INBOX_TO or LEAD_INBOX_FROM not configured");
+  const { resendApiKey, leadInboxTo, leadInboxFrom } = getLeadEmailEnv();
+  const resend = new Resend(resendApiKey);
+
   return resend.emails.send({
-    to,
-    from,
+    to: leadInboxTo,
+    from: leadInboxFrom,
     replyTo: input.email,
     subject: `New Kismet lead: ${input.name}`,
     text: [
