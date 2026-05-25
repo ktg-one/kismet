@@ -1,0 +1,157 @@
+PROMPTS AND DIRECTION LOG
+=========================
+
+This is a plain-text record of the important prompts, instructions, decisions and direction from the build of the Kismet Finance Group website. It is written so a future AI or developer can pick up the project later without needing the full conversation history.
+
+WHO IS THIS FOR
+---------------
+The site is for John and Jenny. Normal Australians who earn decent money, own a home, have super and maybe equity. They are not poor and they are not wealthy. They are smart, but they are not finance professionals. They feel financially behind given how hard they work. They want clarity, not sophistication.
+
+Every word, layout choice and image is filtered through John and Jenny.
+
+WHO WROTE THE BRIEF
+-------------------
+Shane Hewson (Founder/Director) and Josh Clark (Director) run Kismet Finance Group together. Amy Stoddart joins as EA on 2026-06-01.
+
+Shane is the user. He talks to Claude (this AI) in auto mode for execution. His preferences: short, direct, recommendation plus tradeoff (not options menus), revenue-focused, terse responses.
+
+THE ONE-LINE BRIEF
+------------------
+"Kismet helps normal Australians understand the bigger picture, connect with the right professionals, and make the process feel clearer."
+
+Three beats. Every page reinforces them.
+
+FOUNDATIONAL DECISIONS
+----------------------
+
+1. Visual foundation = Stitch design export.
+   The Stitch dark-navy editorial export at /stitch_kismet_finance_digital_presence/ was used as the base. Tokens were navy-shifted to carry the brand colour through cards. Brand hex (#1E3A5F navy, #D4AF37 gold) is authoritative and overrides Stitch variants.
+
+2. Tech stack = Next.js 16 / React 19 / Tailwind v4.
+   Production-grade. Turbopack build. TypeScript throughout. motion/react for animations. embla-carousel for testimonials.
+
+3. Real data, real photos, real attribution.
+   ABN, AFG/HLS attribution with ACL 389087, real phone (08 6285 8501), real address (52 Cooper Road, Cockburn Central WA 6164), real Shane and Josh photo from HEIC original. No stock-photo-as-team. No fabricated stats.
+
+4. Branch = feat/stitch-redesign (off feat/v1-build).
+
+5. CTA pattern = "Book a call" primary, "How We Work" secondary.
+   "Begin the Conversation" was used early but cut on the John-and-Jenny polish pass.
+
+KEY VOICE EVOLUTION
+-------------------
+
+Voice went through several explicit pulls and corrections during the build:
+
+PULL 1: Toward John and Jenny.
+Shane flagged drift into "boutique consultancy" cleverness early. Anchor: "would a normal Australian say this at the kitchen table?" Cut bespoke, tailored, curated, harmony, architects, blueprints.
+
+PULL 2: Reference Amplify Solutions Group, but elevate.
+Shane sent amplifysolutionsgroup.com.au as competitor reference. Direction: more confident, more modern, less salesy. Use as PROOF that the category can be premium, not as copy to imitate.
+
+PULL 3: Pull back from Amplify imitation.
+Once my copy drifted too close ("tailored to your circumstances", "Retain Full Control"), Shane pulled back: hold Kismet's own voice, not Amplify's.
+
+PULL 4: Pull back from writerly drift.
+Phrases like "Picture starts moving as one" and "Worked alongside long enough to vouch for" got flagged as too crafted. Replaced with operator voice ("One conversation, one strategy. You stop getting three different versions of the same answer.")
+
+PULL 5: Full language and tone audit.
+After multiple pulls, Shane requested a full audit of every page to establish ONE Kismet voice. Result: commit 1429e41 ("copy: full language and tone audit pass"). Killed "Operator Notes", "Strategic Move", "Direct Inquiry", "amidst", "Boutique by design", and similar agency-clever lines.
+
+PULL 6: Kill liability-voice.
+Shane flagged: "language like that looks like we are avoiding liability... we want credibility and to position ourselves as great people too deal with but wow these guys know what they are talking about". Result: commit 9809355 ("copy: kill liability-voice, lead with capability"). Killed "we make the introductions and sit in the room", "the conversations stay between you and the specialist", "not us in their seat", "we sit in the middle while they do the regulated work". Replaced with capability-led framing: "we drive the strategy", "we run the play across", "we pull it together", "we keep the conversations connected". Compliance language quarantined to the dedicated Boundaries section on /approach and the ComplianceLine component.
+
+PULL 7: Home page John and Jenny polish.
+Shane requested a final polish on home (Hero, BiggerPicture, StrategicPathways, CTA sections) before Vercel. Result: commit f5ee33d. Hero sub now hits the three core beats in one sentence. CTA is "Book a call". "Operator-y" lines like "we work the strategy" and "we run the play across all of them" replaced with plainer phrasing for John and Jenny.
+
+CRITICAL HARD RULES
+-------------------
+
+1. NO em-dashes or en-dashes. Anywhere. Ever.
+   This is a hard rule from Shane's CLAUDE.md global instructions. Em-dashes and en-dashes are an AI tell that kill credibility. Use periods, commas, parentheses. For ranges write "to" (e.g. "5 to 10").
+
+2. NEVER give regulated financial advice.
+   Kismet is an introducer, not a licensed advisor. No "you should..." statements. General observations only. Refer specifics to Dave Caffarelli (licensed broker in the Kismet network).
+
+3. 10:1 value ratio.
+   Every prospect-facing message delivers 10x value (insights, framing, stats, story) for every 1 ask. A "touch base" with no value is forbidden.
+
+4. Compliance language quarantined.
+   Lives in the dedicated Boundaries section on /approach, the ComplianceLine component, and the footer. Does not bleed into hero or marketing copy.
+
+5. Kismet quality bar = 8.5/10 minimum.
+   Premium boutique consultancy standard. Calm, strategic-coordinator framing. Never middleman, never stuffy. Self-check before showing Shane anything.
+
+ARCHITECTURE NOTES FOR FUTURE DEVS
+----------------------------------
+
+Routes (17 total, all returning 200):
+- / (home)
+- /about
+- /approach
+- /pathways
+- /insights (index)
+- /insights/[slug] (5 articles in /content/insights/*.mdx)
+- /contact
+- /api/lead (POST endpoint)
+- /robots.txt, /sitemap.xml, /icon.png
+
+Key shared components:
+- components/Hero.tsx (cinematic hero, dual-headline, ambient orbs, BrandMark watermark)
+- components/SiteHeader.tsx (sticky nav with brand mark)
+- components/SiteFooter.tsx (4-col grid, brand + socials, compliance attribution)
+- components/BiggerPicture.tsx (image left, copy right, bullets)
+- components/StrategicPathways.tsx (3-card asymmetric bento)
+- components/ContactInquiry.tsx (form left, contact card right)
+- components/ArticleLayout.tsx (Insights article shell)
+- components/ComplianceLine.tsx (the formal disclaimer line)
+- components/Reveal.tsx (scroll-triggered reveal wrapper)
+- components/PageTransition.tsx (cinema-ease page transitions)
+
+Tokens and theme:
+- tailwind.config.ts holds brand colours and surface scale
+- app/globals.css holds .documentary-frame, .glass-card, .kismet-surface, CTA arrow, two-tone focus ring, skip link
+
+Photography pipeline (HEIC files):
+- HEIC originals from Shane go to scripts/process-photos.mjs
+- Pipeline: HEIC -> heic-convert (decode) -> sharp (resize, optimise) -> JPEG
+- Processed JPEGs land in /public/photos/
+
+Form pipeline:
+- /contact form POSTs to /api/lead
+- 503 fallback path renders an "email us" card with mailto:admin@kismetfinancegroup.com.au
+
+Booking flow:
+- NEXT_PUBLIC_BOOKING_URL env var points at Shane's strategy booking page
+- "Book a private call" CTA on /contact opens the booking URL in a new tab
+
+KNOWN STRUCTURAL ISSUES (workarounds applied)
+---------------------------------------------
+
+1. 3CX browser extension hydration error.
+   The 3CX extension rewrites tel: and mailto: anchors after SSR, causing React 19 hydration mismatch. Fix: suppressHydrationWarning on every tel: and mailto: anchor in SiteFooter and ContactInquiry.
+
+2. Sharp HEIC decoding fail on Windows.
+   Sharp lacks libheif by default on Windows. Fix: heic-convert pure JS package handles the decode step before piping to sharp.
+
+3. Google Reviews scraping blocked.
+   Playwright-based Maps page scrape failed against Google's anti-bot protection. Workaround: scripts/scrape-google-reviews.mjs is in the repo as the ingestion entry point, but for now 3 named reviews are curated manually with a "Read all on Google" link. Shane needs to export from Google Business Profile dashboard into public/data/reviews.json for full ingestion.
+
+4. Vercel CLI auth.
+   Project is linked but CLI auth requires interactive login. Shane needs to run `vercel login` himself, then the AI can run `vercel --prod`.
+
+WHAT TO READ NEXT
+-----------------
+- /project-notes/WEBSITE_DIRECTION.md  (overall direction, audience, positioning)
+- /project-notes/COPY_VOICE_GUIDE.md  (John and Jenny voice rules with examples)
+- /project-notes/DESIGN_GUIDE.md  (theme, tokens, type, motion)
+- /project-notes/COMPLIANCE_NOTES.md  (compliance rules, AFG attribution)
+- /project-notes/CHANGELOG_SUMMARY.md  (build evolution and key commits)
+
+CONTEXT FOR FUTURE SESSIONS
+---------------------------
+Shane uses Claude in auto mode. Default expectation: execute, do not over-confirm. Pause only for destructive or shared-system actions (deletes, outbound messages, sends to clients). Shane uses Outlook desktop (New Outlook UWP, no COM), Google Workspace, Notion, Fireflies. WhatsApp is primary chat but has no MCP.
+
+Kismet's bread and butter is direct-sales introductions for property investments, often via SMSF. The website's job is to make warm referrals and prospects feel like Kismet is a real, premium operation worth a meeting. Conversion happens on the call.
+
+End of log.
