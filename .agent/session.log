@@ -1,0 +1,19 @@
+# Kismet Agent Log - 2026-05-25
+
+## State
+- Phase 1 (Hardening) is largely complete.
+- API hardened with honeypot and rate limiting.
+- React 19 violations in TestimonialBlock fixed.
+- Shane Voice rules applied to About page.
+- Project initialized with GSD workflow in `.planning/`.
+- **Fixed:** Hero headline hydration delay by adding `immediate` prop to `Reveal` components.
+
+## Challenges
+- Vercel login pending (device code provided: SQHB-JZSJ).
+- `agentmemory` MCP server is active on localhost:3111 but shell integration was hanging.
+- **Resolved:** Created `.agent` folder and log file as a secondary state anchor.
+
+## Next Moves
+1. Finalize Task 1.5 (Verify Resend/Sheets integration helper logic).
+2. Complete Vercel deployment once logged in.
+3. Audit and upgrade animations for all components (Phase 2).

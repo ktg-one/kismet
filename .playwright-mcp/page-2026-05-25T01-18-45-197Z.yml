@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Kismet Finance Group, home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - img [ref=e10]
+      - navigation [ref=e17]:
+        - link "How We Work" [ref=e18] [cursor=pointer]:
+          - /url: /approach
+        - link "Strategic Pathways" [ref=e19] [cursor=pointer]:
+          - /url: /pathways
+        - link "Insights" [ref=e20] [cursor=pointer]:
+          - /url: /insights
+        - link "About" [ref=e21] [cursor=pointer]:
+          - /url: /about
+      - link "Enquire Now" [ref=e22] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e23]: Enquire Now
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic:
+          - img
+        - generic [ref=e27]:
+          - generic [ref=e29]:
+            - generic [ref=e31]: Strategic Finance Coordination
+            - heading "It may not be an income problem." [level=1] [ref=e33]:
+              - generic [ref=e35]: It
+              - generic [ref=e37]: may
+              - generic [ref=e39]: not
+              - generic [ref=e41]: be
+              - generic [ref=e43]: an
+              - generic [ref=e45]: income
+              - generic [ref=e47]: problem.
+            - paragraph [ref=e49]: It's a structure, timing and coordination problem.
+            - generic [ref=e51]: We help everyday Australians see the bigger picture, connect with the right people, and make the whole process feel clearer.
+            - generic [ref=e53]:
+              - link "Book a call" [ref=e55] [cursor=pointer]:
+                - /url: https://strategy.kismetfinancegroup.com.au/thank-youzk72oueo
+                - generic [ref=e56]: Book a call
+                - generic [ref=e57]: →
+              - link "How We Work" [ref=e58] [cursor=pointer]:
+                - /url: /approach
+                - generic [ref=e59]: How We Work
+                - generic [ref=e60]: →
+          - generic [ref=e63]: Scroll
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e69]: Why we exist
+          - heading "The Bigger Picture" [level=2] [ref=e72]
+          - paragraph [ref=e74]: Most of the time, getting ahead isn't about one product. It's about how lending, property, structure and timing all fit together. That's the part most people never see. We pull it together with you.
+          - paragraph [ref=e76]: When the moving parts are connected, you stop chasing the same answer in three different places. One strategy. The right people, working from the same page.
+          - generic [ref=e77]:
+            - generic [ref=e79]:
+              - img [ref=e82]
+              - generic [ref=e85]:
+                - heading "The decisions stay yours" [level=4] [ref=e86]
+                - paragraph [ref=e87]: We tell you what we'd do and why. We tell you what we'd avoid and why. Then you decide. No one rushes you, no one talks past you, no one sells you into anything.
+            - generic [ref=e89]:
+              - img [ref=e92]
+              - generic [ref=e95]:
+                - heading "People we actually trust" [level=4] [ref=e96]
+                - paragraph [ref=e97]: Every broker, accountant, SMSF specialist and project partner is someone we've worked with for years. We only introduce people we'd send our own family to.
+        - figure [ref=e99]:
+          - img "A small group working together over a laptop" [ref=e102]
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e107]: What we do
+          - heading "Three ways we help." [level=2] [ref=e111]
+        - generic [ref=e112]:
+          - article [ref=e114]:
+            - generic [ref=e115]:
+              - img [ref=e117]
+              - heading "Lending" [level=3] [ref=e119]
+              - paragraph [ref=e120]: Through our broker partners in the Home Loan Solutions / AFG network, you get access to around 70 Australian lenders. So you see real options that fit your situation, not just whatever the bank happened to be selling that week.
+          - article [ref=e122]:
+            - generic [ref=e123]:
+              - img [ref=e125]
+              - heading "Property" [level=3] [ref=e127]
+              - paragraph [ref=e128]: Property and project partners we have worked with and watched deliver for years. We help you see what is actually worth a look for someone in your situation. We do not push you into anything.
+          - article [ref=e130]:
+            - generic [ref=e131]:
+              - heading "Coordination" [level=3] [ref=e132]:
+                - img [ref=e134]
+                - text: Coordination
+              - paragraph [ref=e144]: Your accountant, broker, SMSF specialist and project partners, all working from the same plan, because we keep the conversations connected. One strategy. You stop getting three different versions of the same answer.
+            - link "How We Work" [ref=e145] [cursor=pointer]:
+              - /url: /approach
+              - generic [ref=e146]: How We Work
+              - generic [ref=e147]: →
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e152]: Leadership
+          - heading "The people you deal with." [level=2] [ref=e156]
+        - generic [ref=e157]:
+          - article [ref=e159]:
+            - generic [ref=e163]: JO
+            - generic [ref=e165]:
+              - heading "Josh" [level=3] [ref=e166]
+              - paragraph [ref=e167]: Director
+          - article [ref=e169]:
+            - generic [ref=e173]: SH
+            - generic [ref=e175]:
+              - heading "Shane" [level=3] [ref=e176]
+              - paragraph [ref=e177]: Founder · Director
+      - generic [ref=e179]:
+        - generic [ref=e181]:
+          - generic [ref=e183]: Google reviews
+          - heading "From people we have sat across from." [level=2] [ref=e186]
+        - generic [ref=e189]:
+          - figure "Riley-James Hogg Google review · ★★★★★" [ref=e191]:
+            - generic [ref=e192]: “
+            - blockquote [ref=e193]: I cannot thank the team at Kismet enough for all their help. They have been so supportive and have made me feel like a person, not a number lost in a system.
+            - generic [ref=e194]:
+              - generic [ref=e195]: RH
+              - generic [ref=e196]:
+                - generic [ref=e197]: Riley-James Hogg
+                - generic [ref=e198]: Google review · ★★★★★
+          - figure "Robyn Willers Google review · ★★★★★" [ref=e200]:
+            - generic [ref=e201]: “
+            - blockquote [ref=e202]: I honestly wish someone like Dan was around years ago to help educate the public about superannuation. Very informative, patient, and clear about the goals and the process.
+            - generic [ref=e203]:
+              - generic [ref=e204]: RW
+              - generic [ref=e205]:
+                - generic [ref=e206]: Robyn Willers
+                - generic [ref=e207]: Google review · ★★★★★
+          - figure "Adam Walker Google review · ★★★★★" [ref=e209]:
+            - generic [ref=e210]: “
+            - blockquote [ref=e211]: A friend of mine referred us to Kismet to help us out with our interest rates. The whole process was nice and convenient. They came to us, explained everything in plain English, and we walked away clearer than we started.
+            - generic [ref=e212]:
+              - generic [ref=e213]: AW
+              - generic [ref=e214]:
+                - generic [ref=e215]: Adam Walker
+                - generic [ref=e216]: Google review · ★★★★★
+        - link "Read all reviews on Google" [ref=e219] [cursor=pointer]:
+          - /url: https://www.google.com/search?q=Kismet+Finance+Group+Cockburn+Central+reviews
+          - img [ref=e220]
+          - generic [ref=e222]: Read all reviews on Google
+          - generic [ref=e223]: →
+  - contentinfo [ref=e224]:
+    - link [ref=e230] [cursor=pointer]:
+      - /url: /
+      - img [ref=e231]
+      - img [ref=e235]
+    - generic [ref=e245]:
+      - heading "Ready for a different conversation?" [level=2] [ref=e247]
+      - paragraph [ref=e249]: No pressure. No commitments. Just a transparent discussion about your current structure and where you want to go.
+      - link "Begin the Conversation" [ref=e251] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e252]: Begin the Conversation
+        - generic [ref=e253]: →
+    - generic [ref=e255]:
+      - generic [ref=e256]:
+        - link [ref=e257] [cursor=pointer]:
+          - /url: /
+          - img [ref=e258]
+          - img [ref=e262]
+        - paragraph [ref=e269]: Strategic finance coordination for everyday Australians who want their money working harder than they do.
+        - paragraph [ref=e270]: Coordinated, not advisory.
+        - generic [ref=e271]:
+          - heading "Follow" [level=4] [ref=e272]
+          - list [ref=e273]:
+            - listitem [ref=e274]:
+              - link "Kismet on Instagram" [ref=e275] [cursor=pointer]:
+                - /url: https://www.instagram.com/kismetfinancegroup/
+                - img [ref=e276]
+            - listitem [ref=e279]:
+              - link "Kismet on Facebook" [ref=e280] [cursor=pointer]:
+                - /url: https://www.facebook.com/kismetfinancegroup
+                - img [ref=e281]
+      - generic [ref=e283]:
+        - heading "Explore" [level=4] [ref=e284]
+        - list [ref=e285]:
+          - listitem [ref=e286]:
+            - link "How We Work" [ref=e287] [cursor=pointer]:
+              - /url: /approach
+          - listitem [ref=e288]:
+            - link "Strategic Pathways" [ref=e289] [cursor=pointer]:
+              - /url: /pathways
+          - listitem [ref=e290]:
+            - link "Insights" [ref=e291] [cursor=pointer]:
+              - /url: /insights
+          - listitem [ref=e292]:
+            - link "About" [ref=e293] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e294]:
+            - link "Contact" [ref=e295] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e296]:
+        - heading "Contact" [level=4] [ref=e297]
+        - list [ref=e298]:
+          - listitem [ref=e299]:
+            - link "admin@kismetfinancegroup.com.au" [ref=e300] [cursor=pointer]:
+              - /url: mailto:admin@kismetfinancegroup.com.au
+          - listitem [ref=e301]:
+            - link "(08) 6285 8501" [ref=e302] [cursor=pointer]:
+              - /url: tel:+61862858501
+          - listitem [ref=e303]:
+            - text: 52 Cooper Road
+            - text: Cockburn Central WA 6164
+      - generic [ref=e304]:
+        - heading "Compliance" [level=4] [ref=e305]
+        - list [ref=e306]:
+          - listitem [ref=e307]: ABN 17 665 148 390
+          - listitem [ref=e308]: Authorised representative within the Home Loan Solutions / Australian Finance Group network. AFG holds Australian Credit Licence 389087.
+    - generic [ref=e310]:
+      - paragraph [ref=e311]: Kismet Finance Group Pty Ltd (ABN 17 665 148 390) operates as an authorised representative within the Home Loan Solutions / Australian Finance Group network. Australian Finance Group Ltd holds Australian Credit Licence 389087. Finance introductions are made to brokers in the AFG aggregation network, who can draw on a panel of approximately 70 Australian lenders. Kismet does not hold its own AFSL or Australian Credit Licence, and does not provide personal financial, credit or tax advice. The regulated work is performed by independently licensed specialists. Information here is general only.
+      - paragraph [ref=e312]: © 2026 Kismet Finance Group Pty Ltd
+  - button "Open Next.js Dev Tools" [ref=e318] [cursor=pointer]:
+    - img [ref=e319]

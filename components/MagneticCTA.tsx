@@ -16,7 +16,7 @@ interface MagneticCTAProps {
  * Restraint is the point: 6px max travel, slow spring, easy to miss but felt.
  */
 export function MagneticCTA({ href, children, className = "", ariaLabel }: MagneticCTAProps) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotion() ?? false;
   const ref = useRef<HTMLAnchorElement>(null);
 
   const x = useMotionValue(0);
@@ -39,7 +39,7 @@ export function MagneticCTA({ href, children, className = "", ariaLabel }: Magne
 
   return (
     <motion.span
-      style={reduce ? undefined : { x: springX, y: springY }}
+      style={reduce ? { x: 0, y: 0 } : { x: springX, y: springY }}
       className="inline-block"
     >
       <Link

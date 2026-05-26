@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { SocialIconRow } from "./Socials";
 
+import { MagneticCTA } from "./MagneticCTA";
+
 type Status = "idle" | "loading" | "ok" | "error" | "fallback";
 
 /**
@@ -83,10 +85,10 @@ export function ContactInquiry() {
               <p className="text-[#c4c6cf]/85 leading-[1.65] mb-5">
                 Until then, the fastest way to reach us is a direct email.
               </p>
-              <a href="mailto:admin@kismetfinancegroup.com.au" className="cta-gold">
+              <MagneticCTA href="mailto:admin@kismetfinancegroup.com.au">
                 <span>Email us</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>
-              </a>
+              </MagneticCTA>
             </div>
           )}
 
@@ -285,15 +287,13 @@ export function ContactInquiry() {
               Skip the form. Pick a 30-minute slot that suits you. The first call has no pitch and no
               obligation.
             </p>
-            <a
+            <MagneticCTA
               href={process.env.NEXT_PUBLIC_BOOKING_URL ?? "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-gold w-full"
+              className="w-full"
             >
               <span>Book a private call</span>
               <span aria-hidden className="cta-arrow">&rarr;</span>
-            </a>
+            </MagneticCTA>
           </div>
         </Reveal>
       </div>

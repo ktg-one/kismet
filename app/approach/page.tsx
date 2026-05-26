@@ -1,8 +1,4 @@
-import Link from "next/link";
-import { Hero } from "@/components/Hero";
-import { Reveal } from "@/components/Reveal";
-import { ThreeStep } from "@/components/ThreeStep";
-import { ComplianceLine } from "@/components/ComplianceLine";
+import { MagneticCTA } from "@/components/MagneticCTA";
 import { Compass, Hub, Sail } from "@/components/Icons";
 
 export const metadata = {
@@ -75,10 +71,10 @@ export default function ApproachPage() {
                   options, the right people in the room, and a steady pace. No pressure, no
                   jargon.
                 </p>
-                <Link href="/contact" className="cta-gold">
+                <MagneticCTA href="/contact">
                   <span>Book a call</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
-                </Link>
+                </MagneticCTA>
               </div>
             </div>
           </Reveal>

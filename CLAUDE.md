@@ -81,7 +81,7 @@ User's `~/.bashrc` is configured and should be sourced when running interactive 
 At session start, run this to pull project context from previous sessions:
 
 ```
-memory_recall query="kismet handoff ship-blockers vercel code-review"
+memory_recall query="kismet gsd-init hardening nextjs16-react19 ship-ready"
 ```
 
 Anchor terms used in saved memories: **kismet, code-review, gsd-code-review, handoff, ship-checklist, priority-targets, branding, design-tokens, founders, next.js, tailwind-v4, agentmemory, mem0-deprecated**.

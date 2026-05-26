@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p .planning/phases/01-foundation-hardening/audit-assets)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\kevin\\projects2026\\06-projects-code\\kismet\\kismet-website\\.planning\\phases\\01-foundation-hardening"
+    ]
+  }
+}

@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { BrandMark } from "./BrandMark";
 import { BrandWordmark } from "./BrandWordmark";
 
+import { MagneticCTA } from "./MagneticCTA";
+
 const NAV = [
   { href: "/approach", label: "How We Work" },
   { href: "/pathways", label: "Strategic Pathways" },
@@ -92,9 +94,11 @@ export function SiteHeader() {
           </nav>
 
           {/* Desktop CTA */}
-          <Link href="/contact" className="hidden md:inline-flex cta-gold !py-3 !px-6 !text-[11px]">
-            <span>Enquire Now</span>
-          </Link>
+          <div className="hidden md:block">
+            <MagneticCTA href="/contact" className="!py-3 !px-6 !text-[11px]">
+              <span>Enquire Now</span>
+            </MagneticCTA>
+          </div>
 
           {/* Mobile burger */}
           <button
@@ -179,10 +183,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="px-6 pb-10 pt-4 border-t-[0.5px] border-[#43474e]/40">
-          <Link href="/contact" className="cta-gold w-full" onClick={close}>
-            <span>Enquire Now</span>
-            <span aria-hidden className="cta-arrow">&rarr;</span>
-          </Link>
+          <div onClick={close}>
+            <MagneticCTA href="/contact" className="w-full">
+              <span>Enquire Now</span>
+              <span aria-hidden className="cta-arrow">&rarr;</span>
+            </MagneticCTA>
+          </div>
         </div>
       </div>
     </>

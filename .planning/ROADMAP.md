@@ -16,7 +16,7 @@
 *Enhancing the visual experience with Motion v12.*
 
 - [ ] Task 2.1: Audit all `Reveal` and `RevealWords` components.
-- [x] Task 2.2: Fix Hero headline hydration delay.
+- [x] Task 2.2: Fix Hero headline hydration delay. (Fixed: added `immediate` prop to `Reveal` components)
 - [ ] Task 2.3: Implement smooth page-level transitions.
 - [ ] Task 2.4: Add magnetic CTA effects to primary buttons.
 

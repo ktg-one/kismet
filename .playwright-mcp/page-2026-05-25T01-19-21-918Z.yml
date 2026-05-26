@@ -1,0 +1,153 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Kismet Finance Group, home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - img [ref=e10]
+      - navigation [ref=e17]:
+        - link "How We Work" [ref=e18] [cursor=pointer]:
+          - /url: /approach
+        - link "Strategic Pathways" [ref=e19] [cursor=pointer]:
+          - /url: /pathways
+        - link "Insights" [ref=e20] [cursor=pointer]:
+          - /url: /insights
+        - link "About" [ref=e21] [cursor=pointer]:
+          - /url: /about
+      - link "Enquire Now" [ref=e22] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e23]: Enquire Now
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic:
+          - img
+        - generic [ref=e29]:
+          - generic [ref=e31]: About Kismet
+          - heading "Seeing the" [level=1] [ref=e33]:
+            - generic [ref=e35]: Seeing
+            - generic [ref=e37]: the
+          - paragraph [ref=e39]: Bigger Picture.
+          - generic [ref=e41]: Real strategy should not just be for the top end of town. Kismet brings the right people into the room and the right conversations into motion, so everyday Australians stop running their finances on hope and start running them on a plan.
+          - link "Start here" [ref=e45] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e46]: Start here
+            - generic [ref=e47]: →
+      - generic [ref=e50]:
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - heading "Meet Shane & Josh" [level=2] [ref=e55]
+            - paragraph [ref=e56]: "Shane and Josh started Kismet around a simple gap: everyday Australians were getting sold products instead of getting strategy. The kind of joined-up thinking that big firms reserve for corporates was nowhere for normal people."
+            - paragraph [ref=e57]: Their approach is straightforward. Real conversations in plain English. Right people in the room. Steady pace. The picture stays connected.
+          - img "Shane Hewson and Josh Clark, founders of Kismet Finance Group" [ref=e59]
+        - generic [ref=e63]:
+          - img [ref=e65]
+          - heading "Strategy, not sales." [level=3] [ref=e68]
+          - paragraph [ref=e69]: We don’t sell products. We help you see the whole picture before any specialist gets involved. Every decision lines up with where you actually want to be in ten or twenty years.
+      - generic [ref=e71]:
+        - heading "The Kismet Philosophy" [level=2] [ref=e74]
+        - generic [ref=e77]:
+          - article [ref=e79]:
+            - img [ref=e81]
+            - heading "Right People, Right Room" [level=4] [ref=e83]
+            - paragraph [ref=e84]: We orchestrate the moves between your accountant, broker and partners. You stop being the one translating between three different conversations. We run the play. The picture stays connected.
+          - article [ref=e86]:
+            - img [ref=e89]
+            - heading "Approachable Authority" [level=4] [ref=e92]
+            - paragraph [ref=e93]: Strategy delivered like a conversation, not a pitch. We take the intimidation out of finance so you can make decisions with a calm head.
+          - article [ref=e95]:
+            - img [ref=e97]
+            - heading "The Long View" [level=4] [ref=e100]
+            - paragraph [ref=e101]: We focus on the years ahead, not just the next move. Steady pathways that protect what you have built and keep growing what you put in.
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e107]: On the network
+          - heading "The network behind the strategy." [level=2] [ref=e110]
+        - generic [ref=e111]:
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - generic [ref=e115]: Established
+              - text: 1994 · ASX-listed since 2015
+            - generic [ref=e116]:
+              - generic [ref=e117]: Scale
+              - text: Approx. 3,500 brokers Australia-wide
+            - generic [ref=e118]:
+              - generic [ref=e119]: Lender panel
+              - text: Approximately 70 Australian lenders
+            - generic [ref=e120]:
+              - generic [ref=e121]: Licence
+              - text: Australian Finance Group Ltd · ACL 389087
+          - paragraph [ref=e123]: Kismet operates as an authorised representative within the Home Loan Solutions / AFG network. The brokers in our network hold their own credentials. We bring the strategy and the relationships, they bring the lender access.
+  - contentinfo [ref=e124]:
+    - link [ref=e130] [cursor=pointer]:
+      - /url: /
+      - img [ref=e131]
+      - img [ref=e135]
+    - generic [ref=e145]:
+      - heading "Ready for a different conversation?" [level=2] [ref=e147]
+      - paragraph [ref=e149]: No pressure. No commitments. Just a transparent discussion about your current structure and where you want to go.
+      - link "Begin the Conversation" [ref=e151] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e152]: Begin the Conversation
+        - generic [ref=e153]: →
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - link [ref=e157] [cursor=pointer]:
+          - /url: /
+          - img [ref=e158]
+          - img [ref=e162]
+        - paragraph [ref=e169]: Strategic finance coordination for everyday Australians who want their money working harder than they do.
+        - paragraph [ref=e170]: Coordinated, not advisory.
+        - generic [ref=e171]:
+          - heading "Follow" [level=4] [ref=e172]
+          - list [ref=e173]:
+            - listitem [ref=e174]:
+              - link "Kismet on Instagram" [ref=e175] [cursor=pointer]:
+                - /url: https://www.instagram.com/kismetfinancegroup/
+                - img [ref=e176]
+            - listitem [ref=e179]:
+              - link "Kismet on Facebook" [ref=e180] [cursor=pointer]:
+                - /url: https://www.facebook.com/kismetfinancegroup
+                - img [ref=e181]
+      - generic [ref=e183]:
+        - heading "Explore" [level=4] [ref=e184]
+        - list [ref=e185]:
+          - listitem [ref=e186]:
+            - link "How We Work" [ref=e187] [cursor=pointer]:
+              - /url: /approach
+          - listitem [ref=e188]:
+            - link "Strategic Pathways" [ref=e189] [cursor=pointer]:
+              - /url: /pathways
+          - listitem [ref=e190]:
+            - link "Insights" [ref=e191] [cursor=pointer]:
+              - /url: /insights
+          - listitem [ref=e192]:
+            - link "About" [ref=e193] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e194]:
+            - link "Contact" [ref=e195] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e196]:
+        - heading "Contact" [level=4] [ref=e197]
+        - list [ref=e198]:
+          - listitem [ref=e199]:
+            - link "admin@kismetfinancegroup.com.au" [ref=e200] [cursor=pointer]:
+              - /url: mailto:admin@kismetfinancegroup.com.au
+          - listitem [ref=e201]:
+            - link "(08) 6285 8501" [ref=e202] [cursor=pointer]:
+              - /url: tel:+61862858501
+          - listitem [ref=e203]:
+            - text: 52 Cooper Road
+            - text: Cockburn Central WA 6164
+      - generic [ref=e204]:
+        - heading "Compliance" [level=4] [ref=e205]
+        - list [ref=e206]:
+          - listitem [ref=e207]: ABN 17 665 148 390
+          - listitem [ref=e208]: Authorised representative within the Home Loan Solutions / Australian Finance Group network. AFG holds Australian Credit Licence 389087.
+    - generic [ref=e210]:
+      - paragraph [ref=e211]: Kismet Finance Group Pty Ltd (ABN 17 665 148 390) operates as an authorised representative within the Home Loan Solutions / Australian Finance Group network. Australian Finance Group Ltd holds Australian Credit Licence 389087. Finance introductions are made to brokers in the AFG aggregation network, who can draw on a panel of approximately 70 Australian lenders. Kismet does not hold its own AFSL or Australian Credit Licence, and does not provide personal financial, credit or tax advice. The regulated work is performed by independently licensed specialists. Information here is general only.
+      - paragraph [ref=e212]: © 2026 Kismet Finance Group Pty Ltd
+  - button "Open Next.js Dev Tools" [ref=e218] [cursor=pointer]:
+    - img [ref=e219]

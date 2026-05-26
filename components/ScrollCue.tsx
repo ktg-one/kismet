@@ -2,12 +2,16 @@
 import { motion, useReducedMotion } from "motion/react";
 
 export function ScrollCue({ label = "Scroll" }: { label?: string }) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotion() ?? false;
   return (
     <motion.div
-      initial={reduce ? false : { opacity: 0 }}
-      animate={reduce ? undefined : { opacity: 1 }}
-      transition={{ duration: 1.2, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={
+        reduce
+          ? { duration: 0 }
+          : { duration: 1.2, delay: 1.4, ease: [0.16, 1, 0.3, 1] as const }
+      }
       className="flex flex-col items-center gap-4 select-none"
       aria-hidden
     >

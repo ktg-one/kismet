@@ -1,0 +1,161 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Kismet Finance Group, home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - img [ref=e10]
+      - navigation [ref=e17]:
+        - link "How We Work" [ref=e18] [cursor=pointer]:
+          - /url: /approach
+        - link "Strategic Pathways" [ref=e19] [cursor=pointer]:
+          - /url: /pathways
+        - link "Insights" [ref=e20] [cursor=pointer]:
+          - /url: /insights
+        - link "About" [ref=e21] [cursor=pointer]:
+          - /url: /about
+      - link "Enquire Now" [ref=e22] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e23]: Enquire Now
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic:
+          - img
+        - generic [ref=e29]:
+          - generic [ref=e31]: Insights
+          - heading "Why earning more" [level=1] [ref=e33]:
+            - generic [ref=e35]: Why
+            - generic [ref=e37]: earning
+            - generic [ref=e39]: more
+          - paragraph [ref=e41]: doesn't always mean getting ahead.
+          - generic [ref=e43]: Short reads on lending, structure, SMSF property and the conversations that actually change things. Plain English. General information only, never advice.
+          - link "Begin the Conversation" [ref=e47] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e48]: Begin the Conversation
+            - generic [ref=e49]: →
+      - generic [ref=e50]:
+        - generic [ref=e52]:
+          - heading "Recent reads" [level=2] [ref=e53]
+          - generic [ref=e54]: 5 pieces
+        - generic [ref=e55]:
+          - link "Featured · 5 min What 70 lenders actually changes Most Australians sit with one bank for ten years and assume that's how borrowing works. The aggregator network changes the maths in three specific ways. Here is what each one means in practice. Read briefing Kismet · 5 min read" [ref=e57] [cursor=pointer]:
+            - /url: /insights/what-70-lenders-actually-changes
+            - generic [ref=e59]: “
+            - generic [ref=e60]:
+              - generic [ref=e61]: Featured · 5 min
+              - heading "What 70 lenders actually changes" [level=3] [ref=e62]
+              - paragraph [ref=e63]: Most Australians sit with one bank for ten years and assume that's how borrowing works. The aggregator network changes the maths in three specific ways. Here is what each one means in practice.
+            - generic [ref=e64]:
+              - generic [ref=e65]:
+                - text: Read briefing
+                - generic [ref=e66]: →
+              - generic [ref=e67]: Kismet · 5 min read
+          - link "Analysis The progress gap Most Australians who have built something valuable feel a quiet gap between where they are and where they thought they would be by now. The gap is rarely about money. It is almost always about coordination. 5 min Read →" [ref=e69] [cursor=pointer]:
+            - /url: /insights/the-progress-gap
+            - generic [ref=e70]:
+              - generic [ref=e71]: Analysis
+              - heading "The progress gap" [level=3] [ref=e72]
+              - paragraph [ref=e73]: Most Australians who have built something valuable feel a quiet gap between where they are and where they thought they would be by now. The gap is rarely about money. It is almost always about coordination.
+            - generic [ref=e74]:
+              - generic [ref=e75]: 5 min
+              - generic [ref=e76]: Read →
+          - link "Strategy The 10-Minute Money Reset A short tool for busy households who want to feel less in the dark about their money. Ten minutes, a fortnightly cadence, three small habits. 6 min Read →" [ref=e78] [cursor=pointer]:
+            - /url: /insights/the-10-minute-money-reset
+            - generic [ref=e79]:
+              - generic [ref=e80]: Strategy
+              - heading "The 10-Minute Money Reset" [level=3] [ref=e81]
+              - paragraph [ref=e82]: A short tool for busy households who want to feel less in the dark about their money. Ten minutes, a fortnightly cadence, three small habits.
+            - generic [ref=e83]:
+              - generic [ref=e84]: 6 min
+              - generic [ref=e85]: Read →
+        - generic [ref=e86]:
+          - link "04 · 7 min SMSF property in plain English Read" [ref=e88] [cursor=pointer]:
+            - /url: /insights/smsf-property-in-plain-english
+            - generic [ref=e89]:
+              - generic [ref=e90]: 04 · 7 min
+              - heading "SMSF property in plain English" [level=3] [ref=e91]
+              - generic [ref=e92]:
+                - text: Read
+                - generic [ref=e93]: →
+          - link "05 · 6 min Borrowing power is not what you think Read" [ref=e95] [cursor=pointer]:
+            - /url: /insights/borrowing-power-is-not-what-you-think
+            - generic [ref=e96]:
+              - generic [ref=e97]: 05 · 6 min
+              - heading "Borrowing power is not what you think" [level=3] [ref=e98]
+              - generic [ref=e99]:
+                - text: Read
+                - generic [ref=e100]: →
+  - contentinfo [ref=e101]:
+    - link [ref=e107] [cursor=pointer]:
+      - /url: /
+      - img [ref=e108]
+      - img [ref=e112]
+    - generic [ref=e122]:
+      - heading "Ready for a different conversation?" [level=2] [ref=e124]
+      - paragraph [ref=e126]: No pressure. No commitments. Just a transparent discussion about your current structure and where you want to go.
+      - link "Begin the Conversation" [ref=e128] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e129]: Begin the Conversation
+        - generic [ref=e130]: →
+    - generic [ref=e132]:
+      - generic [ref=e133]:
+        - link [ref=e134] [cursor=pointer]:
+          - /url: /
+          - img [ref=e135]
+          - img [ref=e139]
+        - paragraph [ref=e146]: Strategic finance coordination for everyday Australians who want their money working harder than they do.
+        - paragraph [ref=e147]: Coordinated, not advisory.
+        - generic [ref=e148]:
+          - heading "Follow" [level=4] [ref=e149]
+          - list [ref=e150]:
+            - listitem [ref=e151]:
+              - link "Kismet on Instagram" [ref=e152] [cursor=pointer]:
+                - /url: https://www.instagram.com/kismetfinancegroup/
+                - img [ref=e153]
+            - listitem [ref=e156]:
+              - link "Kismet on Facebook" [ref=e157] [cursor=pointer]:
+                - /url: https://www.facebook.com/kismetfinancegroup
+                - img [ref=e158]
+      - generic [ref=e160]:
+        - heading "Explore" [level=4] [ref=e161]
+        - list [ref=e162]:
+          - listitem [ref=e163]:
+            - link "How We Work" [ref=e164] [cursor=pointer]:
+              - /url: /approach
+          - listitem [ref=e165]:
+            - link "Strategic Pathways" [ref=e166] [cursor=pointer]:
+              - /url: /pathways
+          - listitem [ref=e167]:
+            - link "Insights" [ref=e168] [cursor=pointer]:
+              - /url: /insights
+          - listitem [ref=e169]:
+            - link "About" [ref=e170] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e171]:
+            - link "Contact" [ref=e172] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e173]:
+        - heading "Contact" [level=4] [ref=e174]
+        - list [ref=e175]:
+          - listitem [ref=e176]:
+            - link "admin@kismetfinancegroup.com.au" [ref=e177] [cursor=pointer]:
+              - /url: mailto:admin@kismetfinancegroup.com.au
+          - listitem [ref=e178]:
+            - link "(08) 6285 8501" [ref=e179] [cursor=pointer]:
+              - /url: tel:+61862858501
+          - listitem [ref=e180]:
+            - text: 52 Cooper Road
+            - text: Cockburn Central WA 6164
+      - generic [ref=e181]:
+        - heading "Compliance" [level=4] [ref=e182]
+        - list [ref=e183]:
+          - listitem [ref=e184]: ABN 17 665 148 390
+          - listitem [ref=e185]: Authorised representative within the Home Loan Solutions / Australian Finance Group network. AFG holds Australian Credit Licence 389087.
+    - generic [ref=e187]:
+      - paragraph [ref=e188]: Kismet Finance Group Pty Ltd (ABN 17 665 148 390) operates as an authorised representative within the Home Loan Solutions / Australian Finance Group network. Australian Finance Group Ltd holds Australian Credit Licence 389087. Finance introductions are made to brokers in the AFG aggregation network, who can draw on a panel of approximately 70 Australian lenders. Kismet does not hold its own AFSL or Australian Credit Licence, and does not provide personal financial, credit or tax advice. The regulated work is performed by independently licensed specialists. Information here is general only.
+      - paragraph [ref=e189]: © 2026 Kismet Finance Group Pty Ltd
+  - button "Open Next.js Dev Tools" [ref=e195] [cursor=pointer]:
+    - img [ref=e196]
