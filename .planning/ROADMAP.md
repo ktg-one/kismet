@@ -15,10 +15,27 @@
 ## Phase 2: Animations & Interactivity Upgrade (Current)
 *Enhancing the visual experience with Motion v12.*
 
-- [ ] Task 2.1: Audit all `Reveal` and `RevealWords` components.
+**Execution priority (lowest to highest complexity):**
+1. Reveal and RevealWords audit.
+2. Card hover and reveal polish.
+3. Magnetic CTA refinement.
+4. Page-level transition refinement.
+5. GSAP scroll or timeline final pass.
+
+**Orchestration:** Explore and implement animation lanes in separate worktrees or branches, then merge sequentially in the priority order above. Do not introduce new GSAP work until the final lane.
+
+- [x] Task 2.1: Audit all `Reveal` and `RevealWords` components.
 - [x] Task 2.2: Fix Hero headline hydration delay. (Fixed: added `immediate` prop to `Reveal` components)
 - [ ] Task 2.3: Implement smooth page-level transitions.
 - [ ] Task 2.4: Add magnetic CTA effects to primary buttons.
+- [ ] Task 2.5: Polish card hover and reveal animations as a separate lane.
+- [ ] Task 2.6: Audit existing GSAP scroll effects and reserve any new GSAP work for the final pass.
+  - **Plans:** 1/5 plans executed
+  - [x] 02-01-PLAN.md -- Reveal and RevealWords audit on `anim/reveal-audit`
+  - [ ] 02-02-PLAN.md -- Card hover and reveal polish on `anim/card-polish`
+  - [ ] 02-03-PLAN.md -- Magnetic CTA refinement on `anim/magnetic-ctas`
+  - [ ] 02-04-PLAN.md -- Page transition refinement on `anim/page-transitions`
+  - [ ] 02-05-PLAN.md -- GSAP final pass on `anim/gsap-final-pass`
 
 ## Phase 3: Deployment & Analytics
 *Shipping the site to Vercel and setting up tracking.*

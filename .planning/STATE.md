@@ -1,13 +1,31 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+current_phase: 02
+status: in_progress
+last_updated: "2026-05-29T13:33:58.630Z"
+progress:
+  total_phases: 4
+  completed_phases: 1
+  total_plans: 7
+  completed_plans: 3
+  percent: 43
+---
+
 # Project State: Kismet-site
 
 ## Overview
-Current Phase: Phase 2 (Animations & Interactivity Upgrade)
-Next Step: Task 2.1 (Audit all Reveal and RevealWords components)
+
+Current Phase: 02
+Next Step: Execute Phase 2 plan 02-02 (card hover and reveal polish).
 
 ## Summary
-Phase 1 is complete. The lead pipeline env contract is centralized, the Resend and Google Sheets helpers now resolve credentials through server-only runtime guards, `.env.example` documents the full setup path, and a manual smoke script exists for `/api/lead`. External provisioning gates remain intentionally deferred to Phase 3, so the next active work is the motion and interaction audit in Phase 2.
+
+Phase 1 is complete. The lead pipeline env contract is centralized, the Resend and Google Sheets helpers now resolve credentials through server-only runtime guards, `.env.example` documents the full setup path, and a manual smoke script exists for `/api/lead`. External provisioning gates remain intentionally deferred to Phase 3. Phase 2 is now planned as five isolated animation lanes: Reveal and RevealWords audit, card animation polish, MagneticCTA refinement, page transition refinement, then GSAP final pass.
 
 ## Milestone: Initial Hardening & Mapping
+
 - [x] Initial codebase map created.
 - [x] API security (honeypot/rate limiting) implemented.
 - [x] React 19 hook violations resolved.
@@ -17,9 +35,13 @@ Phase 1 is complete. The lead pipeline env contract is centralized, the Resend a
 - [x] Lead pipeline env contract and smoke verification workflow completed.
 
 ## Active Tasks
-- Task 2.1: Audit all `Reveal` and `RevealWords` components.
-- Task 2.3: Implement smooth page-level transitions.
+
+- Plan 02-02: Polish card hover and reveal animations as a separate lane.
+- Plan 02-03: Refine magnetic CTA effects.
+- Plan 02-04: Refine smooth page-level transitions.
+- Plan 02-05: Audit existing GSAP scroll effects and leave new GSAP work until last.
 - Phase 3: Provision Resend domain, Google Sheet/service account, and booking URL in real environments.
 
 ## Blockers
+
 - Vercel Deployment: Pending user login on device.
