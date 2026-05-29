@@ -57,3 +57,7 @@ in-memoria.db
 
 # UI audit screenshots (kept local; the review markdown is committed)
 .planning/phases/*/audit-assets/
+
+# Local development tool configurations
+.claude/
+.copilot/
