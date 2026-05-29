@@ -170,20 +170,20 @@ export function Hero({
             />
 
             {headlineMuted && (
-              <Reveal delay={0.4} immediate>
+              <Reveal delay={0.28} immediate>
                 <p className="font-serif text-[28px] sm:text-[36px] md:text-[46px] lg:text-[52px] leading-[1.1] tracking-[-0.018em] text-[#d9e3f2] text-balance mt-3 sm:mt-4 max-w-[24ch] italic font-light">
                   {headlineMuted}
                 </p>
               </Reveal>
             )}
 
-            <Reveal delay={0.55} y={18} immediate>
+            <Reveal delay={0.38} y={12} immediate>
               <div className="mt-10 md:mt-12 text-[16.5px] md:text-[17px] text-[#c4c6cf] leading-[1.65] max-w-xl">
                 {sub}
               </div>
             </Reveal>
 
-            <Reveal delay={0.72} y={14} immediate>
+            <Reveal delay={0.5} y={10} immediate>
               <div className="mt-12 md:mt-14 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <MagneticCTA href={ctaHref}>
                   <span>{ctaLabel}</span>

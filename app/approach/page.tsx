@@ -1,5 +1,9 @@
 import { MagneticCTA } from "@/components/MagneticCTA";
+import { ComplianceLine } from "@/components/ComplianceLine";
+import { Hero } from "@/components/Hero";
 import { Compass, Hub, Sail } from "@/components/Icons";
+import { Reveal } from "@/components/Reveal";
+import { ThreeStep } from "@/components/ThreeStep";
 
 export const metadata = {
   title: "How We Work | Kismet Finance Group",

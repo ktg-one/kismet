@@ -45,7 +45,7 @@ export default function NotFound() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.4}>
+            <Reveal delay={0.28}>
               <div className="mt-12 md:mt-14 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <MagneticCTA href="/">
                   <span>Back to home</span>

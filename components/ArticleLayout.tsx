@@ -51,7 +51,7 @@ export function ArticleLayout({ article }: { article: Article }) {
             stagger={0.045}
           />
 
-          <Reveal delay={0.5}>
+          <Reveal delay={0.28}>
             <p className="mt-8 md:mt-10 text-[18px] md:text-[20px] text-[#c4c6cf]/85 leading-[1.6] max-w-2xl">
               {article.summary}
             </p>

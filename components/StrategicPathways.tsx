@@ -95,7 +95,7 @@ export function StrategicPathways({
           ))}
 
           {/* Coordination Hub - wide strip below */}
-          <Reveal delay={0.4} className="md:col-span-3">
+          <Reveal delay={0.28} className="md:col-span-3">
             <article className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-10">
               <div className="flex-1">
                 <h3 className="font-serif text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.008em] text-[#d9e3f2] mb-3 flex items-center gap-4">

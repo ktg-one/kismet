@@ -27,8 +27,8 @@ export function Reveal({
   delay = 0,
   className = "",
   as = "div",
-  y = 22,
-  duration = 0.85,
+  y = 12,
+  duration = 0.6,
   immediate = false,
 }: RevealProps) {
   const reduce = useReducedMotion();
@@ -40,7 +40,7 @@ export function Reveal({
       initial={reduce ? false : { opacity: 0, y }}
       animate={immediate && !reduce ? { opacity: 1, y: 0 } : undefined}
       whileInView={!immediate && !reduce ? { opacity: 1, y: 0 } : undefined}
-      viewport={{ once: true, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{
         duration: reduce ? 0 : duration,
         delay: reduce ? 0 : delay,
@@ -74,9 +74,9 @@ function RevealWord({
 }) {
   return (
     <motion.span
-      className="inline-block will-change-transform"
+      className="inline-block"
       initial={
-        reduce || immediate ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }
+        reduce || immediate ? { y: 0, opacity: 1 } : { y: "80%", opacity: 0 }
       }
       animate={
         immediate && !reduce ? { y: 0, opacity: 1 } : undefined
@@ -86,7 +86,7 @@ function RevealWord({
       }
       viewport={{ once: true, amount: 0.4 }}
       transition={{
-        duration: reduce ? 0 : 0.95,
+        duration: reduce ? 0 : 0.72,
         delay: reduce ? 0 : delay,
         ease: [0.16, 1, 0.3, 1] as const,
       }}
