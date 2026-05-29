@@ -32,7 +32,7 @@
 - [ ] Task 2.6: Audit existing GSAP scroll effects and reserve any new GSAP work for the final pass.
   - **Plans:** 1/5 plans executed
   - [x] 02-01-PLAN.md -- Reveal and RevealWords audit on `anim/reveal-audit`
-  - [ ] 02-02-PLAN.md -- Card hover and reveal polish on `anim/card-polish`
+  - [x] 02-02-PLAN.md -- Card hover and reveal polish on `anim/card-polish`
   - [ ] 02-03-PLAN.md -- Magnetic CTA refinement on `anim/magnetic-ctas`
   - [ ] 02-04-PLAN.md -- Page transition refinement on `anim/page-transitions`
   - [ ] 02-05-PLAN.md -- GSAP final pass on `anim/gsap-final-pass`

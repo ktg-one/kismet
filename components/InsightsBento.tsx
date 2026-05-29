@@ -37,7 +37,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
         <Reveal className="md:col-span-8 md:row-span-2">
           <Link
             href={`/insights/${hero.slug}`}
-            className="group bg-[#18283d] hover:bg-[#1e3450] transition-[colors,transform,box-shadow] duration-500 flex flex-col justify-between p-8 md:p-12 relative overflow-hidden h-full rounded-lg hover:-translate-y-[2px] hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]"
+            className="group card-lift-hover bg-[#18283d] hover:bg-[#1e3450] flex flex-col justify-between p-8 md:p-12 relative overflow-hidden h-full rounded-lg"
           >
             <div
               aria-hidden
@@ -76,7 +76,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
           <Reveal delay={0.08} className="md:col-span-4">
             <Link
               href={`/insights/${secondary.slug}`}
-              className="group block bg-[#1e3450] gold-edge-top hover:bg-[#26456a] transition-[colors,transform,box-shadow] duration-500 p-7 md:p-8 h-full flex flex-col justify-between rounded-lg hover:-translate-y-[2px] hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]"
+              className="group block card-lift-hover bg-[#1e3450] gold-edge-top hover:bg-[#26456a] p-7 md:p-8 h-full flex flex-col justify-between rounded-lg"
             >
               <div>
                 <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[#c4c6cf]/85 mb-4 block">
@@ -106,7 +106,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
           <Reveal delay={0.14} className="md:col-span-4">
             <Link
               href={`/insights/${tertiary.slug}`}
-              className="group block bg-[#18283d] hover:bg-[#1e3450] transition-[colors,transform,box-shadow] duration-500 p-7 md:p-8 h-full flex flex-col justify-between rounded-lg border border-[#43474e]/30 hover:-translate-y-[2px] hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.6)]"
+              className="group block card-lift-hover bg-[#18283d] hover:bg-[#1e3450] p-7 md:p-8 h-full flex flex-col justify-between rounded-lg border border-[#43474e]/30"
             >
               <div>
                 <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[#c4c6cf]/85 mb-4 block">
