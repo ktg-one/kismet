@@ -1,6 +1,11 @@
 "use client";
 import { motion, useReducedMotion } from "motion/react";
+import { useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
+
+const subscribeToHydration = () => () => {};
+const getClientHydrationSnapshot = () => true;
+const getServerHydrationSnapshot = () => false;
 
 interface RevealProps {
   children: ReactNode;
@@ -32,18 +37,20 @@ export function Reveal({
   immediate = false,
 }: RevealProps) {
   const reduce = useReducedMotion();
+  const hasHydrated = useHasHydrated();
+  const shouldReduceMotion = hasHydrated && reduce;
   const MotionTag = motion[as];
 
   return (
     <MotionTag
       className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      animate={immediate && !reduce ? { opacity: 1, y: 0 } : undefined}
-      whileInView={!immediate && !reduce ? { opacity: 1, y: 0 } : undefined}
+      initial={shouldReduceMotion ? false : { opacity: 0, y }}
+      animate={immediate && !shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
+      whileInView={!immediate && !shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: reduce ? 0 : duration,
-        delay: reduce ? 0 : delay,
+        duration: shouldReduceMotion ? 0 : duration,
+        delay: shouldReduceMotion ? 0 : delay,
         ease: [0.16, 1, 0.3, 1] as const,
       }}
     >
@@ -111,6 +118,8 @@ export function RevealWords({
   immediate = false,
 }: RevealWordsProps) {
   const reduce = useReducedMotion();
+  const hasHydrated = useHasHydrated();
+  const shouldReduceMotion = hasHydrated && reduce;
   const Tag = as as keyof React.JSX.IntrinsicElements;
   const words = text.split(" ");
 
@@ -127,10 +136,18 @@ export function RevealWords({
             word={word}
             delay={delay + i * stagger}
             immediate={immediate}
-            reduce={reduce}
+            reduce={shouldReduceMotion}
           />
         </span>
       ))}
     </Tag>
+  );
+}
+
+function useHasHydrated() {
+  return useSyncExternalStore(
+    subscribeToHydration,
+    getClientHydrationSnapshot,
+    getServerHydrationSnapshot
   );
 }
