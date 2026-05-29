@@ -18,7 +18,7 @@ progress:
 ## Overview
 
 Current Phase: 02
-Next Step: Execute Phase 2 plan 02-03 (MagneticCTA refinement).
+Next Step: Execute Phase 2 plan 02-04 (page transition refinement).
 
 ## Summary
 
@@ -36,8 +36,8 @@ Phase 1 is complete. The lead pipeline env contract is centralized, the Resend a
 
 ## Active Tasks
 
-- Plan 02-02: Polish card hover and reveal animations as a separate lane.
-- Plan 02-03: Refine magnetic CTA effects.
+- Plan 02-02: ✅ Complete — card hover and reveal animations polished.
+- Plan 02-03: ✅ Complete — MagneticCTA hard clamp + coarse-pointer guard.
 - Plan 02-04: Refine smooth page-level transitions.
 - Plan 02-05: Audit existing GSAP scroll effects and leave new GSAP work until last.
 - Phase 3: Provision Resend domain, Google Sheet/service account, and booking URL in real environments.
