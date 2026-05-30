@@ -1,9 +1,38 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
-@import "./kismet-brand.css";
 
 :root {
   color-scheme: dark;
+
+  /* ── KISMET BRAND COLORS (OFFICIAL BRANDING.PDF GUIDELINES) ── */
+  --kismet-primary:            #1E3A5F;    /* Deep Navy Blue */
+  --kismet-primary-rgb:        30, 58, 95;
+  
+  --kismet-secondary:          #FFFFFF;    /* White */
+  --kismet-secondary-rgb:      255, 255, 255;
+  
+  --kismet-accent:             #D4AF37;    /* Gold */
+  --kismet-accent-rgb:         212, 175, 55;
+  
+  --kismet-neutral:            #D3D3D3;    /* Neutral Gray */
+  --kismet-neutral-rgb:        211, 211, 211;
+
+  /* ── GOLD GRADIENT (LOGO / ACCENTS) ── */
+  --kismet-gradient-start:     #FFD956;
+  --kismet-gradient-mid-1:     #A47308;
+  --kismet-gradient-mid-2:     #FADD63;
+  --kismet-gradient-end:       #FFE884;
+  --kismet-gold-gradient:      linear-gradient(
+    180deg,
+    var(--kismet-gradient-start) 0%,
+    var(--kismet-gradient-mid-1) 35%,
+    var(--kismet-gradient-mid-2) 65%,
+    var(--kismet-gradient-end) 100%
+  );
+
+  /* ── KISMET BRAND FONTS (OFFICIAL BRANDING.PDF GUIDELINES) ── */
+  --kismet-font-primary:       "Berlingske Serif", "Georgia", serif;
+  --kismet-font-secondary:     var(--font-montserrat), "Montserrat", "Arial", sans-serif;
 
   /* ── ELEVATION & MATERIAL ── */
   --kismet-edge-soft: rgba(217, 227, 242, 0.06);
@@ -30,8 +59,7 @@
   initial-value: 180deg;
 }
 
-/* Native View Transitions — modern browsers morph matching elements across navigations.
-   Progressive enhancement: ignored where unsupported, no JS required. */
+/* Native View Transitions */
 @supports (view-transition-name: none) {
   @view-transition {
     navigation: auto;
@@ -48,21 +76,19 @@
 body {
   background: #0a141e;
   color: #d9e3f2;
-  font-family: var(--font-montserrat), Montserrat, Arial, sans-serif;
+  font-family: var(--kismet-font-secondary);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern", "liga", "calt", "ss01";
   font-variant-numeric: lining-nums;
 }
 
-/* Modern paragraph wrapping — avoids orphans, balances long body copy.
-   Headlines keep text-balance via the .text-balance utility. */
 p {
   text-wrap: pretty;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-newsreader), Georgia, "Berlingske Serif", serif;
+  font-family: var(--kismet-font-primary);
   font-weight: 500;
   font-feature-settings: "ss01", "kern", "liga", "calt";
 }
@@ -121,9 +147,6 @@ html {
    ATMOSPHERE - cinematic depth via tonal layering
    ════════════════════════════════════════════════ */
 
-/* Travel ~5% over a 24s loop; slow enough to read as atmosphere, large
-   enough to register as motion. Two-axis drift so it doesn't read as a
-   straight bounce. */
 @keyframes ambient-drift {
   0%   { transform: translate3d(0, 0, 0) scale(1);    opacity: 0.85; }
   25%  { transform: translate3d(3%, -2%, 0) scale(1.04); opacity: 0.95; }
@@ -142,34 +165,28 @@ html {
 /* Smoke gradient - cinematic radial atmosphere over a section */
 .smoke-gradient {
   background:
-    radial-gradient(circle at top right, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at top right, rgba(var(--kismet-accent-rgb), 0.05) 0%, transparent 40%),
     radial-gradient(circle at bottom left, rgba(173, 200, 245, 0.05) 0%, transparent 40%);
 }
 
 /* Smoke fade - vertical fade from background up */
 .smoke-fade-bottom {
-  background: linear-gradient(180deg, rgba(30, 58, 95, 0) 0%, rgba(10, 20, 30, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(var(--kismet-primary-rgb), 0) 0%, rgba(10, 20, 30, 0.8) 100%);
 }
 
 .smoke-fade-top {
-  background: linear-gradient(0deg, rgba(30, 58, 95, 0) 0%, rgba(10, 20, 30, 0.85) 100%);
+  background: linear-gradient(0deg, rgba(var(--kismet-primary-rgb), 0) 0%, rgba(10, 20, 30, 0.85) 100%);
 }
 
 /* Hero atmosphere - layered radials over the dark navy base */
 .hero-atmosphere {
   background:
-    radial-gradient(ellipse 1100px 720px at 78% 22%, rgba(212, 175, 55, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 1100px 720px at 78% 22%, rgba(var(--kismet-accent-rgb), 0.10) 0%, transparent 60%),
     radial-gradient(ellipse 700px 500px at 18% 95%, rgba(45, 80, 130, 0.40) 0%, transparent 70%),
     radial-gradient(ellipse 1400px 900px at 50% 0%, rgba(28, 52, 88, 0.55) 0%, transparent 65%),
     linear-gradient(180deg, #0E2240 0%, #0a141e 100%);
 }
 
-/* ════════════════════════════════════════════════
-   SCROLL-DRIVEN ATMOSPHERE — native CSS, no JS.
-   Hero orbs and watermark gently breathe out as the
-   user scrolls past. Progressive enhancement: ignored
-   on older browsers; reduced-motion disables it.
-   ════════════════════════════════════════════════ */
 @supports (animation-timeline: scroll()) {
   @keyframes hero-atmosphere-exhale {
     from { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -186,9 +203,6 @@ html {
     to   { transform: translate3d(0, -3%, 0); letter-spacing: -0.026em; }
   }
 
-  /* Hero atmosphere wrapper — orbs keep their time-based drift AND fade
-     out as the user scrolls past. Two animations on the same element:
-     one ticked by time, one ticked by scroll position. */
   .hero-scroll-fade .ambient-orb-gold {
     animation:
       ambient-drift 24s ease-in-out infinite,
@@ -203,12 +217,7 @@ html {
     animation-timeline: auto, scroll(root);
     animation-range: auto, 0vh 80vh;
   }
-  /* .hero-watermark is now driven by GSAP ScrollTrigger in Hero.tsx
-     (single source of truth across all browsers — the scroll-timeline
-     fallback used to fight GSAP transforms via specificity). */
 
-  /* Image parallax — figure rises slightly as it enters view.
-     Travel deliberately shallow (3% each way) so it reads as felt, not seen. */
   .scroll-parallax-up {
     animation: scroll-parallax-up linear both;
     animation-timeline: view();
@@ -266,7 +275,7 @@ html {
 }
 
 .ambient-orb-gold {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.45), transparent 65%);
+  background: radial-gradient(circle, rgba(var(--kismet-accent-rgb), 0.45), transparent 65%);
   animation: ambient-drift 24s ease-in-out infinite;
 }
 
@@ -289,7 +298,7 @@ html {
 /* Cards lean into brand navy (#1E3A5F) for warmth, layered over the deep base */
 .kismet-surface {
   position: relative;
-  background: linear-gradient(180deg, rgba(30, 58, 95, 0.32) 0%, rgba(23, 32, 43, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(var(--kismet-primary-rgb), 0.32) 0%, rgba(23, 32, 43, 0.92) 100%);
   background-color: #18283d;
   border: 0.5px solid rgba(217, 227, 242, 0.10);
   border-top-color: rgba(217, 227, 242, 0.18);
@@ -299,13 +308,11 @@ html {
 
 .kismet-surface:hover {
   background-color: #1e3450;
-  border-top-color: rgba(212, 175, 55, 0.30);
+  border-top-color: rgba(var(--kismet-accent-rgb), 0.30);
   transform: translate3d(0, -2px, 0);
   box-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.55);
 }
 
-/* Lift utility for cards that don't extend .kismet-surface (e.g. ThreeStep
-   uses its own inline classes). Same vocabulary as .glass-card:hover. */
 .card-lift-hover {
   transition:
     transform 600ms var(--ease-cinema),
@@ -316,7 +323,7 @@ html {
 .card-lift-hover:hover {
   transform: translate3d(0, -2px, 0);
   box-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.55);
-  border-top-color: rgba(212, 175, 55, 0.28);
+  border-top-color: rgba(var(--kismet-accent-rgb), 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -330,10 +337,10 @@ html {
 
 .kismet-surface-elevated {
   position: relative;
-  background: linear-gradient(135deg, rgba(30, 58, 95, 0.55) 0%, rgba(23, 32, 43, 0.92) 100%);
+  background: linear-gradient(135deg, rgba(var(--kismet-primary-rgb), 0.55) 0%, rgba(23, 32, 43, 0.92) 100%);
   background-color: #1e3450;
   border: 0.5px solid rgba(217, 227, 242, 0.14);
-  border-top-color: rgba(212, 175, 55, 0.25);
+  border-top-color: rgba(var(--kismet-accent-rgb), 0.25);
   border-radius: 0.5rem;
   box-shadow: var(--kismet-shadow-card);
 }
@@ -341,7 +348,7 @@ html {
 /* Glass card now leans navy too */
 .glass-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(30, 58, 95, 0.42) 0%, rgba(23, 32, 43, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(var(--kismet-primary-rgb), 0.42) 0%, rgba(23, 32, 43, 0.85) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 0.5px solid rgba(217, 227, 242, 0.12);
@@ -350,13 +357,11 @@ html {
   transition: border-top-color 700ms var(--ease-cinema), transform 700ms var(--ease-cinema), box-shadow 700ms var(--ease-cinema);
 }
 
-/* Light-source bloom — soft gold radial that emerges on hover.
-   Not cursor-tracking (too showy). Anchored top-right for editorial feel. */
 .glass-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 78% 0%, rgba(212, 175, 55, 0.08), transparent 60%);
+  background: radial-gradient(ellipse 60% 80% at 78% 0%, rgba(var(--kismet-accent-rgb), 0.08), transparent 60%);
   opacity: 0;
   transition: opacity 800ms var(--ease-cinema);
   pointer-events: none;
@@ -365,7 +370,7 @@ html {
 }
 
 .glass-card:hover {
-  border-top-color: rgba(212, 175, 55, 0.32);
+  border-top-color: rgba(var(--kismet-accent-rgb), 0.32);
   transform: translate3d(0, -2px, 0);
   box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.55);
 }
@@ -373,12 +378,7 @@ html {
   opacity: 1;
 }
 
-/* ════════════════════════════════════════════════
-   DOCUMENTARY IMAGE TREATMENT
-   Photos read as branded editorial, not raw stock.
-   Slight desat + brightness + warm gold cast + dark navy bottom-fade.
-   ════════════════════════════════════════════════ */
-
+/* ── DOCUMENTARY IMAGE TREATMENT ── */
 .documentary-frame {
   position: relative;
   overflow: hidden;
@@ -402,7 +402,7 @@ html {
   z-index: 2;
   background:
     linear-gradient(180deg, rgba(10, 20, 30, 0) 50%, rgba(10, 20, 30, 0.45) 100%),
-    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(212, 175, 55, 0.06), transparent 60%);
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(var(--kismet-accent-rgb), 0.06), transparent 60%);
   mix-blend-mode: multiply;
   pointer-events: none;
 }
@@ -418,19 +418,16 @@ html {
   pointer-events: none;
 }
 
-/* Gold hairline inner highlight - "high authority" container */
+/* Gold hairline inner highlight */
 .gold-edge-left {
-  border-left: 1px solid rgba(212, 175, 55, 0.30);
+  border-left: 1px solid rgba(var(--kismet-accent-rgb), 0.30);
 }
 
 .gold-edge-top {
-  border-top: 0.5px solid rgba(212, 175, 55, 0.30);
+  border-top: 0.5px solid rgba(var(--kismet-accent-rgb), 0.30);
 }
 
-/* ════════════════════════════════════════════════
-   CTAs - solid gold primary, ghost secondary
-   ════════════════════════════════════════════════ */
-
+/* ── CTAs ── */
 .cta-gold {
   position: relative;
   display: inline-flex;
@@ -481,17 +478,14 @@ html {
 }
 .cta-ghost:hover {
   background: rgba(44, 54, 65, 0.3);
-  border-color: rgba(212, 175, 55, 0.6);
+  border-color: rgba(var(--kismet-accent-rgb), 0.6);
   color: #e9c349;
 }
 .cta-ghost:hover .cta-arrow {
   transform: translateX(4px);
 }
 
-/* ════════════════════════════════════════════════
-   FORM INPUTS - bottom-border-only, gold focus
-   ════════════════════════════════════════════════ */
-
+/* ── FORM INPUTS ── */
 .kismet-input {
   width: 100%;
   background: transparent;
@@ -506,7 +500,7 @@ html {
 }
 .kismet-input::placeholder { color: rgba(196, 198, 207, 0.30); }
 .kismet-input:focus {
-  border-bottom-color: #D4AF37;
+  border-bottom-color: var(--kismet-accent);
   box-shadow: none;
 }
 
@@ -520,38 +514,31 @@ html {
   margin-bottom: 8px;
 }
 
-/* ════════════════════════════════════════════════
-   TYPOGRAPHY HELPERS
-   ════════════════════════════════════════════════ */
-
+/* ── TYPOGRAPHY HELPERS ── */
 .eyebrow {
   display: inline-block;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #D4AF37;
+  color: var(--kismet-accent);
 }
 
 .eyebrow-rule {
   display: inline-block;
   width: 32px;
   height: 1px;
-  background: #D4AF37;
+  background: var(--kismet-accent);
   margin-right: 12px;
   vertical-align: middle;
 }
 
-/* Make Tailwind text-balance available where useful */
 .text-balance {
   text-wrap: balance;
 }
 
-/* ════════════════════════════════════════════════
-   LEGACY/PLACEHOLDER
-   ════════════════════════════════════════════════ */
 .placeholder-copy {
-  outline: 1px dashed rgba(212, 175, 55, 0.4);
+  outline: 1px dashed rgba(var(--kismet-accent-rgb), 0.4);
   outline-offset: 4px;
   border-radius: 2px;
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Newsreader } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { GrainOverlay } from "@/components/GrainOverlay";
@@ -12,16 +12,6 @@ const montserrat = Montserrat({
   display: "swap",
   variable: "--font-montserrat",
   weight: ["300", "400", "500", "600"],
-});
-
-// Editorial display serif. Variable font with optical-size axis,
-// chosen for screen rendering, italic quality and modern character.
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-newsreader",
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
 });
 
 const SITE_URL = "https://kismetfinancegroup.com.au";
@@ -116,7 +106,7 @@ const ORGANISATION_JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AU" className={`${montserrat.variable} ${newsreader.variable}`}>
+    <html lang="en-AU" className={`${montserrat.variable}`}>
       <head>
         <script
           type="application/ld+json"

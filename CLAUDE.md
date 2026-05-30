@@ -12,7 +12,7 @@ Live: https://kismetfinancegroup.com.au
 | Runtime | React **19.2** |
 | Language | TypeScript **strict**, `@/*` paths to repo root |
 | Styling | Tailwind **v4** (`@tailwindcss/postcss`) + custom CSS in `app/globals.css` + `app/kismet-brand.css` |
-| Type | Montserrat (body) + Newsreader (display serif), both via `next/font/google` |
+| Type | Montserrat (body) via `next/font/google` + Berlingske Serif (headlines) falling back to Georgia |
 | Motion | `motion` (Framer Motion v12) for page transitions and reveals |
 | Carousel | `embla-carousel-react` + autoplay plugin |
 | Content | Markdown insights in `content/insights/` via `gray-matter` + `remark` |
@@ -74,7 +74,7 @@ User's `~/.bashrc` is configured and should be sourced when running interactive 
 - `in-memoria.db` in repo root is local MCP state and is gitignored — leave it alone.
 - `.mcp.json` is gitignored — local MCP config, don't commit.
 - Photos in `photos-raw/` are source masters. The optimised versions in `public/photos/` are what the site ships; regenerate via `scripts/optimize-photos.mjs`.
-- The Berlingske Serif headline font referenced in `README.md` was never licensed — we ship Newsreader as the display serif instead. Don't reintroduce Berlingske.
+- Headlines must strictly use "Berlingske Serif", "Georgia", serif as specified by the brand guide. Do NOT substitute Newsreader or any other serif font, as maintaining authentic typography is a strict client constraint. Drop `.woff2` files in `public/fonts/` and add `@font-face` block in `app/globals.css` if Shane provides licensed webfont files.
 
 ## Memory recall
 
