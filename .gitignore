@@ -46,8 +46,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
-
 # MCP and local databases
 .mcp.json
 in-memoria.db
