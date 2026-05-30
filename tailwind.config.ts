@@ -42,12 +42,12 @@ export default {
         "on-primary": "#133155",
       },
       fontFamily: {
-        serif: ["Berlingske Serif", "Georgia", "serif"],
+        serif: ["var(--font-newsreader)", "Georgia", "Berlingske Serif", "serif"],
         sans: ["var(--font-montserrat)", "Montserrat", "Arial", "sans-serif"],
-        // Brand-aligned typography settings
-        "display-xl": ["Berlingske Serif", "Georgia", "serif"],
-        "headline-lg": ["Berlingske Serif", "Georgia", "serif"],
-        "headline-md": ["Berlingske Serif", "Georgia", "serif"],
+        // Stitch-aligned semantic aliases — all display roles use Newsreader
+        "display-xl": ["var(--font-newsreader)", "Georgia", "Berlingske Serif", "serif"],
+        "headline-lg": ["var(--font-newsreader)", "Georgia", "Berlingske Serif", "serif"],
+        "headline-md": ["var(--font-newsreader)", "Georgia", "Berlingske Serif", "serif"],
         "body-lg": ["var(--font-montserrat)", "Montserrat", "sans-serif"],
         "body-md": ["var(--font-montserrat)", "Montserrat", "sans-serif"],
         "label-sm": ["var(--font-montserrat)", "Montserrat", "sans-serif"],
