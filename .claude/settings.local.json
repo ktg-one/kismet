@@ -1,10 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir -p .planning/phases/01-foundation-hardening/audit-assets)"
+      "Bash(mkdir -p .planning/phases/01-foundation-hardening/audit-assets)",
+      "Bash(node .claude/hooks/lint-changed.mjs)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(node -e 'console.log\\(require\\(\"path\"\\).resolve\\(\"/tmp/_lint_probe.ts\"\\)\\)')",
+      "Bash(echo \"{\\\\\"tool_input\\\\\":{\\\\\"file_path\\\\\":\\\\\"$\\(node -e 'console.log\\(require\\(\"path\"\\).resolve\\(\"/tmp/_lint_probe.ts\"\\)\\)'\\)\\\\\"}}\")",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ],
     "additionalDirectories": [
-      "c:\\Users\\kevin\\projects2026\\06-projects-code\\kismet\\kismet-website\\.planning\\phases\\01-foundation-hardening"
+      "c:\\Users\\kevin\\projects2026\\06-projects-code\\kismet\\kismet-website\\.planning\\phases\\01-foundation-hardening",
+      "\\tmp"
     ]
   }
 }

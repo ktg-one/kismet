@@ -53,7 +53,7 @@ export function TeamPortraits({
           {people.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.12}>
               <article
-                className={`group relative overflow-hidden rounded-lg bg-[#18283d] aspect-[3/4] ${
+                className={`group relative overflow-hidden rounded-lg bg-[#18283d] aspect-[3/4] card-lift-hover ${
                   stagger && i % 2 === 1 ? "md:mt-12" : ""
                 }`}
               >

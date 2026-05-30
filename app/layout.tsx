@@ -118,9 +118,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans bg-navy-deep text-white min-h-screen flex flex-col antialiased overflow-x-hidden">
         <SmoothScroll>
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
           <GrainOverlay />
           <SiteHeader />
           <main id="main-content" className="flex-1">

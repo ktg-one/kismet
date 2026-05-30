@@ -80,10 +80,10 @@ export function StrategicPathways({
                   </>
                 )}
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded bg-[#18283d]/50 border border-[#43474e]/40 flex items-center justify-center mb-6 text-[#D4AF37]">
+                  <div className="w-12 h-12 rounded bg-[#18283d]/50 border border-[#43474e]/40 flex items-center justify-center mb-6 text-[#D4AF37] group-hover:scale-110 group-hover:border-[#D4AF37]/50 group-hover:bg-[#1E3A5F]/60 transition-all duration-500">
                     {c.icon}
                   </div>
-                  <h3 className="font-serif text-[26px] md:text-[28px] leading-[1.2] tracking-[-0.008em] text-[#d9e3f2] mb-3">
+                  <h3 className="font-serif text-[26px] md:text-[28px] leading-[1.2] tracking-[-0.008em] text-[#d9e3f2] mb-3 group-hover:text-[#D4AF37] transition-colors duration-500">
                     {c.title}
                   </h3>
                   <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.65] max-w-md">
@@ -96,10 +96,10 @@ export function StrategicPathways({
 
           {/* Coordination Hub - wide strip below */}
           <Reveal delay={0.28} className="md:col-span-3">
-            <article className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-10">
+            <article className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-10 group">
               <div className="flex-1">
-                <h3 className="font-serif text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.008em] text-[#d9e3f2] mb-3 flex items-center gap-4">
-                  <span className="text-[#D4AF37]">{hubIcon}</span>
+                <h3 className="font-serif text-[24px] md:text-[28px] leading-[1.25] tracking-[-0.008em] text-[#d9e3f2] mb-3 flex items-center gap-4 group-hover:text-[#D4AF37] transition-colors duration-500">
+                  <span className="text-[#D4AF37] group-hover:scale-110 transition-transform duration-500">{hubIcon}</span>
                   {hubLabel}
                 </h3>
                 <p className="text-[15px] md:text-[16px] text-[#c4c6cf]/85 leading-[1.7] max-w-2xl">
