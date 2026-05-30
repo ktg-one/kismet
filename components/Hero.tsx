@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "motion/react";
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
+import { HeroAmbient } from "./HeroAmbient";
 import { ScrollCue } from "./ScrollCue";
 import { BrandMark } from "./BrandMark";
 import type { ReactNode } from "react";
@@ -115,34 +116,11 @@ export function Hero({
         </div>
       )}
 
-      {/* Ambient orbs - quieter on sub-pages */}
+      {/* Ambient orbs - drift gently with the cursor on fine-pointer devices */}
+      <HeroAmbient prominent={showScrollCue} />
+
+      {/* Gold brand-mark watermark - scroll-parallaxed by GSAP via .hero-watermark */}
       <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="ambient-orb ambient-orb-gold"
-          style={{
-            top: "-12%",
-            right: "-8%",
-            width: showScrollCue ? "62vw" : "44vw",
-            height: showScrollCue ? "62vw" : "44vw",
-            maxWidth: showScrollCue ? "900px" : "640px",
-            maxHeight: showScrollCue ? "900px" : "640px",
-            opacity: showScrollCue ? 0.7 : 0.38,
-          }}
-          aria-hidden
-        />
-        <div
-          className="ambient-orb ambient-orb-navy"
-          style={{
-            bottom: "-18%",
-            left: "-12%",
-            width: showScrollCue ? "70vw" : "50vw",
-            height: showScrollCue ? "70vw" : "50vw",
-            maxWidth: showScrollCue ? "1000px" : "720px",
-            maxHeight: showScrollCue ? "1000px" : "720px",
-            opacity: showScrollCue ? 0.65 : 0.32,
-          }}
-          aria-hidden
-        />
         <BrandMark
           className={`hero-watermark absolute -right-[14%] top-[6%] md:-right-[8%] md:top-[2%] w-[110vw] md:w-[70vw] max-w-none md:max-w-[820px] aspect-square text-[#D4AF37] [filter:blur(0.4px)] ${
             showScrollCue ? "opacity-[0.045] md:opacity-[0.055]" : "opacity-[0.025] md:opacity-[0.035]"

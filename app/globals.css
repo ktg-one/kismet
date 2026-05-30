@@ -5,11 +5,11 @@
   color-scheme: dark;
 
   /* ── KISMET BRAND COLORS (OFFICIAL BRANDING.PDF GUIDELINES) ── */
-  --kismet-primary:            #1E3A5F;    /* Deep Navy Blue */
-  --kismet-primary-rgb:        30, 58, 95;
+  --kismet-primary:            #0F2440;    /* Pristine Deep Navy Blue */
+  --kismet-primary-rgb:        15, 36, 64;
   
-  --kismet-secondary:          #FFFFFF;    /* White */
-  --kismet-secondary-rgb:      255, 255, 255;
+  --kismet-secondary:          #FAF8F4;    /* Pristine Cream / Off-White */
+  --kismet-secondary-rgb:      250, 248, 244;
   
   --kismet-accent:             #D4AF37;    /* Gold */
   --kismet-accent-rgb:         212, 175, 55;
@@ -56,7 +56,16 @@
 @property --kismet-ambient-angle {
   syntax: "<angle>";
   inherits: false;
-  initial-value: 180deg;
+  initial-value: 0deg;
+}
+
+@keyframes ambient-bg-shift {
+  0% {
+    --kismet-ambient-angle: 0deg;
+  }
+  100% {
+    --kismet-ambient-angle: 360deg;
+  }
 }
 
 /* Native View Transitions */
@@ -74,8 +83,11 @@
 }
 
 body {
-  background: #0a141e;
-  color: #d9e3f2;
+  background: #0F2440; /* Fallback brand navy */
+  background: linear-gradient(var(--kismet-ambient-angle), #0F2440 0%, #061120 40%, #152C4E 75%, #0F2440 100%);
+  background-size: 100% 100%;
+  animation: ambient-bg-shift 40s linear infinite;
+  color: var(--kismet-secondary); /* Pristine brand cream #FAF8F4 */
   font-family: var(--kismet-font-secondary);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
