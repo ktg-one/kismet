@@ -49,6 +49,8 @@ next-env.d.ts
 # MCP and local databases
 .mcp.json
 in-memoria.db
+in-memoria-vectors.db/
+understand-everything/
 
 # Tool intermediate output (understand-anything indexer)
 .understand-anything/
@@ -56,6 +58,23 @@ in-memoria.db
 # UI audit screenshots (kept local; the review markdown is committed)
 .planning/phases/*/audit-assets/
 
-# Local development tool configurations
+# Local development tool configurations and agent workspaces
 .claude/
 .copilot/
+.agents/
+.antigravitycli/
+.playwright-mcp/
+.serena/
+.agent/
+
+# Local env configurations
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Common IDE configs
+.vscode/
+.idea/
+*.suo
+*.sw?
