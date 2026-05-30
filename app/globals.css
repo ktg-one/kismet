@@ -168,7 +168,16 @@
 @property --kismet-ambient-angle {
   syntax: "<angle>";
   inherits: false;
-  initial-value: 180deg;
+  initial-value: 0deg;
+}
+
+@keyframes ambient-bg-shift {
+  0% {
+    --kismet-ambient-angle: 0deg;
+  }
+  100% {
+    --kismet-ambient-angle: 360deg;
+  }
 }
 
 /* Native View Transitions — modern browsers morph matching elements across navigations.
@@ -187,7 +196,10 @@
 }
 
 body {
-  background: #0a141e;
+  background: #0a141e; /* Fallback brand slate-black */
+  background: linear-gradient(var(--kismet-ambient-angle), #0a141e 0%, #050e18 45%, #13243a 80%, #0a141e 100%);
+  background-size: 100% 100%;
+  animation: ambient-bg-shift 45s linear infinite;
   color: #d9e3f2;
   font-family: var(--font-montserrat), Montserrat, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -219,30 +231,6 @@ h1, h2, h3, h4 {
   outline-offset: 3px;
   border-radius: 2px;
   box-shadow: 0 0 0 4px rgba(8, 21, 42, 0.85);
-}
-
-/* Skip link */
-.skip-link {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -120%);
-  z-index: 200;
-  padding: 12px 22px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #0A1A32;
-  background: var(--kismet-gold-gradient);
-  border-radius: 2px;
-  text-decoration: none;
-  transition: transform 250ms var(--ease-cinema);
-}
-.skip-link:focus,
-.skip-link:focus-visible {
-  transform: translate(-50%, 12px);
-  outline: none;
 }
 
 html {
@@ -299,65 +287,7 @@ html {
     linear-gradient(180deg, #0E2240 0%, #0a141e 100%);
 }
 
-/* ════════════════════════════════════════════════
-   SCROLL-DRIVEN ATMOSPHERE — native CSS, no JS.
-   Hero orbs and watermark gently breathe out as the
-   user scrolls past. Progressive enhancement: ignored
-   on older browsers; reduced-motion disables it.
-   ════════════════════════════════════════════════ */
-@supports (animation-timeline: scroll()) {
-  @keyframes hero-atmosphere-exhale {
-    from { opacity: 1; transform: translate3d(0, 0, 0); }
-    to   { opacity: 0; transform: translate3d(0, -6%, 0); }
-  }
-
-  @keyframes hero-orb-drift-out {
-    from { opacity: 1; filter: blur(80px); }
-    to   { opacity: 0; filter: blur(120px); }
-  }
-
-  @keyframes hero-headline-rise {
-    from { transform: translate3d(0, 0, 0); letter-spacing: -0.022em; }
-    to   { transform: translate3d(0, -3%, 0); letter-spacing: -0.026em; }
-  }
-
-  /* Hero atmosphere wrapper — fades as the user scrolls past */
-  .hero-scroll-fade .ambient-orb {
-    animation: hero-orb-drift-out linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0vh 80vh;
-  }
-  .hero-scroll-fade .hero-watermark {
-    animation: hero-atmosphere-exhale linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0vh 70vh;
-  }
-
-  /* Image parallax — figure rises slightly as it enters view.
-     Travel deliberately shallow (3% each way) so it reads as felt, not seen. */
-  .scroll-parallax-up {
-    animation: scroll-parallax-up linear both;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
-  }
-  @keyframes scroll-parallax-up {
-    from { transform: translate3d(0, 3%, 0); }
-    to   { transform: translate3d(0, -3%, 0); }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-scroll-fade .ambient-orb,
-  .hero-scroll-fade .hero-watermark,
-  .scroll-parallax-up {
-    animation: none !important;
-  }
-}
-
-/* ════════════════════════════════════════════════
-   SECTION BLEND — mask-image fade between section
-   bg colors so the joins read as flow, not cuts.
-   ════════════════════════════════════════════════ */
+/* Section blend - mask-image fade between section bg colors */
 .section-blend-top {
   position: relative;
 }
@@ -405,7 +335,6 @@ html {
    SURFACES - Stitch-aligned tonal cards
    ════════════════════════════════════════════════ */
 
-/* Cards lean into brand navy (#1E3A5F) for warmth, layered over the deep base */
 .kismet-surface {
   position: relative;
   background: linear-gradient(180deg, rgba(30, 58, 95, 0.32) 0%, rgba(23, 32, 43, 0.92) 100%);
@@ -413,12 +342,37 @@ html {
   border: 0.5px solid rgba(217, 227, 242, 0.10);
   border-top-color: rgba(217, 227, 242, 0.18);
   border-radius: 0.5rem;
-  transition: border-color 600ms var(--ease-cinema), background-color 600ms var(--ease-cinema);
+  transition: border-color 600ms var(--ease-cinema), background-color 600ms var(--ease-cinema), transform 600ms var(--ease-cinema), box-shadow 600ms var(--ease-cinema);
 }
 
 .kismet-surface:hover {
   background-color: #1e3450;
   border-top-color: rgba(212, 175, 55, 0.30);
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.55);
+}
+
+.card-lift-hover {
+  transition:
+    transform 600ms var(--ease-cinema),
+    box-shadow 600ms var(--ease-cinema),
+    border-top-color 600ms var(--ease-cinema),
+    background-color 500ms var(--ease-cinema);
+}
+.card-lift-hover:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 24px 60px -36px rgba(0, 0, 0, 0.55);
+  border-top-color: rgba(212, 175, 55, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kismet-surface,
+  .kismet-surface:hover,
+  .card-lift-hover,
+  .card-lift-hover:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
 
 .kismet-surface-elevated {
