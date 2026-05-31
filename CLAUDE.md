@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Kismet Finance Group — Website
 
 Marketing site for **Kismet Finance Group** (Cockburn Central, WA). A credibility surface for a boutique strategic-finance consultancy. The job of every page is to convince a warm referral inside 30 seconds that this is a real, premium, capable operation worth booking a call with. **Conversion happens on the call, not the page.**
@@ -9,24 +13,26 @@ Live: https://kismetfinancegroup.com.au
 | Layer | Choice |
 |---|---|
 | Framework | Next.js **16.2.5** App Router, Turbopack |
-| Runtime | React **19.2** |
+| Runtime | React **19.2.4** |
 | Language | TypeScript **strict**, `@/*` paths to repo root |
-| Styling | Tailwind **v4** (`@tailwindcss/postcss`) + custom CSS in `app/globals.css` + `app/kismet-brand.css` |
-| Type | Montserrat (body) via `next/font/google` + Berlingske Serif (headlines) falling back to Georgia |
-| Motion | `motion` (Framer Motion v12) for page transitions and reveals |
+| Styling | Tailwind **v4** (`@tailwindcss/postcss`, `@tailwindcss/typography`) + custom CSS in `app/globals.css` + `app/kismet-brand.css` |
+| Type | Montserrat (body) via `next/font/google` (`--font-montserrat`) + self-hosted **Berlingske Serif** webfonts (headlines, `@font-face` in `globals.css`) falling back to Georgia |
+| Motion | `motion` (Framer Motion v12) for page transitions and reveals; **GSAP** (`gsap` + `@gsap/react` `useGSAP`) with `ScrollTrigger` for scroll-driven work |
+| Smooth scroll | **Lenis** (`lenis/react`) wraps the whole app in `components/SmoothScroll.tsx`; its RAF is bridged into `gsap.ticker` so ScrollTrigger and Lenis share one scroll source |
 | Carousel | `embla-carousel-react` + autoplay plugin |
 | Content | Markdown insights in `content/insights/` via `gray-matter` + `remark` |
 | Forms | Resend for transactional email; Google Sheets via `googleapis` |
-| Validation | Zod at route boundaries |
+| Validation | Zod **v4** at route boundaries |
 | Image tooling | `sharp`, `heic-convert`, Playwright (scraping) — dev only |
 
 ## Layout
 
 ```
-app/                Next App Router — about, approach, contact, insights, pathways, api
+app/                Next App Router — about, approach, contact, insights, pathways, api/lead, robots.ts, sitemap.ts
 components/         Page sections + shared UI (PascalCase .tsx)
+hooks/              Client-only React hooks (e.g. useClientReducedMotion)
 content/insights/   Markdown articles, ingested by lib/articles.ts
-lib/                Server utilities (articles, email, sheets)
+lib/                Server utilities (articles, email, sheets, env guard)
 public/             Static assets — fonts go in public/fonts
 scripts/            One-off Node scripts (photo optimisation, scraping)
 project-notes/      Brand, voice, design, compliance, direction — READ THESE
@@ -35,6 +41,10 @@ photos-raw/         Source photos (not shipped; converted via scripts/)
 ```
 
 Path alias: `@/*` resolves to repo root. Use `@/components/Foo`, `@/lib/articles`, etc.
+
+### Lead pipeline (`app/api/lead/route.ts`)
+
+The contact form's one server boundary. Flow: in-memory per-IP rate limit (5 / 15 min, resets on serverless cold start — a known v1 limitation) → honeypot reject → Zod parse → `Promise.allSettled([sendLeadEmail, appendLeadRow])`. It succeeds if **either** sink fulfils, returns `503 service_unconfigured` only when both fail because env is missing. The six required env vars (`RESEND_*`, `LEAD_INBOX_*`, `GOOGLE_*`) are read lazily through `lib/env.ts` at request time, so `npm run build` succeeds without secrets present. See `.env.example` for the full list; `NEXT_PUBLIC_BOOKING_URL` is optional.
 
 ## Brand non-negotiables
 
@@ -52,18 +62,23 @@ Read `project-notes/DESIGN_GUIDE.md`, `COPY_VOICE_GUIDE.md`, and `WEBSITE_DIRECT
 - Components are PascalCase, one default export per file, colocated with sections they belong to.
 - Server-only modules (`lib/email.ts`, `lib/sheets.ts`) must not be imported from client components.
 - No new top-level docs in repo root — long-form context lives in `project-notes/` or `docs/`.
-- Match existing motion: `motion/react` with the easing tokens already defined in `globals.css` (`--ease-soft`, `--ease-cinema`, etc.). Don't introduce a new animation library.
+- Match existing motion: `motion/react` with the easing tokens already defined in `globals.css` (`--ease-soft`, `--ease-cinema`, etc.) for reveals and page transitions; GSAP + `ScrollTrigger` (via `useGSAP`) for scroll-driven sequences. Those two plus Lenis are the only motion libraries — don't add another.
+- GSAP/ScrollTrigger code must read scroll through the Lenis bridge in `SmoothScroll.tsx` (never re-init Lenis or run a competing RAF loop), or ScrollTrigger positions drift against the smoothed scroll.
+- Gate motion on `useClientReducedMotion()` (client-side, post-hydration) rather than reading `prefers-reduced-motion` during SSR — avoids hydration mismatches.
 - Avoid adding dependencies for things React 19 + Tailwind v4 already do.
 
 ## Scripts
 
 ```bash
-npm run dev    # next dev (Turbopack)
-npm run build  # next build
-npm run start  # next start
+npm run dev         # next dev (Turbopack)
+npm run build       # next build (postbuild runs `npm run lint`)
+npm run start       # next start
+npm run lint        # eslint . (eslint-config-next)
+npm run lint:fix    # eslint . --fix
+npm run type-check  # tsc --noEmit
 ```
 
-No lint or type-check script defined in `package.json` yet. Run `npx tsc --noEmit` for type-check; `npx next lint` for lint.
+There is no test runner configured. `npm run build` auto-runs lint via the `postbuild` hook, so a clean build implies a clean lint.
 
 ## Shell
 
@@ -74,7 +89,7 @@ User's `~/.bashrc` is configured and should be sourced when running interactive 
 - `in-memoria.db` in repo root is local MCP state and is gitignored — leave it alone.
 - `.mcp.json` is gitignored — local MCP config, don't commit.
 - Photos in `photos-raw/` are source masters. The optimised versions in `public/photos/` are what the site ships; regenerate via `scripts/optimize-photos.mjs`.
-- Headlines must strictly use "Berlingske Serif", "Georgia", serif as specified by the brand guide. Do NOT substitute Newsreader or any other serif font, as maintaining authentic typography is a strict client constraint. Drop `.woff2` files in `public/fonts/` and add `@font-face` block in `app/globals.css` if Shane provides licensed webfont files.
+- Headlines must strictly use "Berlingske Serif", "Georgia", serif as specified by the brand guide. Do NOT substitute Newsreader or any other serif font, as maintaining authentic typography is a strict client constraint. The licensed webfonts are already self-hosted in `public/fonts/` and declared via `@font-face` blocks in `app/globals.css` — match that pattern for any new weight rather than reaching for a Google font.
 
 ## Memory recall
 
