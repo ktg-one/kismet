@@ -22,7 +22,7 @@ export function HeroAmbient({ prominent = false }: HeroAmbientProps) {
           height: prominent ? "62vw" : "44vw",
           maxWidth: prominent ? "900px" : "640px",
           maxHeight: prominent ? "900px" : "640px",
-          opacity: prominent ? 0.7 : 0.4,
+          opacity: prominent ? 0.88 : 0.52,
         }}
       />
       <div
@@ -34,7 +34,7 @@ export function HeroAmbient({ prominent = false }: HeroAmbientProps) {
           height: prominent ? "70vw" : "50vw",
           maxWidth: prominent ? "1000px" : "720px",
           maxHeight: prominent ? "1000px" : "720px",
-          opacity: prominent ? 0.6 : 0.32,
+          opacity: prominent ? 0.48 : 0.28,
         }}
       />
     </div>

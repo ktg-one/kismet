@@ -32,8 +32,8 @@ export function Reveal({
   delay = 0,
   className = "",
   as = "div",
-  y = 12,
-  duration = 0.6,
+  y = 28,
+  duration = 0.7,
   immediate = false,
 }: RevealProps) {
   const reduce = useReducedMotion();
