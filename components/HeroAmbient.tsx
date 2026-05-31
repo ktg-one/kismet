@@ -5,8 +5,8 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-  useReducedMotion,
 } from "motion/react";
+import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
 interface HeroAmbientProps {
@@ -50,7 +50,7 @@ function useHasHydrated() {
  * users keep the static orbs, and no path mismatches SSR.
  */
 export function HeroAmbient({ prominent = false }: HeroAmbientProps) {
-  const reduce = useReducedMotion() ?? false;
+  const reduce = useClientReducedMotion();
   const hasHydrated = useHasHydrated();
   // Lazy-read the pointer type. Server returns false; the real value lands on
   // first client render. Safe because `active` below is gated on hasHydrated,

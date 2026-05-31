@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useReducedMotion } from "motion/react";
+import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
 import { HeroAmbient } from "./HeroAmbient";
@@ -49,7 +49,7 @@ export function Hero({
   bgAlt = "",
 }: HeroProps) {
   const heroRef = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useClientReducedMotion();
 
   // Parallax the gold watermark + the optional bg image as the user scrolls
   // the hero out of view. The CSS scroll-timeline rule for .hero-watermark
