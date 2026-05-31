@@ -6,6 +6,7 @@ import { GrainOverlay } from "@/components/GrainOverlay";
 import { PageTransition } from "@/components/PageTransition";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { ChatWidget } from "@/components/ChatWidget";
+import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -125,6 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />
+          <CustomCursor />
           <ChatWidget />
         </SmoothScroll>
       </body>
