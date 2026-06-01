@@ -44,7 +44,6 @@ className="... card-lift-hover"
 
 - Use `transform` / `opacity` only — never animate `width`, `height`, `top`, `left`
 - Duration 150–300ms for micro-interactions; complex ≤400ms
-- `prefers-reduced-motion` kill-switch is already global in `app/globals.css` — do not duplicate it per-component
 - Every animation must express cause-and-effect; no decorative-only motion
 
 ## Branch conventions

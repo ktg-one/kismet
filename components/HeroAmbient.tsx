@@ -7,8 +7,7 @@ interface HeroAmbientProps {
  * Ambient background orbs behind the hero. The gold orb is a slowly rotating,
  * drifting conic gradient — a moving gradient glow — and the navy orb is a
  * quieter counter-drift for depth. Motion is pure CSS (see the `.ambient-orb-*`
- * rules in globals.css), so it stays on the compositor and is auto-disabled
- * under prefers-reduced-motion by the global reduce block. No JS needed.
+ * rules in globals.css), so it stays on the compositor. No JS needed.
  */
 export function HeroAmbient({ prominent = false }: HeroAmbientProps) {
   return (

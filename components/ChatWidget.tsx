@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 
 /**
  * Kismet website assistant — a floating concierge widget.
@@ -23,7 +22,6 @@ const GREETING =
 const ENABLED = process.env.NEXT_PUBLIC_CHAT_ENABLED === "true";
 
 export function ChatWidget() {
-  const reduce = useClientReducedMotion();
   const [open, setOpen] = useState(false);
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState("");
@@ -105,7 +103,7 @@ export function ChatWidget() {
 
   if (unavailable) return null;
 
-  const transition = reduce ? { duration: 0 } : { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const };
+  const transition = { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const };
   const messages: Turn[] = [{ role: "assistant", content: GREETING }, ...turns];
 
   return (
@@ -114,9 +112,9 @@ export function ChatWidget() {
         {open && (
           <motion.section
             key="kismet-chat-panel"
-            initial={{ opacity: 0, y: reduce ? 0 : 16 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: reduce ? 0 : 16 }}
+            exit={{ opacity: 0, y: 16 }}
             transition={transition}
             role="dialog"
             aria-label="Chat with Kismet's assistant"
@@ -152,7 +150,7 @@ export function ChatWidget() {
                         : "max-w-[90%] rounded-lg rounded-bl-sm bg-white/[0.04] px-3.5 py-2.5 text-[14px] leading-relaxed text-on-surface"
                     }
                   >
-                    {m.content || (busy && i === messages.length - 1 ? <TypingDots reduce={reduce} /> : "")}
+                    {m.content || (busy && i === messages.length - 1 ? <TypingDots /> : "")}
                   </p>
                 </div>
               ))}
@@ -211,8 +209,7 @@ export function ChatWidget() {
   );
 }
 
-function TypingDots({ reduce }: { reduce: boolean }) {
-  if (reduce) return <span className="text-on-surface-variant">…</span>;
+function TypingDots() {
   return (
     <span className="inline-flex gap-1 align-middle" aria-label="Assistant is typing">
       {[0, 1, 2].map((i) => (

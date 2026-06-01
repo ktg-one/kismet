@@ -5,7 +5,6 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
 import { HeroAmbient } from "./HeroAmbient";
@@ -49,14 +48,12 @@ export function Hero({
   bgAlt = "",
 }: HeroProps) {
   const heroRef = useRef<HTMLElement>(null);
-  const reduce = useClientReducedMotion();
 
   // Parallax the gold watermark + the optional bg image as the user scrolls
   // the hero out of view. The CSS scroll-timeline rule for .hero-watermark
   // has been removed in favour of this (single source of truth).
   useGSAP(
     () => {
-      if (reduce) return;
       gsap.fromTo(
         ".hero-watermark",
         { yPercent: -4, opacity: 1 },
@@ -89,7 +86,7 @@ export function Hero({
         );
       }
     },
-    { scope: heroRef, dependencies: [reduce, bgImage] }
+    { scope: heroRef, dependencies: [bgImage] }
   );
 
   return (

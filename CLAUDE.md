@@ -30,7 +30,7 @@ Live: https://kismetfinancegroup.com.au
 ```
 app/                Next App Router — about, approach, contact, insights, pathways, api/lead, robots.ts, sitemap.ts
 components/         Page sections + shared UI (PascalCase .tsx)
-hooks/              Client-only React hooks (e.g. useClientReducedMotion)
+hooks/              Client-only React hooks
 content/insights/   Markdown articles, ingested by lib/articles.ts
 lib/                Server utilities (articles, email, sheets, env guard)
 public/             Static assets — fonts go in public/fonts
@@ -64,7 +64,6 @@ Read `project-notes/DESIGN_GUIDE.md`, `COPY_VOICE_GUIDE.md`, and `WEBSITE_DIRECT
 - No new top-level docs in repo root — long-form context lives in `project-notes/` or `docs/`.
 - Match existing motion: `motion/react` with the easing tokens already defined in `globals.css` (`--ease-soft`, `--ease-cinema`, etc.) for reveals and page transitions; GSAP + `ScrollTrigger` (via `useGSAP`) for scroll-driven sequences. Those two plus Lenis are the only motion libraries — don't add another.
 - GSAP/ScrollTrigger code must read scroll through the Lenis bridge in `SmoothScroll.tsx` (never re-init Lenis or run a competing RAF loop), or ScrollTrigger positions drift against the smoothed scroll.
-- Gate motion on `useClientReducedMotion()` (client-side, post-hydration) rather than reading `prefers-reduced-motion` during SSR — avoids hydration mismatches.
 - Avoid adding dependencies for things React 19 + Tailwind v4 already do.
 
 ## Scripts
