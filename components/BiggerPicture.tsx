@@ -96,7 +96,7 @@ export function BiggerPicture({
                     alt={imageAlt}
                     fill
                     sizes="(min-width: 1024px) 600px, (min-width: 768px) 90vw, 100vw"
-                    className="object-cover scale-[1.2]"
+                    className="object-cover scale-[1.5]"
                   />
                 </ScrollParallax>
               </div>

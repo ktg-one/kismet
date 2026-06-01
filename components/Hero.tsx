@@ -125,7 +125,7 @@ export function Hero({
         />
       </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-20 md:pb-32 min-h-[80vh] md:min-h-[88vh] flex flex-col">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-20 md:pb-32 min-h-[100svh] flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-1">
           <div className="col-span-12 lg:col-span-9 flex flex-col justify-center">
             <Reveal immediate>

@@ -21,7 +21,7 @@ export function HeroAmbient({ prominent = false }: HeroAmbientProps) {
           height: prominent ? "62vw" : "44vw",
           maxWidth: prominent ? "900px" : "640px",
           maxHeight: prominent ? "900px" : "640px",
-          opacity: prominent ? 0.88 : 0.52,
+          opacity: prominent ? 0.34 : 0.2,
         }}
       />
       <div

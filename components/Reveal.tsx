@@ -24,7 +24,7 @@ export function Reveal({
   delay = 0,
   className = "",
   as = "div",
-  y = 28,
+  y = 100,
   duration = 0.7,
   immediate = false,
 }: RevealProps) {
