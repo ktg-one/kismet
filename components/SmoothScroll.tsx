@@ -28,6 +28,17 @@ function LenisGsapBridge() {
     };
   }, [lenis]);
 
+  // Recompute trigger start/end once layout settles: self-hosted Berlingske
+  // webfonts and Next/Image can shift positions after first paint.
+  useEffect(() => {
+    const refresh = () => ScrollTrigger.refresh();
+    if (typeof document !== "undefined" && "fonts" in document) {
+      document.fonts.ready.then(refresh);
+    }
+    window.addEventListener("load", refresh);
+    return () => window.removeEventListener("load", refresh);
+  }, []);
+
   return null;
 }
 
