@@ -27,7 +27,7 @@ interface ScrollRevealProps {
  * opacity only (60fps, no layout). Cleanup is handled by useGSAP. Motion is
  * intentionally unconditional — this site does not gate on prefers-reduced-motion.
  */
-export function ScrollReveal({ children, className, y = 56 }: ScrollRevealProps) {
+export function ScrollReveal({ children, className, y = 120 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -36,7 +36,7 @@ export function ScrollReveal({ children, className, y = 56 }: ScrollRevealProps)
       if (!el) return;
       gsap.fromTo(
         el,
-        { y, autoAlpha: 0, scale: 0.985 },
+        { y, autoAlpha: 0, scale: 0.9 },
         {
           y: 0,
           autoAlpha: 1,
@@ -44,9 +44,9 @@ export function ScrollReveal({ children, className, y = 56 }: ScrollRevealProps)
           ease: "none",
           scrollTrigger: {
             trigger: el,
-            start: "top 88%",
-            end: "top 56%",
-            scrub: 0.8,
+            start: "top 92%",
+            end: "top 48%",
+            scrub: 0.6,
           },
         }
       );

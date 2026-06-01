@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export function ScrollParallax({
   children,
   className,
-  travel = 6,
+  travel = 18,
 }: {
   children: ReactNode;
   className?: string;
