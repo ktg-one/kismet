@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
+import { ScrollReveal } from "./ScrollReveal";
 import type { ArticleMeta } from "@/lib/articles";
 
 interface InsightsBentoProps {
@@ -34,7 +35,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[minmax(280px,auto)] gap-5 md:gap-6">
         {/* Hero: large quote-style card */}
-        <Reveal className="md:col-span-8 md:row-span-2">
+        <ScrollReveal className="md:col-span-8 md:row-span-2">
           <Link
             href={`/insights/${hero.slug}`}
             className="group card-lift-hover bg-[#18283d] hover:bg-[#1e3450] flex flex-col justify-between p-8 md:p-12 relative overflow-hidden h-full rounded-lg"
@@ -69,11 +70,11 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
               </span>
             </div>
           </Link>
-        </Reveal>
+        </ScrollReveal>
 
         {/* Secondary card */}
         {secondary && (
-          <Reveal delay={0.08} className="md:col-span-4">
+          <ScrollReveal className="md:col-span-4">
             <Link
               href={`/insights/${secondary.slug}`}
               className="group block card-lift-hover bg-[#1e3450] gold-edge-top hover:bg-[#26456a] p-7 md:p-8 h-full flex flex-col justify-between rounded-lg"
@@ -98,12 +99,12 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
                 </span>
               </div>
             </Link>
-          </Reveal>
+          </ScrollReveal>
         )}
 
         {/* Tertiary card */}
         {tertiary && (
-          <Reveal delay={0.14} className="md:col-span-4">
+          <ScrollReveal className="md:col-span-4">
             <Link
               href={`/insights/${tertiary.slug}`}
               className="group block card-lift-hover bg-[#18283d] hover:bg-[#1e3450] p-7 md:p-8 h-full flex flex-col justify-between rounded-lg border border-[#43474e]/30"
@@ -128,7 +129,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
                 </span>
               </div>
             </Link>
-          </Reveal>
+          </ScrollReveal>
         )}
       </div>
 
@@ -136,7 +137,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
       {remaining.length > 0 && (
         <div className="mt-12 md:mt-16 border-t-[0.5px] border-[#43474e]/30">
           {remaining.map((a, i) => (
-            <Reveal key={a.slug} delay={i * 0.06}>
+            <ScrollReveal key={a.slug}>
               <Link
                 href={`/insights/${a.slug}`}
                 className="group block py-8 md:py-10 border-b-[0.5px] border-[#43474e]/30 last:border-b-0 transition-colors duration-500"
@@ -153,7 +154,7 @@ export function InsightsBento({ articles }: InsightsBentoProps) {
                   </span>
                 </div>
               </Link>
-            </Reveal>
+            </ScrollReveal>
           ))}
         </div>
       )}

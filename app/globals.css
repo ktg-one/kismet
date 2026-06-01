@@ -232,15 +232,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
 /* ════════════════════════════════════════════════
    ATMOSPHERE - cinematic depth via tonal layering
    ════════════════════════════════════════════════ */
@@ -379,16 +370,6 @@ html {
     0 36px 80px -28px rgba(0, 0, 0, 0.7),
     0 0 50px -8px rgba(212, 175, 55, 0.28);
   border-top-color: rgba(212, 175, 55, 0.55);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kismet-surface,
-  .kismet-surface:hover,
-  .card-lift-hover,
-  .card-lift-hover:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
 }
 
 .kismet-surface-elevated {

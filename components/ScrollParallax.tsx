@@ -4,7 +4,6 @@ import { useRef, type ReactNode } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -14,12 +13,12 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * scrubbed to scroll position. Rides the Lenis -> gsap.ticker bridge in
  * SmoothScroll, so it stays in sync with the smooth scroll (a plain CSS
  * scroll-timeline does not). Give the inner media a little overscale and a
- * clipped parent so the travel never reveals a gap. Disabled under reduced motion.
+ * clipped parent so the travel never reveals a gap.
  */
 export function ScrollParallax({
   children,
   className,
-  travel = 6,
+  travel = 18,
 }: {
   children: ReactNode;
   className?: string;
@@ -27,11 +26,10 @@ export function ScrollParallax({
   travel?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useClientReducedMotion();
 
   useGSAP(
     () => {
-      if (reduce || !ref.current) return;
+      if (!ref.current) return;
       gsap.fromTo(
         ref.current,
         { yPercent: -travel },
@@ -47,7 +45,7 @@ export function ScrollParallax({
         }
       );
     },
-    { scope: ref, dependencies: [reduce, travel] }
+    { scope: ref, dependencies: [travel] }
   );
 
   return (

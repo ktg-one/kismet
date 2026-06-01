@@ -1,11 +1,6 @@
 "use client";
-import { motion, useReducedMotion } from "motion/react";
-import { useSyncExternalStore } from "react";
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
-
-const subscribeToHydration = () => () => {};
-const getClientHydrationSnapshot = () => true;
-const getServerHydrationSnapshot = () => false;
 
 interface RevealProps {
   children: ReactNode;
@@ -18,10 +13,7 @@ interface RevealProps {
 }
 
 /**
- * Reveal renders the SAME motion.tag tree regardless of reduced-motion so
- * SSR and first client render line up. Only the motion props change once
- * useReducedMotion() resolves on the client; that swap happens after
- * hydration and never triggers a mismatch.
+ * Reveal animates its children into place.
  *
  * When `immediate` is true, the element animates on mount (used by the
  * hero so the headline is settled-in by the time anything else moves).
@@ -36,21 +28,18 @@ export function Reveal({
   duration = 0.7,
   immediate = false,
 }: RevealProps) {
-  const reduce = useReducedMotion();
-  const hasHydrated = useHasHydrated();
-  const shouldReduceMotion = hasHydrated && reduce;
   const MotionTag = motion[as];
 
   return (
     <MotionTag
       className={className}
-      initial={shouldReduceMotion ? false : { opacity: 0, y }}
-      animate={immediate && !shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
-      whileInView={!immediate && !shouldReduceMotion ? { opacity: 1, y: 0 } : undefined}
+      initial={{ opacity: 0, y }}
+      animate={immediate ? { opacity: 1, y: 0 } : undefined}
+      whileInView={!immediate ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: shouldReduceMotion ? 0 : duration,
-        delay: shouldReduceMotion ? 0 : delay,
+        duration,
+        delay,
         ease: [0.16, 1, 0.3, 1] as const,
       }}
     >
@@ -72,29 +61,21 @@ function RevealWord({
   word,
   delay,
   immediate,
-  reduce,
 }: {
   word: string;
   delay: number;
   immediate: boolean;
-  reduce: boolean | null;
 }) {
   return (
     <motion.span
       className="inline-block"
-      initial={
-        reduce || immediate ? { y: 0, opacity: 1 } : { y: "80%", opacity: 0 }
-      }
-      animate={
-        immediate && !reduce ? { y: 0, opacity: 1 } : undefined
-      }
-      whileInView={
-        !immediate && !reduce ? { y: 0, opacity: 1 } : undefined
-      }
+      initial={immediate ? { y: 0, opacity: 1 } : { y: "80%", opacity: 0 }}
+      animate={immediate ? { y: 0, opacity: 1 } : undefined}
+      whileInView={!immediate ? { y: 0, opacity: 1 } : undefined}
       viewport={{ once: true, amount: 0.4 }}
       transition={{
-        duration: reduce ? 0 : 0.72,
-        delay: reduce ? 0 : delay,
+        duration: 0.72,
+        delay,
         ease: [0.16, 1, 0.3, 1] as const,
       }}
     >
@@ -117,9 +98,6 @@ export function RevealWords({
   as = "h1",
   immediate = false,
 }: RevealWordsProps) {
-  const reduce = useReducedMotion();
-  const hasHydrated = useHasHydrated();
-  const shouldReduceMotion = hasHydrated && reduce;
   const Tag = as as keyof React.JSX.IntrinsicElements;
   const words = text.split(" ");
 
@@ -136,18 +114,9 @@ export function RevealWords({
             word={word}
             delay={delay + i * stagger}
             immediate={immediate}
-            reduce={shouldReduceMotion}
           />
         </span>
       ))}
     </Tag>
-  );
-}
-
-function useHasHydrated() {
-  return useSyncExternalStore(
-    subscribeToHydration,
-    getClientHydrationSnapshot,
-    getServerHydrationSnapshot
   );
 }

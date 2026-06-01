@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { gsap } from "gsap";
-import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 
 const COARSE_QUERY = "(pointer: coarse)";
 
@@ -30,16 +29,14 @@ function useCoarsePointer(): boolean {
  * Lightweight premium cursor (awwwards-animations: lerp-follow via gsap.ticker).
  * A small gold dot tracks the pointer tightly; a larger ring trails behind it.
  * Both use mix-blend-difference so they read on navy and on gold. The native
- * cursor is left intact (accessibility). Disabled on touch (coarse pointer) and
- * when reduced motion is requested.
+ * cursor is left intact (accessibility). Disabled on touch (coarse pointer).
  */
 export function CustomCursor() {
-  const reduce = useClientReducedMotion();
   const coarse = useCoarsePointer();
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
-  const enabled = !reduce && !coarse;
+  const enabled = !coarse;
 
   useEffect(() => {
     if (!enabled) return;

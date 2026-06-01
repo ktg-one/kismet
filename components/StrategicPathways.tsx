@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
-import { useClientReducedMotion } from "@/hooks/useClientReducedMotion";
 import type { ReactNode } from "react";
 
 interface PathwayCard {
@@ -32,8 +31,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
  * Strategic Pathways bento - asymmetric grid.
  * Large feature card + smaller cards + wide horizontal hub strip below.
  * Cards animate in on scroll (staggered) and lift with a gold glow on hover
- * (awwwards-animations: reveal + hover micro-interaction). All gated on the
- * client reduced-motion hook.
+ * (awwwards-animations: reveal + hover micro-interaction).
  */
 export function StrategicPathways({
   eyebrow = "Our Services",
@@ -45,18 +43,14 @@ export function StrategicPathways({
   hubHref,
   hubIcon,
 }: StrategicPathwaysProps) {
-  const reduce = useClientReducedMotion();
-
   const entrance = (delay: number) => ({
-    initial: { opacity: 0, y: reduce ? 0 : 40 },
+    initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-80px" },
     transition: { duration: 0.7, delay, ease: EASE },
   });
 
-  const hover = reduce
-    ? undefined
-    : { y: -10, boxShadow: "0 30px 80px -28px rgba(212, 175, 55, 0.38)" };
+  const hover = { y: -10, boxShadow: "0 30px 80px -28px rgba(212, 175, 55, 0.38)" };
 
   return (
     <section className="relative py-24 md:py-32 bg-[#0a141e] section-blend-top">
@@ -116,7 +110,7 @@ export function StrategicPathways({
           {/* Coordination Hub - wide strip below */}
           <motion.article
             {...entrance(cards.length * 0.12)}
-            whileHover={reduce ? undefined : { y: -6 }}
+            whileHover={{ y: -6 }}
             className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-10 group md:col-span-3"
           >
             <div className="flex-1">

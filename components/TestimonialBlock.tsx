@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useReducedMotion } from "motion/react";
 import { Reveal } from "./Reveal";
 import type { ReactNode } from "react";
 
@@ -24,7 +23,6 @@ function initials(name: string): string {
  * Rotating testimonial carousel.
  * One quote at a time on mobile (full-width), three on lg.
  * Auto-advance with 6s pause, dot navigation, swipe support, paused on hover.
- * Respects prefers-reduced-motion (Embla handles this implicitly via reduced animation).
  */
 export function TestimonialBlock({
   items,
@@ -39,20 +37,16 @@ export function TestimonialBlock({
   viewAllHref?: string;
   viewAllLabel?: string;
 }) {
-  const reduce = useReducedMotion();
   const plugins = useMemo(
-    () =>
-      reduce
-        ? []
-        : [
-            Autoplay({
-              delay: 6500,
-              stopOnInteraction: true,
-              stopOnMouseEnter: true,
-              stopOnFocusIn: true,
-            }),
-          ],
-    [reduce]
+    () => [
+      Autoplay({
+        delay: 6500,
+        stopOnInteraction: true,
+        stopOnMouseEnter: true,
+        stopOnFocusIn: true,
+      }),
+    ],
+    []
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
