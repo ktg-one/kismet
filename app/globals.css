@@ -317,7 +317,7 @@ html {
 }
 
 .ambient-orb-gold {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.45), transparent 65%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18), transparent 65%);
   animation: ambient-drift 18s ease-in-out infinite;
 }
 

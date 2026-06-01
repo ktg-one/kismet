@@ -104,7 +104,7 @@ export function HeroAmbient({ prominent = false }: HeroAmbientProps) {
           height: prominent ? "62vw" : "44vw",
           maxWidth: prominent ? "900px" : "640px",
           maxHeight: prominent ? "900px" : "640px",
-          opacity: prominent ? 0.7 : 0.38,
+          opacity: prominent ? 0.35 : 0.2,
           ...(active ? { x: goldX, y: goldY } : null),
         }}
       />
