@@ -122,7 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll>
           <GrainOverlay />
           <SiteHeader />
-          <main id="main-content" className="flex-1">
+          <main id="main-content" className="relative z-[2] flex-1">
             <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />

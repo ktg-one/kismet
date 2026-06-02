@@ -38,9 +38,11 @@ export function ScrollParallax({
           ease: "none",
           scrollTrigger: {
             trigger: ref.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.6,
+            start: "top 92%",
+            end: () => `+=${Math.max(window.innerHeight * 1.2, 720)}`,
+            scrub: 0.7,
+            invalidateOnRefresh: true,
+            fastScrollEnd: true,
           },
         }
       );
