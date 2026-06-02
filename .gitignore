@@ -78,3 +78,14 @@ understand-everything/
 .idea/
 *.suo
 *.sw?
+
+# common local OS/editor junk
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.temp
+*.bak
+*.orig
+.cache/
+.eslintcache
