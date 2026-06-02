@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { ScrollParallax } from "./ScrollParallax";
+import { ScrollReveal } from "./ScrollReveal";
 import type { ReactNode } from "react";
 
 interface BulletItem {
@@ -85,21 +87,21 @@ export function BiggerPicture({
           </div>
 
           {/* Image column */}
-          <Reveal delay={0.16}>
+          <ScrollReveal>
             <figure className="relative">
               <div className="relative aspect-[4/5] glass-card p-2 overflow-hidden">
-                <div className="documentary-frame relative w-full h-full rounded scroll-parallax-up">
+                <ScrollParallax className="documentary-frame relative w-full h-full rounded">
                   <Image
                     src={imageSrc}
                     alt={imageAlt}
                     fill
                     sizes="(min-width: 1024px) 600px, (min-width: 768px) 90vw, 100vw"
-                    className="object-cover"
+                    className="object-cover scale-[1.5]"
                   />
-                </div>
+                </ScrollParallax>
               </div>
             </figure>
-          </Reveal>
+          </ScrollReveal>
         </div>
       </div>
     </section>

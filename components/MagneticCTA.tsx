@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
@@ -16,10 +16,9 @@ interface MagneticCTAProps {
 /**
  * Premium magnetic-feel CTA. Subtle pull toward cursor on hover.
  * Restraint is the point: 6px max travel, slow spring, easy to miss but felt.
- * Disabled on coarse-pointer (touch) devices and when reduced-motion is active.
+ * Disabled on coarse-pointer (touch) devices.
  */
 export function MagneticCTA({ href, children, className = "", ariaLabel }: MagneticCTAProps) {
-  const reduce = useReducedMotion() ?? false;
   const [coarsePointer, setCoarsePointer] = useState(
     () => typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches
   );
@@ -32,7 +31,7 @@ export function MagneticCTA({ href, children, className = "", ariaLabel }: Magne
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const disabled = reduce || coarsePointer;
+  const disabled = coarsePointer;
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);

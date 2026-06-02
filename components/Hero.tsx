@@ -5,7 +5,6 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useReducedMotion } from "motion/react";
 import { Reveal, RevealWords } from "./Reveal";
 import { MagneticCTA } from "./MagneticCTA";
 import { HeroAmbient } from "./HeroAmbient";
@@ -49,14 +48,12 @@ export function Hero({
   bgAlt = "",
 }: HeroProps) {
   const heroRef = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
 
   // Parallax the gold watermark + the optional bg image as the user scrolls
   // the hero out of view. The CSS scroll-timeline rule for .hero-watermark
   // has been removed in favour of this (single source of truth).
   useGSAP(
     () => {
-      if (reduce) return;
       gsap.fromTo(
         ".hero-watermark",
         { yPercent: -4, opacity: 1 },
@@ -89,7 +86,7 @@ export function Hero({
         );
       }
     },
-    { scope: heroRef, dependencies: [reduce, bgImage] }
+    { scope: heroRef, dependencies: [bgImage] }
   );
 
   return (
@@ -128,7 +125,7 @@ export function Hero({
         />
       </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-20 md:pb-32 min-h-[80vh] md:min-h-[88vh] flex flex-col">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-20 md:pb-32 min-h-[100svh] flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-1">
           <div className="col-span-12 lg:col-span-9 flex flex-col justify-center">
             <Reveal immediate>

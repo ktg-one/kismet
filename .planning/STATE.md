@@ -2,27 +2,29 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: 02
+current_phase: 03
 status: in_progress
-last_updated: "2026-06-01T00:00:00.000Z"
+last_updated: "2026-06-01T16:30:00.000Z"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 7
-  completed_plans: 4
-  percent: 57
+  completed_plans: 7
+  percent: 71
 ---
 
 # Project State: Kismet-site
 
 ## Overview
 
-Current Phase: 02
-Next Step: Verify completion of Phase 2 animation work and prepare for Phase 3.
+Current Phase: 03 (Phase 2 complete incl. animation follow-on)
+Next Step: Merge PR #2 (`anim/scroll-reveal` → `feat/animations`) to ship the perceptible scroll animations, then finish Phase 3 (GA4 + env-var confirmation — the site itself is already live on Vercel).
 
 ## Summary
 
-Phase 1 is complete. The lead pipeline env contract is centralized, the Resend and Google Sheets helpers now resolve credentials through server-only runtime guards, `.env.example` documents the full setup path, and a manual smoke script exists for `/api/lead`. External provisioning gates remain intentionally deferred to Phase 3. Phase 2 is now planned as five isolated animation lanes: Reveal and RevealWords audit, card animation polish, MagneticCTA refinement, page transition refinement, then GSAP final pass.
+Phase 1 (foundation/hardening) and Phase 2 (animation & interactivity) are complete. Phase 2 ran as five isolated animation lanes (Reveal audit, card polish, MagneticCTA, page transitions, GSAP final pass), all merged into `feat/animations`.
+
+A Phase 2 follow-on (this session, `anim/scroll-reveal` / PR #2) fixed why the animation looked dead to the client: the site strictly honoured `prefers-reduced-motion`, which the client/reviewer had enabled, so ALL motion was switched off for them. Root cause traced to the original aggressive `@media (prefers-reduced-motion)` CSS reset in commit `ec30aae`. The gate was removed project-wide, and genuine scroll-DRIVEN reveals (GSAP ScrollTrigger scrub) were added to cards/photos at perceptible magnitudes. Heavy pinned (ktg.one-style) choreography is intentionally deferred to a separate owner/GSD log.
 
 ## Milestone: Initial Hardening & Mapping
 
@@ -40,8 +42,10 @@ Phase 1 is complete. The lead pipeline env contract is centralized, the Resend a
 - Plan 02-03: ✅ Complete — MagneticCTA hard clamp + coarse-pointer guard.
 - Plan 02-04: ✅ Complete — Page transition refinement.
 - Plan 02-05: ✅ Complete — GSAP final pass.
-- Phase 3: Provision Resend domain, Google Sheet/service account, and booking URL in real environments.
+- Follow-on (PR #2, `anim/scroll-reveal`): ✅ Removed `prefers-reduced-motion` gating site-wide; added scroll-driven `ScrollReveal` (scrub) on cards/photos at perceptible magnitudes (y 120px, scale 0.9, parallax 18%); `ScrollTrigger.refresh()` after fonts/images. tsc + eslint clean, browser-verified. Awaiting merge into `feat/animations`.
+- Meta: equipped the GSAP/scroll skill library (25 SKILL.md + reference files) with a "Perceptibility" doctrine so future motion isn't sub-threshold. See memory `animation-must-be-perceptible`.
+- Phase 3: confirm Vercel env vars; set up GA4 (env-gated). Resend domain / Google Sheet / booking URL provisioning in real environments still pending.
 
 ## Blockers
 
-- Vercel Deployment: Pending user login on device.
+- None. Resolved: the site is live on Vercel and the Vercel CLI is present (the earlier "pending user login" blocker no longer applies). The only gate to shipping the latest animation work is merging PR #2 into `feat/animations`.

@@ -26,24 +26,26 @@
 
 - [x] Task 2.1: Audit all `Reveal` and `RevealWords` components.
 - [x] Task 2.2: Fix Hero headline hydration delay. (Fixed: added `immediate` prop to `Reveal` components)
-- [ ] Task 2.3: Implement smooth page-level transitions.
-- [ ] Task 2.4: Add magnetic CTA effects to primary buttons.
-- [ ] Task 2.5: Polish card hover and reveal animations as a separate lane.
-- [ ] Task 2.6: Audit existing GSAP scroll effects and reserve any new GSAP work for the final pass.
-  - **Plans:** 1/5 plans executed
+- [x] Task 2.3: Implement smooth page-level transitions.
+- [x] Task 2.4: Add magnetic CTA effects to primary buttons.
+- [x] Task 2.5: Polish card hover and reveal animations as a separate lane.
+- [x] Task 2.6: Audit existing GSAP scroll effects and reserve any new GSAP work for the final pass.
+- [x] Task 2.7 (follow-on, PR #2): Remove `prefers-reduced-motion` gating (it was hiding all motion from the client) and add perceptible scroll-DRIVEN reveals (ScrollTrigger scrub) on cards/photos.
+  - **Plans:** 5/5 plans executed + follow-on (PR #2)
   - [x] 02-01-PLAN.md -- Reveal and RevealWords audit on `anim/reveal-audit`
   - [x] 02-02-PLAN.md -- Card hover and reveal polish on `anim/card-polish`
-  - [ ] 02-03-PLAN.md -- Magnetic CTA refinement on `anim/magnetic-ctas`
-  - [ ] 02-04-PLAN.md -- Page transition refinement on `anim/page-transitions`
-  - [ ] 02-05-PLAN.md -- GSAP final pass on `anim/gsap-final-pass`
+  - [x] 02-03-PLAN.md -- Magnetic CTA refinement on `anim/magnetic-ctas`
+  - [x] 02-04-PLAN.md -- Page transition refinement on `anim/page-transitions`
+  - [x] 02-05-PLAN.md -- GSAP final pass on `anim/gsap-final-pass`
+  - [x] Follow-on -- reduced-motion removal + scroll-driven `ScrollReveal` on `anim/scroll-reveal` (PR #2 → `feat/animations`); heavy pinned ktg.one-style choreography deferred to a separate owner
 
 ## Phase 3: Deployment & Analytics
 *Shipping the site to Vercel and setting up tracking.*
 
-- [ ] Task 3.1: Initialize Vercel project and link repo.
+- [x] Task 3.1: Initialize Vercel project and link repo. (Site is live on Vercel; Vercel CLI present.)
 - [ ] Task 3.2: Configure Environment Variables in Vercel.
 - [ ] Task 3.3: Set up Google Analytics 4 (GA4) with environment gating.
-- [ ] Task 3.4: Perform first production build and preview deploy.
+- [x] Task 3.4: Perform first production build and preview deploy. (Deployed; merge PR #2 to ship the latest animation fixes.)
 
 ## Phase 4: AI Preparation & Final Audit
 *Optimizing for future collaboration and site quality.*

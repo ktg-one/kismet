@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Reveal className="md:col-span-2">
-              <div className="bg-[#18283d] gold-edge-top rounded-lg overflow-hidden h-full">
+              <div className="bg-[#18283d] gold-edge-top rounded-lg overflow-hidden h-full card-lift-hover">
                 <div className="h-full flex flex-col md:flex-row">
                   <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
                     <h2 className="font-serif text-[28px] md:text-[32px] leading-[1.25] tracking-[-0.008em] text-[#D4AF37] mb-5">
@@ -89,7 +89,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="bg-[#1e3450] gold-edge-top rounded-lg p-10 flex flex-col justify-between h-full">
+              <div className="bg-[#1e3450] gold-edge-top rounded-lg p-10 flex flex-col justify-between h-full card-lift-hover">
                 <div>
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded bg-[#0a141e] border border-[#43474e]/40 text-[#D4AF37] mb-6">
                     <Architecture className="w-6 h-6" />
@@ -127,7 +127,7 @@ export default function AboutPage() {
             {principles.map((p, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <article
-                  className={`rounded-lg p-8 md:p-10 h-full relative overflow-hidden ${
+                  className={`rounded-lg p-8 md:p-10 h-full relative overflow-hidden card-lift-hover ${
                     p.highlight
                       ? "bg-[#1E3A5F] gold-edge-top shadow-[0_10px_30px_rgba(30,58,95,0.4)]"
                       : "bg-[#0a141e] gold-edge-top border border-[#43474e]/30 shadow-[0_10px_30px_rgba(15,30,46,0.5)]"

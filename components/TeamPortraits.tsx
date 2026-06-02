@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { ScrollReveal } from "./ScrollReveal";
 
 interface Person {
   name: string;
@@ -51,7 +52,7 @@ export function TeamPortraits({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {people.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.12}>
+            <ScrollReveal key={p.name}>
               <article
                 className={`group relative overflow-hidden rounded-lg bg-[#18283d] aspect-[3/4] card-lift-hover ${
                   stagger && i % 2 === 1 ? "md:mt-12" : ""
@@ -104,7 +105,7 @@ export function TeamPortraits({
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </ScrollReveal>
           ))}
         </div>
       </div>

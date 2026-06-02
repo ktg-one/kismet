@@ -232,15 +232,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
 /* ════════════════════════════════════════════════
    ATMOSPHERE - cinematic depth via tonal layering
    ════════════════════════════════════════════════ */
@@ -253,8 +244,17 @@ html {
 
 @keyframes ambient-drift-slow {
   0%   { transform: translate3d(0, 0, 0); opacity: 0.7; }
-  50%  { transform: translate3d(-1.5%, 2%, 0); opacity: 0.95; }
+  50%  { transform: translate3d(-3%, 4%, 0); opacity: 0.95; }
   100% { transform: translate3d(0, 0, 0); opacity: 0.7; }
+}
+
+/* Gold orb: a moving gradient — drifts, breathes and slowly rotates so the
+   conic gold gradient sweeps. Heavily blurred upstream, so it reads as a living
+   glow rather than a spinning disc. */
+@keyframes orb-gold-move {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); opacity: 0.8; }
+  50%  { transform: translate3d(7%, -5%, 0) scale(1.1) rotate(180deg); opacity: 1; }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(360deg); opacity: 0.8; }
 }
 
 /* Smoke gradient - cinematic radial atmosphere over a section */
@@ -317,8 +317,18 @@ html {
 }
 
 .ambient-orb-gold {
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.45), transparent 65%);
-  animation: ambient-drift 18s ease-in-out infinite;
+  /* Faint warm bronze depth, NOT a glow. Low-alpha brand gold (#D4AF37) so it
+     reads as an undertone beneath the navy, not lemon bleeding over it. */
+  background: conic-gradient(
+    from 0deg,
+    rgba(212, 175, 55, 0.22),
+    rgba(180, 140, 45, 0.05),
+    rgba(224, 190, 96, 0.20),
+    rgba(150, 110, 30, 0.04),
+    rgba(212, 175, 55, 0.24),
+    rgba(212, 175, 55, 0.22)
+  );
+  animation: orb-gold-move 22s ease-in-out infinite;
 }
 
 .ambient-orb-navy {
@@ -357,21 +367,11 @@ html {
     background-color 500ms var(--ease-cinema);
 }
 .card-lift-hover:hover {
-  transform: translate3d(0, -6px, 0);
-  box-shadow: 
-    0 30px 70px -30px rgba(0, 0, 0, 0.65),
-    0 0 35px -10px rgba(212, 175, 55, 0.08);
-  border-top-color: rgba(212, 175, 55, 0.35);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kismet-surface,
-  .kismet-surface:hover,
-  .card-lift-hover,
-  .card-lift-hover:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
+  transform: translate3d(0, -8px, 0);
+  box-shadow:
+    0 36px 80px -28px rgba(0, 0, 0, 0.7),
+    0 0 50px -8px rgba(212, 175, 55, 0.28);
+  border-top-color: rgba(212, 175, 55, 0.55);
 }
 
 .kismet-surface-elevated {
@@ -402,7 +402,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 78% 0%, rgba(212, 175, 55, 0.16), transparent 60%);
+  background: radial-gradient(ellipse 60% 80% at 78% 0%, rgba(212, 175, 55, 0.28), transparent 60%);
   opacity: 0;
   transition: opacity 800ms var(--ease-cinema);
   pointer-events: none;
@@ -411,13 +411,13 @@ html {
 }
 
 .glass-card:hover {
-  border-top-color: rgba(212, 175, 55, 0.45);
-  border-right-color: rgba(212, 175, 55, 0.12);
-  border-left-color: rgba(212, 175, 55, 0.12);
-  transform: translate3d(0, -6px, 0);
-  box-shadow: 
-    0 35px 85px -35px rgba(0, 0, 0, 0.65),
-    0 0 45px -10px rgba(212, 175, 55, 0.12);
+  border-top-color: rgba(212, 175, 55, 0.6);
+  border-right-color: rgba(212, 175, 55, 0.18);
+  border-left-color: rgba(212, 175, 55, 0.18);
+  transform: translate3d(0, -8px, 0);
+  box-shadow:
+    0 40px 90px -30px rgba(0, 0, 0, 0.7),
+    0 0 60px -8px rgba(212, 175, 55, 0.28);
 }
 .glass-card:hover::before {
   opacity: 1;
