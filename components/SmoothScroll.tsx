@@ -43,12 +43,16 @@ function LenisGsapBridge() {
   // webfonts and Next/Image can shift positions after first paint.
   useEffect(() => {
     const refresh = () => {
+      // Double RAF lets route-transition layout/image shifts settle before
+      // ScrollTrigger recalculates start/end bounds.
       requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
     };
     if (typeof document !== "undefined" && "fonts" in document) {
       document.fonts.ready.then(refresh);
     }
     window.addEventListener("load", refresh);
+    // Refresh immediately on pathname changes so new page sections never keep
+    // stale trigger measurements from the previous route.
     refresh();
     return () => window.removeEventListener("load", refresh);
   }, [pathname]);
