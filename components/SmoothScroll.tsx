@@ -2,6 +2,7 @@
 
 import { ReactLenis, useLenis } from "lenis/react";
 import { useEffect, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  */
 function LenisGsapBridge() {
   const lenis = useLenis();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!lenis) return;
@@ -40,13 +42,20 @@ function LenisGsapBridge() {
   // Recompute trigger start/end once layout settles: self-hosted Berlingske
   // webfonts and Next/Image can shift positions after first paint.
   useEffect(() => {
-    const refresh = () => ScrollTrigger.refresh();
+    const refresh = () => {
+      // First RAF waits for the next paint, second RAF lets post-paint layout
+      // recalculations settle before ScrollTrigger recomputes bounds.
+      requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
+    };
     if (typeof document !== "undefined" && "fonts" in document) {
       document.fonts.ready.then(refresh);
     }
     window.addEventListener("load", refresh);
+    // Refresh immediately on pathname changes so new page sections never keep
+    // stale trigger measurements from the previous route.
+    refresh();
     return () => window.removeEventListener("load", refresh);
-  }, []);
+  }, [pathname]);
 
   return null;
 }
