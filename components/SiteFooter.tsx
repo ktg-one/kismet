@@ -18,7 +18,7 @@ export function SiteFooter() {
               <span aria-hidden className="flex-1 max-w-[180px] md:max-w-[280px] h-px bg-gradient-to-r from-transparent via-[#43474e]/40 to-[#D4AF37]/30" />
               <Link href="/" className="group inline-flex flex-col items-center gap-3">
                 <BrandMark className="w-14 h-14 md:w-16 md:h-16 text-[#D4AF37]" />
-                <BrandWordmark className="h-3.5 md:h-4 w-auto text-[#D4AF37]/85" />
+                <BrandWordmark className="h-3.5 md:h-4 w-auto opacity-[0.85]" />
               </Link>
               <span aria-hidden className="flex-1 max-w-[180px] md:max-w-[280px] h-px bg-gradient-to-l from-transparent via-[#43474e]/40 to-[#D4AF37]/30" />
             </div>

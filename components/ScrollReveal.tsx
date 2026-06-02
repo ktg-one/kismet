@@ -24,8 +24,7 @@ interface ScrollRevealProps {
  *
  * Rides the shared Lenis -> gsap.ticker bridge in SmoothScroll (never its own
  * RAF), so it stays in sync with the smooth scroll. Animates transform +
- * opacity only (60fps, no layout). Cleanup is handled by useGSAP. Motion is
- * intentionally unconditional — this site does not gate on prefers-reduced-motion.
+ * opacity only (60fps, no layout). Cleanup is handled by useGSAP.
  */
 export function ScrollReveal({ children, className, y = 120 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
