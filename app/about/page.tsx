@@ -45,7 +45,7 @@ export default function AboutPage() {
           </>
         }
         ctaLabel="Start here"
-        ctaHref="/contact"
+        ctaHref="https://calendar.app.google/gBTNh7XSxQXxiXZF7"
         showScrollCue={false}
       />
 

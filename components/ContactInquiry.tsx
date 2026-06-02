@@ -288,7 +288,7 @@ export function ContactInquiry() {
               obligation.
             </p>
             <MagneticCTA
-              href={process.env.NEXT_PUBLIC_BOOKING_URL ?? "#"}
+              href={process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://calendar.app.google/gBTNh7XSxQXxiXZF7"}
               className="w-full"
             >
               <span>Book a private call</span>

@@ -50,7 +50,7 @@ export default function ApproachPage() {
           </>
         }
         ctaLabel="Book a call"
-        ctaHref="/contact"
+        ctaHref="https://calendar.app.google/gBTNh7XSxQXxiXZF7"
         showScrollCue={false}
       />
 
@@ -75,7 +75,7 @@ export default function ApproachPage() {
                   options, the right people in the room, and a steady pace. No pressure, no
                   jargon.
                 </p>
-                <MagneticCTA href="/contact">
+                <MagneticCTA href="https://calendar.app.google/gBTNh7XSxQXxiXZF7">
                   <span>Book a call</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </MagneticCTA>

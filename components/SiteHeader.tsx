@@ -95,7 +95,7 @@ export function SiteHeader() {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <MagneticCTA href="/contact" className="!py-3 !px-6 !text-[11px]">
+            <MagneticCTA href="https://calendar.app.google/gBTNh7XSxQXxiXZF7" className="!py-3 !px-6 !text-[11px]">
               <span>Enquire Now</span>
             </MagneticCTA>
           </div>
@@ -184,7 +184,7 @@ export function SiteHeader() {
 
         <div className="px-6 pb-10 pt-4 border-t-[0.5px] border-[#43474e]/40">
           <div onClick={close}>
-            <MagneticCTA href="/contact" className="w-full">
+            <MagneticCTA href="https://calendar.app.google/gBTNh7XSxQXxiXZF7" className="w-full">
               <span>Enquire Now</span>
               <span aria-hidden className="cta-arrow">&rarr;</span>
             </MagneticCTA>
