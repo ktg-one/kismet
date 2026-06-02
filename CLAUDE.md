@@ -1,0 +1,103 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+# Kismet Finance Group — Website
+
+Marketing site for **Kismet Finance Group** (Cockburn Central, WA). A credibility surface for a boutique strategic-finance consultancy. The job of every page is to convince a warm referral inside 30 seconds that this is a real, premium, capable operation worth booking a call with. **Conversion happens on the call, not the page.**
+
+Live: https://kismetfinancegroup.com.au
+
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js **16.2.5** App Router, Turbopack |
+| Runtime | React **19.2.4** |
+| Language | TypeScript **strict**, `@/*` paths to repo root |
+| Styling | Tailwind **v4** (`@tailwindcss/postcss`, `@tailwindcss/typography`) + custom CSS in `app/globals.css` + `app/kismet-brand.css` |
+| Type | Montserrat (body) via `next/font/google` (`--font-montserrat`) + self-hosted **Berlingske Serif** webfonts (headlines, `@font-face` in `globals.css`) falling back to Georgia |
+| Motion | `motion` (Framer Motion v12) for page transitions and reveals; **GSAP** (`gsap` + `@gsap/react` `useGSAP`) with `ScrollTrigger` for scroll-driven work |
+| Smooth scroll | **Lenis** (`lenis/react`) wraps the whole app in `components/SmoothScroll.tsx`; its RAF is bridged into `gsap.ticker` so ScrollTrigger and Lenis share one scroll source |
+| Carousel | `embla-carousel-react` + autoplay plugin |
+| Content | Markdown insights in `content/insights/` via `gray-matter` + `remark` |
+| Forms | Resend for transactional email; Google Sheets via `googleapis` |
+| Validation | Zod **v4** at route boundaries |
+| Image tooling | `sharp`, `heic-convert`, Playwright (scraping) — dev only |
+
+## Layout
+
+```
+app/                Next App Router — about, approach, contact, insights, pathways, api/lead, robots.ts, sitemap.ts
+components/         Page sections + shared UI (PascalCase .tsx)
+hooks/              Client-only React hooks
+content/insights/   Markdown articles, ingested by lib/articles.ts
+lib/                Server utilities (articles, email, sheets, env guard)
+public/             Static assets — fonts go in public/fonts
+scripts/            One-off Node scripts (photo optimisation, scraping)
+project-notes/      Brand, voice, design, compliance, direction — READ THESE
+docs/superpowers/   Skill plans and specs
+photos-raw/         Source photos (not shipped; converted via scripts/)
+```
+
+Path alias: `@/*` resolves to repo root. Use `@/components/Foo`, `@/lib/articles`, etc.
+
+### Lead pipeline (`app/api/lead/route.ts`)
+
+The contact form's one server boundary. Flow: in-memory per-IP rate limit (5 / 15 min, resets on serverless cold start — a known v1 limitation) → honeypot reject → Zod parse → `Promise.allSettled([sendLeadEmail, appendLeadRow])`. It succeeds if **either** sink fulfils, returns `503 service_unconfigured` only when both fail because env is missing. The six required env vars (`RESEND_*`, `LEAD_INBOX_*`, `GOOGLE_*`) are read lazily through `lib/env.ts` at request time, so `npm run build` succeeds without secrets present. See `.env.example` for the full list; `NEXT_PUBLIC_BOOKING_URL` is optional.
+
+## Brand non-negotiables
+
+Read `project-notes/DESIGN_GUIDE.md`, `COPY_VOICE_GUIDE.md`, and `WEBSITE_DIRECTION.md` before changing copy or visuals. Short version:
+
+- **Audience: John and Jenny.** Normal Australians, decent income, not finance pros. If a sentence can't be read at a backyard BBQ, it doesn't belong on the site.
+- **Dark theme only.** Brand navy `#1E3A5F` is the dominant surface. Gold `#D4AF37` is the accent — hairlines, CTAs, brand mark, eyebrow text. Use sparingly. Off-white type.
+- **No light theme. No emoji. No exclamation marks.** Calm, editorial, confident.
+- **Positioning:** strategic finance *coordinator* — not broker, not planner. Three beats: see the bigger picture, connect the right people, make the process clearer.
+- **Compliance:** see `COMPLIANCE_NOTES.md`. Kismet does not give personal financial, tax, legal, or accounting advice. Don't write copy that implies otherwise.
+- **Founders:** Shane Hewson and Josh Hewson are both Directors. Josh's title is "Director" — this has been corrected once already, don't regress it.
+
+## Conventions
+
+- Components are PascalCase, one default export per file, colocated with sections they belong to.
+- Server-only modules (`lib/email.ts`, `lib/sheets.ts`) must not be imported from client components.
+- No new top-level docs in repo root — long-form context lives in `project-notes/` or `docs/`.
+- Match existing motion: `motion/react` with the easing tokens already defined in `globals.css` (`--ease-soft`, `--ease-cinema`, etc.) for reveals and page transitions; GSAP + `ScrollTrigger` (via `useGSAP`) for scroll-driven sequences. Those two plus Lenis are the only motion libraries — don't add another.
+- GSAP/ScrollTrigger code must read scroll through the Lenis bridge in `SmoothScroll.tsx` (never re-init Lenis or run a competing RAF loop), or ScrollTrigger positions drift against the smoothed scroll.
+- Avoid adding dependencies for things React 19 + Tailwind v4 already do.
+
+## Scripts
+
+```bash
+npm run dev         # next dev (Turbopack)
+npm run build       # next build (postbuild runs `npm run lint`)
+npm run start       # next start
+npm run lint        # eslint . (eslint-config-next)
+npm run lint:fix    # eslint . --fix
+npm run type-check  # tsc --noEmit
+```
+
+There is no test runner configured. `npm run build` auto-runs lint via the `postbuild` hook, so a clean build implies a clean lint.
+
+## Shell
+
+User's `~/.bashrc` is configured and should be sourced when running interactive bash. Primary shell is PowerShell on Windows; the Bash tool is available for POSIX work.
+
+## Gotchas
+
+- `in-memoria.db` in repo root is local MCP state and is gitignored — leave it alone.
+- `.mcp.json` is gitignored — local MCP config, don't commit.
+- Photos in `photos-raw/` are source masters. The optimised versions in `public/photos/` are what the site ships; regenerate via `scripts/optimize-photos.mjs`.
+- Headlines must strictly use "Berlingske Serif", "Georgia", serif as specified by the brand guide. Do NOT substitute Newsreader or any other serif font, as maintaining authentic typography is a strict client constraint. The licensed webfonts are already self-hosted in `public/fonts/` and declared via `@font-face` blocks in `app/globals.css` — match that pattern for any new weight rather than reaching for a Google font.
+
+## Memory recall
+
+At session start, run this to pull project context from previous sessions:
+
+```
+memory_recall query="kismet gsd-init hardening nextjs16-react19 ship-ready"
+```
+
+Anchor terms used in saved memories: **kismet, code-review, gsd-code-review, handoff, ship-checklist, priority-targets, branding, design-tokens, founders, next.js, tailwind-v4, agentmemory, mem0-deprecated**.
+
+The handoff plan is in `docs/handoff/2026-05-25-code-review-plan.md`. Read it before touching the lead form, TestimonialBlock, or Hero.

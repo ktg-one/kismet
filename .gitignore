@@ -1,0 +1,91 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# superpowers agent data
+.superpowers/
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# raw source photos (full-resolution originals; we ship optimised versions in public/photos)
+/photos-raw/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# MCP and local databases
+.mcp.json
+in-memoria.db
+in-memoria-vectors.db/
+understand-everything/
+
+# Tool intermediate output (understand-anything indexer)
+.understand-anything/
+
+# UI audit screenshots (kept local; the review markdown is committed)
+.planning/phases/*/audit-assets/
+
+# Local development tool configurations and agent workspaces
+.claude/
+.copilot/
+.agents/
+.antigravitycli/
+.playwright-mcp/
+.serena/
+.agent/
+
+# Local env configurations
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Common IDE configs
+.vscode/
+.idea/
+*.suo
+*.sw?
+
+# common local OS/editor junk
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.temp
+*.bak
+*.orig
+.cache/
+.eslintcache
