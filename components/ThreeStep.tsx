@@ -1,4 +1,4 @@
-import { Reveal } from "./Reveal";
+import { ScrollReveal } from "./ScrollReveal";
 import type { ReactNode } from "react";
 
 interface Step {
@@ -34,9 +34,8 @@ export function ThreeStep({ steps }: { steps: Step[] }) {
             const isHighlighted = i === 1; // middle step gets gold edge accent
 
             return (
-              <Reveal
+              <ScrollReveal
                 key={i}
-                delay={i * 0.08}
                 className={`relative z-10 mb-6 md:mb-12 ${align}`}
               >
                 <div
@@ -68,7 +67,7 @@ export function ThreeStep({ steps }: { steps: Step[] }) {
                     </p>
                   </div>
                 </div>
-              </Reveal>
+              </ScrollReveal>
             );
           })}
         </div>

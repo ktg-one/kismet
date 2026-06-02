@@ -93,8 +93,6 @@ Defaults:
 - Reveal-on-scroll: 0.6s ease-out, 12px translate, staggered children at 0.06 to 0.18s delays.
 - Hover lifts on cards: `-translate-y-[2px]` plus a soft shadow at 30 to 80px blur.
 
-Reduced motion: respect `prefers-reduced-motion`. Autoplay carousels pause, page transitions become instant.
-
 ## Photography
 
 Documentary frame, never raw stock. The `.documentary-frame` CSS utility applies `saturate(0.78) brightness(0.92) contrast(1.05)` plus a subtle gold-tint multiply wash. Apply it to any photo on the site that would otherwise look too clean and stock-like.

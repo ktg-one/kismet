@@ -179,7 +179,7 @@ export function ContactInquiry() {
       <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-7">
         {/* Direct contact */}
         <Reveal delay={0.1}>
-          <div className="bg-[#13243a] border border-[#43474e]/30 rounded-lg p-8">
+          <div className="bg-[#13243a] border border-[#43474e]/30 rounded-lg p-8 card-lift-hover">
             <h3 className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[#D4AF37] mb-6">
               Reach the team
             </h3>
@@ -279,7 +279,7 @@ export function ContactInquiry() {
 
         {/* Booking strip */}
         <Reveal delay={0.18}>
-          <div className="bg-[#18283d] border border-[#43474e]/30 rounded-lg p-8 flex flex-col gap-5">
+          <div className="bg-[#18283d] border border-[#43474e]/30 rounded-lg p-8 flex flex-col gap-5 card-lift-hover">
             <h3 className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[#D4AF37]">
               Book directly
             </h3>
