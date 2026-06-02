@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const MIN_REVEAL_DISTANCE_PX = 280;
+
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
@@ -44,7 +46,7 @@ export function ScrollReveal({ children, className, y = 120 }: ScrollRevealProps
           scrollTrigger: {
             trigger: el,
             start: "top 90%",
-            end: () => `+=${Math.max(window.innerHeight * 0.45, 280)}`,
+            end: () => `+=${Math.max(window.innerHeight * 0.45, MIN_REVEAL_DISTANCE_PX)}`,
             scrub: 0.7,
             invalidateOnRefresh: true,
             fastScrollEnd: true,

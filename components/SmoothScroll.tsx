@@ -43,8 +43,8 @@ function LenisGsapBridge() {
   // webfonts and Next/Image can shift positions after first paint.
   useEffect(() => {
     const refresh = () => {
-      // Double RAF lets route-transition layout/image shifts settle before
-      // ScrollTrigger recalculates start/end bounds.
+      // First RAF waits for the next paint, second RAF lets post-paint layout
+      // recalculations settle before ScrollTrigger recomputes bounds.
       requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
     };
     if (typeof document !== "undefined" && "fonts" in document) {

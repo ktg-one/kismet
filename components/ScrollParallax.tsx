@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const MIN_PARALLAX_DISTANCE_PX = 720;
+
 /**
  * GSAP ScrollTrigger scrub parallax (awwwards-animations / gsap-scrolltrigger).
  * The wrapped element drifts vertically as its section crosses the viewport,
@@ -39,7 +41,7 @@ export function ScrollParallax({
           scrollTrigger: {
             trigger: ref.current,
             start: "top 92%",
-            end: () => `+=${Math.max(window.innerHeight * 1.2, 720)}`,
+            end: () => `+=${Math.max(window.innerHeight * 1.2, MIN_PARALLAX_DISTANCE_PX)}`,
             scrub: 0.7,
             invalidateOnRefresh: true,
             fastScrollEnd: true,
