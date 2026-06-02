@@ -12,7 +12,7 @@ These are the **outputs**. Masters live in repo-root `photos-raw/` (not shipped)
 
 ## `brand/` — source identity assets
 
-`kismet-logo.svg` / `kismet-icon.svg` are the working marks — reference these. The `.zip` bundles are raw client deliverables (fonts, asset pack); leave them as archive, don't unpack into the shipped tree.
+`kismet-logo.svg` / `kismet-icon.svg` are the working marks — reference these. The `.zip` bundles are raw client deliverables (fonts, asset pack); leave them as archives, don't unpack into the shipped tree.
 
 ## `data/reviews.json`
 
