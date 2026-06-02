@@ -23,7 +23,7 @@ export default async function Insights() {
           </>
         }
         ctaLabel="Book a call"
-        ctaHref="/contact"
+        ctaHref="https://calendar.app.google/gBTNh7XSxQXxiXZF7"
         showScrollCue={false}
       />
 

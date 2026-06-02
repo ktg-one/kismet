@@ -98,7 +98,7 @@ export function ArticleLayout({ article }: { article: Article }) {
           </Reveal>
           <Reveal delay={0.18}>
             <div className="mt-10">
-              <MagneticCTA href="/contact">
+              <MagneticCTA href="https://calendar.app.google/gBTNh7XSxQXxiXZF7">
                 <span>Open the conversation</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>
               </MagneticCTA>

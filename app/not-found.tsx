@@ -52,7 +52,7 @@ export default function NotFound() {
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </MagneticCTA>
 
-                <Link href="/contact" className="cta-ghost">
+                <Link href="https://calendar.app.google/gBTNh7XSxQXxiXZF7" className="cta-ghost">
                   <span>Or send us a note</span>
                   <span aria-hidden className="cta-arrow">&rarr;</span>
                 </Link>

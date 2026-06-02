@@ -19,7 +19,7 @@ export default function Home() {
           </>
         }
         ctaLabel="Book a call"
-        ctaHref={process.env.NEXT_PUBLIC_BOOKING_URL ?? "/contact"}
+        ctaHref={process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://calendar.app.google/gBTNh7XSxQXxiXZF7"}
         secondaryHref="/approach"
         secondaryLabel="How We Work"
       />

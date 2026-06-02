@@ -43,7 +43,7 @@ export function SiteFooter() {
           </Reveal>
           <Reveal delay={0.2}>
             <div className="flex justify-center">
-              <MagneticCTA href="/contact">
+              <MagneticCTA href="https://calendar.app.google/gBTNh7XSxQXxiXZF7">
                 <span>Book a call</span>
                 <span aria-hidden className="cta-arrow">&rarr;</span>
               </MagneticCTA>
