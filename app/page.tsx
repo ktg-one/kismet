@@ -19,7 +19,7 @@ export default function Home() {
           </>
         }
         ctaLabel="Book a call"
-        ctaHref={process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://calendar.app.google/gBTNh7XSxQXxiXZF7"}
+        ctaHref="https://calendar.app.google/gBTNh7XSxQXxiXZF7"
         secondaryHref="/approach"
         secondaryLabel="How We Work"
       />
@@ -83,6 +83,9 @@ export default function Home() {
           {
             name: "Shane",
             role: "Founder · Director",
+            imageSrc: "/photos/shane.jpg",
+            imageAlt: "Shane Hewson, Founder and Director of Kismet Finance Group",
+            imagePosition: "100% 15%",
           },
         ]}
       />
