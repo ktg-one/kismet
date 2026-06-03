@@ -76,6 +76,9 @@ export default function Home() {
           {
             name: "Josh",
             role: "Director",
+            imageSrc: "/photos/josh.jpg",
+            imageAlt: "Josh seated at his desk in the Kismet office",
+            imagePosition: "50% 28%",
           },
           {
             name: "Shane",
