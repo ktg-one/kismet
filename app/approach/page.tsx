@@ -3,6 +3,7 @@ import { ComplianceLine } from "@/components/ComplianceLine";
 import { Hero } from "@/components/Hero";
 import { Compass, Hub, Sail } from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { ThreeStep } from "@/components/ThreeStep";
 
 export const metadata = {
@@ -59,7 +60,7 @@ export default function ApproachPage() {
       {/* Reassurance / mid-page CTA strip */}
       <section className="py-24 md:py-32 px-6 md:px-12 lg:px-16 section-blend-top">
         <div className="max-w-[1280px] mx-auto">
-          <Reveal>
+          <ScrollReveal>
             <div className="bg-[#1E3A5F]/30 border border-[#43474e]/30 rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10 relative overflow-hidden">
               <div
                 aria-hidden
@@ -81,7 +82,7 @@ export default function ApproachPage() {
                 </MagneticCTA>
               </div>
             </div>
-          </Reveal>
+          </ScrollReveal>
         </div>
       </section>
 
