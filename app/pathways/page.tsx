@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Building, ColumnsIcon, Network } from "@/components/Icons";
 
 export const metadata = {
@@ -69,7 +70,7 @@ export default function PathwaysPage() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
             {/* Pathway 1: Property (large feature) */}
-            <Reveal className="md:col-span-8">
+            <ScrollReveal className="md:col-span-8">
               <article className="relative rounded-lg overflow-hidden min-h-[480px] md:min-h-[500px] group border border-[#43474e]/30 card-lift-hover">
                 <div className="absolute inset-0 z-0">
                   <Image
@@ -96,10 +97,10 @@ export default function PathwaysPage() {
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </ScrollReveal>
 
             {/* Pathway 2: Lending */}
-            <Reveal delay={0.1} className="md:col-span-4">
+            <ScrollReveal className="md:col-span-4">
               <article className="bg-[#18283d] border border-[#43474e]/30 gold-edge-top rounded-lg p-10 md:p-12 flex flex-col justify-between h-full card-lift-hover">
                 <div>
                   <span className="inline-flex items-center justify-center w-14 h-14 rounded text-[#D4AF37] mb-6">
@@ -115,10 +116,10 @@ export default function PathwaysPage() {
                   the high street doesn&rsquo;t put in front of you.
                 </p>
               </article>
-            </Reveal>
+            </ScrollReveal>
 
             {/* Pathway 3: Network coordination - wide horizontal */}
-            <Reveal delay={0.18} className="md:col-span-12">
+            <ScrollReveal className="md:col-span-12">
               <article className="bg-[#1e3450] border border-[#43474e]/30 rounded-lg flex flex-col md:flex-row items-stretch overflow-hidden card-lift-hover">
                 <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded bg-[#0a141e] border border-[#43474e]/40 text-[#D4AF37] mb-6">
@@ -154,7 +155,7 @@ export default function PathwaysPage() {
                   />
                 </div>
               </article>
-            </Reveal>
+            </ScrollReveal>
           </div>
         </div>
       </section>
