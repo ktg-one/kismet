@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Forum, Architecture, Eye } from "@/components/Icons";
 
 export const metadata = {
@@ -53,7 +54,7 @@ export default function AboutPage() {
       <section className="py-24 md:py-32 bg-[#050f19] section-blend-top">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Reveal className="md:col-span-2">
+            <ScrollReveal className="md:col-span-2">
               <div className="bg-[#18283d] gold-edge-top rounded-lg overflow-hidden h-full card-lift-hover">
                 <div className="h-full flex flex-col md:flex-row">
                   <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
@@ -86,9 +87,9 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </ScrollReveal>
 
-            <Reveal delay={0.1}>
+            <ScrollReveal>
               <div className="bg-[#1e3450] gold-edge-top rounded-lg p-10 flex flex-col justify-between h-full card-lift-hover">
                 <div>
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded bg-[#0a141e] border border-[#43474e]/40 text-[#D4AF37] mb-6">
@@ -104,7 +105,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </Reveal>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -125,7 +126,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {principles.map((p, i) => (
-              <Reveal key={i} delay={i * 0.1}>
+              <ScrollReveal key={i}>
                 <article
                   className={`rounded-lg p-8 md:p-10 h-full relative overflow-hidden card-lift-hover ${
                     p.highlight
@@ -153,7 +154,7 @@ export default function AboutPage() {
                     {p.body}
                   </p>
                 </article>
-              </Reveal>
+              </ScrollReveal>
             ))}
           </div>
         </div>
