@@ -19,7 +19,7 @@ export default function Home() {
           </>
         }
         ctaLabel="Book a call"
-        ctaHref={process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://calendar.app.google/gBTNh7XSxQXxiXZF7"}
+        ctaHref="https://calendar.app.google/gBTNh7XSxQXxiXZF7"
         secondaryHref="/approach"
         secondaryLabel="How We Work"
       />
@@ -76,10 +76,16 @@ export default function Home() {
           {
             name: "Josh",
             role: "Director",
+            imageSrc: "/photos/josh.jpg",
+            imageAlt: "Josh seated at his desk in the Kismet office",
+            imagePosition: "50% 28%",
           },
           {
             name: "Shane",
             role: "Founder · Director",
+            imageSrc: "/photos/shane.jpg",
+            imageAlt: "Shane Hewson, Founder and Director of Kismet Finance Group",
+            imagePosition: "100% 15%",
           },
         ]}
       />

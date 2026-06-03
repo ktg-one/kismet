@@ -1,6 +1,14 @@
 "use client";
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode, type ElementType } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const REVEAL_EASE = "power3.out";
+// Fire a touch before the element is fully in view so the reveal feels responsive.
+const REVEAL_START = "top 85%";
 
 interface RevealProps {
   children: ReactNode;
@@ -13,11 +21,23 @@ interface RevealProps {
 }
 
 /**
- * Reveal animates its children into place.
+ * Reveal animates its children into place with GSAP — play-once, never scrubbed.
  *
- * When `immediate` is true, the element animates on mount (used by the
- * hero so the headline is settled-in by the time anything else moves).
- * Otherwise it animates on scroll-into-view.
+ * Scroll-into-view content is driven by a real GSAP `ScrollTrigger`
+ * (`toggleActions: "play none none none"`), which is the contract this site
+ * is built to: scrolling activates the motion. Scrubbed/scroll-coupled motion
+ * lives in `ScrollReveal`/`ScrollParallax` (cards, photos) — use those for
+ * wrappers; use `Reveal` for headings, paragraphs and bullets.
+ *
+ * When `immediate` is true the element animates on mount instead (used by the
+ * hero, whose content is above the fold and can't be scroll-triggered).
+ *
+ * The hidden start state is applied by GSAP inside `useGSAP`'s layout effect
+ * (before paint), never in the rendered markup — so with JS the reveal plays
+ * flash-free, and without JS the content stays fully visible.
+ *
+ * Reads scroll through the shared Lenis -> gsap.ticker bridge in SmoothScroll
+ * (never its own RAF). Cleanup is handled by useGSAP.
  */
 export function Reveal({
   children,
@@ -28,23 +48,35 @@ export function Reveal({
   duration = 0.7,
   immediate = false,
 }: RevealProps) {
-  const MotionTag = motion[as];
+  const ref = useRef<HTMLElement>(null);
+  const Tag = as as ElementType;
 
-  return (
-    <MotionTag
-      className={className}
-      initial={{ opacity: 0, y }}
-      animate={immediate ? { opacity: 1, y: 0 } : undefined}
-      whileInView={!immediate ? { opacity: 1, y: 0 } : undefined}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
+  useGSAP(
+    () => {
+      const el = ref.current;
+      if (!el) return;
+      gsap.from(el, {
+        y,
+        autoAlpha: 0,
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1] as const,
-      }}
-    >
+        ease: REVEAL_EASE,
+        scrollTrigger: immediate
+          ? undefined
+          : {
+              trigger: el,
+              start: REVEAL_START,
+              toggleActions: "play none none none",
+            },
+      });
+    },
+    { scope: ref, dependencies: [y, delay, duration, immediate] }
+  );
+
+  return (
+    <Tag ref={ref} className={className}>
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
 
@@ -57,38 +89,14 @@ interface RevealWordsProps {
   immediate?: boolean;
 }
 
-function RevealWord({
-  word,
-  delay,
-  immediate,
-}: {
-  word: string;
-  delay: number;
-  immediate: boolean;
-}) {
-  return (
-    <motion.span
-      className="inline-block"
-      initial={immediate ? { y: 0, opacity: 1 } : { y: "80%", opacity: 0 }}
-      animate={immediate ? { y: 0, opacity: 1 } : undefined}
-      whileInView={!immediate ? { y: 0, opacity: 1 } : undefined}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{
-        duration: 0.72,
-        delay,
-        ease: [0.16, 1, 0.3, 1] as const,
-      }}
-    >
-      {word}
-    </motion.span>
-  );
-}
-
 /**
- * Word-by-word stagger reveal. Used for headlines. Each word fades up with
- * a small delay offset. aria-label exposes the full string to screen
- * readers; per-word spans are aria-hidden so AT users hear the headline
- * as one phrase.
+ * Word-by-word stagger reveal for headlines, driven by GSAP ScrollTrigger.
+ * Each word slides up out of an overflow-hidden mask and fades in, staggered.
+ * aria-label exposes the full string; per-word spans are aria-hidden so AT
+ * users hear the headline as one phrase.
+ *
+ * When `immediate` the words render in place (no reveal) so the hero headline
+ * is settled by load — above-the-fold content can't be scroll-triggered.
  */
 export function RevealWords({
   text,
@@ -98,11 +106,35 @@ export function RevealWords({
   as = "h1",
   immediate = false,
 }: RevealWordsProps) {
-  const Tag = as as keyof React.JSX.IntrinsicElements;
+  const ref = useRef<HTMLElement>(null);
+  const Tag = as as ElementType;
   const words = text.split(" ");
 
+  useGSAP(
+    () => {
+      if (immediate) return;
+      const el = ref.current;
+      if (!el) return;
+      const wordEls = el.querySelectorAll<HTMLElement>(".reveal-word");
+      gsap.from(wordEls, {
+        yPercent: 80,
+        autoAlpha: 0,
+        duration: 0.72,
+        ease: REVEAL_EASE,
+        delay,
+        stagger,
+        scrollTrigger: {
+          trigger: el,
+          start: REVEAL_START,
+          toggleActions: "play none none none",
+        },
+      });
+    },
+    { scope: ref, dependencies: [immediate, delay, stagger] }
+  );
+
   return (
-    <Tag className={className} aria-label={text}>
+    <Tag ref={ref} className={className} aria-label={text}>
       {words.map((word, i) => (
         <span
           key={i}
@@ -110,11 +142,7 @@ export function RevealWords({
           className="inline-block overflow-hidden align-baseline"
           style={{ marginRight: i === words.length - 1 ? 0 : "0.28em" }}
         >
-          <RevealWord
-            word={word}
-            delay={delay + i * stagger}
-            immediate={immediate}
-          />
+          <span className="reveal-word inline-block">{word}</span>
         </span>
       ))}
     </Tag>
