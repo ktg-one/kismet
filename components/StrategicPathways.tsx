@@ -45,7 +45,7 @@ export function StrategicPathways({
   const hover = { y: -10, boxShadow: "0 30px 80px -28px rgba(212, 175, 55, 0.38)" };
 
   return (
-    <section className="relative py-24 md:py-32 bg-[#0a141e] section-blend-top">
+    <section className="section-screen relative py-24 md:py-32 bg-[#0a141e] section-blend-top">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="text-center mb-14 md:mb-20">
           <Reveal>

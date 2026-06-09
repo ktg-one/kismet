@@ -37,7 +37,7 @@ export function ScrollReveal({ children, className, y = 120 }: ScrollRevealProps
       if (!el) return;
       gsap.fromTo(
         el,
-        { y, autoAlpha: 0, scale: 0.9 },
+        { y, autoAlpha: 0, scale: 0.84 },
         {
           y: 0,
           autoAlpha: 1,

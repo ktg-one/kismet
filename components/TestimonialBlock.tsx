@@ -91,7 +91,7 @@ export function TestimonialBlock({
   }, [emblaApi]);
 
   return (
-    <section className="relative bg-[#050f19]">
+    <section className="section-screen relative bg-[#050f19]">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32">
         <div className="grid grid-cols-12 gap-6 mb-14 md:mb-20">
           <div className="col-span-12 md:col-span-8">

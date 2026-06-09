@@ -37,7 +37,7 @@ export function BiggerPicture({
   reversed = false,
 }: BiggerPictureProps) {
   return (
-    <section className="relative bg-[#050f19] py-24 md:py-32 section-blend-top">
+    <section className="section-screen relative bg-[#050f19] py-24 md:py-32 section-blend-top">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reversed ? "lg:[&>div:first-child]:order-2" : ""}`}>
           {/* Content column */}

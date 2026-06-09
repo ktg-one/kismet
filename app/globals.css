@@ -282,6 +282,20 @@ html {
     linear-gradient(180deg, #0E2240 0%, #0a141e 100%);
 }
 
+/* Standardised full-viewport section panel.
+   Every primary section is at least one viewport tall so scroll-driven
+   choreography has consistent, predictable distance to play across the whole
+   page (GSAP/ScrollTrigger start/end math is reliable when sections share a
+   height unit instead of arbitrary pixel heights). svh keeps it stable when the
+   mobile address bar shows/hides; min-height (not height) lets content taller
+   than the viewport grow rather than clip. */
+.section-screen {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* Section blend - mask-image fade between section bg colors */
 .section-blend-top {
   position: relative;
