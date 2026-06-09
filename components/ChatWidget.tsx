@@ -21,14 +21,33 @@ const GREETING =
 
 const ENABLED = process.env.NEXT_PUBLIC_CHAT_ENABLED === "true";
 
+function SpeakerIcon({ playing }: { playing?: boolean }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      {playing ? (
+        <>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </>
+      ) : (
+        <line x1="23" y1="9" x2="17" y2="15" />
+      )}
+    </svg>
+  );
+}
+
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [turns, setTurns] = useState<Turn[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
+  const [voiceEnabled, setVoiceEnabled] = useState(false);
+  const [playingId, setPlayingId] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
@@ -39,6 +58,44 @@ export function ChatWidget() {
   }, [open]);
 
   if (!ENABLED) return null;
+
+  async function speak(text: string, id: number) {
+    if (!voiceEnabled) return;
+    
+    // Stop current audio if any
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+
+    setPlayingId(id);
+
+    try {
+      const res = await fetch("/api/speech", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, voice: "shane" }),
+      });
+
+      if (!res.ok) throw new Error("TTS failed");
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      
+      audio.onended = () => {
+        setPlayingId(null);
+        URL.revokeObjectURL(url);
+        audioRef.current = null;
+      };
+
+      await audio.play();
+    } catch (err) {
+      console.error("[chat] speech error:", err);
+      setPlayingId(null);
+    }
+  }
 
   async function send() {
     const text = input.trim();
@@ -78,6 +135,11 @@ export function ChatWidget() {
         if (done) break;
         acc += decoder.decode(value, { stream: true });
         replaceLast(acc);
+      }
+      
+      // Auto-speak the final response if enabled
+      if (voiceEnabled) {
+        speak(acc, turns.length + 1);
       }
     } catch {
       replaceLast("Sorry, the connection dropped. Please try again, or use the contact page.");
@@ -125,16 +187,28 @@ export function ChatWidget() {
                 <span className="font-serif text-[15px] font-semibold text-white">Kismet assistant</span>
                 <span className="text-[11px] uppercase tracking-[0.14em] text-gold/80">Here to help you get oriented</span>
               </div>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="Close chat"
-                className="grid h-8 w-8 place-items-center rounded-full text-on-surface-variant transition-colors hover:bg-white/5 hover:text-white"
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setVoiceEnabled(!voiceEnabled)}
+                  title={voiceEnabled ? "Disable voice" : "Enable voice"}
+                  className={`grid h-8 w-8 place-items-center rounded-full transition-colors ${
+                    voiceEnabled ? "bg-gold/10 text-gold" : "text-on-surface-variant hover:bg-white/5"
+                  }`}
+                >
+                  <SpeakerIcon playing={voiceEnabled} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Close chat"
+                  className="grid h-8 w-8 place-items-center rounded-full text-on-surface-variant transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </div>
             </header>
 
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-5 py-4">
@@ -143,15 +217,28 @@ export function ChatWidget() {
                   key={i}
                   className={m.role === "user" ? "flex justify-end" : "flex justify-start"}
                 >
-                  <p
-                    className={
-                      m.role === "user"
-                        ? "max-w-[85%] rounded-lg rounded-br-sm bg-navy px-3.5 py-2.5 text-[14px] leading-relaxed text-white"
-                        : "max-w-[90%] rounded-lg rounded-bl-sm bg-white/[0.04] px-3.5 py-2.5 text-[14px] leading-relaxed text-on-surface"
-                    }
-                  >
-                    {m.content || (busy && i === messages.length - 1 ? <TypingDots /> : "")}
-                  </p>
+                  <div className={`relative group ${m.role === "user" ? "max-w-[85%]" : "max-w-[90%]"}`}>
+                    <p
+                      className={
+                        m.role === "user"
+                          ? "rounded-lg rounded-br-sm bg-navy px-3.5 py-2.5 text-[14px] leading-relaxed text-white"
+                          : "rounded-lg rounded-bl-sm bg-white/[0.04] px-3.5 py-2.5 text-[14px] leading-relaxed text-on-surface"
+                      }
+                    >
+                      {m.content || (busy && i === messages.length - 1 ? <TypingDots /> : "")}
+                    </p>
+                    {m.role === "assistant" && m.content && (
+                      <button
+                        onClick={() => speak(m.content, i)}
+                        className={`absolute -right-8 top-1 p-1.5 rounded-full transition-opacity opacity-0 group-hover:opacity-100 hover:bg-white/5 ${
+                          playingId === i ? "text-gold opacity-100" : "text-on-surface-variant"
+                        }`}
+                        title="Play audio"
+                      >
+                        <SpeakerIcon playing={playingId === i} />
+                      </button>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
