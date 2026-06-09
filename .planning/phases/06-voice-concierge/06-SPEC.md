@@ -33,6 +33,7 @@ Out:
 ## Dependencies / risks
 
 - `ELEVENLABS_API_KEY` (new env var; add to `.env.example` and Vercel in Phase 3 env task).
+- **Voice IDs:** owner says the ElevenLabs voice IDs already exist — they are NOT in this repo (`.env.example` has no voice entry). They live in his ElevenLabs / Trillet account. Action: get the chosen voice ID(s) from the owner and add `ELEVENLABS_VOICE_ID` to `.env.example`. Same voice carries to the Phase 07 phone agent (BYO TTS).
 - Streaming audio on serverless — confirm route runtime and timeout (verify current ElevenLabs Next.js streaming guidance at build time via context7/official docs before coding).
 - Cost: TTS is per-character; gate behind the existing chat rate limit.
 

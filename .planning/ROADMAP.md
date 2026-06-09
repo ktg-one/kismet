@@ -82,17 +82,20 @@
 - [ ] Task 6.4: Brand-fit voice selection + UI (dark, calm, no emoji); a11y + reduced-motion. SPEC: `phases/06-voice-concierge/06-SPEC.md`
 
 ## Phase 7: Demo Voice Agent + Phone Number (ready to go)
-*An ElevenLabs Conversational AI agent on a real phone number. Visitors call and talk to the Kismet concierge. Longest external lead time — provision early.*
+*A Conversational AI agent on the owner's real AU number (+61 8 7741 4191), via Trillet AI on his own Twilio backend. Visitors call and talk to the Kismet concierge. Longest external lead time — provision early. Reuses the owner's existing ElevenLabs voice IDs.*
 
-- [ ] Task 7.1: Provision ElevenLabs Conversational AI agent; load Kismet knowledge + the compliance prompt.
-- [ ] Task 7.2: Acquire phone number and wire telephony (ElevenLabs native / Twilio); inbound call routing.
-- [ ] Task 7.3: AU compliance — call-recording consent notice, after-hours behaviour, escalate-to-human / booking handoff.
-- [ ] Task 7.4: On-site "call the concierge" CTA + demo number surfaced per brand. SPEC: `phases/07-demo-voice-agent-phone/07-SPEC.md`
+- [ ] Task 7.1: Confirm provider — keep Trillet-on-Twilio (if working) vs move demo to Vapi pay-as-you-go. (Don't buy Trillet white-label for a single demo; it's an agency-reseller play.)
+- [ ] Task 7.2: Provision agent — Kismet knowledge + compliance prompt + existing ElevenLabs voice.
+- [ ] Task 7.3: Telephony — confirm +61 8 7741 4191 routes inbound to the agent via Twilio.
+- [ ] Task 7.4: AU compliance — recording-consent notice, after-hours behaviour, escalate-to-human / booking handoff.
+- [ ] Task 7.5: Spend/abuse caps — concurrency + monthly-minute cap (public number vs gated "request a call").
+- [ ] Task 7.6: On-site "call the concierge" CTA + demo number surfaced per brand. SPEC: `phases/07-demo-voice-agent-phone/07-SPEC.md`
 
-## Phase 8: Web Analyzer (lead tool) — SCOPE TO CONFIRM
-*Interactive lead-magnet. Working assumption (pending owner confirmation): a visitor submits a URL or short situation, gets an AI-generated, compliance-safe "strategic snapshot" ending in a booking CTA.*
+## Phase 8: Web Analyzer (premium market-research lead tool)
+*Confirmed: NOT a run-of-the-mill analyzer. A multi-step AI workflow returning a premium, compliance-safe market/strategic snapshot worth paying a research firm for, driving a booking. Gated on (a) the workflow being good enough and (b) capacity control so cost/quality hold under volume.*
 
-- [ ] Task 8.1: Confirm scope — visitor-facing lead tool vs internal site/SEO analyzer (blocks the rest).
-- [ ] Task 8.2: Input + analysis route (reuse Anthropic SDK + guardrails + rate limit pattern).
-- [ ] Task 8.3: Result UI with booking CTA; capture lead into existing pipeline.
-- [ ] Task 8.4: Compliance review — output must not read as personal financial advice. SPEC: `phases/08-web-analyzer/08-SPEC.md`
+- [ ] Task 8.1: Define the workflow + sample premium deliverable (owner approves before UI).
+- [ ] Task 8.2: Decide capacity/access model (email-gate / invite / paid / run-cap) + hard monthly spend cap.
+- [ ] Task 8.3: Build pipeline (Anthropic SDK + compliance prompt + durable quota — in-memory limiter insufficient).
+- [ ] Task 8.4: Result UI + lead capture into existing pipeline with booking CTA.
+- [ ] Task 8.5: Compliance review — output must not read as personal financial advice. SPEC: `phases/08-web-analyzer/08-SPEC.md`

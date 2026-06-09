@@ -55,10 +55,10 @@ A Phase 2 follow-on (this session, `anim/scroll-reveal` / PR #2) fixed why the a
 Roadmap extended with four new phases (see ROADMAP.md + `phases/05..08/*-SPEC.md`):
 
 - **05 GSAP Signature Motion** — deferred ktg.one-style pinned scroll choreography. No external deps; ships first.
-- **06 Voice I/O for the Concierge (TTS/STT)** — ElevenLabs voice on the existing guardrailed chat. Needs `ELEVENLABS_API_KEY`.
-- **07 Demo Voice Agent + Phone Number** — ElevenLabs Conversational AI on a real phone number. Longest external lead time (account, number, AU recording consent) — provision day 1.
-- **08 Web Analyzer** — BLOCKED on scope confirmation (visitor-facing lead tool [assumed] vs internal site/SEO analyzer).
+- **06 Voice I/O for the Concierge (TTS/STT)** — ElevenLabs voice on the existing guardrailed chat. Needs `ELEVENLABS_API_KEY` + the owner's existing voice ID (not in repo yet; get from owner, add `ELEVENLABS_VOICE_ID`).
+- **07 Demo Voice Agent + Phone Number** — CONFIRMED: number +61 8 7741 4191, Trillet AI on the owner's own Twilio backend, reuse existing ElevenLabs voice. Provider eval done: don't buy Trillet white-label for a single demo (agency-reseller play); Vapi is the cheapest single-demo option (free tier, BYO Twilio+ElevenLabs); Retell comparable, not "that much better." Requires spend/abuse caps.
+- **08 Web Analyzer** — CONFIRMED: premium market-research lead tool (worth paying a research firm for), NOT a basic analyzer. Gated on workflow quality + capacity control (cost/quality under volume). Open: access model (email-gate / invite / paid / run-cap).
 
 Sequencing: finish v1.0 (Phase 3 GA4/env, Phase 4 audit) first; build 05-08 on branches in parallel; external provisioning starts immediately. Cross-cutting: the `lib/chat.ts` compliance prompt is the single source of truth for anything any AI surface says.
 
-Owner decisions pending: Web Analyzer scope (08), demo number public-vs-gated + budget + telephony provider (07), ElevenLabs voice selection (06).
+Owner decisions still open: 06 voice ID value, 07 keep-Trillet-vs-switch-to-Vapi + public-vs-gated number, 08 access/capacity model.
