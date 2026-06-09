@@ -2,10 +2,14 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { BrandMark } from "./BrandMark";
 import { BrandWordmark } from "./BrandWordmark";
 
 import { MagneticCTA } from "./MagneticCTA";
+
+gsap.registerPlugin(useGSAP);
 
 const NAV = [
   { href: "/approach", label: "How We Work" },
@@ -18,6 +22,31 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Mount entrance for the desktop header bar: brand, nav links and CTA settle
+  // down and fade in, staggered — so the header arrives with the same intent as
+  // the GSAP reveals below it instead of just popping in. Plays once on load
+  // (the header lives in the layout, so it does not re-run on route changes).
+  // Reduced-motion users get the static header; matchMedia auto-reverts the
+  // hidden start state so there is no flash. Scoped to the header element, so
+  // the `.header-enter` selector never touches the mobile overlay below it.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.from(".header-enter", {
+          y: -18,
+          autoAlpha: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.09,
+          delay: 0.15,
+        });
+      });
+    },
+    { scope: headerRef }
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -55,6 +84,7 @@ export function SiteHeader() {
   return (
     <>
       <header
+        ref={headerRef}
         className={`sticky top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
           ${scrolled
             ? "bg-[#0a141e]/90 backdrop-blur-xl border-b-[0.5px] border-[#43474e]/40"
@@ -68,7 +98,7 @@ export function SiteHeader() {
               per the brand guide, not as a mark next to typed text. */}
           <Link
             href="/"
-            className="flex items-center gap-4 md:gap-5 group -my-2"
+            className="header-enter flex items-center gap-4 md:gap-5 group -my-2"
             onClick={close}
             aria-label="Kismet Finance Group, home"
           >
@@ -82,7 +112,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative group text-[#c4c6cf] hover:text-[#D4AF37] transition-colors duration-500"
+                className="header-enter relative group text-[#c4c6cf] hover:text-[#D4AF37] transition-colors duration-500"
               >
                 {item.label}
                 <span
@@ -94,7 +124,7 @@ export function SiteHeader() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="header-enter hidden md:block">
             <MagneticCTA href="https://calendar.app.google/gBTNh7XSxQXxiXZF7" className="!py-3 !px-6 !text-[11px]">
               <span>Enquire Now</span>
             </MagneticCTA>
