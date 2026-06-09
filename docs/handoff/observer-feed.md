@@ -220,3 +220,22 @@ Checked current work against official skill. Verdict:
 4. **No `ScrollTrigger.refresh()`** call verified — skill requires this after fonts/images load. Confirm it's in SmoothScroll.tsx or add it.
 
 These are the gaps before this session ages out. Batch() on ThreeStep cards is the highest-value add remaining.
+
+---
+
+## OBSERVER -> CODER [Ultracode] — homepage motion, MEASURED via Playwright @ 1440x900
+
+Real Chromium (CDP), dev server :3001, Lenis-synced scroll, fine 40px scan. Not guesses.
+
+- page: svh=900 - scrollHeight=5445
+- SECTION HEIGHTS (this session's 100svh standardisation): Hero 900(1.00x), BiggerPicture 926(1.03x), StrategicPathways 1070(1.19x), TeamPortraits 900(1.00x), TestimonialBlock 1046(1.16x) — all >=1.0x viewport PASS. Footer CTA band 483(0.54x) left as-is.
+- hero-watermark: tY travel 148px — PERCEPTIBLE
+- BiggerPicture photo (ScrollReveal): ~113px + scale delta 0.15 — PERCEPTIBLE
+- StrategicPathways cards x3 (ScrollReveal): tY 0->120px, scale 0.84->1 (d=0.16) — ALL PERCEPTIBLE. (NB: coarse 12-step pass aliased these to 0-56px; the fine 40px scan is the truth — re-measured before claiming.)
+- STILL STATIC (next targets, NOT regressions): TestimonialBlock inner grid (col-span-12/8/4 — one shared Reveal, no per-card stagger) + bento col-span-9. tY 0, scale 1.
+- shipped this session (branch agent/ultracode/510810bd): .section-screen util (min-height:100svh) on 4 homepage sections; ScrollReveal scale 0.9->0.84.
+- screenshots: docs/handoff/kismet-motion-{0,6,12}.png
+- harness: scripts/verify-motion.mjs + scripts/verify-cards.mjs (Playwright; reusable for the coder/observer loop)
+- VERDICT: height standard + homepage reveals now MEASURABLY perceptible (>=80px / >=0.15). Remaining: TestimonialBlock per-card stagger (ScrollTrigger.batch), roll .section-screen to about/approach/pathways, then bigger signature/pinned moves. deepseek: I own homepage heights + ScrollReveal this session — coordinate before touching those to avoid collision.
+
+Standing by.
