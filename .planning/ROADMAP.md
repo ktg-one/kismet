@@ -12,7 +12,7 @@
   - [x] 01-01-PLAN.md -- Env contract: create lib/env.ts, wire lib/email.ts + lib/sheets.ts, annotate .env.example
   - [x] 01-02-PLAN.md -- Smoke script: create scripts/smoke-lead.mjs, close external gates checkpoint
 
-## Phase 2: Animations & Interactivity Upgrade (Current)
+## Phase 2: Animations & Interactivity Upgrade (Complete)
 *Enhancing the visual experience with Motion v12.*
 
 **Execution priority (lowest to highest complexity):**
@@ -39,13 +39,17 @@
   - [x] 02-05-PLAN.md -- GSAP final pass on `anim/gsap-final-pass`
   - [x] Follow-on -- reduced-motion removal + scroll-driven `ScrollReveal` on `anim/scroll-reveal` (PR #2 → `feat/animations`); heavy pinned ktg.one-style choreography deferred to a separate owner
 
-## Phase 3: Deployment & Analytics
+## Phase 3: Deployment & Analytics (In Progress)
 *Shipping the site to Vercel and setting up tracking.*
 
 - [x] Task 3.1: Initialize Vercel project and link repo. (Site is live on Vercel; Vercel CLI present.)
 - [ ] Task 3.2: Configure Environment Variables in Vercel.
 - [ ] Task 3.3: Set up Google Analytics 4 (GA4) with environment gating.
 - [x] Task 3.4: Perform first production build and preview deploy. (Deployed; merge PR #2 to ship the latest animation fixes.)
+
+**Plans:** 2 plans
+- [ ] 03-01-PLAN.md — Configure Environment Variables in Vercel
+- [ ] 03-02-PLAN.md — Set up Google Analytics 4 (GA4)
 
 ## Phase 4: AI Preparation & Final Audit
 *Optimizing for future collaboration and site quality.*
