@@ -39,22 +39,52 @@
   - [x] 02-05-PLAN.md -- GSAP final pass on `anim/gsap-final-pass`
   - [x] Follow-on -- reduced-motion removal + scroll-driven `ScrollReveal` on `anim/scroll-reveal` (PR #2 → `feat/animations`); heavy pinned ktg.one-style choreography deferred to a separate owner
 
-## Phase 3: Deployment & Analytics (In Progress)
+## Phase 3: Deployment & Analytics (Shipped — site live; analytics deferred)
 *Shipping the site to Vercel and setting up tracking.*
 
 - [x] Task 3.1: Initialize Vercel project and link repo. (Site is live on Vercel; Vercel CLI present.)
-- [ ] Task 3.2: Configure Environment Variables in Vercel.
-- [ ] Task 3.3: Set up Google Analytics 4 (GA4) with environment gating.
-- [x] Task 3.4: Perform first production build and preview deploy. (Deployed; merge PR #2 to ship the latest animation fixes.)
+- [~] Task 3.2: Configure Environment Variables in Vercel. **DEFERRED at close** (optional ops, non-blocking).
+- [~] Task 3.3: Set up Google Analytics 4 (GA4) with environment gating. **DEFERRED at close** (optional analytics, non-blocking).
+- [x] Task 3.4: Perform first production build and preview deploy. (Deployed.)
 
 **Plans:** 2 plans
-- [ ] 03-01-PLAN.md — Configure Environment Variables in Vercel
-- [ ] 03-02-PLAN.md — Set up Google Analytics 4 (GA4)
+- [~] 03-01-PLAN.md — Configure Environment Variables in Vercel (deferred)
+- [~] 03-02-PLAN.md — Set up Google Analytics 4 (GA4) (deferred)
 
-## Phase 4: AI Preparation & Final Audit
-*Optimizing for future collaboration and site quality.*
+> Shipping goal met: the site is live. GA4 + env-var sync were consciously
+> deferred when the owner closed the project, not silently dropped.
 
-- [ ] Task 4.1: Automate em-dash grep CI gate.
-- [ ] Task 4.2: Update `.understand-anything` knowledge graph.
-- [ ] Task 4.3: Final Lighthouse performance & a11y pass.
-- [ ] Task 4.4: Document AI collaboration guidelines in CLAUDE.md.
+## Phase 4: AI Preparation & Final Audit (Deferred at close — backlog)
+*Optimizing for future collaboration and site quality. Polish, non-blocking; not done.*
+
+- [~] Task 4.1: Automate em-dash grep CI gate. (deferred)
+- [~] Task 4.2: Update `.understand-anything` knowledge graph. (deferred)
+- [~] Task 4.3: Final Lighthouse performance & a11y pass. (deferred)
+- [~] Task 4.4: Document AI collaboration guidelines in CLAUDE.md. (deferred)
+
+---
+
+# Project Closeout — v1.0 (2026-06-10)
+
+Owner closed the Kismet marketing-site project at v1.0. Site is done and live at
+https://kismetfinancegroup.com.au. Legend: `[x]` done · `[~]` consciously
+deferred (recorded, not silently dropped).
+
+**Shipped:** Phases 1–2 complete; Phase 3 shipping goal met (live on Vercel);
+scroll-scrub reveals on home/about/approach merged.
+
+**Done this cycle, NOT yet merged to main (decide: merge or drop):**
+`agent/ultracode/510810bd` — `.section-screen` 100svh standardisation on the
+homepage + `ScrollReveal` perceptibility fix, Playwright-verified (see
+`docs/handoff/observer-feed.md`).
+
+**Built, out of v1.0 scope (v2.0):** ElevenLabs voice TTS — PR #11 OPEN, unmerged.
+
+**Future / not built — v2.0 Interactive AI Layer (backlog):** signature GSAP
+motion, voice I/O, demo phone agent (Trillet on owner Twilio, +61 8 7741 4191),
+premium web-analyzer. Detailed SPECs preserved on `agent/ultracode/510810bd`
+under `.planning/phases/05..08/`.
+
+**Planning hygiene:** canonical Phase 3 = `03-deployment-analytics`;
+`03-scroll-polish` was an interim animation-polish plan (work folded into
+Phase 2). Both kept for history.
