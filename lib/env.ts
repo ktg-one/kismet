@@ -36,5 +36,13 @@ export function getLeadSheetsEnv() {
   };
 }
 
+export function getElevenLabsEnv() {
+  return {
+    apiKey: requireEnv("ELEVENLABS_API_KEY"),
+    shaneVoiceId: process.env.ELEVENLABS_VOICE_ID_SHANE || "abRFZIdN4pvo8ZPmGxHP", // Lee
+    amyVoiceId: process.env.ELEVENLABS_VOICE_ID_AMY || "56bWURjYFHyYyVf490Dp", // Emma
+  };
+}
+
 // Booking widget (optional - BookingEmbed hides itself when blank)
 export const NEXT_PUBLIC_BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL ?? "";
