@@ -54,9 +54,15 @@ export function Hero({
   // has been removed in favour of this (single source of truth).
   useGSAP(
     () => {
+      // The from-state must inherit the CSS opacity (0.045/0.055 by breakpoint),
+      // never 1 — a hardcoded from-value overrides the Tailwind class and
+      // renders the watermark fully opaque at scroll-top.
+      const watermark = heroRef.current?.querySelector<HTMLElement>(".hero-watermark");
+      const computed = watermark ? parseFloat(getComputedStyle(watermark).opacity) : NaN;
+      const baseOpacity = Number.isFinite(computed) && computed < 0.5 ? computed : 0.05;
       gsap.fromTo(
         ".hero-watermark",
-        { yPercent: -4, opacity: 1 },
+        { yPercent: -4, opacity: baseOpacity },
         {
           yPercent: 14,
           opacity: 0,
